@@ -74,23 +74,79 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <p>答：先说结论，手机没有电了确实会减轻。</p>
 <p>但这不是 “电” 的重量，应该说是 “电能” 的重量。能量和重量是统一的。</p>
 <p>减轻了多少呢？可以算一下：</p>
-<p>假设手机电池标称电压是$3.7\mathrm V$，容量是$1800\mathrm{mAh}$，则它能储存的能量是$3.7\mathrm V\times1800\mathrm{mA}\times3600\mathrm s = 23976\mathrm J$.</p>
-<p>根据$E=mc^2$，可得</p>
-<p>$$\Delta m=\frac{\Delta E}{c^2} = \frac{23976\rm{J}}{(3\times 10^8m/s)^2}=2.664\times 10^{-13}kg$$</p>
+<p>假设手机电池标称电压是<span class="math">\(3.7\mathrm V\)</span>，容量是<span class="math">\(1800\mathrm{mAh}\)</span>，则它能储存的能量是<span class="math">\(3.7\mathrm V\times1800\mathrm{mA}\times3600\mathrm s = 23976\mathrm J\)</span>.</p>
+<p>根据<span class="math">\(E=mc^2\)</span>，可得</p>
+<div class="math">$$\Delta m=\frac{\Delta E}{c^2} = \frac{23976\rm{J}}{(3\times 10^8m/s)^2}=2.664\times 10^{-13}kg$$</div>
 <p>在这里需要说明一下，E=mc^2不仅仅对核反应适用，对一切涉及能量的场合都是同样适用的。只不过非核能的场合，这里的质量变化很微小，不容易测出来。但并不是完全测不出来，事实上早有人做了相关的实验了。</p>
-<p><strong>比如：$^{12}\rm C$原子在不同的状态时质量是不同的，而且已经有了精确的测量值。</strong></p>
+<p><strong>比如：<span class="math">\(^{12}\rm C\)</span>原子在不同的状态时质量是不同的，而且已经有了精确的测量值。</strong></p>
 <p>单位：u (原子质量单位)</p>
-<p>孤立原子的静止质量：$12.000000000000$</p>
-<p>孤立原子（298K）：$12.000000000045$</p>
-<p>石墨（298K）：$11.999999992116$</p>
-<p>金刚石（298K）：$11.999999992137$</p>
-<p>石墨和金刚石中碳原子质量相差$2.1\times10^{-11} \mathrm{g\cdot mol^{-1}}$。</p>
-<p>折算成能量是多少呢？$2.1\times10^{-11} \mathrm{g\cdot mol^{-1}}\times(3\times10^8\mathrm{m\cdot s^{-1}})^2 = 1890\mathrm J$，也就是说每摩尔石墨和金刚石中碳原子质量之差折算成能量是$1890\rm J$。</p>
-<p>查兰氏化学手册，石墨的标准生成焓是$0\mathrm{kJ/mol}$，金刚石是 $1.897\mathrm{kJ/mol}$，也就是说每摩尔石墨与金刚石相互转化时，吸收/释放的能量是$1897\rm J$，与上述计算相符。</p>
-<p>孤立原子在$0\mathrm K$和$298\mathrm K$时的质量相差$4.5\times10^{-11} \mathrm{g\cdot mol^{-1}}$，折算成能量是$4050\rm J$，也就是说每摩尔碳原子从$0\rm K$升温到$298\mathrm K$，质量增加了$4.5\times10^{-11} \mathrm{g}$，内能增加了$4050\mathrm J$。</p>
-<p>用另一种方式计算，孤立原子按理想气体计算，热容是$\frac{3}{2} R = 1.5\times1.38^{-23}\mathrm{J\cdot K^{-1}}\times6.02\times10^{23}\mathrm{mol^{-1}} = 12.46\mathrm{J\cdot mol^{-1}\cdot K^{-1}}$。</p>
-<p>$1\mathrm{mol}$ 碳原子从$0\mathrm K$ 升温到$298\mathrm K$，内能变化量是$12.46\mathrm{J\cdot mol^{-1}\cdot K^{-1}}\times298\mathrm K \times 1 \mathrm{mol} = 3713\mathrm J$，与上面的$4050\mathrm J$基本相符。</p>
-<p>以上够不够说明问题？</p></div>
+<p>孤立原子的静止质量：<span class="math">\(12.000000000000\)</span></p>
+<p>孤立原子（298K）：<span class="math">\(12.000000000045\)</span></p>
+<p>石墨（298K）：<span class="math">\(11.999999992116\)</span></p>
+<p>金刚石（298K）：<span class="math">\(11.999999992137\)</span></p>
+<p>石墨和金刚石中碳原子质量相差<span class="math">\(2.1\times10^{-11} \mathrm{g\cdot mol^{-1}}\)</span>。</p>
+<p>折算成能量是多少呢？<span class="math">\(2.1\times10^{-11} \mathrm{g\cdot mol^{-1}}\times(3\times10^8\mathrm{m\cdot s^{-1}})^2 = 1890\mathrm J\)</span>，也就是说每摩尔石墨和金刚石中碳原子质量之差折算成能量是<span class="math">\(1890\rm J\)</span>。</p>
+<p>查兰氏化学手册，石墨的标准生成焓是<span class="math">\(0\mathrm{kJ/mol}\)</span>，金刚石是 <span class="math">\(1.897\mathrm{kJ/mol}\)</span>，也就是说每摩尔石墨与金刚石相互转化时，吸收/释放的能量是<span class="math">\(1897\rm J\)</span>，与上述计算相符。</p>
+<p>孤立原子在<span class="math">\(0\mathrm K\)</span>和<span class="math">\(298\mathrm K\)</span>时的质量相差<span class="math">\(4.5\times10^{-11} \mathrm{g\cdot mol^{-1}}\)</span>，折算成能量是<span class="math">\(4050\rm J\)</span>，也就是说每摩尔碳原子从<span class="math">\(0\rm K\)</span>升温到<span class="math">\(298\mathrm K\)</span>，质量增加了<span class="math">\(4.5\times10^{-11} \mathrm{g}\)</span>，内能增加了<span class="math">\(4050\mathrm J\)</span>。</p>
+<p>用另一种方式计算，孤立原子按理想气体计算，热容是<span class="math">\(\frac{3}{2} R = 1.5\times1.38^{-23}\mathrm{J\cdot K^{-1}}\times6.02\times10^{23}\mathrm{mol^{-1}} = 12.46\mathrm{J\cdot mol^{-1}\cdot K^{-1}}\)</span>。</p>
+<p><span class="math">\(1\mathrm{mol}\)</span> 碳原子从<span class="math">\(0\mathrm K\)</span> 升温到<span class="math">\(298\mathrm K\)</span>，内能变化量是<span class="math">\(12.46\mathrm{J\cdot mol^{-1}\cdot K^{-1}}\times298\mathrm K \times 1 \mathrm{mol} = 3713\mathrm J\)</span>，与上面的<span class="math">\(4050\mathrm J\)</span>基本相符。</p>
+<p>以上够不够说明问题？</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+    
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript'; 
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script></div>
         <hr />
     </div>
 		
@@ -111,7 +167,7 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
  </div>
         <div class="summary"><p>知乎上一哥们提了个问题：3.7V 电压，1.2A 电流，用钨丝绕成螺旋式弹簧丝，工作温度在 1200 摄氏度左右，怎么计算出来需要用多大直径的钨丝？链接：<a href="http://www.zhihu.com/question/33791069/answer/57434994">http://www.zhihu.com/question/33791069/answer/57434994</a></p>
 <p>以下是我的回答：</p>
-<p>斯特凡－玻尔兹曼定律：$j^<em>=\epsilon\sigma T^4$，其中$j^</em>$为辐射通量，$\sigma$为斯特凡－玻尔兹曼常数，值为$5.67\times 10^{-8}\rm{J \cdot s}^{-1}\cdot\rm m^{-2 ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/tungsten.html">read more</a></div>
+<p>斯特凡－玻尔兹曼定律：<span class="math">\(j^*=\epsilon\sigma T^4\)</span>，其中<span class="math">\(j^*\)</span>为辐射通量，<span class="math">\(\sigma\)</span>为斯特凡－玻尔兹曼常数，值为<span class="math">\(5.67\times 10^{-8}\rm{J \cdot s}^{-1}\cdot\rm m^{-2 ...</span></p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/tungsten.html">read more</a></div>
     </div>	
 				
 

@@ -60,6 +60,34 @@
  
 
     <div class='article'>
+        <a href="http://st.avros.net/articles/cute_power_v2.html"><h2>迷你智能电源</h2></a>
+        <div class= "well small"> 2015-07-14
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>做了个简单的小电源，用一节18650供电，可以输出1.26V、1.8V、2.5V、2.85V、3.3V、5.0V和6.0V，共7种电压，可以通过USB给18650充电，如图：</p>
+<p><a href="/images2/2015/cute_power_v2.jpg" title="实物图"><img src="/images2/2015/cute_power_v2.jpg" width="480px" /></a></p>
+<p>原理图：</p>
+<p><a href="/images2/2015/cute_power_v2.png" title="原理图"><img src="/images2/2015/cute_power_v2.png" width="480px" /></a></p>
+<p>充电使用TP4056，充电电流为1200/1.5k = 800mA。LM3478接成SEPIC电路，既能升压也能降压。单片机ATtiny13输出一路PWM信号，经滤波后控制LM3478的反馈端，从而控制输出电压。三只LED用于指示输出电压。</p>
+<p>源程序：</p>
+<div class="highlight"><pre><span class="cp">#include</span> <span class="cpf">&lt;avr/io.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;avr/interrupt.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;util/delay.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;avr/sleep.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;misc.h ...</span></pre></div> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/cute_power_v2.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://st.avros.net/articles/pid_expr.html"><h2>PID控温实验</h2></a>
         <div class= "well small"> 2015-07-13
 
@@ -301,31 +329,6 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <p>装回前面板, 开机! 怎么效果有点逗比……看来没有柔光片是不行的. </p>
 <p><a href="/images/dmm2650_11.jpg"><img src="/images/dmm2650_11.jpg" width="500" /></a> </p>
 <p>柔光片这东西不好找, 试了不干胶贴纸的背纸、白色绝缘胶带、普通A4纸, 效果都不理想 ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/dmm2650.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/pumpkin_light.html"><h2>南瓜灯</h2></a>
-        <div class= "well small"> 2014-05-07
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>某次在超市看到有这种球形蜡烛头卖，如图：</p>
-<p><a href="/images/pumpkin_1.jpg"><img src="/images/pumpkin_1.jpg" width="500" /></a></p>
-<p>用记号笔把适当的地方涂黑，就成了这样：</p>
-<p><a href="/images/pumpkin_2.jpg"><img src="/images/pumpkin_2.jpg" width="500" /></a></p>
-<p>最后呢，在它下面熔个洞，放进一个橙色大功率LED，点亮以后的效果：</p>
-<p><a href="/images/pumpkin_3.jpg"><img src="/images/pumpkin_3.jpg" width="500" /></a></p>
-<p>好象万圣节的时间搞错了……不过无所谓啦。</p>
-<p>最后，用AVR让它的亮度忽明忽暗，尽可能象真正的蜡烛一样——其实挺困难的。</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/pumpkin_light.html">read more</a></div>
     </div>	
 				
 <div class="pagination">

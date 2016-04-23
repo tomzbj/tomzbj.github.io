@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>兰湾</title><link href="http://st.avros.net/" rel="alternate"></link><link href="http://st.avros.net//feeds/wu-xian-dian.rss.xml" rel="self"></link><id>http://st.avros.net/</id><updated>2015-10-09T00:00:00+08:00</updated><entry><title>74HC4046实验(2)</title><link href="http://st.avros.net/articles/hc4046_expr.html" rel="alternate"></link><updated>2015-10-09T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2015-10-09:articles/hc4046_expr.html</id><summary type="html">&lt;p&gt;在前几天复习HC4046计算的基础上又试了一下, 用atmega48的timer0将16M主时钟先256预分频再125分频, Toggle模式, 得到250Hz 50%占空比的方波作为参考频率; HC4046的VCO输出接到atmega48的T1口, 用timer1作为÷N分频器. &lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>兰湾</title><link href="http://st.avros.net/" rel="alternate"></link><link href="http://st.avros.net//feeds/wu-xian-dian.rss.xml" rel="self"></link><id>http://st.avros.net/</id><updated>2016-04-14T00:00:00+08:00</updated><entry><title>试了一下BH1417用于6米波段发射</title><link href="http://st.avros.net/articles/50m_fm_tx_bh1417.html" rel="alternate"></link><updated>2016-04-14T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2016-04-14:articles/50m_fm_tx_bh1417.html</id><summary type="html">&lt;p&gt;BH1417是WFM发射IC, 以0.2MHz为间隔, 在87.7~88.9MHz和106.7~107.9MHz频段各有7个频点. 频率基准是7.6MHz的晶振, 先4分频得到1.9MHz, 然后一路50分频得38kHz作为立体声副载波, 另一路19分频得到100kHz给PLL作为参考. 如果把7.6M晶振换成3.579M, 则106.7~107.9MHz这7个频点就变成了50.255~50.820MHz, 全都落在6米业余波段以内.&lt;/p&gt;
+&lt;p&gt;试着搭了一块板, 果然可以工作, 用VX-7R在7个频点都能准确地收到信号. 但是前级增益低了就几乎没声, 前级增益高了又全是噪声; 如果把VX-7R强行设置成WFM模式, 则一切正常. 估计是BH1417的前端预加重/限幅模块过于强大了.&lt;/p&gt;
+&lt;p&gt;6米好玩, 等北京的6米解禁了要好好搞搞.&lt;/p&gt;</summary></entry><entry><title>74HC4046实验(2)</title><link href="http://st.avros.net/articles/hc4046_expr.html" rel="alternate"></link><updated>2015-10-09T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2015-10-09:articles/hc4046_expr.html</id><summary type="html">&lt;p&gt;在前几天复习HC4046计算的基础上又试了一下, 用atmega48的timer0将16M主时钟先256预分频再125分频, Toggle模式, 得到250Hz 50%占空比的方波作为参考频率; HC4046的VCO输出接到atmega48的T1口, 用timer1作为÷N分频器. &lt;/p&gt;
 &lt;p&gt;实测各种RC参数, 用HC4046的鉴相器2可以锁定在60kHz~165kHz, 800kHz~2.4MHz, 差不多有三倍的频率覆盖率, 给各种简单接收机做个本振应该是够了. 用鉴相器1只能锁定在120kHz~165kHz, 不过输出波形似乎稍微干净些.&lt;/p&gt;
 &lt;p&gt;有空再试试用DDS输出作为HC4046的参考频率. 这里DDS的频率不用很高, 在AVR的定时器中断里更新相位累加字就可以了. 这样应该就能做到1Hz级别的精密步进了.&lt;/p&gt;</summary></entry><entry><title>复习74HC4046的相关计算(1)</title><link href="http://st.avros.net/articles/hc4046_calc.html" rel="alternate"></link><updated>2015-09-22T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2015-09-22:articles/hc4046_calc.html</id><summary type="html">&lt;p&gt;前两天没事复习了一下74HC4046的计算. 主要材料: &lt;/p&gt;
 &lt;ol&gt;
@@ -8,12 +10,68 @@
 &lt;li&gt;Philips的Datasheet &lt;/li&gt;
 &lt;li&gt;Texas Instruments的Application Report SCHA003B: CMOS Phase-Locked-Loop Applications Using the CD54/74HC/HCT4046A and CD54/74HC/HCT7046A     &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;根据Philips的datasheet, 取$R_1$ = 10k, $R_2$ = 10k, $C$ = 500p, $V_\rm{CC}$ = 5.0V, $\rm{VCO_{in}}$分别为0.9V、2.5V、4.1V时Fo为2.0MHz、2.5MHz、3.0MHz, 用在线计算器算得的结果是1.1V时1926kHz, 2.5V时2409kHz, 3.9V时3099kHz, 基本吻合. &lt;/p&gt;
-&lt;p&gt;根据TI的scha003b, 取$R_1$ = 30k, $R_2$ = 36k, $C$ = 1000p, $V_\rm{CC}$ = 5V, $\rm{VCO_{in}}$分别为1.0V、2.5V、4.4V时Fo计算值为305kHz、391kHz、500kHz, 实测值为318kHz、384kHz、492kHz. 用在线计算器算出的结果是1.1V时287kHz, 2.5V时355kHz, 3.9V时435kHz, 有点误差, 还算可以接受. &lt;/p&gt;
-&lt;p&gt;根据AN1410, 取$R_1$ = 300k, $R_2$＝$\infty$, $C$ = 0.1uF, $\rm{VCO_{in}}$ = 1.0V, $V_\rm{DD}$ = 4.5V, 计算得Fo = 235Hz. 同样的参数用在线计算器算得VCOin = 1.1V时Fo = 64Hz, 差得有点远. &lt;/p&gt;
-&lt;p&gt;AN1410里的另一个例子, 设计一个从200k到2M的锁相环, 最后给出的结果是$R_1$ = 42k, $R_2$ = $\infty$, $C$ = 175p. $\rm{VCO_{in}}$的范围是从0.25V到2.75V, $K_\rm{VCO}$ = 774.4kHz/V. 用在线计算器算出的结果是1.1V时235kHz, 2.5V时558kHz, $K_\rm{VCO}$ = 249.5kHz/V, 无论如何对不上. &lt;/p&gt;
-&lt;p&gt;AN1410里再找一个例子, $R_1$ = 9.1k, $R_2$ = $\infty$, $V_\rm{DD}$ = 5.0V, $\rm{VCO_{in}}$在0.25V和2.5V时Fo分别为113.4kHz和1.3MHz, $K_\rm{VCO}$ = 529kHz/V. 用在线计算器算出的结果是2.5V时Fo为423kHz, 3.9V时也只有709kHz, $K_\rm{VCO}$为190kHz/V. 同样有三倍左右的误差. &lt;/p&gt;
-&lt;p&gt;难道AN1410整个写错了? 不解.&lt;/p&gt;</summary></entry><entry><title>3.579MHz CW发射机</title><link href="http://st.avros.net/articles/cw3579.html" rel="alternate"></link><updated>2015-01-15T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2015-01-15:articles/cw3579.html</id><summary type="html">&lt;p&gt;电路如图, 用74HC240的一个门振荡, 另外7个门并联推动IRF510.
+&lt;p&gt;根据Philips的datasheet, 取&lt;span class="math"&gt;\(R_1\)&lt;/span&gt; = 10k, &lt;span class="math"&gt;\(R_2\)&lt;/span&gt; = 10k, &lt;span class="math"&gt;\(C\)&lt;/span&gt; = 500p, &lt;span class="math"&gt;\(V_\rm{CC}\)&lt;/span&gt; = 5.0V, &lt;span class="math"&gt;\(\rm{VCO_{in}}\)&lt;/span&gt;分别为0.9V、2.5V、4.1V时Fo为2.0MHz、2.5MHz、3.0MHz, 用在线计算器算得的结果是1.1V时1926kHz, 2.5V时2409kHz, 3.9V时3099kHz, 基本吻合. &lt;/p&gt;
+&lt;p&gt;根据TI的scha003b, 取&lt;span class="math"&gt;\(R_1\)&lt;/span&gt; = 30k, &lt;span class="math"&gt;\(R_2\)&lt;/span&gt; = 36k, &lt;span class="math"&gt;\(C\)&lt;/span&gt; = 1000p, &lt;span class="math"&gt;\(V_\rm{CC}\)&lt;/span&gt; = 5V, &lt;span class="math"&gt;\(\rm{VCO_{in}}\)&lt;/span&gt;分别为1.0V、2.5V、4.4V时Fo计算值为305kHz、391kHz、500kHz, 实测值为318kHz、384kHz、492kHz. 用在线计算器算出的结果是1.1V时287kHz, 2.5V时355kHz, 3.9V时435kHz, 有点误差, 还算可以接受. &lt;/p&gt;
+&lt;p&gt;根据AN1410, 取&lt;span class="math"&gt;\(R_1\)&lt;/span&gt; = 300k, &lt;span class="math"&gt;\(R_2\)&lt;/span&gt;＝&lt;span class="math"&gt;\(\infty\)&lt;/span&gt;, &lt;span class="math"&gt;\(C\)&lt;/span&gt; = 0.1uF, &lt;span class="math"&gt;\(\rm{VCO_{in}}\)&lt;/span&gt; = 1.0V, &lt;span class="math"&gt;\(V_\rm{DD}\)&lt;/span&gt; = 4.5V, 计算得Fo = 235Hz. 同样的参数用在线计算器算得VCOin = 1.1V时Fo = 64Hz, 差得有点远. &lt;/p&gt;
+&lt;p&gt;AN1410里的另一个例子, 设计一个从200k到2M的锁相环, 最后给出的结果是&lt;span class="math"&gt;\(R_1\)&lt;/span&gt; = 42k, &lt;span class="math"&gt;\(R_2\)&lt;/span&gt; = &lt;span class="math"&gt;\(\infty\)&lt;/span&gt;, &lt;span class="math"&gt;\(C\)&lt;/span&gt; = 175p. &lt;span class="math"&gt;\(\rm{VCO_{in}}\)&lt;/span&gt;的范围是从0.25V到2.75V, &lt;span class="math"&gt;\(K_\rm{VCO}\)&lt;/span&gt; = 774.4kHz/V. 用在线计算器算出的结果是1.1V时235kHz, 2.5V时558kHz, &lt;span class="math"&gt;\(K_\rm{VCO}\)&lt;/span&gt; = 249.5kHz/V, 无论如何对不上. &lt;/p&gt;
+&lt;p&gt;AN1410里再找一个例子, &lt;span class="math"&gt;\(R_1\)&lt;/span&gt; = 9.1k, &lt;span class="math"&gt;\(R_2\)&lt;/span&gt; = &lt;span class="math"&gt;\(\infty\)&lt;/span&gt;, &lt;span class="math"&gt;\(V_\rm{DD}\)&lt;/span&gt; = 5.0V, &lt;span class="math"&gt;\(\rm{VCO_{in}}\)&lt;/span&gt;在0.25V和2.5V时Fo分别为113.4kHz和1.3MHz, &lt;span class="math"&gt;\(K_\rm{VCO}\)&lt;/span&gt; = 529kHz/V. 用在线计算器算出的结果是2.5V时Fo为423kHz, 3.9V时也只有709kHz, &lt;span class="math"&gt;\(K_\rm{VCO}\)&lt;/span&gt;为190kHz/V. 同样有三倍左右的误差. &lt;/p&gt;
+&lt;p&gt;难道AN1410整个写错了? 不解.&lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+    
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' &amp;&amp; location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript'; 
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</summary></entry><entry><title>3.579MHz CW发射机</title><link href="http://st.avros.net/articles/cw3579.html" rel="alternate"></link><updated>2015-01-15T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2015-01-15:articles/cw3579.html</id><summary type="html">&lt;p&gt;电路如图, 用74HC240的一个门振荡, 另外7个门并联推动IRF510.
 用RS-232串口的RTS信号控制IRF510的供电, 作为电键.
 DTR信号控制整机供电和天线切换, 作为PTT.&lt;/p&gt;
 &lt;p&gt;&lt;a href="/images/cw3579.png" title="电路图"&gt;&lt;img src="/images/cw3579.png" width="500px" /&gt;&lt;/a&gt;&lt;/p&gt;

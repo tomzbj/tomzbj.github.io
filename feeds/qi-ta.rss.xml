@@ -3,39 +3,151 @@
 &lt;p&gt;答：先说结论，手机没有电了确实会减轻。&lt;/p&gt;
 &lt;p&gt;但这不是 “电” 的重量，应该说是 “电能” 的重量。能量和重量是统一的。&lt;/p&gt;
 &lt;p&gt;减轻了多少呢？可以算一下：&lt;/p&gt;
-&lt;p&gt;假设手机电池标称电压是$3.7\mathrm V$，容量是$1800\mathrm{mAh}$，则它能储存的能量是$3.7\mathrm V\times1800\mathrm{mA}\times3600\mathrm s = 23976\mathrm J$.&lt;/p&gt;
-&lt;p&gt;根据$E=mc^2$，可得&lt;/p&gt;
-&lt;p&gt;$$\Delta m=\frac{\Delta E}{c^2} = \frac{23976\rm{J}}{(3\times 10^8m/s)^2}=2.664\times 10^{-13}kg$$&lt;/p&gt;
+&lt;p&gt;假设手机电池标称电压是&lt;span class="math"&gt;\(3.7\mathrm V\)&lt;/span&gt;，容量是&lt;span class="math"&gt;\(1800\mathrm{mAh}\)&lt;/span&gt;，则它能储存的能量是&lt;span class="math"&gt;\(3.7\mathrm V\times1800\mathrm{mA}\times3600\mathrm s = 23976\mathrm J\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;根据&lt;span class="math"&gt;\(E=mc^2\)&lt;/span&gt;，可得&lt;/p&gt;
+&lt;div class="math"&gt;$$\Delta m=\frac{\Delta E}{c^2} = \frac{23976\rm{J}}{(3\times 10^8m/s)^2}=2.664\times 10^{-13}kg$$&lt;/div&gt;
 &lt;p&gt;在这里需要说明一下，E=mc^2不仅仅对核反应适用，对一切涉及能量的场合都是同样适用的。只不过非核能的场合，这里的质量变化很微小，不容易测出来。但并不是完全测不出来，事实上早有人做了相关的实验了。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;比如：$^{12}\rm C$原子在不同的状态时质量是不同的，而且已经有了精确的测量值。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;比如：&lt;span class="math"&gt;\(^{12}\rm C\)&lt;/span&gt;原子在不同的状态时质量是不同的，而且已经有了精确的测量值。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;单位：u (原子质量单位)&lt;/p&gt;
-&lt;p&gt;孤立原子的静止质量：$12.000000000000$&lt;/p&gt;
-&lt;p&gt;孤立原子（298K）：$12.000000000045$&lt;/p&gt;
-&lt;p&gt;石墨（298K）：$11.999999992116$&lt;/p&gt;
-&lt;p&gt;金刚石（298K）：$11.999999992137$&lt;/p&gt;
-&lt;p&gt;石墨和金刚石中碳原子质量相差$2.1\times10^{-11} \mathrm{g\cdot mol^{-1}}$。&lt;/p&gt;
-&lt;p&gt;折算成能量是多少呢？$2.1\times10^{-11} \mathrm{g\cdot mol^{-1}}\times(3\times10^8\mathrm{m\cdot s^{-1}})^2 = 1890\mathrm J$，也就是说每摩尔石墨和金刚石中碳原子质量之差折算成能量是$1890\rm J$。&lt;/p&gt;
-&lt;p&gt;查兰氏化学手册，石墨的标准生成焓是$0\mathrm{kJ/mol}$，金刚石是 $1.897\mathrm{kJ/mol}$，也就是说每摩尔石墨与金刚石相互转化时，吸收/释放的能量是$1897\rm J$，与上述计算相符。&lt;/p&gt;
-&lt;p&gt;孤立原子在$0\mathrm K$和$298\mathrm K$时的质量相差$4.5\times10^{-11} \mathrm{g\cdot mol^{-1}}$，折算成能量是$4050\rm J$，也就是说每摩尔碳原子从$0\rm K$升温到$298\mathrm K$，质量增加了$4.5\times10^{-11} \mathrm{g}$，内能增加了$4050\mathrm J$。&lt;/p&gt;
-&lt;p&gt;用另一种方式计算，孤立原子按理想气体计算，热容是$\frac{3}{2} R = 1.5\times1.38^{-23}\mathrm{J\cdot K^{-1}}\times6.02\times10^{23}\mathrm{mol^{-1}} = 12.46\mathrm{J\cdot mol^{-1}\cdot K^{-1}}$。&lt;/p&gt;
-&lt;p&gt;$1\mathrm{mol}$ 碳原子从$0\mathrm K$ 升温到$298\mathrm K$，内能变化量是$12.46\mathrm{J\cdot mol^{-1}\cdot K^{-1}}\times298\mathrm K \times 1 \mathrm{mol} = 3713\mathrm J$，与上面的$4050\mathrm J$基本相符。&lt;/p&gt;
-&lt;p&gt;以上够不够说明问题？&lt;/p&gt;</summary></entry><entry><title>如何计算钨丝的直径?</title><link href="http://st.avros.net/articles/tungsten.html" rel="alternate"></link><updated>2015-08-07T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2015-08-07:articles/tungsten.html</id><summary type="html">&lt;p&gt;知乎上一哥们提了个问题：3.7V 电压，1.2A 电流，用钨丝绕成螺旋式弹簧丝，工作温度在 1200 摄氏度左右，怎么计算出来需要用多大直径的钨丝？链接：&lt;a href="http://www.zhihu.com/question/33791069/answer/57434994"&gt;http://www.zhihu.com/question/33791069/answer/57434994&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;孤立原子的静止质量：&lt;span class="math"&gt;\(12.000000000000\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;孤立原子（298K）：&lt;span class="math"&gt;\(12.000000000045\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;石墨（298K）：&lt;span class="math"&gt;\(11.999999992116\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;金刚石（298K）：&lt;span class="math"&gt;\(11.999999992137\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;石墨和金刚石中碳原子质量相差&lt;span class="math"&gt;\(2.1\times10^{-11} \mathrm{g\cdot mol^{-1}}\)&lt;/span&gt;。&lt;/p&gt;
+&lt;p&gt;折算成能量是多少呢？&lt;span class="math"&gt;\(2.1\times10^{-11} \mathrm{g\cdot mol^{-1}}\times(3\times10^8\mathrm{m\cdot s^{-1}})^2 = 1890\mathrm J\)&lt;/span&gt;，也就是说每摩尔石墨和金刚石中碳原子质量之差折算成能量是&lt;span class="math"&gt;\(1890\rm J\)&lt;/span&gt;。&lt;/p&gt;
+&lt;p&gt;查兰氏化学手册，石墨的标准生成焓是&lt;span class="math"&gt;\(0\mathrm{kJ/mol}\)&lt;/span&gt;，金刚石是 &lt;span class="math"&gt;\(1.897\mathrm{kJ/mol}\)&lt;/span&gt;，也就是说每摩尔石墨与金刚石相互转化时，吸收/释放的能量是&lt;span class="math"&gt;\(1897\rm J\)&lt;/span&gt;，与上述计算相符。&lt;/p&gt;
+&lt;p&gt;孤立原子在&lt;span class="math"&gt;\(0\mathrm K\)&lt;/span&gt;和&lt;span class="math"&gt;\(298\mathrm K\)&lt;/span&gt;时的质量相差&lt;span class="math"&gt;\(4.5\times10^{-11} \mathrm{g\cdot mol^{-1}}\)&lt;/span&gt;，折算成能量是&lt;span class="math"&gt;\(4050\rm J\)&lt;/span&gt;，也就是说每摩尔碳原子从&lt;span class="math"&gt;\(0\rm K\)&lt;/span&gt;升温到&lt;span class="math"&gt;\(298\mathrm K\)&lt;/span&gt;，质量增加了&lt;span class="math"&gt;\(4.5\times10^{-11} \mathrm{g}\)&lt;/span&gt;，内能增加了&lt;span class="math"&gt;\(4050\mathrm J\)&lt;/span&gt;。&lt;/p&gt;
+&lt;p&gt;用另一种方式计算，孤立原子按理想气体计算，热容是&lt;span class="math"&gt;\(\frac{3}{2} R = 1.5\times1.38^{-23}\mathrm{J\cdot K^{-1}}\times6.02\times10^{23}\mathrm{mol^{-1}} = 12.46\mathrm{J\cdot mol^{-1}\cdot K^{-1}}\)&lt;/span&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;span class="math"&gt;\(1\mathrm{mol}\)&lt;/span&gt; 碳原子从&lt;span class="math"&gt;\(0\mathrm K\)&lt;/span&gt; 升温到&lt;span class="math"&gt;\(298\mathrm K\)&lt;/span&gt;，内能变化量是&lt;span class="math"&gt;\(12.46\mathrm{J\cdot mol^{-1}\cdot K^{-1}}\times298\mathrm K \times 1 \mathrm{mol} = 3713\mathrm J\)&lt;/span&gt;，与上面的&lt;span class="math"&gt;\(4050\mathrm J\)&lt;/span&gt;基本相符。&lt;/p&gt;
+&lt;p&gt;以上够不够说明问题？&lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+    
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' &amp;&amp; location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript'; 
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</summary></entry><entry><title>如何计算钨丝的直径?</title><link href="http://st.avros.net/articles/tungsten.html" rel="alternate"></link><updated>2015-08-07T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2015-08-07:articles/tungsten.html</id><summary type="html">&lt;p&gt;知乎上一哥们提了个问题：3.7V 电压，1.2A 电流，用钨丝绕成螺旋式弹簧丝，工作温度在 1200 摄氏度左右，怎么计算出来需要用多大直径的钨丝？链接：&lt;a href="http://www.zhihu.com/question/33791069/answer/57434994"&gt;http://www.zhihu.com/question/33791069/answer/57434994&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;以下是我的回答：&lt;/p&gt;
-&lt;p&gt;斯特凡－玻尔兹曼定律：$j^&lt;em&gt;=\epsilon\sigma T^4$，其中$j^&lt;/em&gt;$为辐射通量，$\sigma$为斯特凡－玻尔兹曼常数，值为$5.67\times 10^{-8}\rm{J \cdot s}^{-1}\cdot\rm m^{-2}\cdot\rm K^{-4}$。$\epsilon$为辐射系数，把钨丝当成黑体，则$\epsilon=1$。&lt;/p&gt;
+&lt;p&gt;斯特凡－玻尔兹曼定律：&lt;span class="math"&gt;\(j^*=\epsilon\sigma T^4\)&lt;/span&gt;，其中&lt;span class="math"&gt;\(j^*\)&lt;/span&gt;为辐射通量，&lt;span class="math"&gt;\(\sigma\)&lt;/span&gt;为斯特凡－玻尔兹曼常数，值为&lt;span class="math"&gt;\(5.67\times 10^{-8}\rm{J \cdot s}^{-1}\cdot\rm m^{-2}\cdot\rm K^{-4}\)&lt;/span&gt;。&lt;span class="math"&gt;\(\epsilon\)&lt;/span&gt;为辐射系数，把钨丝当成黑体，则&lt;span class="math"&gt;\(\epsilon=1\)&lt;/span&gt;。&lt;/p&gt;
 &lt;p&gt;忽略传导和对流，只考虑辐射；把钨丝作为黑体，则&lt;/p&gt;
-&lt;p&gt;钨丝辐射的总功率为$P = A\cdot 5.67^{-8}\cdot1473^4$。&lt;/p&gt;
-&lt;p&gt;已知总功率$P=3.7\rm{V}\times1.2\rm{A}=4.44\rm W$，&lt;/p&gt;
-&lt;p&gt;则可得钨丝表面积$A=1.66\times10^{-5} \rm m^2$。&lt;/p&gt;
+&lt;p&gt;钨丝辐射的总功率为&lt;span class="math"&gt;\(P = A\cdot 5.67^{-8}\cdot1473^4\)&lt;/span&gt;。&lt;/p&gt;
+&lt;p&gt;已知总功率&lt;span class="math"&gt;\(P=3.7\rm{V}\times1.2\rm{A}=4.44\rm W\)&lt;/span&gt;，&lt;/p&gt;
+&lt;p&gt;则可得钨丝表面积&lt;span class="math"&gt;\(A=1.66\times10^{-5} \rm m^2\)&lt;/span&gt;。&lt;/p&gt;
 &lt;p&gt;&lt;a href="/images2/2015/tungsten_resistance.png"&gt;&lt;img src="/images2/2015/tungsten_resistance.png" width="480" /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;根据这个图，钨在 1200 摄氏度时的电阻率大约是$0.41\Omega\cdot \rm{mm}^2\cdot \rm{m}^{-1}$，电阻我们已经知道是$3.7\rm{V} / 1.2\rm{A} = 3.08\Omega$。&lt;/p&gt;
-&lt;p&gt;把钨丝当作一个截面半径为$r$，长度为$h$的圆柱体，则它的电阻应该是$\frac{0.41\times10^{-6}h}{\pi r^2}$，&lt;/p&gt;
-&lt;p&gt;表面积是$2\pi rh$(两个端面可以忽略不计)。&lt;/p&gt;
-&lt;p&gt;整理得$\frac{h}{r^2}=2.36\times10^7，rh = 2.64\times10^{-6}$。&lt;/p&gt;
-&lt;p&gt;解得$h=0.055\rm m$, $r=4.82\times10^{-5}\rm m$，也就是说长度 55mm，直径 0.096mm。&lt;/p&gt;
+&lt;p&gt;根据这个图，钨在 1200 摄氏度时的电阻率大约是&lt;span class="math"&gt;\(0.41\Omega\cdot \rm{mm}^2\cdot \rm{m}^{-1}\)&lt;/span&gt;，电阻我们已经知道是&lt;span class="math"&gt;\(3.7\rm{V} / 1.2\rm{A} = 3.08\Omega\)&lt;/span&gt;。&lt;/p&gt;
+&lt;p&gt;把钨丝当作一个截面半径为&lt;span class="math"&gt;\(r\)&lt;/span&gt;，长度为&lt;span class="math"&gt;\(h\)&lt;/span&gt;的圆柱体，则它的电阻应该是&lt;span class="math"&gt;\(\frac{0.41\times10^{-6}h}{\pi r^2}\)&lt;/span&gt;，&lt;/p&gt;
+&lt;p&gt;表面积是&lt;span class="math"&gt;\(2\pi rh\)&lt;/span&gt;(两个端面可以忽略不计)。&lt;/p&gt;
+&lt;p&gt;整理得&lt;span class="math"&gt;\(\frac{h}{r^2}=2.36\times10^7，rh = 2.64\times10^{-6}\)&lt;/span&gt;。&lt;/p&gt;
+&lt;p&gt;解得&lt;span class="math"&gt;\(h=0.055\rm m\)&lt;/span&gt;, &lt;span class="math"&gt;\(r=4.82\times10^{-5}\rm m\)&lt;/span&gt;，也就是说长度 55mm，直径 0.096mm。&lt;/p&gt;
 &lt;p&gt;验算一下，一根长 55mm、直径 0.096mm 的钨丝，1200 度时的电阻是 3.12 欧，&lt;/p&gt;
-&lt;p&gt;表面积是 $16.6\rm{mm}^2$，和前面计算相符。&lt;/p&gt;
+&lt;p&gt;表面积是 &lt;span class="math"&gt;\(16.6\rm{mm}^2\)&lt;/span&gt;，和前面计算相符。&lt;/p&gt;
 &lt;p&gt;如果是做题，做到这里就可以结束了。但如果是真做一个灯泡出来，则必须考虑灯泡内部充入惰性气体的对流和传导热量、钨丝直接向灯泡引出脚的传热、钨丝具体成分导致的电阻率变化 (可能相当大！) 等等。&lt;/p&gt;
-&lt;p&gt;最后还得实际做一个来验证，在实测参数的基础上再调整。&lt;/p&gt;</summary></entry><entry><title>辉光数码管实验</title><link href="http://st.avros.net/articles/nixie.html" rel="alternate"></link><updated>2015-05-13T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2015-05-13:articles/nixie.html</id><summary type="html">&lt;p&gt;多年前sunzx送了我几个SZ-8数码管, 一直没顾上试验. 前几天终于给它搭了驱动电路, 如图:&lt;/p&gt;
+&lt;p&gt;最后还得实际做一个来验证，在实测参数的基础上再调整。&lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+    
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' &amp;&amp; location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript'; 
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</summary></entry><entry><title>辉光数码管实验</title><link href="http://st.avros.net/articles/nixie.html" rel="alternate"></link><updated>2015-05-13T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2015-05-13:articles/nixie.html</id><summary type="html">&lt;p&gt;多年前sunzx送了我几个SZ-8数码管, 一直没顾上试验. 前几天终于给它搭了驱动电路, 如图:&lt;/p&gt;
 &lt;p&gt;&lt;a href="/images/nixie_1.png" title="驱动模块原理图"&gt;&lt;img src="/images/nixie_1.png" width="480px"/&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;由74HC164将串行输入信号转为8位并行, 其中4位作为BCD码, 由74LS42转为数码管的驱动信号. 由于74LS42的输出是负逻辑, 因此驱动2N5551时需要用发射极驱动. HC164的另外三位用于驱动藏在SZ-8肚子下面的RGB三色LED. 几个模块之间可以级联, 这样用起来就简单多了.&lt;/p&gt;
 &lt;p&gt;供电部分如图:&lt;/p&gt;

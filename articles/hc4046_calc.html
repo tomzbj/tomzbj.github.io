@@ -71,12 +71,68 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <li>Philips的Datasheet </li>
 <li>Texas Instruments的Application Report SCHA003B: CMOS Phase-Locked-Loop Applications Using the CD54/74HC/HCT4046A and CD54/74HC/HCT7046A     </li>
 </ol>
-<p>根据Philips的datasheet, 取$R_1$ = 10k, $R_2$ = 10k, $C$ = 500p, $V_\rm{CC}$ = 5.0V, $\rm{VCO_{in}}$分别为0.9V、2.5V、4.1V时Fo为2.0MHz、2.5MHz、3.0MHz, 用在线计算器算得的结果是1.1V时1926kHz, 2.5V时2409kHz, 3.9V时3099kHz, 基本吻合. </p>
-<p>根据TI的scha003b, 取$R_1$ = 30k, $R_2$ = 36k, $C$ = 1000p, $V_\rm{CC}$ = 5V, $\rm{VCO_{in}}$分别为1.0V、2.5V、4.4V时Fo计算值为305kHz、391kHz、500kHz, 实测值为318kHz、384kHz、492kHz. 用在线计算器算出的结果是1.1V时287kHz, 2.5V时355kHz, 3.9V时435kHz, 有点误差, 还算可以接受. </p>
-<p>根据AN1410, 取$R_1$ = 300k, $R_2$＝$\infty$, $C$ = 0.1uF, $\rm{VCO_{in}}$ = 1.0V, $V_\rm{DD}$ = 4.5V, 计算得Fo = 235Hz. 同样的参数用在线计算器算得VCOin = 1.1V时Fo = 64Hz, 差得有点远. </p>
-<p>AN1410里的另一个例子, 设计一个从200k到2M的锁相环, 最后给出的结果是$R_1$ = 42k, $R_2$ = $\infty$, $C$ = 175p. $\rm{VCO_{in}}$的范围是从0.25V到2.75V, $K_\rm{VCO}$ = 774.4kHz/V. 用在线计算器算出的结果是1.1V时235kHz, 2.5V时558kHz, $K_\rm{VCO}$ = 249.5kHz/V, 无论如何对不上. </p>
-<p>AN1410里再找一个例子, $R_1$ = 9.1k, $R_2$ = $\infty$, $V_\rm{DD}$ = 5.0V, $\rm{VCO_{in}}$在0.25V和2.5V时Fo分别为113.4kHz和1.3MHz, $K_\rm{VCO}$ = 529kHz/V. 用在线计算器算出的结果是2.5V时Fo为423kHz, 3.9V时也只有709kHz, $K_\rm{VCO}$为190kHz/V. 同样有三倍左右的误差. </p>
-<p>难道AN1410整个写错了? 不解.</p></div>
+<p>根据Philips的datasheet, 取<span class="math">\(R_1\)</span> = 10k, <span class="math">\(R_2\)</span> = 10k, <span class="math">\(C\)</span> = 500p, <span class="math">\(V_\rm{CC}\)</span> = 5.0V, <span class="math">\(\rm{VCO_{in}}\)</span>分别为0.9V、2.5V、4.1V时Fo为2.0MHz、2.5MHz、3.0MHz, 用在线计算器算得的结果是1.1V时1926kHz, 2.5V时2409kHz, 3.9V时3099kHz, 基本吻合. </p>
+<p>根据TI的scha003b, 取<span class="math">\(R_1\)</span> = 30k, <span class="math">\(R_2\)</span> = 36k, <span class="math">\(C\)</span> = 1000p, <span class="math">\(V_\rm{CC}\)</span> = 5V, <span class="math">\(\rm{VCO_{in}}\)</span>分别为1.0V、2.5V、4.4V时Fo计算值为305kHz、391kHz、500kHz, 实测值为318kHz、384kHz、492kHz. 用在线计算器算出的结果是1.1V时287kHz, 2.5V时355kHz, 3.9V时435kHz, 有点误差, 还算可以接受. </p>
+<p>根据AN1410, 取<span class="math">\(R_1\)</span> = 300k, <span class="math">\(R_2\)</span>＝<span class="math">\(\infty\)</span>, <span class="math">\(C\)</span> = 0.1uF, <span class="math">\(\rm{VCO_{in}}\)</span> = 1.0V, <span class="math">\(V_\rm{DD}\)</span> = 4.5V, 计算得Fo = 235Hz. 同样的参数用在线计算器算得VCOin = 1.1V时Fo = 64Hz, 差得有点远. </p>
+<p>AN1410里的另一个例子, 设计一个从200k到2M的锁相环, 最后给出的结果是<span class="math">\(R_1\)</span> = 42k, <span class="math">\(R_2\)</span> = <span class="math">\(\infty\)</span>, <span class="math">\(C\)</span> = 175p. <span class="math">\(\rm{VCO_{in}}\)</span>的范围是从0.25V到2.75V, <span class="math">\(K_\rm{VCO}\)</span> = 774.4kHz/V. 用在线计算器算出的结果是1.1V时235kHz, 2.5V时558kHz, <span class="math">\(K_\rm{VCO}\)</span> = 249.5kHz/V, 无论如何对不上. </p>
+<p>AN1410里再找一个例子, <span class="math">\(R_1\)</span> = 9.1k, <span class="math">\(R_2\)</span> = <span class="math">\(\infty\)</span>, <span class="math">\(V_\rm{DD}\)</span> = 5.0V, <span class="math">\(\rm{VCO_{in}}\)</span>在0.25V和2.5V时Fo分别为113.4kHz和1.3MHz, <span class="math">\(K_\rm{VCO}\)</span> = 529kHz/V. 用在线计算器算出的结果是2.5V时Fo为423kHz, 3.9V时也只有709kHz, <span class="math">\(K_\rm{VCO}\)</span>为190kHz/V. 同样有三倍左右的误差. </p>
+<p>难道AN1410整个写错了? 不解.</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+    
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript'; 
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script></div>
 	
         <hr>
 

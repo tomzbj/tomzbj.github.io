@@ -3,9 +3,65 @@
 &lt;p&gt;LED需要恒流驱动，直接接个恒压输出的适配器上去是不行的，要么不亮，要么烧坏。串个电阻行不行呢？行是行，不过电阻会很热。这个LED灯是3W的，工作电流1A，接到5V电源上就需要串联2欧的电阻，电阻的发热量达到2W。这么做显然太不优雅。&lt;/p&gt;
 &lt;p&gt;幸好手里还有若干LED驱动IC：华润的PT4115，用它可以顺便把调光功能也加上。画了个电路图如下：&lt;/p&gt;
 &lt;p&gt;&lt;a href="/images2/2016/ikea_led.png"&gt;&lt;img src="/images2/2016/ikea_led.png" width="500" /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;其中R1用于设定LED工作电流，公式为$I_{\rm LED} = \frac{0.1}{R_1}$. 电位器R2用于调光，从几百欧到几十kΩ的都可以用，这里用了拨轮式的音量电位器，好处是阻值按指数变化，这样LED亮度也按指数变化，会感觉实际亮度变化比较自然。&lt;/p&gt;
+&lt;p&gt;其中R1用于设定LED工作电流，公式为&lt;span class="math"&gt;\(I_{\rm LED} = \frac{0.1}{R_1}\)&lt;/span&gt;. 电位器R2用于调光，从几百欧到几十kΩ的都可以用，这里用了拨轮式的音量电位器，好处是阻值按指数变化，这样LED亮度也按指数变化，会感觉实际亮度变化比较自然。&lt;/p&gt;
 &lt;p&gt;LDO XC6206用于给PT4115的调光脚供电，用输出2.5V或3.3V的LDO都行。PT4115允许的输入电压范围是6~30V，但注意XC6206的输入电压最高只能到7V，因此只能用6~7V的电源供电。如果需要用更高输入电压的电源，可以把XC6206换成HT7133、MIC5207之类。&lt;/p&gt;
-&lt;p&gt;电感L1用几十uH的功率电感就可以，注意饱和电流要大于1A。&lt;/p&gt;</summary></entry><entry><title>利用Makefile实现avr-size -C的效果</title><link href="http://st.avros.net/articles/makefile_size.html" rel="alternate"></link><updated>2016-01-03T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2016-01-03:articles/makefile_size.html</id><summary type="html">&lt;p&gt;GNU工具链里的size大家应该都用过, 它可以显示elf/obj/exe/dll等可执行文件里各个段的大小, 非常方便. 加-A和-B参数分别是按sysv和berkeley格式显示, 默认带-B参数.&lt;/p&gt;
+&lt;p&gt;电感L1用几十uH的功率电感就可以，注意饱和电流要大于1A。&lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+    
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' &amp;&amp; location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript'; 
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</summary></entry><entry><title>利用Makefile实现avr-size -C的效果</title><link href="http://st.avros.net/articles/makefile_size.html" rel="alternate"></link><updated>2016-01-03T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2016-01-03:articles/makefile_size.html</id><summary type="html">&lt;p&gt;GNU工具链里的size大家应该都用过, 它可以显示elf/obj/exe/dll等可执行文件里各个段的大小, 非常方便. 加-A和-B参数分别是按sysv和berkeley格式显示, 默认带-B参数.&lt;/p&gt;
 &lt;p&gt;avr-gcc里的avr-size则又增加了一个-C的选项, 可以显示单片机flash和ram的占用比例, 需要同时用--mcu参数指定avr单片机的型号, 效果是这样的:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;avr-size -C --mcu=attiny26 main.elf
 AVR Memory Usage

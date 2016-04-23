@@ -60,8 +60,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="http://st.avros.net/articles/ikea_led.html"><h1>修复宜家LED灯一则</h1></a>
-2016-03-16
+            <a href="http://st.avros.net/articles/50m_fm_tx_bh1417.html"><h1>试了一下BH1417用于6米波段发射</h1></a>
+2016-04-14
 
 by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
  
@@ -70,16 +70,35 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
  
         </div>
         
-        <div><p>宜家买的LED灯不亮了。把线剪断，两边分别一测，发现LED是好的，电源适配器无输出，只得再给它做个驱动。</p>
-<p>LED需要恒流驱动，直接接个恒压输出的适配器上去是不行的，要么不亮，要么烧坏。串个电阻行不行呢？行是行，不过电阻会很热。这个LED灯是3W的，工作电流1A，接到5V电源上就需要串联2欧的电阻，电阻的发热量达到2W。这么做显然太不优雅。</p>
-<p>幸好手里还有若干LED驱动IC：华润的PT4115，用它可以顺便把调光功能也加上。画了个电路图如下：</p>
-<p><a href="/images2/2016/ikea_led.png"><img src="/images2/2016/ikea_led.png" width="500" /></a></p>
-<p>其中R1用于设定LED工作电流，公式为$I_{\rm LED} = \frac{0.1}{R_1}$. 电位器R2用于调光，从几百欧到几十kΩ的都可以用，这里用了拨轮式的音量电位器，好处是阻值按指数变化，这样LED亮度也按指数变化，会感觉实际亮度变化比较自然。</p>
-<p>LDO XC6206用于给PT4115的调光脚供电，用输出2.5V或3.3V的LDO都行。PT4115允许的输入电压范围是6~30V，但注意XC6206的输入电压最高只能到7V，因此只能用6~7V的电源供电。如果需要用更高输入电压的电源，可以把XC6206换成HT7133、MIC5207之类。</p>
-<p>电感L1用几十uH的功率电感就可以，注意饱和电流要大于1A。</p></div>
+        <div><p>BH1417是WFM发射IC, 以0.2MHz为间隔, 在87.7~88.9MHz和106.7~107.9MHz频段各有7个频点. 频率基准是7.6MHz的晶振, 先4分频得到1.9MHz, 然后一路50分频得38kHz作为立体声副载波, 另一路19分频得到100kHz给PLL作为参考. 如果把7.6M晶振换成3.579M, 则106.7~107.9MHz这7个频点就变成了50.255~50.820MHz, 全都落在6米业余波段以内.</p>
+<p>试着搭了一块板, 果然可以工作, 用VX-7R在7个频点都能准确地收到信号. 但是前级增益低了就几乎没声, 前级增益高了又全是噪声; 如果把VX-7R强行设置成WFM模式, 则一切正常. 估计是BH1417的前端预加重/限幅模块过于强大了.</p>
+<p>6米好玩, 等北京的6米解禁了要好好搞搞.</p></div>
         <hr />
     </div>
 		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://st.avros.net/articles/ikea_led.html"><h2>修复宜家LED灯一则</h2></a>
+        <div class= "well small"> 2016-03-16
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>宜家买的LED灯不亮了。把线剪断，两边分别一测，发现LED是好的，电源适配器无输出，只得再给它做个驱动。</p>
+<p>LED需要恒流驱动，直接接个恒压输出的适配器上去是不行的，要么不亮，要么烧坏。串个电阻行不行呢？行是行，不过电阻会很热。这个LED灯是3W的，工作电流1A，接到5V电源上就需要串联2欧的电阻，电阻的发热量达到2W。这么做显然太不优雅。</p>
+<p>幸好手里还有若干LED驱动IC：华润的PT4115，用它可以顺便把调光功能也加上。画了个电路图如下：</p>
+<p><a href="/images2/2016/ikea_led.png"><img src="/images2/2016/ikea_led.png" width="500" /></a></p>
+<p>其中R1用于设定LED工作电流，公式为<span class="math">\(I_{\rm LED} = \frac{0.1}{R_1}\)</span>. 电位器R2用于调光，从几百欧到几十kΩ的都可以用，这里用了拨轮式的音量电位器，好处是阻值按指数变化，这样LED亮度也按指数变化，会感觉实际亮度变化比较自然。</p>
+<p>LDO XC6206用于给PT4115的调光脚供电，用输出2.5V或3.3V的LDO都行。PT4115允许的输入电压范围是6~30V，但注意XC6206的输入电压最高只能到7V，因此只能用6~7V的电源供电。如果需要用更高输入电压的电源，可以把XC6206换成HT7133、MIC5207之类 ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/ikea_led.html">read more</a></div>
+    </div>	
+				
 
  
         
@@ -176,7 +195,7 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <li>Philips的Datasheet </li>
 <li>Texas Instruments的Application Report SCHA003B: CMOS Phase-Locked-Loop Applications Using the CD54/74HC/HCT4046A and CD54/74HC/HCT7046A     </li>
 </ol>
-<p>根据Philips的datasheet, 取$R_1$ = 10k, $R_2$ = 10k, $C$ = 500p, $V_\rm{CC}$ = 5.0V ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/hc4046_calc.html">read more</a></div>
+<p>根据Philips的datasheet, 取<span class="math">\(R_1\)</span> = 10k, <span class="math">\(R_2\)</span> = 10k, <span class="math">\(C\)</span> = 500p, <span class="math">\(V_\rm{CC}\)</span> = 5.0V ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/hc4046_calc.html">read more</a></div>
     </div>	
 				
 
@@ -229,9 +248,9 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <p>答：先说结论，手机没有电了确实会减轻。</p>
 <p>但这不是 “电” 的重量，应该说是 “电能” 的重量。能量和重量是统一的。</p>
 <p>减轻了多少呢？可以算一下：</p>
-<p>假设手机电池标称电压是$3.7\mathrm V$，容量是$1800\mathrm{mAh}$，则它能储存的能量是$3.7\mathrm V\times1800\mathrm{mA}\times3600\mathrm s = 23976\mathrm J$.</p>
-<p>根据$E=mc^2$，可得</p>
-<p>$$\Delta m=\frac{\Delta E}{c^2} = \frac ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/electric_mass.html">read more</a></div>
+<p>假设手机电池标称电压是<span class="math">\(3.7\mathrm V\)</span>，容量是<span class="math">\(1800\mathrm{mAh}\)</span>，则它能储存的能量是<span class="math">\(3.7\mathrm V\times1800\mathrm{mA}\times3600\mathrm s = 23976\mathrm J\)</span>.</p>
+<p>根据<span class="math">\(E=mc^2\)</span>，可得</p>
+<div class="math">$$\Delta m=\frac{\Delta E}{c^2} = \frac ...</div> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/electric_mass.html">read more</a></div>
     </div>	
 				
 
@@ -249,7 +268,8 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 
 
  </div>
-        <div class="summary"><p>常用的板翅式散热器，其有效散热面积为：$$散热面积=(翅片高度\times2\times翅片数量+基板宽度)\times截断长度$$</p>
+        <div class="summary"><p>常用的板翅式散热器，其有效散热面积为：</p>
+<div class="math">$$散热面积=(翅片高度\times2\times翅片数量+基板宽度)\times截断长度$$</div>
 <p>有效散热面积和热阻的关系：</p>
 <table>
 <thead>
@@ -281,8 +301,8 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 </tr>
 </tbody>
 </table>
-<p>简单拟合得:$R_\mathrm{sa}=23.3A^{-0.39}$。</p>
-<p>总热阻$R_\mathrm{tot}=R_\mathrm{sa}+R_\mathrm{cs}+R_ ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/heatsink_calc.html">read more</a></div>
+<p>简单拟合得:<span class="math">\(R_\mathrm{sa}=23.3A^{-0.39}\)</span>。</p>
+<p>总热阻<span class="math">\(R_\mathrm{tot}=R_\mathrm{sa}+R_\mathrm{cs}+R_ ...</span></p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/heatsink_calc.html">read more</a></div>
     </div>	
 				
 
@@ -302,35 +322,7 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
  </div>
         <div class="summary"><p>知乎上一哥们提了个问题：3.7V 电压，1.2A 电流，用钨丝绕成螺旋式弹簧丝，工作温度在 1200 摄氏度左右，怎么计算出来需要用多大直径的钨丝？链接：<a href="http://www.zhihu.com/question/33791069/answer/57434994">http://www.zhihu.com/question/33791069/answer/57434994</a></p>
 <p>以下是我的回答：</p>
-<p>斯特凡－玻尔兹曼定律：$j^<em>=\epsilon\sigma T^4$，其中$j^</em>$为辐射通量，$\sigma$为斯特凡－玻尔兹曼常数，值为$5.67\times 10^{-8}\rm{J \cdot s}^{-1}\cdot\rm m^{-2 ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/tungsten.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/cute_power_v2.html"><h2>迷你智能电源</h2></a>
-        <div class= "well small"> 2015-07-14
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>做了个简单的小电源，用一节18650供电，可以输出1.26V、1.8V、2.5V、2.85V、3.3V、5.0V和6.0V，共7种电压，可以通过USB给18650充电，如图：</p>
-<p><a href="/images2/2015/cute_power_v2.jpg" title="实物图"><img src="/images2/2015/cute_power_v2.jpg" width="480px" /></a></p>
-<p>原理图：</p>
-<p><a href="/images2/2015/cute_power_v2.png" title="原理图"><img src="/images2/2015/cute_power_v2.png" width="480px" /></a></p>
-<p>充电使用TP4056，充电电流为1200/1.5k = 800mA。LM3478接成SEPIC电路，既能升压也能降压。单片机ATtiny13输出一路PWM信号，经滤波后控制LM3478的反馈端，从而控制输出电压。三只LED用于指示输出电压。</p>
-<p>源程序：</p>
-<div class="highlight"><pre><span class="cp">#include</span> <span class="cpf">&lt;avr/io.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;avr/interrupt.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;util/delay.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;avr/sleep.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&quot;misc.h ...</span></pre></div> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/cute_power_v2.html">read more</a></div>
+<p>斯特凡－玻尔兹曼定律：<span class="math">\(j^*=\epsilon\sigma T^4\)</span>，其中<span class="math">\(j^*\)</span>为辐射通量，<span class="math">\(\sigma\)</span>为斯特凡－玻尔兹曼常数，值为<span class="math">\(5.67\times 10^{-8}\rm{J \cdot s}^{-1}\cdot\rm m^{-2 ...</span></p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/tungsten.html">read more</a></div>
     </div>	
 				
 <div class="pagination">

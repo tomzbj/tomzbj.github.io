@@ -60,6 +60,71 @@
  
 
     <div class='article'>
+        <a href="http://st.avros.net/articles/ne555_boost.html"><h2>又试了一下用NE555做boost</h2></a>
+        <div class= "well small"> 2010-04-13
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>555搭成多谐振荡器推动MOSFET，用C1815当作比较器，输入5V，输出6.3V左右，试着点了几个电子管的灯丝。
+结果如下：</p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th>输出电压(V)</th>
+<th>标称电流(A)</th>
+<th>输出电流(A)</th>
+<th>输入电流(A)</th>
+<th align="right">效率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">空载</td>
+<td>6.76</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td align="right">-</td>
+</tr>
+<tr>
+<td align="left">6U1</td>
+<td>6.20</td>
+<td>0.30</td>
+<td>0.32</td>
+<td>0.46</td>
+<td align="right">86%</td>
+</tr>
+<tr>
+<td align="left">6N2</td>
+<td>6.19</td>
+<td>0.34</td>
+<td>0.33</td>
+<td>0.48</td>
+<td align="right">85%</td>
+</tr>
+<tr>
+<td align="left">6F2</td>
+<td>6.17</td>
+<td>0.45</td>
+<td>0.43</td>
+<td>0.61</td>
+<td align="right">87%</td>
+</tr>
+<tr>
+<td align="left">6P1 ...</td></tr></tbody></table> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/ne555_boost.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://st.avros.net/articles/usb18b20.html"><h2>USB温度计</h2></a>
         <div class= "well small"> 2010-04-07
 
@@ -283,43 +348,6 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <p>用MAX1771轻易实现单节18650升压输出5V 1A,  估计有输出5V 2A的潜力. Maxim的东西到底靠谱.</p>
 <p>LM2577搭flyback实现单节14500锂电升压输出60V,  输出6-13mA时效率大约在50%上下, 一般般吧. 同时线性降压输出1.2V.</p>
 <p>BL8530、PT1301等从1AA升到5V有点力不从心, 感觉还是从1AA升到2.5V/3.3V,  从2AA或单锂电升到5V比较合适.</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/step_up_expr_2.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/step_up_expr.html"><h2>最近试验各种升压电路的一些结果</h2></a>
-        <div class= "well small"> 2009-05-10
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><ol>
-<li>
-<p>MC34063:
-    限制最高升到40V, 实际试验可以升到60V左右. 外接2N5551大约能升至85V (输入电压12V), 只能输出10mA左右的电流. 由于占空比的限制, 很难升到更高了.</p>
-</li>
-<li>
-<p>NE555+IRFR420:
-    输入12V, 输出空载时可升到220V以上, 但接上负载后输出电压就急剧跌落. 用220V 5W灯泡作负载时, 大约能输出110V左右; 将输入电压提高到24V时能得到输出160V 30mA的结果, 效率50%左右.</p>
-</li>
-<li>
-<p>UC3843+IRF740:
-    与NE555+IRFR420的结果基本相同, 输出稍硬一些.</p>
-</li>
-<li>
-<p>级联UC3843 boost:
-    前级将18V升压至55V, 后级从55V升压至约210V. 用5W灯泡能稳定输出210V, 加大负载后电压跌落, 最好成绩是将输入电压提高到24V后, 输出150V/90mA, 不过效率只有大概56%.</p>
-</li>
-</ol>
-<p>总结: 似乎使用简单的boost很难做到输出200V/100mA以上, 还是得用反激、半桥或者全桥变换器才行。下一步先用MC34063接成反激式，用一个小磁环试试看，如果好用再换LM2577+E字磁芯。</p>
-<p>ps, 用LM2596接成inverter时，启动瞬间需要4.5A的电流，所以延迟启动一定不能省，并且需要较大的输入电容 ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/step_up_expr.html">read more</a></div>
     </div>	
 				
 <div class="pagination">

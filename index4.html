@@ -60,6 +60,30 @@
  
 
     <div class='article'>
+        <a href="http://st.avros.net/articles/usb_dac_tube.html"><h2>USB电子管声卡</h2></a>
+        <div class= "well small"> 2013-05-23
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>这次是PCM2702+NE5534+2P2的组合——以USB的供电能力最多只能带动2P2了. </p>
+<p><a href="/images/usb_dac_tube.jpg" title="电路图"><img src="/images/usb_dac_tube.jpg" width="500px" /></a></p>
+<p>相当小巧, PCB面积比公交卡还小, 不过输出变压器没包括在内. </p>
+<p>电路图如下, PCM2702输出的音频信号由NE5534反相放大后推动2P2. </p>
+<p><a href="/images/usb_dac_tube.png" title="电路图"><img src="/images/usb_dac_tube.png" width="500px" /></a></p>
+<p>主要的麻烦是供电, 一只2P2需要60V屏压、1.2或2.4V灯丝、-3.5V栅偏压. 60V高压用LM2577升压得到; 这里用灯丝串联电阻R14上的压降来代替栅偏压, 于是可以省下一组供电. 此外NE5534的最高供电电压是±22V, 这里给它提供了一路30V电压. 这块小板子上供电占了大概1/3的面积. </p>
+<p>效果么...... 只能说还凑合吧, 主要是音量太小了, 2P2的输出功率只有100mW. 下次试试两只2P2推挽的效果吧. </p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/usb_dac_tube.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://st.avros.net/articles/636_recv.html"><h2>636收音机</h2></a>
         <div class= "well small"> 2013-04-22
 
@@ -288,71 +312,6 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <blockquote>
 <p>如果不服, 可以再次比试. 你在北大找5个学生, 组成一个小组. 用m16加一片lm324, 设计一个读取sd卡上wave文件, 并播放的wave播放器, 看谁做的好. 给你们一个月的时间, 下个学期开学我到北大找你, 比试实物效果. </p>
 </blockquote> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/water_lights.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/ne555_boost.html"><h2>又试了一下用NE555做boost</h2></a>
-        <div class= "well small"> 2010-04-13
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>555搭成多谐振荡器推动MOSFET，用C1815当作比较器，输入5V，输出6.3V左右，试着点了几个电子管的灯丝。
-结果如下：</p>
-<table>
-<thead>
-<tr>
-<th align="left"></th>
-<th>输出电压(V)</th>
-<th>标称电流(A)</th>
-<th>输出电流(A)</th>
-<th>输入电流(A)</th>
-<th align="right">效率</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">空载</td>
-<td>6.76</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td align="right">-</td>
-</tr>
-<tr>
-<td align="left">6U1</td>
-<td>6.20</td>
-<td>0.30</td>
-<td>0.32</td>
-<td>0.46</td>
-<td align="right">86%</td>
-</tr>
-<tr>
-<td align="left">6N2</td>
-<td>6.19</td>
-<td>0.34</td>
-<td>0.33</td>
-<td>0.48</td>
-<td align="right">85%</td>
-</tr>
-<tr>
-<td align="left">6F2</td>
-<td>6.17</td>
-<td>0.45</td>
-<td>0.43</td>
-<td>0.61</td>
-<td align="right">87%</td>
-</tr>
-<tr>
-<td align="left">6P1 ...</td></tr></tbody></table> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/ne555_boost.html">read more</a></div>
     </div>	
 				
 <div class="pagination">
