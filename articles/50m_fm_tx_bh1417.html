@@ -55,8 +55,8 @@
         <div class="span9">
     <div class='article'>
         <div class="content-title">
-            <h1>利用Makefile实现avr-size -C的效果</h1>
-2016-01-03
+            <h1>试了一下BH1417用于6米波段发射</h1>
+2016-04-14
 
 by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
  
@@ -64,42 +64,9 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 
         </div>
 	
-        <div><p>GNU工具链里的size大家应该都用过, 它可以显示elf/obj/exe/dll等可执行文件里各个段的大小, 非常方便. 加-A和-B参数分别是按sysv和berkeley格式显示, 默认带-B参数.</p>
-<p>avr-gcc里的avr-size则又增加了一个-C的选项, 可以显示单片机flash和ram的占用比例, 需要同时用--mcu参数指定avr单片机的型号, 效果是这样的:</p>
-<div class="highlight"><pre><span></span>avr-size -C --mcu=attiny26 main.elf
-AVR Memory Usage
-----------------
-Device: attiny26
-
-Program:    1316 bytes (64.3% Full)
-(.text + .data + .bootloader)
-
-Data:         23 bytes (18.0% Full)
-(.data + .bss + .noinit)
-</pre></div>
-
-
-<p>是不是很方便? 可惜arm-gcc里的size并没有这个选项, 于是从avr转到stm32之后, 常常会感觉到不方便.</p>
-<p>后来发现, 只要在Makefile里all目标后面加上几行, 也能达到同样目的. 需要你的工具链里有sed和bc, sed用来从size的结果里截取包含数据的第二行, bc则用来作浮点运算.</p>
-<div class="highlight"><pre><span></span>        @arr=(`$(TRGT)size $(PROJECT)_rom.elf | sed -n &#39;2p&#39;`); \
-        let flash=($${arr[0]}+$${arr[1]}); \
-        let mem=($${arr[1]}+$${arr[2]}); \
-        let flash_size=$(subst K,,$(FLASH_SIZE))*1024; \
-        let mem_size=$(subst K,,$(MEM_SIZE))*1024; \
-        flash_usage=`echo &quot;scale=1;($$flash*100/$$flash_size)&quot; | bc`; \
-        mem_usage=`echo &quot;scale=1;($$mem*100/$$mem_size)&quot; | bc`; \
-        echo &quot;Flash: $$flash / $$flash_size bytes, $$flash_usage% Full (.text + .data)&quot;; \
-        echo &quot;SRAM:  $$mem / $$mem_size bytes, $$mem_usage% Full (.data + .bss)&quot;
-</pre></div>
-
-
-<p>效果如下:</p>
-<div class="highlight"><pre><span></span>arm-none-eabi-size main_rom.elf
-   text    data     bss     dec     hex filename
-  34928    2212    5316   42456    a5d8 main_rom.elf
-Flash: 37140 / 65536 bytes, 56.6% Full (.text + .data)
-SRAM:  7528 / 8192 bytes, 91.8% Full (.data + .bss)
-</pre></div></div>
+        <div><p>BH1417是WFM发射IC, 以0.2MHz为间隔, 在87.7~88.9MHz和106.7~107.9MHz频段各有7个频点. 频率基准是7.6MHz的晶振, 先4分频得到1.9MHz, 然后一路50分频得38kHz作为立体声副载波, 另一路19分频得到100kHz给PLL作为参考. 如果把7.6M晶振换成3.579M, 则106.7~107.9MHz这7个频点就变成了50.255~50.820MHz, 全都落在6米业余波段以内.</p>
+<p>试着搭了一块板, 果然可以工作, 用VX-7R在7个频点都能准确地收到信号. 但是前级增益低了就几乎没声, 前级增益高了又全是噪声; 如果把VX-7R强行设置成WFM模式, 则一切正常. 估计是BH1417的前端预加重/限幅模块过于强大了.</p>
+<p>6米好玩, 等北京的6米解禁了要好好搞搞.</p></div>
 	
         <hr>
 

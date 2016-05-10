@@ -71,14 +71,14 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <p>使用objcopy把字库转成目标文件(.o/.obj)</p>
 <p>假设我们需要嵌入的是5x7的ascii点阵字库, 文件名是asc5x7.bin.</p>
 <p>在arm-gcc环境下, 命令如下:</p>
-<div class="highlight"><pre>arm-none-eabi-objcopy -B arm -I binary -O elf32-littlearm --rename-section .data=.rodata asc5x7.bin asc5x7.o
+<div class="highlight"><pre><span></span>arm-none-eabi-objcopy -B arm -I binary -O elf32-littlearm --rename-section .data=.rodata asc5x7.bin asc5x7.o
 </pre></div>
 
 
 <p>需要注意的是, objcopy生成的.o文件默认是把数据放在.data段的. 因此这里需要加个--rename-section的选项, 把.data改成.text或者.rodata, 不然单片机可怜的一点点RAM根本不够用. 如果是在PC上运行, 这里改不改就无所谓了, 不过内存还是能省点就省点的好.</p>
 <p>在.o里会生成三个符号: <code>_binary_asc5x7_bin_start, _binary_asc5x7_bin_end, binary_asc5x7_bin_size.</code></p>
 <p>在程序里这么调用:</p>
-<div class="highlight"><pre>extern const int _binary_asc5x7_bin_start;
+<div class="highlight"><pre><span></span>extern const int _binary_asc5x7_bin_start;
 uint8_t *start = (uint8_t *) (&amp;_binary_asc5x7_bin_start);
 </pre></div>
 
@@ -90,7 +90,7 @@ uint8_t *start = (uint8_t *) (&amp;_binary_asc5x7_bin_start);
 <p>直接利用GNU汇编的.incbin功能</p>
 <p>这是minux@bdwm提供的方法, 解决得明显更漂亮一些.</p>
 <p>首先建立一个asc5x7.s的源文件,内容如下:</p>
-<div class="highlight"><pre><span class="na">.section</span> <span class="no">.rodata</span><span class="p">,</span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="err">%</span><span class="no">progbits</span>
+<div class="highlight"><pre><span></span><span class="na">.section</span> <span class="no">.rodata</span><span class="p">,</span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="err">%</span><span class="no">progbits</span>
 <span class="na">.global</span> <span class="no">_binary_asc5x7_bin_start</span><span class="p">,</span> <span class="no">_binary_asc5x7_bin_end</span><span class="p">,</span> <span class="no">_binary_asc5x7_bin_size</span>
 <span class="nl">_binary_asc5x7_bin_start:</span>
 <span class="na">.incbin</span> <span class="s">&quot;asc5x7.bin&quot;</span>
@@ -101,7 +101,7 @@ uint8_t *start = (uint8_t *) (&amp;_binary_asc5x7_bin_start);
 
 <p>其实_binary_asc5x7_bin_size和_binary_asc5x7_bin_end这两个符号不要也可以, 因为字库的存储格式我们事先已经知道了.</p>
 <p>然后建立一个空的.c文件: <code>touch empty.c,  arm-none-eabi-gcc -S empty.c</code>, 这样我们得到了一个empty.s, 内容如下:</p>
-<div class="highlight"><pre> .cpu arm7tdmi-s
+<div class="highlight"><pre><span></span> .cpu arm7tdmi-s
  .fpu softvfp
  .eabi_attribute 20, 1
  .eabi_attribute 21, 1
@@ -118,7 +118,7 @@ uint8_t *start = (uint8_t *) (&amp;_binary_asc5x7_bin_start);
 
 <p>把这些东西复制到之前那个asc5x7.s里, 部分内容可能要按需调整一下, 比如.cpu这里应该改成cortex-m0或者cortex-m3之类. 这样在链接时就不会出现前面那个"Conflicting CPU architectures ...."的报错信息了.</p>
 <p>如果要使用几个字库呢? 可以把它们全都放在一个段里, 但是如果只用到了某一个或几个字库, 也会把它们全都链接进去, 导致最终的可执行文件体积过大. 因此最好是拆成几个段. 假设我们用到了asc5x7.bin, asc12.bin, asc16.bin和asc24.bin, 写出来应该是这样:</p>
-<div class="highlight"><pre><span class="na">.section</span> <span class="no">.rodata.asc5x7</span><span class="p">,</span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="err">%</span><span class="no">progbits</span>
+<div class="highlight"><pre><span></span><span class="na">.section</span> <span class="no">.rodata.asc5x7</span><span class="p">,</span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="err">%</span><span class="no">progbits</span>
 <span class="na">.global</span> <span class="no">_binary_asc5x7_bin_start</span>
 <span class="nl">_binary_asc5x7_bin_start:</span>
 <span class="na">.incbin</span> <span class="s">&quot;asc5x7.bin&quot;</span>
@@ -141,7 +141,7 @@ uint8_t *start = (uint8_t *) (&amp;_binary_asc5x7_bin_start);
 
 
 <p>然后Makefile里需要增加几个参数, 假如之前没有的话.</p>
-<div class="highlight"><pre>CFLAGS += -ffunction-sections --data-sections,
+<div class="highlight"><pre><span></span>CFLAGS += -ffunction-sections --data-sections,
 LDFLAGS += -Wl,--gc-sections
 </pre></div>
 

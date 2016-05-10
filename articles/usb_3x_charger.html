@@ -71,7 +71,7 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <p><a href="/images/usb_3x_charger.png" title="电路图"><img src="/images/usb_3x_charger.png" width="500px" /></a></p>
 <p>单片机供电用了XC6206, 结果一通电, 马上冒烟了... 原来XC6206的供电电压最高只能是5V. 没办法, 先凑和一下, 把单片机的VCC改接到输出的5V上. 下次这里还是得换成AMS1117之类.</p>
 <p>单片机用的是ATMEGA48. 用ADC6来读取LM358的输出电压. 负载指示用的是10位LED光条, 用MEGA48的PD0~PD7再加上PB0, PB1, 够了. 每格表示约0.4A电流, 10格一共4A. 程序很简单, 主要部分:</p>
-<div class="highlight"><pre>while(1) {
+<div class="highlight"><pre><span></span>while(1) {
     u16 data, p;
     float volt, curr;
     u8 i;

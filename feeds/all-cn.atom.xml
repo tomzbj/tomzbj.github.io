@@ -1,7 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>兰湾</title><link href="http://st.avros.net/" rel="alternate"></link><link href="http://st.avros.net//feeds/all-cn.atom.xml" rel="self"></link><id>http://st.avros.net/</id><updated>2016-04-14T00:00:00+08:00</updated><entry><title>试了一下BH1417用于6米波段发射</title><link href="http://st.avros.net/articles/50m_fm_tx_bh1417.html" rel="alternate"></link><updated>2016-04-14T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2016-04-14:articles/50m_fm_tx_bh1417.html</id><summary type="html">&lt;p&gt;BH1417是WFM发射IC, 以0.2MHz为间隔, 在87.7~88.9MHz和106.7~107.9MHz频段各有7个频点. 频率基准是7.6MHz的晶振, 先4分频得到1.9MHz, 然后一路50分频得38kHz作为立体声副载波, 另一路19分频得到100kHz给PLL作为参考. 如果把7.6M晶振换成3.579M, 则106.7~107.9MHz这7个频点就变成了50.255~50.820MHz, 全都落在6米业余波段以内.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>兰湾</title><link href="http://st.avros.net/" rel="alternate"></link><link href="http://st.avros.net//feeds/all-cn.atom.xml" rel="self"></link><id>http://st.avros.net/</id><updated>2016-05-10T00:00:00+08:00</updated><entry><title>拆解旧电子设备若干</title><link href="http://st.avros.net/articles/201605_disasm.html" rel="alternate"></link><published>2016-05-10T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2016-05-10:articles/201605_disasm.html</id><summary type="html">&lt;p&gt;最近从家里清理出一大堆旧电子设备, 都没啥用了, 于是挨个拆开研究研究.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;三星X859&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;2004年上市的翻盖机. 入了C网没办法, 可选的机器太少了, 那会儿只能眼馋别人的诺基亚价廉物美. 这机器搞不清楚内置存储多大, MP3也放不了, 短信只能存100条还是200条. 不要说放在现在, 以10年前的眼光来看也基本是个残废. &lt;/p&gt;
+&lt;p&gt;忘了拍照了, 也没啥好拍的. 除了电池和LCD, 没有别的值得拆卸的元件. LCD还不知道能否驱动起来.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;诺亚舟NH3280&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;电子词典, 没啥特别的. 我奇怪的是, 当年文曲星只不过是6502的配置, 速度还可以; 别家的配置应该更好, 但速度反倒都比文曲星慢, 比如这个诺亚舟. 拆开一看, 里面惨不忍睹, 除了两个黑胶封装的IC以外就没啥东西了. 左边空了几个器件没焊, 猜测是DC-DC升压模块, 用于1节电池的型号, 手上这个用2节电池所以没有用到.&lt;/p&gt;
+&lt;p&gt;&amp;lt;图片&amp;gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;快易典JP209&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;日汉英电子词典. 拆开一看, 东西还不少. 下方中间的黑胶封装应该是ARM7之类, 旁边是LY62L1024RN, 128k的SRAM. 稍远处的空位应该可以扩展另一片LY62L1024RN, 就升级成256k内存了. 右下的K9F5608U0B是三星的32M FLASH, 在当年的电子词典里算豪华配置了. 右上的黑胶封装估计是语音合成芯片. 左上角的几个元件是DC-DC升压, 所以这货只需要一节7号电池就能工作. 总之, 这东西比上面那个档次高多了, 没想到没用几次就花屏了, 之后就一直扔着没动过.&lt;/p&gt;
+&lt;p&gt;&amp;lt;图片&amp;gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;多普达 P800&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;HTC这个逗b... 最早只在幕后做代工, 搞定制机, 贴运营商LOGO. 后来搞了个多普达品牌, 折腾几年有了起色, 突然又放弃了, 扛自家HTC品牌上阵. nb了几年, 现在又是半死不活的状态. 这会儿搞起了VR, 不知道还有没有机会翻身. 这个P800还是挺有意思的, 滚轮+轨迹球的操作方式. &amp;lt;图片&amp;gt; 内置钢防滚架, 够结实, 毕竟是当年的旗舰机型. &amp;lt;图片&amp;gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;RD-108充电器&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;劣质5号/7号充电器. 里面简单得一塌糊涂, 一个小变压器, 一个拨动开关用于选择充/放电, 俩二极管, 三个LED, 四个电阻, 没了. 感觉极其不靠谱. &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;任e行MX200行车记录仪&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;除了便宜没啥特别的. STK1262B的配置, 一站式配齐, 片内集成了摄像头/SD卡/SDRAM/FLASH/USB/TFT液晶屏的接口, 还有锂电池充放电管理. 一片PMS306416B, 8MB SDRAM. 一片1M容量的FLASH: EN25F80用来存固件. 拆出来TFT: TXDT200LER-31V2一个, 锂电池一块, 也许可以废物利用一下.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;惟帆通讯KM300A型ADSL猫&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;多年前某次办宽带送的. 现在都是光纤了, 这东西也就成了废物. &lt;/p&gt;
+&lt;p&gt;&amp;lt;图片&amp;gt;&lt;/p&gt;
+&lt;p&gt;RTL8671 + RTL8271的配置, 一片8M的SDRAM, M12L64164A, 一片2M的FLASH: EN29LV160A用来存固件. 供电部分用了两片34063, 感觉似乎网络设备特别喜欢用34063?&lt;/p&gt;</summary></entry><entry><title>试了一下BH1417用于6米波段发射</title><link href="http://st.avros.net/articles/50m_fm_tx_bh1417.html" rel="alternate"></link><published>2016-04-14T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2016-04-14:articles/50m_fm_tx_bh1417.html</id><summary type="html">&lt;p&gt;BH1417是WFM发射IC, 以0.2MHz为间隔, 在87.7~88.9MHz和106.7~107.9MHz频段各有7个频点. 频率基准是7.6MHz的晶振, 先4分频得到1.9MHz, 然后一路50分频得38kHz作为立体声副载波, 另一路19分频得到100kHz给PLL作为参考. 如果把7.6M晶振换成3.579M, 则106.7~107.9MHz这7个频点就变成了50.255~50.820MHz, 全都落在6米业余波段以内.&lt;/p&gt;
 &lt;p&gt;试着搭了一块板, 果然可以工作, 用VX-7R在7个频点都能准确地收到信号. 但是前级增益低了就几乎没声, 前级增益高了又全是噪声; 如果把VX-7R强行设置成WFM模式, 则一切正常. 估计是BH1417的前端预加重/限幅模块过于强大了.&lt;/p&gt;
-&lt;p&gt;6米好玩, 等北京的6米解禁了要好好搞搞.&lt;/p&gt;</summary></entry><entry><title>修复宜家LED灯一则</title><link href="http://st.avros.net/articles/ikea_led.html" rel="alternate"></link><updated>2016-03-16T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2016-03-16:articles/ikea_led.html</id><summary type="html">&lt;p&gt;宜家买的LED灯不亮了。把线剪断，两边分别一测，发现LED是好的，电源适配器无输出，只得再给它做个驱动。&lt;/p&gt;
+&lt;p&gt;6米好玩, 等北京的6米解禁了要好好搞搞.&lt;/p&gt;</summary></entry><entry><title>修复宜家LED灯一则</title><link href="http://st.avros.net/articles/ikea_led.html" rel="alternate"></link><published>2016-03-16T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2016-03-16:articles/ikea_led.html</id><summary type="html">&lt;p&gt;宜家买的LED灯不亮了。把线剪断，两边分别一测，发现LED是好的，电源适配器无输出，只得再给它做个驱动。&lt;/p&gt;
 &lt;p&gt;LED需要恒流驱动，直接接个恒压输出的适配器上去是不行的，要么不亮，要么烧坏。串个电阻行不行呢？行是行，不过电阻会很热。这个LED灯是3W的，工作电流1A，接到5V电源上就需要串联2欧的电阻，电阻的发热量达到2W。这么做显然太不优雅。&lt;/p&gt;
 &lt;p&gt;幸好手里还有若干LED驱动IC：华润的PT4115，用它可以顺便把调光功能也加上。画了个电路图如下：&lt;/p&gt;
 &lt;p&gt;&lt;a href="/images2/2016/ikea_led.png"&gt;&lt;img src="/images2/2016/ikea_led.png" width="500" /&gt;&lt;/a&gt;&lt;/p&gt;
@@ -63,9 +96,9 @@
         "}";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</summary></entry><entry><title>利用Makefile实现avr-size -C的效果</title><link href="http://st.avros.net/articles/makefile_size.html" rel="alternate"></link><updated>2016-01-03T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2016-01-03:articles/makefile_size.html</id><summary type="html">&lt;p&gt;GNU工具链里的size大家应该都用过, 它可以显示elf/obj/exe/dll等可执行文件里各个段的大小, 非常方便. 加-A和-B参数分别是按sysv和berkeley格式显示, 默认带-B参数.&lt;/p&gt;
+&lt;/script&gt;</summary></entry><entry><title>利用Makefile实现avr-size -C的效果</title><link href="http://st.avros.net/articles/makefile_size.html" rel="alternate"></link><published>2016-01-03T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2016-01-03:articles/makefile_size.html</id><summary type="html">&lt;p&gt;GNU工具链里的size大家应该都用过, 它可以显示elf/obj/exe/dll等可执行文件里各个段的大小, 非常方便. 加-A和-B参数分别是按sysv和berkeley格式显示, 默认带-B参数.&lt;/p&gt;
 &lt;p&gt;avr-gcc里的avr-size则又增加了一个-C的选项, 可以显示单片机flash和ram的占用比例, 需要同时用--mcu参数指定avr单片机的型号, 效果是这样的:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;avr-size -C --mcu=attiny26 main.elf
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;avr-size -C --mcu=attiny26 main.elf
 AVR Memory Usage
 ----------------
 Device: attiny26
@@ -80,7 +113,7 @@ Data:         23 bytes (18.0% Full)
 
 &lt;p&gt;是不是很方便? 可惜arm-gcc里的size并没有这个选项, 于是从avr转到stm32之后, 常常会感觉到不方便.&lt;/p&gt;
 &lt;p&gt;后来发现, 只要在Makefile里all目标后面加上几行, 也能达到同样目的. 需要你的工具链里有sed和bc, sed用来从size的结果里截取包含数据的第二行, bc则用来作浮点运算.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;        @arr=(`$(TRGT)size $(PROJECT)_rom.elf | sed -n &amp;#39;2p&amp;#39;`); \
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;        @arr=(`$(TRGT)size $(PROJECT)_rom.elf | sed -n &amp;#39;2p&amp;#39;`); \
         let flash=($${arr[0]}+$${arr[1]}); \
         let mem=($${arr[1]}+$${arr[2]}); \
         let flash_size=$(subst K,,$(FLASH_SIZE))*1024; \
@@ -93,16 +126,16 @@ Data:         23 bytes (18.0% Full)
 
 
 &lt;p&gt;效果如下:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;arm-none-eabi-size main_rom.elf
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;arm-none-eabi-size main_rom.elf
    text    data     bss     dec     hex filename
   34928    2212    5316   42456    a5d8 main_rom.elf
 Flash: 37140 / 65536 bytes, 56.6% Full (.text + .data)
 SRAM:  7528 / 8192 bytes, 91.8% Full (.data + .bss)
-&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>74HC4046实验(2)</title><link href="http://st.avros.net/articles/hc4046_expr.html" rel="alternate"></link><updated>2015-10-09T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2015-10-09:articles/hc4046_expr.html</id><summary type="html">&lt;p&gt;在前几天复习HC4046计算的基础上又试了一下, 用atmega48的timer0将16M主时钟先256预分频再125分频, Toggle模式, 得到250Hz 50%占空比的方波作为参考频率; HC4046的VCO输出接到atmega48的T1口, 用timer1作为÷N分频器. &lt;/p&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>74HC4046实验(2)</title><link href="http://st.avros.net/articles/hc4046_expr.html" rel="alternate"></link><published>2015-10-09T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2015-10-09:articles/hc4046_expr.html</id><summary type="html">&lt;p&gt;在前几天复习HC4046计算的基础上又试了一下, 用atmega48的timer0将16M主时钟先256预分频再125分频, Toggle模式, 得到250Hz 50%占空比的方波作为参考频率; HC4046的VCO输出接到atmega48的T1口, 用timer1作为÷N分频器. &lt;/p&gt;
 &lt;p&gt;实测各种RC参数, 用HC4046的鉴相器2可以锁定在60kHz~165kHz, 800kHz~2.4MHz, 差不多有三倍的频率覆盖率, 给各种简单接收机做个本振应该是够了. 用鉴相器1只能锁定在120kHz~165kHz, 不过输出波形似乎稍微干净些.&lt;/p&gt;
-&lt;p&gt;有空再试试用DDS输出作为HC4046的参考频率. 这里DDS的频率不用很高, 在AVR的定时器中断里更新相位累加字就可以了. 这样应该就能做到1Hz级别的精密步进了.&lt;/p&gt;</summary></entry><entry><title>在STM32F051上重新实现了SD卡WAVE播放器</title><link href="http://st.avros.net/articles/stm32_sd_waveplayer.html" rel="alternate"></link><updated>2015-10-09T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2015-10-09:articles/stm32_sd_waveplayer.html</id><summary type="html">&lt;p&gt;前几年试过用AVR来播放sd卡上的wave文件. (链接: &lt;a href="http://st.avros.net/articles/avr_sd_waveplayer_2.html"&gt;http://st.avros.net/articles/avr_sd_waveplayer_2.html&lt;/a&gt;) 这次改用stm32f051试了一遍, 28.224M晶振, 1.5倍频到42.336M, 这样48kHz和44.1kHz都可以按准确的比特率播放了.&lt;/p&gt;
+&lt;p&gt;有空再试试用DDS输出作为HC4046的参考频率. 这里DDS的频率不用很高, 在AVR的定时器中断里更新相位累加字就可以了. 这样应该就能做到1Hz级别的精密步进了.&lt;/p&gt;</summary></entry><entry><title>在STM32F051上重新实现了SD卡WAVE播放器</title><link href="http://st.avros.net/articles/stm32_sd_waveplayer.html" rel="alternate"></link><published>2015-10-09T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2015-10-09:articles/stm32_sd_waveplayer.html</id><summary type="html">&lt;p&gt;前几年试过用AVR来播放sd卡上的wave文件. (链接: &lt;a href="http://st.avros.net/articles/avr_sd_waveplayer_2.html"&gt;http://st.avros.net/articles/avr_sd_waveplayer_2.html&lt;/a&gt;) 这次改用stm32f051试了一遍, 28.224M晶振, 1.5倍频到42.336M, 这样48kHz和44.1kHz都可以按准确的比特率播放了.&lt;/p&gt;
 &lt;p&gt;DAC用的是PT8211, 软件方式写I2S数据, 结果还是有爆音. 大概I2S对时序要求比较严格, 有空了改成硬件I2S再试试. &lt;/p&gt;
-&lt;p&gt;顺便在这块板上试验了几块TFT LCD屏. SPI接口的TFT还是太慢, 清屏等操作时能看清刷屏过程. 并口的好用, 就是布线麻烦了点.&lt;/p&gt;</summary></entry><entry><title>复习74HC4046的相关计算(1)</title><link href="http://st.avros.net/articles/hc4046_calc.html" rel="alternate"></link><updated>2015-09-22T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2015-09-22:articles/hc4046_calc.html</id><summary type="html">&lt;p&gt;前两天没事复习了一下74HC4046的计算. 主要材料: &lt;/p&gt;
+&lt;p&gt;顺便在这块板上试验了几块TFT LCD屏. SPI接口的TFT还是太慢, 清屏等操作时能看清刷屏过程. 并口的好用, 就是布线麻烦了点.&lt;/p&gt;</summary></entry><entry><title>复习74HC4046的相关计算(1)</title><link href="http://st.avros.net/articles/hc4046_calc.html" rel="alternate"></link><published>2015-09-22T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2015-09-22:articles/hc4046_calc.html</id><summary type="html">&lt;p&gt;前两天没事复习了一下74HC4046的计算. 主要材料: &lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;某个在线计算器, 只有VCO的计算. url: &lt;a href="http://www.changpuak.ch/electronics/calc_03.php"&gt;http://www.changpuak.ch/electronics/calc_03.php&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Motorola的AN1410: Configuring and Applying the MC74HC4046A Phase-Locked Loop &lt;/li&gt;
@@ -170,7 +203,7 @@ SRAM:  7528 / 8192 bytes, 91.8% Full (.data + .bss)
         "}";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</summary></entry><entry><title>最近的三个制作：酒酿机、6F22充电器、太阳能充电器</title><link href="http://st.avros.net/articles/fermetnter_6f22_solar.html" rel="alternate"></link><updated>2015-08-15T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2015-08-15:articles/fermetnter_6f22_solar.html</id><summary type="html">&lt;ol&gt;
+&lt;/script&gt;</summary></entry><entry><title>最近的三个制作：酒酿机、6F22充电器、太阳能充电器</title><link href="http://st.avros.net/articles/fermetnter_6f22_solar.html" rel="alternate"></link><published>2015-08-15T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2015-08-15:articles/fermetnter_6f22_solar.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;酒酿机&lt;/p&gt;
 &lt;p&gt;做酒酿(醪醩)需要保持40度左右的温度发酵。正好家里有个最便宜的小熊酸奶机，不带控温功能的，能否用它来改装成酒酿机呢？&lt;/p&gt;
@@ -191,7 +224,7 @@ SRAM:  7528 / 8192 bytes, 91.8% Full (.data + .bss)
 &lt;p&gt;&lt;a href="/images2/2015/solar_charger.png"&gt;&lt;img src="/images2/2015/solar_charger.png" width="480" /&gt;&lt;/a&gt; &lt;/p&gt;
 &lt;p&gt;就是PT1301的基本升压电路，输出电压为5.24V左右，再经过SS34降压后差不多是5V。等太阳能直射到书房了，看看效果如何。&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ol&gt;</summary></entry><entry><title>电有没有重量？</title><link href="http://st.avros.net/articles/electric_mass.html" rel="alternate"></link><updated>2015-08-11T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2015-08-11:articles/electric_mass.html</id><summary type="html">&lt;p&gt;如果手机没有了电，重量会不会减轻？&lt;/p&gt;
+&lt;/ol&gt;</summary></entry><entry><title>电有没有重量？</title><link href="http://st.avros.net/articles/electric_mass.html" rel="alternate"></link><published>2015-08-11T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2015-08-11:articles/electric_mass.html</id><summary type="html">&lt;p&gt;如果手机没有了电，重量会不会减轻？&lt;/p&gt;
 &lt;p&gt;答：先说结论，手机没有电了确实会减轻。&lt;/p&gt;
 &lt;p&gt;但这不是 “电” 的重量，应该说是 “电能” 的重量。能量和重量是统一的。&lt;/p&gt;
 &lt;p&gt;减轻了多少呢？可以算一下：&lt;/p&gt;
@@ -267,7 +300,7 @@ SRAM:  7528 / 8192 bytes, 91.8% Full (.data + .bss)
         "}";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</summary></entry><entry><title>学习了一下散热片的简单估算</title><link href="http://st.avros.net/articles/heatsink_calc.html" rel="alternate"></link><updated>2015-08-09T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2015-08-09:articles/heatsink_calc.html</id><summary type="html">&lt;p&gt;常用的板翅式散热器，其有效散热面积为：&lt;/p&gt;
+&lt;/script&gt;</summary></entry><entry><title>学习了一下散热片的简单估算</title><link href="http://st.avros.net/articles/heatsink_calc.html" rel="alternate"></link><published>2015-08-09T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2015-08-09:articles/heatsink_calc.html</id><summary type="html">&lt;p&gt;常用的板翅式散热器，其有效散热面积为：&lt;/p&gt;
 &lt;div class="math"&gt;$$散热面积=(翅片高度\times2\times翅片数量+基板宽度)\times截断长度$$&lt;/div&gt;
 &lt;p&gt;有效散热面积和热阻的关系：&lt;/p&gt;
 &lt;table&gt;
@@ -369,7 +402,7 @@ SRAM:  7528 / 8192 bytes, 91.8% Full (.data + .bss)
         "}";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</summary></entry><entry><title>如何计算钨丝的直径?</title><link href="http://st.avros.net/articles/tungsten.html" rel="alternate"></link><updated>2015-08-07T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2015-08-07:articles/tungsten.html</id><summary type="html">&lt;p&gt;知乎上一哥们提了个问题：3.7V 电压，1.2A 电流，用钨丝绕成螺旋式弹簧丝，工作温度在 1200 摄氏度左右，怎么计算出来需要用多大直径的钨丝？链接：&lt;a href="http://www.zhihu.com/question/33791069/answer/57434994"&gt;http://www.zhihu.com/question/33791069/answer/57434994&lt;/a&gt;&lt;/p&gt;
+&lt;/script&gt;</summary></entry><entry><title>如何计算钨丝的直径?</title><link href="http://st.avros.net/articles/tungsten.html" rel="alternate"></link><published>2015-08-07T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2015-08-07:articles/tungsten.html</id><summary type="html">&lt;p&gt;知乎上一哥们提了个问题：3.7V 电压，1.2A 电流，用钨丝绕成螺旋式弹簧丝，工作温度在 1200 摄氏度左右，怎么计算出来需要用多大直径的钨丝？链接：&lt;a href="http://www.zhihu.com/question/33791069/answer/57434994"&gt;http://www.zhihu.com/question/33791069/answer/57434994&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;以下是我的回答：&lt;/p&gt;
 &lt;p&gt;斯特凡－玻尔兹曼定律：&lt;span class="math"&gt;\(j^*=\epsilon\sigma T^4\)&lt;/span&gt;，其中&lt;span class="math"&gt;\(j^*\)&lt;/span&gt;为辐射通量，&lt;span class="math"&gt;\(\sigma\)&lt;/span&gt;为斯特凡－玻尔兹曼常数，值为&lt;span class="math"&gt;\(5.67\times 10^{-8}\rm{J \cdot s}^{-1}\cdot\rm m^{-2}\cdot\rm K^{-4}\)&lt;/span&gt;。&lt;span class="math"&gt;\(\epsilon\)&lt;/span&gt;为辐射系数，把钨丝当成黑体，则&lt;span class="math"&gt;\(\epsilon=1\)&lt;/span&gt;。&lt;/p&gt;
 &lt;p&gt;忽略传导和对流，只考虑辐射；把钨丝作为黑体，则&lt;/p&gt;
@@ -441,13 +474,13 @@ SRAM:  7528 / 8192 bytes, 91.8% Full (.data + .bss)
         "}";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</summary></entry><entry><title>迷你智能电源</title><link href="http://st.avros.net/articles/cute_power_v2.html" rel="alternate"></link><updated>2015-07-14T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2015-07-14:articles/cute_power_v2.html</id><summary type="html">&lt;p&gt;做了个简单的小电源，用一节18650供电，可以输出1.26V、1.8V、2.5V、2.85V、3.3V、5.0V和6.0V，共7种电压，可以通过USB给18650充电，如图：&lt;/p&gt;
+&lt;/script&gt;</summary></entry><entry><title>迷你智能电源</title><link href="http://st.avros.net/articles/cute_power_v2.html" rel="alternate"></link><published>2015-07-14T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2015-07-14:articles/cute_power_v2.html</id><summary type="html">&lt;p&gt;做了个简单的小电源，用一节18650供电，可以输出1.26V、1.8V、2.5V、2.85V、3.3V、5.0V和6.0V，共7种电压，可以通过USB给18650充电，如图：&lt;/p&gt;
 &lt;p&gt;&lt;a href="/images2/2015/cute_power_v2.jpg" title="实物图"&gt;&lt;img src="/images2/2015/cute_power_v2.jpg" width="480px" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;原理图：&lt;/p&gt;
 &lt;p&gt;&lt;a href="/images2/2015/cute_power_v2.png" title="原理图"&gt;&lt;img src="/images2/2015/cute_power_v2.png" width="480px" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;充电使用TP4056，充电电流为1200/1.5k = 800mA。LM3478接成SEPIC电路，既能升压也能降压。单片机ATtiny13输出一路PWM信号，经滤波后控制LM3478的反馈端，从而控制输出电压。三只LED用于指示输出电压。&lt;/p&gt;
 &lt;p&gt;源程序：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;avr/io.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;avr/io.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
 &lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;avr/interrupt.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
 &lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;util/delay.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
 &lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;avr/sleep.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
@@ -535,12 +568,12 @@ SRAM:  7528 / 8192 bytes, 91.8% Full (.data + .bss)
     &lt;span class="p"&gt;}&lt;/span&gt;
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>PID控温实验</title><link href="http://st.avros.net/articles/pid_expr.html" rel="alternate"></link><updated>2015-07-13T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2015-07-13:articles/pid_expr.html</id><summary type="html">&lt;p&gt;做了个PID温控器，原理图如下：&lt;/p&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>PID控温实验</title><link href="http://st.avros.net/articles/pid_expr.html" rel="alternate"></link><published>2015-07-13T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2015-07-13:articles/pid_expr.html</id><summary type="html">&lt;p&gt;做了个PID温控器，原理图如下：&lt;/p&gt;
 &lt;p&gt;&lt;a href="/images2/2015/pid_expr.png"&gt;&lt;img src="/images2/2015/pid_expr.png" width="480" /&gt;&lt;/a&gt; &lt;/p&gt;
 &lt;p&gt;电源电压首先流经0.33欧的取样电阻R1，然后给加热器供电。加热器用随便一个TO220封装的N沟道MOS管就行，LM35用来测温。高端电流检测虽然麻烦些，但这样加热器的连线可以更简单，四条线就够了。&lt;/p&gt;
 &lt;p&gt;LM35输出的电压值经Mega48 AD转换后得到温度值。Mega48输出一路PWM经低通滤波后与取样电阻R1上的电压比较后控制MOS管的电流。之后用简单的PID算法即可实现控温了。&lt;/p&gt;
 &lt;p&gt;把MOS管和LM35用导热胶粘在一块95mm x 66mm的散热片上，实测用12V 2A的电源供电时，开环加热可以达到44度左右。启用PID控温后，可以在室温~44度之间把温度控制到设定值正负0.1度。&lt;/p&gt;
-&lt;p&gt;之后在这个基础上可以做很多东西了，比如酸奶机、酒酿机、煮温泉蛋机等等。&lt;/p&gt;</summary></entry><entry><title>最近的三个制作</title><link href="http://st.avros.net/articles/6f22_fm_rf.html" rel="alternate"></link><updated>2015-05-21T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2015-05-21:articles/6f22_fm_rf.html</id><summary type="html">&lt;ol&gt;
+&lt;p&gt;之后在这个基础上可以做很多东西了，比如酸奶机、酒酿机、煮温泉蛋机等等。&lt;/p&gt;</summary></entry><entry><title>最近的三个制作</title><link href="http://st.avros.net/articles/6f22_fm_rf.html" rel="alternate"></link><published>2015-05-21T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2015-05-21:articles/6f22_fm_rf.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;彻底榨干6F22的剩余电量&lt;/p&gt;
 &lt;p&gt;从万用表里拆下来的6F22常常还有许多电量没有用掉, 直接扔掉比较可惜. 把它DC-DC降压后给单片机之类供电, 还能再撑一段时间. &lt;/p&gt;
@@ -560,7 +593,7 @@ SRAM:  7528 / 8192 bytes, 91.8% Full (.data + .bss)
 &lt;p&gt;一开始检波二极管用的是2SC1622的BC结, 结果实测在50M时功率严重偏小, 144M和430M就一点功率也测不到了. 换成1N60之后一切正常. 估计是因为2SC1622的结电容太大?&lt;/p&gt;
 &lt;p&gt;但是1N60耐压太低, 只有50V, 这样只能测到峰值25V的RF电压, 换算成功率只有6.25W了. 下次还是得用先衰减再测的方案.&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ol&gt;</summary></entry><entry><title>辉光数码管实验</title><link href="http://st.avros.net/articles/nixie.html" rel="alternate"></link><updated>2015-05-13T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2015-05-13:articles/nixie.html</id><summary type="html">&lt;p&gt;多年前sunzx送了我几个SZ-8数码管, 一直没顾上试验. 前几天终于给它搭了驱动电路, 如图:&lt;/p&gt;
+&lt;/ol&gt;</summary></entry><entry><title>辉光数码管实验</title><link href="http://st.avros.net/articles/nixie.html" rel="alternate"></link><published>2015-05-13T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2015-05-13:articles/nixie.html</id><summary type="html">&lt;p&gt;多年前sunzx送了我几个SZ-8数码管, 一直没顾上试验. 前几天终于给它搭了驱动电路, 如图:&lt;/p&gt;
 &lt;p&gt;&lt;a href="/images/nixie_1.png" title="驱动模块原理图"&gt;&lt;img src="/images/nixie_1.png" width="480px"/&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;由74HC164将串行输入信号转为8位并行, 其中4位作为BCD码, 由74LS42转为数码管的驱动信号. 由于74LS42的输出是负逻辑, 因此驱动2N5551时需要用发射极驱动. HC164的另外三位用于驱动藏在SZ-8肚子下面的RGB三色LED. 几个模块之间可以级联, 这样用起来就简单多了.&lt;/p&gt;
 &lt;p&gt;供电部分如图:&lt;/p&gt;
@@ -569,7 +602,7 @@ SRAM:  7528 / 8192 bytes, 91.8% Full (.data + .bss)
 &lt;p&gt;点亮四个数码管的效果:&lt;/p&gt;
 &lt;p&gt;&lt;a href="/images/nixie.jpg" title="效果图"&gt;&lt;img src="/images/nixie.jpg" width="480px"/&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;视频, 其中两只有点接触不良, 以后有空再改吧.&lt;/p&gt;
-&lt;video src="/videos/nixie.mp4" width="480" controls="controls" /&gt;(/videos/nixie.mp4)</summary></entry><entry><title>小台钟</title><link href="http://st.avros.net/articles/tiny24_clock.html" rel="alternate"></link><updated>2015-05-02T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2015-05-02:articles/tiny24_clock.html</id><summary type="html">&lt;p&gt;用手里闲置的Attiny24+LCD0801屏做了个小钟, 如图:&lt;/p&gt;
+&lt;video src="/videos/nixie.mp4" width="480" controls="controls" /&gt;(/videos/nixie.mp4)</summary></entry><entry><title>小台钟</title><link href="http://st.avros.net/articles/tiny24_clock.html" rel="alternate"></link><published>2015-05-02T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2015-05-02:articles/tiny24_clock.html</id><summary type="html">&lt;p&gt;用手里闲置的Attiny24+LCD0801屏做了个小钟, 如图:&lt;/p&gt;
 &lt;p&gt;&lt;a href="/images/tiny24_clock.jpg" title="照片"&gt;&lt;img src="/images/tiny24_clock.jpg" width="500px" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;用一节600还是800mAh的手机电池供电, 充满电可以工作半个月.&lt;/p&gt;
 &lt;p&gt;原理图:&lt;/p&gt;
@@ -577,21 +610,21 @@ SRAM:  7528 / 8192 bytes, 91.8% Full (.data + .bss)
 &lt;p&gt;其中LCD用的是0801, 和1602接口完全一样, 加了一块之前做的&lt;a href="articles/firefly&amp;amp;serlcd1602.html"&gt;串口转换小板&lt;/a&gt;. 由于是3.3V供电, LCD的V0脚需要接入负压, 这里负压用MCU的一路PWM经负倍压整流产生. 晶振用什么频率其实都无关紧要, 只要是个整数, 并且按一定的分频规则能凑出2Hz的频率就行了.&lt;/p&gt;
 &lt;p&gt;源程序:&lt;/p&gt;
 &lt;p&gt;&lt;a href="/files/tiny24_clock_src.7z"&gt;tiny24_clock_src.7z&lt;/a&gt; &lt;/p&gt;
-&lt;p&gt;改天再给它加个太阳能电池, 这样也许就再也不用充电了.&lt;/p&gt;</summary></entry><entry><title>在stm32上使用二进制字库的简单方法</title><link href="http://st.avros.net/articles/stm32_fonts.html" rel="alternate"></link><updated>2015-03-13T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2015-03-13:articles/stm32_fonts.html</id><summary type="html">&lt;p&gt;标题其实可以写成"在可执行程序里嵌入二进制资源的方法", 不过这个题目大了点, 还是原样吧.&lt;/p&gt;
+&lt;p&gt;改天再给它加个太阳能电池, 这样也许就再也不用充电了.&lt;/p&gt;</summary></entry><entry><title>在stm32上使用二进制字库的简单方法</title><link href="http://st.avros.net/articles/stm32_fonts.html" rel="alternate"></link><published>2015-03-13T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2015-03-13:articles/stm32_fonts.html</id><summary type="html">&lt;p&gt;标题其实可以写成"在可执行程序里嵌入二进制资源的方法", 不过这个题目大了点, 还是原样吧.&lt;/p&gt;
 &lt;p&gt;以前如果我们用到不带字库的点阵LCD, 一般都是把字库按16进制写成一个大数组, 再和其他源程序一起编译. 有没有方便一点的办法呢？这里给出两个方案.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;使用objcopy把字库转成目标文件(.o/.obj)&lt;/p&gt;
 &lt;p&gt;假设我们需要嵌入的是5x7的ascii点阵字库, 文件名是asc5x7.bin.&lt;/p&gt;
 &lt;p&gt;在arm-gcc环境下, 命令如下:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;arm-none-eabi-objcopy -B arm -I binary -O elf32-littlearm --rename-section .data=.rodata asc5x7.bin asc5x7.o
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;arm-none-eabi-objcopy -B arm -I binary -O elf32-littlearm --rename-section .data=.rodata asc5x7.bin asc5x7.o
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;需要注意的是, objcopy生成的.o文件默认是把数据放在.data段的. 因此这里需要加个--rename-section的选项, 把.data改成.text或者.rodata, 不然单片机可怜的一点点RAM根本不够用. 如果是在PC上运行, 这里改不改就无所谓了, 不过内存还是能省点就省点的好.&lt;/p&gt;
 &lt;p&gt;在.o里会生成三个符号: &lt;code&gt;_binary_asc5x7_bin_start, _binary_asc5x7_bin_end, binary_asc5x7_bin_size.&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;在程序里这么调用:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;extern const int _binary_asc5x7_bin_start;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;extern const int _binary_asc5x7_bin_start;
 uint8_t *start = (uint8_t *) (&amp;amp;_binary_asc5x7_bin_start);
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -603,7 +636,7 @@ uint8_t *start = (uint8_t *) (&amp;amp;_binary_asc5x7_bin_start);
 &lt;p&gt;直接利用GNU汇编的.incbin功能&lt;/p&gt;
 &lt;p&gt;这是minux@bdwm提供的方法, 解决得明显更漂亮一些.&lt;/p&gt;
 &lt;p&gt;首先建立一个asc5x7.s的源文件,内容如下:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="na"&gt;.section&lt;/span&gt; &lt;span class="no"&gt;.rodata&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="err"&gt;%&lt;/span&gt;&lt;span class="no"&gt;progbits&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="na"&gt;.section&lt;/span&gt; &lt;span class="no"&gt;.rodata&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="err"&gt;%&lt;/span&gt;&lt;span class="no"&gt;progbits&lt;/span&gt;
 &lt;span class="na"&gt;.global&lt;/span&gt; &lt;span class="no"&gt;_binary_asc5x7_bin_start&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="no"&gt;_binary_asc5x7_bin_end&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="no"&gt;_binary_asc5x7_bin_size&lt;/span&gt;
 &lt;span class="nl"&gt;_binary_asc5x7_bin_start:&lt;/span&gt;
 &lt;span class="na"&gt;.incbin&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;asc5x7.bin&amp;quot;&lt;/span&gt;
@@ -614,7 +647,7 @@ uint8_t *start = (uint8_t *) (&amp;amp;_binary_asc5x7_bin_start);
 
 &lt;p&gt;其实_binary_asc5x7_bin_size和_binary_asc5x7_bin_end这两个符号不要也可以, 因为字库的存储格式我们事先已经知道了.&lt;/p&gt;
 &lt;p&gt;然后建立一个空的.c文件: &lt;code&gt;touch empty.c,  arm-none-eabi-gcc -S empty.c&lt;/code&gt;, 这样我们得到了一个empty.s, 内容如下:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt; .cpu arm7tdmi-s
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; .cpu arm7tdmi-s
  .fpu softvfp
  .eabi_attribute 20, 1
  .eabi_attribute 21, 1
@@ -631,7 +664,7 @@ uint8_t *start = (uint8_t *) (&amp;amp;_binary_asc5x7_bin_start);
 
 &lt;p&gt;把这些东西复制到之前那个asc5x7.s里, 部分内容可能要按需调整一下, 比如.cpu这里应该改成cortex-m0或者cortex-m3之类. 这样在链接时就不会出现前面那个"Conflicting CPU architectures ...."的报错信息了.&lt;/p&gt;
 &lt;p&gt;如果要使用几个字库呢? 可以把它们全都放在一个段里, 但是如果只用到了某一个或几个字库, 也会把它们全都链接进去, 导致最终的可执行文件体积过大. 因此最好是拆成几个段. 假设我们用到了asc5x7.bin, asc12.bin, asc16.bin和asc24.bin, 写出来应该是这样:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="na"&gt;.section&lt;/span&gt; &lt;span class="no"&gt;.rodata.asc5x7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="err"&gt;%&lt;/span&gt;&lt;span class="no"&gt;progbits&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="na"&gt;.section&lt;/span&gt; &lt;span class="no"&gt;.rodata.asc5x7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="err"&gt;%&lt;/span&gt;&lt;span class="no"&gt;progbits&lt;/span&gt;
 &lt;span class="na"&gt;.global&lt;/span&gt; &lt;span class="no"&gt;_binary_asc5x7_bin_start&lt;/span&gt;
 &lt;span class="nl"&gt;_binary_asc5x7_bin_start:&lt;/span&gt;
 &lt;span class="na"&gt;.incbin&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;asc5x7.bin&amp;quot;&lt;/span&gt;
@@ -654,7 +687,7 @@ uint8_t *start = (uint8_t *) (&amp;amp;_binary_asc5x7_bin_start);
 
 
 &lt;p&gt;然后Makefile里需要增加几个参数, 假如之前没有的话.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;CFLAGS += -ffunction-sections --data-sections,
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;CFLAGS += -ffunction-sections --data-sections,
 LDFLAGS += -Wl,--gc-sections
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -663,14 +696,14 @@ LDFLAGS += -Wl,--gc-sections
 &lt;p&gt;如果要在可执行文件里嵌入图片, 音频之类, 也可以用同样的方法.&lt;/p&gt;
 &lt;p&gt;以上程序均在Windows 7 &amp;amp; Sourcery G++ &amp;amp; STM32F103/F030环境下测试通过. 在Keil/IAR等环境下请自行类推.&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ol&gt;</summary></entry><entry><title>带负载指示的USB一拖三充电器</title><link href="http://st.avros.net/articles/usb_3x_charger.html" rel="alternate"></link><updated>2015-01-17T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2015-01-17:articles/usb_3x_charger.html</id><summary type="html">&lt;p&gt;现在平板/手机之类一般都用USB充电了. 晚上睡觉前, 经常得两三个设备一起充电, 插座都不够用了. 如果能在一个充电器上做出几个USB口同时给它们充电, 岂不是很方便?&lt;/p&gt;
+&lt;/ol&gt;</summary></entry><entry><title>带负载指示的USB一拖三充电器</title><link href="http://st.avros.net/articles/usb_3x_charger.html" rel="alternate"></link><published>2015-01-17T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2015-01-17:articles/usb_3x_charger.html</id><summary type="html">&lt;p&gt;现在平板/手机之类一般都用USB充电了. 晚上睡觉前, 经常得两三个设备一起充电, 插座都不够用了. 如果能在一个充电器上做出几个USB口同时给它们充电, 岂不是很方便?&lt;/p&gt;
 &lt;p&gt;不过这么一来, 供电就比较成问题了. 现在的设备一般都需要1A以上的充电电流, 有的需要2A. 3个2A一起充就得6A, 4个就得8A. 前面如果用12V降压到5V, 80%效率的话, 5V 6A需要提供12V 3.2A, 5V 8A需要提供12V 4.2A. 能提供这么大电流的12V适配器倒是有, 但是不太便携了. 所以还是折衷一下, 输出4A电流, 这样前面用12V 2A的适配器, 勉强够用. 这样就不能同时充3个2A的设备了, 免得一不小心就冒烟. 安全起见, 最好是再加个负载指示, 随时知道输出多大电流.&lt;/p&gt;
 &lt;p&gt;电路如图, 从12V降压到5V, 用了AOSMD的AOZ1014. 这颗SOIC8的小芯片能提供最大5A的输出电流, 不过感觉不怎么踏实, 4A保险些. 输出电压用8.2k和1.5k电阻设定为0.8V * (8.2+1.5)/1.5 = 5.17V, 比标准的5V高出3.5%, 还算安全. 在输出端和USB充电口之间再串联0.025欧的电阻用作电流取样. 当输出1A时, 这个电阻上的压降为25mV, 4A时为100mV.&lt;/p&gt;
 &lt;p&gt;用LM358的其中一个运放接成差分放大器, 把取样电阻上的电压放大20倍左右. 另一只运放提供约0.73V的参考电压, 因为LM358按单电源方式工作时, 最低输出电压不能到0V, 至少要0.6V左右, 所以这里把它的输出电压"抬"高一些.&lt;/p&gt;
 &lt;p&gt;&lt;a href="/images/usb_3x_charger.png" title="电路图"&gt;&lt;img src="/images/usb_3x_charger.png" width="500px" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;单片机供电用了XC6206, 结果一通电, 马上冒烟了... 原来XC6206的供电电压最高只能是5V. 没办法, 先凑和一下, 把单片机的VCC改接到输出的5V上. 下次这里还是得换成AMS1117之类.&lt;/p&gt;
 &lt;p&gt;单片机用的是ATMEGA48. 用ADC6来读取LM358的输出电压. 负载指示用的是10位LED光条, 用MEGA48的PD0~PD7再加上PB0, PB1, 够了. 每格表示约0.4A电流, 10格一共4A. 程序很简单, 主要部分:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;while(1) {
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;while(1) {
     u16 data, p;
     float volt, curr;
     u8 i;
@@ -694,17 +727,17 @@ LDFLAGS += -Wl,--gc-sections
 &lt;p&gt;输出电流约1.6A时, 亮4格:&lt;/p&gt;
 &lt;p&gt;&lt;a href="/images/dc_tube_power_4.jpg" title="4格, 负载电流约1.6A"&gt;&lt;img src="/images/dc_tube_power_4.jpg" width="500px" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;输出电流约2.8A时, 亮7格:&lt;/p&gt;
-&lt;p&gt;&lt;a href="/images/dc_tube_power_7.jpg" title="7格, 负载电流约2.8A"&gt;&lt;img src="/images/dc_tube_power_7.jpg" width="500px" /&gt;&lt;/a&gt;&lt;/p&gt;</summary></entry><entry><title>直流电子管电源</title><link href="http://st.avros.net/articles/dc_tube_power.html" rel="alternate"></link><updated>2015-01-16T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2015-01-16:articles/dc_tube_power.html</id><summary type="html">&lt;p&gt;玩直流管, 供电是个大麻烦. 甲电还好办, 一节电池搞定; 乙电一般需要60~90V, 要么从市电变压整流再滤波, 要么就DC-DC升压; boost升压还不行, 得和甲电隔离才行, 不然玩2P2之类需要栅偏压的管子就麻烦了, 因此只能用flyback或者推挽的方式.&lt;/p&gt;
+&lt;p&gt;&lt;a href="/images/dc_tube_power_7.jpg" title="7格, 负载电流约2.8A"&gt;&lt;img src="/images/dc_tube_power_7.jpg" width="500px" /&gt;&lt;/a&gt;&lt;/p&gt;</summary></entry><entry><title>直流电子管电源</title><link href="http://st.avros.net/articles/dc_tube_power.html" rel="alternate"></link><published>2015-01-16T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2015-01-16:articles/dc_tube_power.html</id><summary type="html">&lt;p&gt;玩直流管, 供电是个大麻烦. 甲电还好办, 一节电池搞定; 乙电一般需要60~90V, 要么从市电变压整流再滤波, 要么就DC-DC升压; boost升压还不行, 得和甲电隔离才行, 不然玩2P2之类需要栅偏压的管子就麻烦了, 因此只能用flyback或者推挽的方式.&lt;/p&gt;
 &lt;p&gt;电路如图, CD4047接成多谐振荡器, 由两只74AHC1G00推动AO4800, AO4800的两只NMOS以推挽方式工作.&lt;/p&gt;
 &lt;p&gt;&lt;a href="/images/dc_tube_power.png" title="电路图"&gt;&lt;img src="/images/dc_tube_power.png" width="500px" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;变压器的参数是... 忘了, 只好用LC表测量各绕组电感量, 初级分别是659uH和666uH, 次级则是188mH+188mH. 由此可算出匝数比是1:17. 按这个匝数比, 两个次级绕组串联, 锂电池电压从4.2V降落到3.5V时, 理论输出电压应该是118V~142V. 这个变压器不大, 线径很细, 内阻不小, 因此输出电压不会这么高, 给直流电子管供电还算合适.&lt;/p&gt;
 &lt;p&gt;AMS1117-ADJ提供甲电. 1117要求5~10mA的最小负载电流, 否则空载输出电压会偏高. 这里应该给它加个几百欧的电阻作为负载. 不是大问题, 算了吧.&lt;/p&gt;
 &lt;p&gt;用ATTiny13的ADC实现了简单的电池电量检测, 由红绿双色LED显示. 电池电压在4.0V以上时, LED显示绿色; 3.7V~4.0V, 橙色; 3.5~3.7V, 红色; 3.5V以下, 红色闪烁. 程序很简单就不贴了.  &lt;/p&gt;
-&lt;p&gt;分别用220V 3W节能灯泡和5W白炽灯泡测试的结果, 前者作为负载时, 输入5V 0.5A, 输出达到71V 27mA, 效率有77%; 后者当输入电压从4.2V降到3.3V时, 输出电压/电流从45.8V/52mA变化到34.0V/47mA, 效率约为56%. 考虑到一般直流电子管的屏流都在5mA以下, 几个电子管的组合估计也不会超过20mA, 这个结果还算满意.&lt;/p&gt;</summary></entry><entry><title>3.579MHz CW发射机</title><link href="http://st.avros.net/articles/cw3579.html" rel="alternate"></link><updated>2015-01-15T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2015-01-15:articles/cw3579.html</id><summary type="html">&lt;p&gt;电路如图, 用74HC240的一个门振荡, 另外7个门并联推动IRF510.
+&lt;p&gt;分别用220V 3W节能灯泡和5W白炽灯泡测试的结果, 前者作为负载时, 输入5V 0.5A, 输出达到71V 27mA, 效率有77%; 后者当输入电压从4.2V降到3.3V时, 输出电压/电流从45.8V/52mA变化到34.0V/47mA, 效率约为56%. 考虑到一般直流电子管的屏流都在5mA以下, 几个电子管的组合估计也不会超过20mA, 这个结果还算满意.&lt;/p&gt;</summary></entry><entry><title>3.579MHz CW发射机</title><link href="http://st.avros.net/articles/cw3579.html" rel="alternate"></link><published>2015-01-15T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2015-01-15:articles/cw3579.html</id><summary type="html">&lt;p&gt;电路如图, 用74HC240的一个门振荡, 另外7个门并联推动IRF510.
 用RS-232串口的RTS信号控制IRF510的供电, 作为电键.
 DTR信号控制整机供电和天线切换, 作为PTT.&lt;/p&gt;
 &lt;p&gt;&lt;a href="/images/cw3579.png" title="电路图"&gt;&lt;img src="/images/cw3579.png" width="500px" /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;实测发现一个大问题: CP2102转出来的RS-232的DTR和RTS极性是反的! 再一查, PL2303和FT232也是这样. 现在的PC基本已经不提供RS-232了, 没办法, 装个串口挡板, 用真实的串口再试试吧.&lt;/p&gt;</summary></entry><entry><title>Sansei DMM2650背光改装记录</title><link href="http://st.avros.net/articles/dmm2650.html" rel="alternate"></link><updated>2014-12-12T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2014-12-12:articles/dmm2650.html</id><summary type="html">&lt;p&gt;Sansei DMM2650是80年代的小型台式四位半自动量程万用表, 在Diyers中一直很受欢迎. sunzx送了我一台, 相当好用. 使用过程中发现它有一个很大的不足之处就是液晶屏没有背光, 光线较暗时读数不容易看清, 所以我决定给它加装背光. &lt;/p&gt;
+&lt;p&gt;实测发现一个大问题: CP2102转出来的RS-232的DTR和RTS极性是反的! 再一查, PL2303和FT232也是这样. 现在的PC基本已经不提供RS-232了, 没办法, 装个串口挡板, 用真实的串口再试试吧.&lt;/p&gt;</summary></entry><entry><title>Sansei DMM2650背光改装记录</title><link href="http://st.avros.net/articles/dmm2650.html" rel="alternate"></link><published>2014-12-12T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2014-12-12:articles/dmm2650.html</id><summary type="html">&lt;p&gt;Sansei DMM2650是80年代的小型台式四位半自动量程万用表, 在Diyers中一直很受欢迎. sunzx送了我一台, 相当好用. 使用过程中发现它有一个很大的不足之处就是液晶屏没有背光, 光线较暗时读数不容易看清, 所以我决定给它加装背光. &lt;/p&gt;
 &lt;p&gt;&lt;a href="/images/dmm2650_1.jpg"&gt;&lt;img src="/images/dmm2650_1.jpg" width="500" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;DMM2650的液晶屏是双列针脚直插式的, 小心地把它从插座上取下来, 如图：&lt;/p&gt;
 &lt;p&gt;&lt;a href="/images/dmm2650_2.jpg"&gt;&lt;img src="/images/dmm2650_2.jpg" width="500" /&gt;&lt;/a&gt;&lt;/p&gt;
@@ -730,22 +763,22 @@ DTR信号控制整机供电和天线切换, 作为PTT.&lt;/p&gt;
 &lt;p&gt;&lt;a href="/images/dmm2650_12.jpg"&gt;&lt;img src="/images/dmm2650_12.jpg" width="500" /&gt;&lt;/a&gt; &lt;/p&gt;
 &lt;p&gt;装回外壳, 放在书架上, 先凑和着用吧, 等以后找到了合适的柔光片再给它换上. &lt;/p&gt;
 &lt;p&gt;&lt;a href="/images/dmm2650_13.jpg"&gt;&lt;img src="/images/dmm2650_13.jpg" width="500" /&gt;&lt;/a&gt; &lt;/p&gt;
-&lt;p&gt;完~&lt;/p&gt;</summary></entry><entry><title>南瓜灯</title><link href="http://st.avros.net/articles/pumpkin_light.html" rel="alternate"></link><updated>2014-05-07T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2014-05-07:articles/pumpkin_light.html</id><summary type="html">&lt;p&gt;某次在超市看到有这种球形蜡烛头卖，如图：&lt;/p&gt;
+&lt;p&gt;完~&lt;/p&gt;</summary></entry><entry><title>南瓜灯</title><link href="http://st.avros.net/articles/pumpkin_light.html" rel="alternate"></link><published>2014-05-07T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2014-05-07:articles/pumpkin_light.html</id><summary type="html">&lt;p&gt;某次在超市看到有这种球形蜡烛头卖，如图：&lt;/p&gt;
 &lt;p&gt;&lt;a href="/images/pumpkin_1.jpg"&gt;&lt;img src="/images/pumpkin_1.jpg" width="500" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;用记号笔把适当的地方涂黑，就成了这样：&lt;/p&gt;
 &lt;p&gt;&lt;a href="/images/pumpkin_2.jpg"&gt;&lt;img src="/images/pumpkin_2.jpg" width="500" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;最后呢，在它下面熔个洞，放进一个橙色大功率LED，点亮以后的效果：&lt;/p&gt;
 &lt;p&gt;&lt;a href="/images/pumpkin_3.jpg"&gt;&lt;img src="/images/pumpkin_3.jpg" width="500" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;好象万圣节的时间搞错了……不过无所谓啦。&lt;/p&gt;
-&lt;p&gt;最后，用AVR让它的亮度忽明忽暗，尽可能象真正的蜡烛一样——其实挺困难的。&lt;/p&gt;</summary></entry><entry><title>8x8 LED点阵动画</title><link href="http://st.avros.net/articles/8x8_led_animation.html" rel="alternate"></link><updated>2014-05-06T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2014-05-06:articles/8x8_led_animation.html</id><summary type="html">&lt;p&gt;翻出来一个8x8的LED屏，决定做点动画玩。电路很简单，ATmega8的PB口做行选，PD口做列选。&lt;/p&gt;
+&lt;p&gt;最后，用AVR让它的亮度忽明忽暗，尽可能象真正的蜡烛一样——其实挺困难的。&lt;/p&gt;</summary></entry><entry><title>8x8 LED点阵动画</title><link href="http://st.avros.net/articles/8x8_led_animation.html" rel="alternate"></link><published>2014-05-06T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2014-05-06:articles/8x8_led_animation.html</id><summary type="html">&lt;p&gt;翻出来一个8x8的LED屏，决定做点动画玩。电路很简单，ATmega8的PB口做行选，PD口做列选。&lt;/p&gt;
 &lt;p&gt;做出来的效果是这样的：&lt;/p&gt;
-&lt;video src="/videos/8x8_led_animation.mp4" width="500" controls="controls" /&gt;(/videos/8x8_led_animation.mp4)</summary></entry><entry><title>棉花糖机</title><link href="http://st.avros.net/articles/candy_floss.html" rel="alternate"></link><updated>2013-09-10T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2013-09-10:articles/candy_floss.html</id><summary type="html">&lt;p&gt;完全是参考网上那篇硬盘改棉花糖机的教程. 手里这块硬盘似乎坏得有点严重, 通电也转不起来了... 查了一下, 原来硬盘电机就是一个三相无刷电机, 于是用AVR给它搭了个驱动电路如图.&lt;/p&gt;
+&lt;video src="/videos/8x8_led_animation.mp4" width="500" controls="controls" /&gt;(/videos/8x8_led_animation.mp4)</summary></entry><entry><title>棉花糖机</title><link href="http://st.avros.net/articles/candy_floss.html" rel="alternate"></link><published>2013-09-10T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2013-09-10:articles/candy_floss.html</id><summary type="html">&lt;p&gt;完全是参考网上那篇硬盘改棉花糖机的教程. 手里这块硬盘似乎坏得有点严重, 通电也转不起来了... 查了一下, 原来硬盘电机就是一个三相无刷电机, 于是用AVR给它搭了个驱动电路如图.&lt;/p&gt;
 &lt;p&gt;&lt;a href="/images/candy_floss.png"&gt;&lt;img src="/images/candy_floss.png" width="500" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;其中三只NPN管用常用的C945, C1815之类都完全可以; 三对MOS管可以用分立的, 也可以用现成的互补对管, AOP605或AOP607之类, 在DIP8封装里集成了NMOS和PMOS各一只, 用起来方便一些.&lt;/p&gt;
 &lt;p&gt;程序很简单, 按照U+V-, U+W-, V+W-, V+U-, W+U-, W+V- 这个顺序依次驱动6只MOS管, 判断剩余一相的过零时刻来换相, 就能转得很好. 闭环工作时, 如果把盘片全拆下来, 只剩光轴, 转速能达到4万转, 装上盘片就只有几千转了. 想让它转得稳定一些的话, 控制逻辑还得再复杂一些才行.&lt;/p&gt;
-&lt;p&gt;后面的大同小异了, 不过效果不太理想, 固体酒精的火力不太好掌握, 费了很大劲只做出一点点. 以后有机会把它改成感应式加热的, 也许效果会好些?&lt;/p&gt;</summary></entry><entry><title>迷你电源</title><link href="http://st.avros.net/articles/mini_power.html" rel="alternate"></link><updated>2013-09-10T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2013-09-10:articles/mini_power.html</id><summary type="html">&lt;p&gt;用一节锂电boost升压到5V, 后面接LDO, 用MCU的PWM输出一个电压信号给LDO的ADJ脚, 实现了可调输出. 同时用LCD显示输出电压电流和电池电压. 不过效率似乎低了点, 一节锂电用不了多久. 下次试试把LDO换成buck降压芯片.&lt;/p&gt;</summary></entry><entry><title>50M FM发射实验</title><link href="http://st.avros.net/articles/50m_fm_tx.html" rel="alternate"></link><updated>2013-07-17T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2013-07-17:articles/50m_fm_tx.html</id><summary type="html">&lt;p&gt;电路如图, 74HC04的一个非门接成10.245M晶体振荡器, 晶体一端并联变容二极管. 用剩下的五个非门来推动2N7002, 2N7002的D极谐振在10.245M的五倍频, 51.225M频率上. &lt;/p&gt;
+&lt;p&gt;后面的大同小异了, 不过效果不太理想, 固体酒精的火力不太好掌握, 费了很大劲只做出一点点. 以后有机会把它改成感应式加热的, 也许效果会好些?&lt;/p&gt;</summary></entry><entry><title>迷你电源</title><link href="http://st.avros.net/articles/mini_power.html" rel="alternate"></link><published>2013-09-10T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2013-09-10:articles/mini_power.html</id><summary type="html">&lt;p&gt;用一节锂电boost升压到5V, 后面接LDO, 用MCU的PWM输出一个电压信号给LDO的ADJ脚, 实现了可调输出. 同时用LCD显示输出电压电流和电池电压. 不过效率似乎低了点, 一节锂电用不了多久. 下次试试把LDO换成buck降压芯片.&lt;/p&gt;</summary></entry><entry><title>50M FM发射实验</title><link href="http://st.avros.net/articles/50m_fm_tx.html" rel="alternate"></link><published>2013-07-17T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2013-07-17:articles/50m_fm_tx.html</id><summary type="html">&lt;p&gt;电路如图, 74HC04的一个非门接成10.245M晶体振荡器, 晶体一端并联变容二极管. 用剩下的五个非门来推动2N7002, 2N7002的D极谐振在10.245M的五倍频, 51.225M频率上. &lt;/p&gt;
 &lt;p&gt;&lt;a href="/images/50m_fm.png"&gt;&lt;img src="/images/50m_fm.png" width="500" /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;用VX-7R接收, 不管走到屋里哪个角落, 信号都挺强的. 可惜北京不允许使用50M频率, 只能在屋里大概试试了. 估计到开阔地能发射相当远的吧. &lt;/p&gt;</summary></entry><entry><title>R-2R SD卡WAVE播放器</title><link href="http://st.avros.net/articles/avr_sd_waveplayer_2.html" rel="alternate"></link><updated>2013-07-14T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2013-07-14:articles/avr_sd_waveplayer_2.html</id><summary type="html">&lt;p&gt;用ATMega8, 16.9344M晶振, 14位r-2r作为DAC, 实现了流畅播放16位 44.1kbps单声道wav.  双声道没试, 估计超点频应该差不多了. &lt;/p&gt;
+&lt;p&gt;用VX-7R接收, 不管走到屋里哪个角落, 信号都挺强的. 可惜北京不允许使用50M频率, 只能在屋里大概试试了. 估计到开阔地能发射相当远的吧. &lt;/p&gt;</summary></entry><entry><title>R-2R SD卡WAVE播放器</title><link href="http://st.avros.net/articles/avr_sd_waveplayer_2.html" rel="alternate"></link><published>2013-07-14T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2013-07-14:articles/avr_sd_waveplayer_2.html</id><summary type="html">&lt;p&gt;用ATMega8, 16.9344M晶振, 14位r-2r作为DAC, 实现了流畅播放16位 44.1kbps单声道wav.  双声道没试, 估计超点频应该差不多了. &lt;/p&gt;
 &lt;p&gt;这东西有点说来话长. 最早是amobbs的马潮老师出了个题目, 8*8的LED屏, 中间四个常亮, 最外圈亮一个转圈跑. 那会儿我正好有块点阵屏闲着, 就焊了一块板, 从开始写程序计算, 39分钟解决了.  &lt;/p&gt;
 &lt;p&gt;讨论过程中师弟TwoPerson把这位马潮老师惹怒了. 于是他放出狂言, 原文如下:  &lt;/p&gt;
 &lt;blockquote&gt;
@@ -760,30 +793,30 @@ DTR信号控制整机供电和天线切换, 作为PTT.&lt;/p&gt;
 &lt;a href="/files/avr_sd_waveplayer_2_src.7z"&gt;avr_sd_waveplayer_2_src.7z&lt;/a&gt; &lt;/p&gt;
 &lt;p&gt;马老师那边啥反应? 猜也猜得出, 他在精神上永远都能胜利, 我实在不想引用那个“永远不要试图去战胜一个纯xx, 他会把你的智商拖到跟他一样的水平, 然后用他丰富的经验打败你. ”的段子, 不过还是把链接贴过来好了. &lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.amobbs.com/thread-5535140-1-1.html" target="_blank"&gt;http://www.amobbs.com/thread-5535140-1-1.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;马老师喷了几大篇以后不知出于一种什么心理, 封贴了, 对此咱就不作啥评论了, 呵呵.&lt;/p&gt;</summary></entry><entry><title>滑动触摸实验</title><link href="http://st.avros.net/articles/slide_sense.html" rel="alternate"></link><updated>2013-07-14T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2013-07-14:articles/slide_sense.html</id><summary type="html">&lt;p&gt;见ST的两个应用笔记, AN2927和AN2896. 基本原理就是把触摸区域当作一个电容, 用一个IO口通过大电阻对触摸区域充放电, 另一个IO口来读取状态, 记录充放电时间. 当手指摸上去时, 这个电容变大了, 因此充放电时间会变长. &lt;/p&gt;
-&lt;p&gt;&lt;a href="http://v.youku.com/v_show/id_XNTMzNTkxMDQ0.html" target="_blank"&gt;视频链接&lt;/a&gt;&lt;/p&gt;</summary></entry><entry><title>火电和核电, 哪个造成的放射性污染更严重?</title><link href="http://st.avros.net/articles/nuclear_or_thermo_power.html" rel="alternate"></link><updated>2013-06-25T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2013-06-25:articles/nuclear_or_thermo_power.html</id><summary type="html">&lt;p&gt;常识告诉我们...... 别急, 不要太相信常识, 一切要用数据说话. &lt;/p&gt;
+&lt;p&gt;马老师喷了几大篇以后不知出于一种什么心理, 封贴了, 对此咱就不作啥评论了, 呵呵.&lt;/p&gt;</summary></entry><entry><title>滑动触摸实验</title><link href="http://st.avros.net/articles/slide_sense.html" rel="alternate"></link><published>2013-07-14T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2013-07-14:articles/slide_sense.html</id><summary type="html">&lt;p&gt;见ST的两个应用笔记, AN2927和AN2896. 基本原理就是把触摸区域当作一个电容, 用一个IO口通过大电阻对触摸区域充放电, 另一个IO口来读取状态, 记录充放电时间. 当手指摸上去时, 这个电容变大了, 因此充放电时间会变长. &lt;/p&gt;
+&lt;p&gt;&lt;a href="http://v.youku.com/v_show/id_XNTMzNTkxMDQ0.html" target="_blank"&gt;视频链接&lt;/a&gt;&lt;/p&gt;</summary></entry><entry><title>火电和核电, 哪个造成的放射性污染更严重?</title><link href="http://st.avros.net/articles/nuclear_or_thermo_power.html" rel="alternate"></link><published>2013-06-25T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2013-06-25:articles/nuclear_or_thermo_power.html</id><summary type="html">&lt;p&gt;常识告诉我们...... 别急, 不要太相信常识, 一切要用数据说话. &lt;/p&gt;
 &lt;p&gt;100万千瓦的核电站: 每年耗铀约30吨. 铀的密度很高, 和黄金差不多, 30吨铀也就是家里的大衣柜那么大, 一辆重型卡车就能拉走. 核燃料和核废料的运输和储存都有极严格的程序, 除非发生事故, 想泄露点都是很难的. 核废料最终会熔炼成类似玻璃的状态, 用水泥之类包裹, 再深埋处理. 一年埋一个大衣柜体积的核废料, 真的不算多, 一家人一年扔掉的生活垃圾估计都远不止这点体积.&lt;/p&gt;
 &lt;p&gt;100万千瓦的火电站: 火电排放大量的粉尘和CO2之类, 这些都不用说了. 每年耗煤300万吨, 还用30吨重卡拉走的话, 就得10万辆, 平均每天就得300辆了. 注意这里还有个问题: 煤里也含有微量的铀. 在中国, 煤的平均含铀量大约3个ppm, 也就是说100万吨煤里就有3吨铀, 300万吨煤里就是9吨. 这些铀一部分随着烟尘排放到大气中, 一部分成了粉煤灰, 然后被加工成水泥、空心砖之类, 做了建筑材料. &lt;/p&gt;
 &lt;p&gt;完了没有? 没完. 煤里还有另外一种放射性元素钍, 含量还要高一些, 在中国平均为6~10ppm. 也就是说这个100万千瓦的火电站每年消耗的300万吨煤里含有18~30吨的钍. 这些钍也一样, 要么被排放到大气中, 要么做了建筑材料. &lt;/p&gt;
 &lt;p&gt;这还不算, 煤里还含有微量的钋, 镭等放射性元素, 虽然含量较少, 但它们的放射性还要强一些.&lt;/p&gt;
-&lt;p&gt;即使发生核事故, 也只是把数量少得多的放射性物质在短时间和小范围内释放出来而已. 而火电所做的, 是把多得多的放射性物质在时间和空间上平摊到我们每个人头上. &lt;/p&gt;</summary></entry><entry><title>发V机</title><link href="http://st.avros.net/articles/v_tx.html" rel="alternate"></link><updated>2013-06-11T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2013-06-11:articles/v_tx.html</id><summary type="html">&lt;p&gt;功能很简单, 就是发出字母V的莫尔斯电码"...-", 用来调试机器, 很好用. &lt;/p&gt;
+&lt;p&gt;即使发生核事故, 也只是把数量少得多的放射性物质在短时间和小范围内释放出来而已. 而火电所做的, 是把多得多的放射性物质在时间和空间上平摊到我们每个人头上. &lt;/p&gt;</summary></entry><entry><title>发V机</title><link href="http://st.avros.net/articles/v_tx.html" rel="alternate"></link><published>2013-06-11T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2013-06-11:articles/v_tx.html</id><summary type="html">&lt;p&gt;功能很简单, 就是发出字母V的莫尔斯电码"...-", 用来调试机器, 很好用. &lt;/p&gt;
 &lt;p&gt;原理图:&lt;/p&gt;
 &lt;p&gt;&lt;a href="/images/v_tx.png" title="电路图"&gt;&lt;img src="/images/v_tx.png" width="500px" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;由CD4060组成约100kHz的RC振荡器, 6次二分频后得到大约600Hz的音频信号; 继续由74HC393分频得到4bit控制信号, 由两只CD4011组成的逻辑电路变换成字母V的开关信号, 最后由一只NPN管实现600Hz音频调制. &lt;/p&gt;
 &lt;p&gt;用一只8脚单片机的话, 硬件上可以更简单. 用逻辑电路的好处是不用调试, 焊好通电就能工作了. &lt;/p&gt;
-&lt;p&gt;开始由一只10440锂电池直接供电, 结果发现电池电压变化会严重影响音调, 于是增加了HT7750升压电路, 让它在固定5V电压下工作, 效果好多了. &lt;/p&gt;</summary></entry><entry><title>继续试验外差机</title><link href="http://st.avros.net/articles/heterodyne_test.html" rel="alternate"></link><updated>2013-05-23T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2013-05-23:articles/heterodyne_test.html</id><summary type="html">&lt;p&gt;分别用LA1600和分立器件实现了两个中波外差机.&lt;/p&gt;
+&lt;p&gt;开始由一只10440锂电池直接供电, 结果发现电池电压变化会严重影响音调, 于是增加了HT7750升压电路, 让它在固定5V电压下工作, 效果好多了. &lt;/p&gt;</summary></entry><entry><title>继续试验外差机</title><link href="http://st.avros.net/articles/heterodyne_test.html" rel="alternate"></link><published>2013-05-23T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2013-05-23:articles/heterodyne_test.html</id><summary type="html">&lt;p&gt;分别用LA1600和分立器件实现了两个中波外差机.&lt;/p&gt;
 &lt;p&gt;效果差不多, 在阳台上能收到中国之声一个台, 别的台都收不到了. 总之和之前做的直放机没啥区别吧.&lt;/p&gt;
-&lt;p&gt;大概是输入回路的Q值太低, 弱信号全被中国之声压住了. 有空了再做FM机试试吧. &lt;/p&gt;</summary></entry><entry><title>USB电子管声卡</title><link href="http://st.avros.net/articles/usb_dac_tube.html" rel="alternate"></link><updated>2013-05-23T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2013-05-23:articles/usb_dac_tube.html</id><summary type="html">&lt;p&gt;这次是PCM2702+NE5534+2P2的组合——以USB的供电能力最多只能带动2P2了. &lt;/p&gt;
+&lt;p&gt;大概是输入回路的Q值太低, 弱信号全被中国之声压住了. 有空了再做FM机试试吧. &lt;/p&gt;</summary></entry><entry><title>USB电子管声卡</title><link href="http://st.avros.net/articles/usb_dac_tube.html" rel="alternate"></link><published>2013-05-23T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2013-05-23:articles/usb_dac_tube.html</id><summary type="html">&lt;p&gt;这次是PCM2702+NE5534+2P2的组合——以USB的供电能力最多只能带动2P2了. &lt;/p&gt;
 &lt;p&gt;&lt;a href="/images/usb_dac_tube.jpg" title="电路图"&gt;&lt;img src="/images/usb_dac_tube.jpg" width="500px" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;相当小巧, PCB面积比公交卡还小, 不过输出变压器没包括在内. &lt;/p&gt;
 &lt;p&gt;电路图如下, PCM2702输出的音频信号由NE5534反相放大后推动2P2. &lt;/p&gt;
 &lt;p&gt;&lt;a href="/images/usb_dac_tube.png" title="电路图"&gt;&lt;img src="/images/usb_dac_tube.png" width="500px" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;主要的麻烦是供电, 一只2P2需要60V屏压、1.2或2.4V灯丝、-3.5V栅偏压. 60V高压用LM2577升压得到; 这里用灯丝串联电阻R14上的压降来代替栅偏压, 于是可以省下一组供电. 此外NE5534的最高供电电压是±22V, 这里给它提供了一路30V电压. 这块小板子上供电占了大概1/3的面积. &lt;/p&gt;
-&lt;p&gt;效果么...... 只能说还凑合吧, 主要是音量太小了, 2P2的输出功率只有100mW. 下次试试两只2P2推挽的效果吧. &lt;/p&gt;</summary></entry><entry><title>636收音机</title><link href="http://st.avros.net/articles/636_recv.html" rel="alternate"></link><updated>2013-04-22T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2013-04-22:articles/636_recv.html</id><summary type="html">&lt;p&gt;说来惭愧, 玩了这么多年无线电, 以前从来没装响过一台收音机...... 后来发现, 不是收音机不行, 而是那会儿宿舍的电磁环境太差了, 用成品Philips D1875也照样一个AM台也收不到. &lt;/p&gt;
+&lt;p&gt;效果么...... 只能说还凑合吧, 主要是音量太小了, 2P2的输出功率只有100mW. 下次试试两只2P2推挽的效果吧. &lt;/p&gt;</summary></entry><entry><title>636收音机</title><link href="http://st.avros.net/articles/636_recv.html" rel="alternate"></link><published>2013-04-22T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2013-04-22:articles/636_recv.html</id><summary type="html">&lt;p&gt;说来惭愧, 玩了这么多年无线电, 以前从来没装响过一台收音机...... 后来发现, 不是收音机不行, 而是那会儿宿舍的电磁环境太差了, 用成品Philips D1875也照样一个AM台也收不到. &lt;/p&gt;
 &lt;p&gt;636估计是除了矿石机以外, 最简单的能收到台的收音机了, 电路图如下: &lt;/p&gt;
 &lt;p&gt;&lt;a href="/images/636_recv.png" title="电路图"&gt;&lt;img src="/images/636_recv.png" width="500px" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;这个电路图实际上已经是加强版了, 原版的636是没有倍压检波的. 我这次的实验用了长磁棒和空气双联, 跟当年的成品636相比, 可以算是豪华版了. 在阳台上试了一下, 中波低端可以收到中国之声, 声音挺清楚；高端就收不到什么信号了. &lt;/p&gt;
-&lt;p&gt;636后来的版本又加上了再生, 应该能加强一些灵敏度和选择性；但是现在的电磁环境跟60年代不能相比了, 已经不适合装直放机了. 以后还是玩外差机吧. &lt;/p&gt;</summary></entry><entry><title>NE555升压实验_3</title><link href="http://st.avros.net/articles/ne555_boost_3.html" rel="alternate"></link><updated>2013-04-22T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2013-04-22:articles/ne555_boost_3.html</id><summary type="html">&lt;p&gt;之前试验各种升压电路的结论是, 要想实现从单节锂电升压到5V或更高、大电流输出, PWM ic必须具有以下几个性能: &lt;/p&gt;
+&lt;p&gt;636后来的版本又加上了再生, 应该能加强一些灵敏度和选择性；但是现在的电磁环境跟60年代不能相比了, 已经不适合装直放机了. 以后还是玩外差机吧. &lt;/p&gt;</summary></entry><entry><title>NE555升压实验_3</title><link href="http://st.avros.net/articles/ne555_boost_3.html" rel="alternate"></link><published>2013-04-22T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2013-04-22:articles/ne555_boost_3.html</id><summary type="html">&lt;p&gt;之前试验各种升压电路的结论是, 要想实现从单节锂电升压到5V或更高、大电流输出, PWM ic必须具有以下几个性能: &lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;工作电压足够低, 一般锂电终止放电电压定在3.0V上下, 因此PWM ic的最低工作电压最好是2.7V或者更低; &lt;/p&gt;
@@ -795,7 +828,7 @@ DTR信号控制整机供电和天线切换, 作为PTT.&lt;/p&gt;
 &lt;p&gt;之前的实验里, NE555在5V升6.3V时表现良好, 但它的最低工作电压只能到4.5V, 不符合上述条件1. 于是想到能否用自举电路或者用7660倍压给NE555供电呢？搭电路实验, 结果如下: &lt;/p&gt;
 &lt;p&gt;使用自举电路时, 正常启动后, 输入电压可以一直低到1.8V都能正常升压工作; 但输入电压低于4.0V时不能启动. 可见此路不通. &lt;/p&gt;
 &lt;p&gt;使用7660倍压时可以在2.8V正常启动, 算是勉强达到要求, 可靠性还是不足. &lt;/p&gt;
-&lt;p&gt;可以再试试用BL8530、HT7750之类小功率升压ic为NE555辅助供电, 如果还是不行, 那就得放弃用NE555实现单节锂电升5V的思路了. &lt;/p&gt;</summary></entry><entry><title>用LM2596搭建数控稳压电源</title><link href="http://st.avros.net/articles/lm2596_dac.html" rel="alternate"></link><updated>2013-03-23T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2013-03-23:articles/lm2596_dac.html</id><summary type="html">&lt;p&gt;常用的LM2596芯片可以方便地搭成各种降压式开关稳压电源, 但要用单片机来控制它的输出电压就稍微有点麻烦了——主要的思路有两种, 一种是使用传统的电位器控制方式, 用单片机控制数字电位器来代替模拟电位器; 另一种则是利用单片机的PWM或DAC输出一个控制电压, 引入到LM2596的反馈环路中. 这次试验的是后一种思路. &lt;/p&gt;
+&lt;p&gt;可以再试试用BL8530、HT7750之类小功率升压ic为NE555辅助供电, 如果还是不行, 那就得放弃用NE555实现单节锂电升5V的思路了. &lt;/p&gt;</summary></entry><entry><title>用LM2596搭建数控稳压电源</title><link href="http://st.avros.net/articles/lm2596_dac.html" rel="alternate"></link><published>2013-03-23T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2013-03-23:articles/lm2596_dac.html</id><summary type="html">&lt;p&gt;常用的LM2596芯片可以方便地搭成各种降压式开关稳压电源, 但要用单片机来控制它的输出电压就稍微有点麻烦了——主要的思路有两种, 一种是使用传统的电位器控制方式, 用单片机控制数字电位器来代替模拟电位器; 另一种则是利用单片机的PWM或DAC输出一个控制电压, 引入到LM2596的反馈环路中. 这次试验的是后一种思路. &lt;/p&gt;
 &lt;p&gt;&lt;a href="/images/lm2596_dac.png" title="电路图"&gt;&lt;img src="/images/lm2596_dac.png" width="500px" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;如图, 设输出电压为Vout, 控制电压为Vctrl, LM2596的反馈端电压为Vfb, 根据运放的基本性质可得：&lt;/p&gt;
 &lt;p&gt;Vctrl * R3/(R3+R8) + Vfb * R8/(R3+R8) = Vout * R9 / (R2+R9)&lt;/p&gt;
@@ -845,7 +878,7 @@ DTR信号控制整机供电和天线切换, 作为PTT.&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;后记：用同样原理实现了APW7120+2SK3919*2的可调同步整流降压电路, 实测最大稳定输出电流达到11A. &lt;/p&gt;</summary></entry><entry><title>萤火虫瓶子&amp;LCD1602串口转换板</title><link href="http://st.avros.net/articles/firefly&amp;serlcd1602.html" rel="alternate"></link><updated>2013-03-19T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2013-03-19:articles/firefly&amp;serlcd1602.html</id><summary type="html">&lt;p&gt;前者是用AVR的io口模拟PWM, 驱动8个LED闪亮. &lt;/p&gt;
+&lt;p&gt;后记：用同样原理实现了APW7120+2SK3919*2的可调同步整流降压电路, 实测最大稳定输出电流达到11A. &lt;/p&gt;</summary></entry><entry><title>萤火虫瓶子&amp;LCD1602串口转换板</title><link href="http://st.avros.net/articles/firefly&amp;serlcd1602.html" rel="alternate"></link><published>2013-03-19T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2013-03-19:articles/firefly&amp;serlcd1602.html</id><summary type="html">&lt;p&gt;前者是用AVR的io口模拟PWM, 驱动8个LED闪亮. &lt;/p&gt;
 &lt;p&gt;&lt;a href="http://v.youku.com/v_show/id_XNTI4Nzc4MDYw.html" target="_blank"&gt;视频链接&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;装到大玻璃瓶里, 关了灯看, 效果不错.&lt;/p&gt;
 &lt;p&gt;分别试验了用PCF8574, 74HC164和用一片ATmega48实现用串口驱动1602液晶屏. &lt;/p&gt;
@@ -853,7 +886,7 @@ DTR信号控制整机供电和天线切换, 作为PTT.&lt;/p&gt;
 &lt;p&gt;用ATmega48扩展的话, 可以8线连接, 接口用i2c、spi、uart都可以, 用一个PWM口产生负压可以节省一只7660, 是最灵活的方式, 不过用uart时需要双方都有晶振. &lt;/p&gt;
 &lt;p&gt;用74HC164要多占用两个IO, 不过用一些小技巧可以实现只占用两个GPIO：如图, 用电阻和二极管形成一个与门, 在串行写入数据时将最高位置1, 写完8bit后再拉高DATA端, 此时与门输出高电平, EN动作. 之后要拉低DATA, 连续八个CLK以清空164输出端, 避免影响下一轮. 实测写LCD快速、稳定, 成本也是三种方式里最低的. &lt;/p&gt;
 &lt;p&gt;&lt;a href="/images/lcd_2wire.png" title="电路图"&gt;&lt;img src="/images/lcd_2wire.png" width="500px" /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;后记: 后来还是觉得4线接法驱动LCD1602不太稳定. 继续改进, 改为用HC164的八个输出驱动LCD1602的全部8位数据接口, 输入端同时驱动RS脚, 同时再用一个IO来驱动EN脚. 总共用了三个IO, 不过稳定性好多了.&lt;/p&gt;</summary></entry><entry><title>AVR SD WAVE播放器</title><link href="http://st.avros.net/articles/avr_sd_waveplayer.html" rel="alternate"></link><updated>2013-01-17T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2013-01-17:articles/avr_sd_waveplayer.html</id><summary type="html">&lt;p&gt;得从大约两年前说起, 那会儿amobbs的马潮老师出了个题目: 8x8的LED屏, 中间四个常亮, 最外圈亮一个转圈跑. &lt;/p&gt;
+&lt;p&gt;后记: 后来还是觉得4线接法驱动LCD1602不太稳定. 继续改进, 改为用HC164的八个输出驱动LCD1602的全部8位数据接口, 输入端同时驱动RS脚, 同时再用一个IO来驱动EN脚. 总共用了三个IO, 不过稳定性好多了.&lt;/p&gt;</summary></entry><entry><title>AVR SD WAVE播放器</title><link href="http://st.avros.net/articles/avr_sd_waveplayer.html" rel="alternate"></link><published>2013-01-17T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2013-01-17:articles/avr_sd_waveplayer.html</id><summary type="html">&lt;p&gt;得从大约两年前说起, 那会儿amobbs的马潮老师出了个题目: 8x8的LED屏, 中间四个常亮, 最外圈亮一个转圈跑. &lt;/p&gt;
 &lt;p&gt;这东西没啥难度吧？我正好有块点阵屏闲着, 就焊了一块板, 从开始写程序计算, 39分钟解决了.  &lt;/p&gt;
 &lt;p&gt;讨论过程中一师弟(好象是TwoPerson?)大概出口不慎, 把这位马潮老师惹怒了——于是他又出了个题, 原话如下: &lt;/p&gt;
 &lt;blockquote&gt;
@@ -864,7 +897,7 @@ DTR信号控制整机供电和天线切换, 作为PTT.&lt;/p&gt;
 &lt;p&gt;原理图: &lt;/p&gt;
 &lt;p&gt;&lt;a href="/images/avr_sd_waveplayer.png" title="电路图"&gt;&lt;img src="/images/avr_sd_waveplayer.png" width="500px" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;程序:&lt;/p&gt;
-&lt;p&gt;&lt;a href="/files/avr_sd_waveplayer_src.7z"&gt;src.7z&lt;/a&gt;&lt;/p&gt;</summary></entry><entry><title>2012制作总结</title><link href="http://st.avros.net/articles/2012_conclusion.html" rel="alternate"></link><updated>2012-12-10T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2012-12-10:articles/2012_conclusion.html</id><summary type="html">&lt;p&gt;各种实验性质的就不提了, 挑几个好玩的吧~&lt;/p&gt;
+&lt;p&gt;&lt;a href="/files/avr_sd_waveplayer_src.7z"&gt;src.7z&lt;/a&gt;&lt;/p&gt;</summary></entry><entry><title>2012制作总结</title><link href="http://st.avros.net/articles/2012_conclusion.html" rel="alternate"></link><published>2012-12-10T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2012-12-10:articles/2012_conclusion.html</id><summary type="html">&lt;p&gt;各种实验性质的就不提了, 挑几个好玩的吧~&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;桌面温湿度计&lt;/p&gt;
@@ -939,19 +972,19 @@ DTR信号控制整机供电和天线切换, 作为PTT.&lt;/p&gt;
 &lt;p&gt;&lt;a href="/images/dds_550khz.png" title="dds输出550kHz波形"&gt;&lt;img src="/images/dds_550khz.png" width="500px"/&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;图8 dds输出550kHz波形&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ol&gt;</summary></entry><entry><title>CM102音箱</title><link href="http://st.avros.net/articles/cm102_speaker.html" rel="alternate"></link><updated>2011-02-13T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2011-02-13:articles/cm102_speaker.html</id><summary type="html">&lt;p&gt;CM102是台湾C-Media公司的USB声卡芯片. 跟著名的PCM270x相比, 好处就是: 便宜、有DIP封装, 当然效果没法比了. 电路图如下: &lt;/p&gt;
+&lt;/ol&gt;</summary></entry><entry><title>CM102音箱</title><link href="http://st.avros.net/articles/cm102_speaker.html" rel="alternate"></link><published>2011-02-13T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2011-02-13:articles/cm102_speaker.html</id><summary type="html">&lt;p&gt;CM102是台湾C-Media公司的USB声卡芯片. 跟著名的PCM270x相比, 好处就是: 便宜、有DIP封装, 当然效果没法比了. 电路图如下: &lt;/p&gt;
 &lt;p&gt;&lt;a href="/images/cm102_speaker.png" title="电路图"&gt;&lt;img src="/images/cm102_speaker.png" width="500px" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;结果是有很大的不规则的噪声...开始以为是VBUS直供TDA2822的原因, 于是让VBUS过了1117-3.3再供TDA2822, 结果仍然噪声很大；全换成用电池供电, 仍然噪声很大；干脆断开TDA2822, 把耳机接到CM102的输出上, 噪声没了. 看样子是买到山寨2822了, 下次用TEA2025重做吧, 或者直接改用LM4890. &lt;/p&gt;
-&lt;p&gt;ps. C-Media的网站怎么可以这么2呢... 手里CM102的datasheet旧了, 而且几个图都巨模糊, 想找个新的看看, 上CM官网一找, 倒是有, 但是不支持google浏览器；换ie, 发现让注册用户；注册了用户, 下载了datasheet一看, 几个图还是模糊的. 这家的东西似乎卖得还不错, 比如当年的CMI8738. &lt;/p&gt;</summary></entry><entry><title>继续进行 NE555 boost 和 flyback 实验</title><link href="http://st.avros.net/articles/ne555_boost_2.html" rel="alternate"></link><updated>2011-02-13T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2011-02-13:articles/ne555_boost_2.html</id><summary type="html">&lt;p&gt;之前试过用NE555推MTD3055, 5V升6.3V的实验, 效果很好, 输出1A以上电流, 效率在80%到90%之间. 这次的电路图基本相同, 打算升压到125V左右, 再经过后面的线性稳压, 得到90V左右的稳定电压. 结果不太理想, 5V输入时闭环只能升到85V左右, 12V输入时可以达到130V, 效率50%~60%. 加大负载则效率迅速跌到30%. 从5V逐渐降低输入电压, 降到3.3V时仍能工作, 但带负载时(3W节能灯)不能从3.3V启动工作. 把振荡频率从25kHz提高到50kHz, 效率提高到接近70%, 但没有根本的改善. 再就是变压器的吱吱声实在是太烦人了. &lt;/p&gt;
+&lt;p&gt;ps. C-Media的网站怎么可以这么2呢... 手里CM102的datasheet旧了, 而且几个图都巨模糊, 想找个新的看看, 上CM官网一找, 倒是有, 但是不支持google浏览器；换ie, 发现让注册用户；注册了用户, 下载了datasheet一看, 几个图还是模糊的. 这家的东西似乎卖得还不错, 比如当年的CMI8738. &lt;/p&gt;</summary></entry><entry><title>继续进行 NE555 boost 和 flyback 实验</title><link href="http://st.avros.net/articles/ne555_boost_2.html" rel="alternate"></link><published>2011-02-13T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2011-02-13:articles/ne555_boost_2.html</id><summary type="html">&lt;p&gt;之前试过用NE555推MTD3055, 5V升6.3V的实验, 效果很好, 输出1A以上电流, 效率在80%到90%之间. 这次的电路图基本相同, 打算升压到125V左右, 再经过后面的线性稳压, 得到90V左右的稳定电压. 结果不太理想, 5V输入时闭环只能升到85V左右, 12V输入时可以达到130V, 效率50%~60%. 加大负载则效率迅速跌到30%. 从5V逐渐降低输入电压, 降到3.3V时仍能工作, 但带负载时(3W节能灯)不能从3.3V启动工作. 把振荡频率从25kHz提高到50kHz, 效率提高到接近70%, 但没有根本的改善. 再就是变压器的吱吱声实在是太烦人了. &lt;/p&gt;
 &lt;p&gt;下次的实验目标：&lt;/p&gt;
 &lt;p&gt;1)改用低Rds(on)的MOSFET代替IRFR420, 仍用boost方式, 看能不能稳定实现5V升到110V左右. boost没有噪音的优势还是很明显的. &lt;/p&gt;
 &lt;p&gt;2)继续绕变压器, 实现升压到400V, 同时也试试用74HC04、晶体管自激之类实现升压的可能性. &lt;/p&gt;
 &lt;p&gt;电路图:&lt;/p&gt;
-&lt;p&gt;&lt;a href="/images/ne555_flyback_2.png" title="电路图"&gt;&lt;img src="/images/ne555_flyback_2.png" width="500px" /&gt;&lt;/a&gt;&lt;/p&gt;</summary></entry><entry><title>流水灯</title><link href="http://st.avros.net/articles/water_lights.html" rel="alternate"></link><updated>2011-02-13T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2011-02-13:articles/water_lights.html</id><summary type="html">&lt;p&gt;ourdev的马潮老师出了个题目: 8x8的LED屏, 中间四个常亮, 最外圈亮一个灯转圈跑. 说实话没啥难度, 一伙人讨论得煞有介事. 似乎马潮那边的学生衰了点, 作为专业搞电子的学生, 俩小时搞不出来的都有. 我正好闲着就焊了块板, 从开始写程序开始, 39分钟搞定. &lt;/p&gt;
+&lt;p&gt;&lt;a href="/images/ne555_flyback_2.png" title="电路图"&gt;&lt;img src="/images/ne555_flyback_2.png" width="500px" /&gt;&lt;/a&gt;&lt;/p&gt;</summary></entry><entry><title>流水灯</title><link href="http://st.avros.net/articles/water_lights.html" rel="alternate"></link><published>2011-02-13T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2011-02-13:articles/water_lights.html</id><summary type="html">&lt;p&gt;ourdev的马潮老师出了个题目: 8x8的LED屏, 中间四个常亮, 最外圈亮一个灯转圈跑. 说实话没啥难度, 一伙人讨论得煞有介事. 似乎马潮那边的学生衰了点, 作为专业搞电子的学生, 俩小时搞不出来的都有. 我正好闲着就焊了块板, 从开始写程序开始, 39分钟搞定. &lt;/p&gt;
 &lt;p&gt;中间一北大的师弟把马潮老师惹毛了, 于是这老师又出了个题, 当joke看吧:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;如果不服, 可以再次比试. 你在北大找5个学生, 组成一个小组. 用m16加一片lm324, 设计一个读取sd卡上wave文件, 并播放的wave播放器, 看谁做的好. 给你们一个月的时间, 下个学期开学我到北大找你, 比试实物效果. &lt;/p&gt;
-&lt;/blockquote&gt;</summary></entry><entry><title>又试了一下用NE555做boost</title><link href="http://st.avros.net/articles/ne555_boost.html" rel="alternate"></link><updated>2010-04-13T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2010-04-13:articles/ne555_boost.html</id><summary type="html">&lt;p&gt;555搭成多谐振荡器推动MOSFET，用C1815当作比较器，输入5V，输出6.3V左右，试着点了几个电子管的灯丝。
+&lt;/blockquote&gt;</summary></entry><entry><title>又试了一下用NE555做boost</title><link href="http://st.avros.net/articles/ne555_boost.html" rel="alternate"></link><published>2010-04-13T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2010-04-13:articles/ne555_boost.html</id><summary type="html">&lt;p&gt;555搭成多谐振荡器推动MOSFET，用C1815当作比较器，输入5V，输出6.3V左右，试着点了几个电子管的灯丝。
 结果如下：&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -1031,14 +1064,14 @@ DTR信号控制整机供电和天线切换, 作为PTT.&lt;/p&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;素质相当高了，比34063强不少。以前用34063点6N3的灯丝，也是从5V升6.3V，效率只有60%多的样子。&lt;/p&gt;</summary></entry><entry><title>USB温度计</title><link href="http://st.avros.net/articles/usb18b20.html" rel="alternate"></link><updated>2010-04-07T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2010-04-07:articles/usb18b20.html</id><summary type="html">&lt;p&gt;用ATMEGA8+DS18B20做了个USB接口的温度计, 插上电脑就能显示室内温度, 体积和一般的U盘差不多大.&lt;/p&gt;</summary></entry><entry><title>验钞笔</title><link href="http://st.avros.net/articles/cash_detector.html" rel="alternate"></link><updated>2010-03-27T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2010-03-27:articles/cash_detector.html</id><summary type="html">&lt;p&gt;拆了一支圆珠笔，粗细正好能装下一节7号锂电，利用原来的弹簧当触点。&lt;/p&gt;
+&lt;p&gt;素质相当高了，比34063强不少。以前用34063点6N3的灯丝，也是从5V升6.3V，效率只有60%多的样子。&lt;/p&gt;</summary></entry><entry><title>USB温度计</title><link href="http://st.avros.net/articles/usb18b20.html" rel="alternate"></link><published>2010-04-07T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2010-04-07:articles/usb18b20.html</id><summary type="html">&lt;p&gt;用ATMEGA8+DS18B20做了个USB接口的温度计, 插上电脑就能显示室内温度, 体积和一般的U盘差不多大.&lt;/p&gt;</summary></entry><entry><title>验钞笔</title><link href="http://st.avros.net/articles/cash_detector.html" rel="alternate"></link><published>2010-03-27T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2010-03-27:articles/cash_detector.html</id><summary type="html">&lt;p&gt;拆了一支圆珠笔，粗细正好能装下一节7号锂电，利用原来的弹簧当触点。&lt;/p&gt;
 &lt;p&gt;笔尖的位置装了一个5mm紫外LED，串27欧电阻限流。&lt;/p&gt;
-&lt;p&gt;就这么简单！&lt;/p&gt;</summary></entry><entry><title>车载充电器</title><link href="http://st.avros.net/articles/auto_charger.html" rel="alternate"></link><updated>2010-01-18T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2010-01-18:articles/auto_charger.html</id><summary type="html">&lt;p&gt;用LM2596T的标准电路搭了个12V输入/5V输出的降压变换器. 因为听说有人的点烟器座里面居然把正负极接反了, 充电器一插上就冒烟, 于是保险起见在2596的前面加了个整流桥.&lt;/p&gt;
+&lt;p&gt;就这么简单！&lt;/p&gt;</summary></entry><entry><title>车载充电器</title><link href="http://st.avros.net/articles/auto_charger.html" rel="alternate"></link><published>2010-01-18T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2010-01-18:articles/auto_charger.html</id><summary type="html">&lt;p&gt;用LM2596T的标准电路搭了个12V输入/5V输出的降压变换器. 因为听说有人的点烟器座里面居然把正负极接反了, 充电器一插上就冒烟, 于是保险起见在2596的前面加了个整流桥.&lt;/p&gt;
 &lt;p&gt;整流二极管用B540C, 电感是在20mm磁环上绕了5T, 用LC表测了一下有40多uH, 够用了.&lt;/p&gt;
 &lt;p&gt;负载电阻用5.1欧 1/2瓦电阻. 这个电阻功率明显不够, 于是用长线把它接出来放进水盆里, 应该安全了.&lt;/p&gt;
 &lt;p&gt;一个负载电阻时, 输出电压5.00V, 电流0.98A, 输入电压12.0V, 电流0.55A. 两个电阻时输出5.00V 1.96A, 输入电流达到了1.12A.&lt;/p&gt;
 &lt;p&gt;测了一下2596输入端的电压居然只有10V多一点了, 看来桥还是挺影响效率的, 以后得换个肖特基桥.&lt;/p&gt;
-&lt;p&gt;按说2596的最大输出电流能达到3A, 但是不知道为什么, 三个电阻时电路就保护了, 试了几次都一样. 幸好2A也够用了.&lt;/p&gt;</summary></entry><entry><title>改造AM中周</title><link href="http://st.avros.net/articles/ift_mod.html" rel="alternate"></link><updated>2010-01-18T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2010-01-18:articles/ift_mod.html</id><summary type="html">&lt;p&gt;FCZ 的许多无线电制作资料上都用了他们自制的线圈, 这些线圈估计是很难买到的. 幸好查到了它们的绕制数据:&lt;/p&gt;
+&lt;p&gt;按说2596的最大输出电流能达到3A, 但是不知道为什么, 三个电阻时电路就保护了, 试了几次都一样. 幸好2A也够用了.&lt;/p&gt;</summary></entry><entry><title>改造AM中周</title><link href="http://st.avros.net/articles/ift_mod.html" rel="alternate"></link><published>2010-01-18T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2010-01-18:articles/ift_mod.html</id><summary type="html">&lt;p&gt;FCZ 的许多无线电制作资料上都用了他们自制的线圈, 这些线圈估计是很难买到的. 幸好查到了它们的绕制数据:&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -1118,24 +1151,24 @@ DTR信号控制整机供电和天线切换, 作为PTT.&lt;/p&gt;
 &lt;p&gt;其中谐振电容接在 1 和 3 脚之间,  2 是抽头. 4 和 6 是次级. 从图上看, 结构和中周是一样的, 正好手里还有几个 AM 中周, 于是决定先改一个 7MHz 的试试.&lt;/p&gt;
 &lt;p&gt;手里只有 82p 和 330p 的电容, 这样如果用 82p 的电容谐振在 7MHz 左右的话, 电感量应该是 6uH, 相应的匝数是 16T 左右. 改好用 LC 表测了一下, 差不多是 6uH.&lt;/p&gt;
 &lt;p&gt;前段时间买了 MC1648, 接上改好的线圈, 配 82p 电容, 接上频率计. 磁芯全部旋进时是 6.7MHz 左右, 全部旋出是 7.6MHz 左右, 差不多.&lt;/p&gt;
-&lt;p&gt;其他规格的估计也可以照样改绕, 不过 AM 中周的磁芯可能不合适了, 可以找 FM 中周和电视中周试试.&lt;/p&gt;</summary></entry><entry><title>MC1648+1SV149VCO实验</title><link href="http://st.avros.net/articles/mc1648_1sv149_vco.html" rel="alternate"></link><updated>2010-01-18T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2010-01-18:articles/mc1648_1sv149_vco.html</id><summary type="html">&lt;p&gt;以前搭过Colpitts和Hartley式的VCO, 但是频率覆盖总是只有2倍, 可能的原因是1SV149只能部分接入LC槽路, 接入多了反馈就少. MC1648是负阻振荡器, 在这一点上不受限制.&lt;/p&gt;
+&lt;p&gt;其他规格的估计也可以照样改绕, 不过 AM 中周的磁芯可能不合适了, 可以找 FM 中周和电视中周试试.&lt;/p&gt;</summary></entry><entry><title>MC1648+1SV149VCO实验</title><link href="http://st.avros.net/articles/mc1648_1sv149_vco.html" rel="alternate"></link><published>2010-01-18T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2010-01-18:articles/mc1648_1sv149_vco.html</id><summary type="html">&lt;p&gt;以前搭过Colpitts和Hartley式的VCO, 但是频率覆盖总是只有2倍, 可能的原因是1SV149只能部分接入LC槽路, 接入多了反馈就少. MC1648是负阻振荡器, 在这一点上不受限制.&lt;/p&gt;
 &lt;p&gt;把82p电容换成1SV149, 再试, 还是只能从2.7MHz调到5.1MHz.&lt;/p&gt;
 &lt;p&gt;检查了一下各点的电压情况, 原来是MC1648的槽路有+1.5V左右的偏压, 这样在5V供电时1SV149只有3.5V的电压区间可以利用了, 反向电压1V以下不算的话, 只有2.5V了, 频率覆盖不够也算正常.&lt;/p&gt;
 &lt;p&gt;于是接上辅助电源, 可以从2.7MHz调到11.9MHz了, 但是1SV149的反向电压才6.5V. 反向电压1V时的频率是3.3MHz左右, 频率覆盖有3倍多, 还是不能算满意.&lt;/p&gt;
-&lt;p&gt;检查了一下电路没有问题, 看来是频率计到上限了. 于是把线圈的磁芯全部旋进, 这样可以从2.0MHz调到9.6MHz, 反向电压1V时的频率是2.7MHz, 差不多也还是3.5倍的频率覆盖, 估计勉强能做到从455kHz到1600kHz了.&lt;/p&gt;</summary></entry><entry><title>34063扩流实验的一些结果</title><link href="http://st.avros.net/articles/34063_ext_1.html" rel="alternate"></link><updated>2009-12-30T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2009-12-30:articles/34063_ext_1.html</id><summary type="html">&lt;p&gt;34063做buck的效率是相当低的, 手册上给出的83.7%的效率是在输入25V, 输出5V的条件下测到的. 以前我自己实验的结果是, 输入12V, 输出6V左右时效率只有60%多, 比线性稳压高不了多少. 因为是用达林顿管接成OC或OE开关, 没法直接驱动外接MOSFET.&lt;/p&gt;
+&lt;p&gt;检查了一下电路没有问题, 看来是频率计到上限了. 于是把线圈的磁芯全部旋进, 这样可以从2.0MHz调到9.6MHz, 反向电压1V时的频率是2.7MHz, 差不多也还是3.5倍的频率覆盖, 估计勉强能做到从455kHz到1600kHz了.&lt;/p&gt;</summary></entry><entry><title>34063扩流实验的一些结果</title><link href="http://st.avros.net/articles/34063_ext_1.html" rel="alternate"></link><published>2009-12-30T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2009-12-30:articles/34063_ext_1.html</id><summary type="html">&lt;p&gt;34063做buck的效率是相当低的, 手册上给出的83.7%的效率是在输入25V, 输出5V的条件下测到的. 以前我自己实验的结果是, 输入12V, 输出6V左右时效率只有60%多, 比线性稳压高不了多少. 因为是用达林顿管接成OC或OE开关, 没法直接驱动外接MOSFET.&lt;/p&gt;
 &lt;p&gt;fdisk手里的一个路由器板, 3.3V供电是从5V buck降压得到的, 而且居然是用的34063. 5V降到3.3V如果用的是LDO, 那么效率就是66%, 可见这里效率一定远比66%高；于是和fdisk, sunzx一起把这部分电路抄了下来.&lt;/p&gt;
 &lt;p&gt;基本原理: 34063内部开关管导通时, Q1关断, PFET栅极通过二极管D1被拉低导通；34063内部开关管关断时, Q1导通, PFET栅极拉高关断. 从而实现了利用外置MOSFET扩流. sunzx紧接着找到一个类似原理的boost升压电路, 换成了PNP管和NFET.&lt;/p&gt;
 &lt;p&gt;照这两个电路接了一下, buck电路使用2SC945和MTD2955, 结果是输入5V 0.24A,  输出3.2V 0.29A,  效率大约77%;boost电路使用2SA733和MTD3055, 12V升29V效率只有52%了, 输入电压5V时则不能工作；换用导通电压很低的IRLML2502, 还是不能工作, 从示波器上看栅极波形, 根本不能关断. 两个电路的结果都不理想.&lt;/p&gt;
 &lt;p&gt;大概分析了一下: 主要的问题应该在MTD2955和3055这两个管子上. 在VGS=10V时, 两者的RDS(on)分别是0.23Ω和0.18Ω, 相比之下, fdisk路由器板上使用的MMSF7P03, RDS(on)只有35mΩ. 这个buck电路改用低导通电阻的管子应该会好些. 至于boost电路, 在输入电压较低时, 34063内部开关管和二极管D4上的压降使得MTD3055还不能完全导通；换用IRLML2502之后, 它的导通电压低了, 但是不能饱和导通的Q4使得IRLML2502没法关断. 因此这个boost电路在输入电压较低(3.3V到5V)时不能用, 而输入电压再高些的时候则有性能高得多的UC3843可用, 看来它的实用价值不大了.&lt;/p&gt;
-&lt;p&gt;下一步考虑换个低导通电阻的MOSFET比如AO4419, 再试一下buck电路的性能, 应该还是有潜力的.&lt;/p&gt;</summary></entry><entry><title>土绕线机</title><link href="http://st.avros.net/articles/winding_machine.html" rel="alternate"></link><updated>2009-11-01T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2009-11-01:articles/winding_machine.html</id><summary type="html">&lt;p&gt;本来是个PWM调电机转速的板子, 做多了几块, 于是改造了一下. 用M48的INT0口数圈数, 在电机接轴器上粘了一块磁铁, 用A3144检测.
+&lt;p&gt;下一步考虑换个低导通电阻的MOSFET比如AO4419, 再试一下buck电路的性能, 应该还是有潜力的.&lt;/p&gt;</summary></entry><entry><title>土绕线机</title><link href="http://st.avros.net/articles/winding_machine.html" rel="alternate"></link><published>2009-11-01T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2009-11-01:articles/winding_machine.html</id><summary type="html">&lt;p&gt;本来是个PWM调电机转速的板子, 做多了几块, 于是改造了一下. 用M48的INT0口数圈数, 在电机接轴器上粘了一块磁铁, 用A3144检测.
 电机是300转的减速电机.&lt;/p&gt;
 &lt;p&gt;两个按键, 其中一个按了转100圈, 另一个键是10圈.&lt;/p&gt;
-&lt;p&gt;用来绕变压器很方便.&lt;/p&gt;</summary></entry><entry><title>频率计</title><link href="http://st.avros.net/articles/freqmeter.html" rel="alternate"></link><updated>2009-10-15T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2009-10-15:articles/freqmeter.html</id><summary type="html">&lt;p&gt;输入信号经 K246 共源缓冲, 直耦到 C1959 放大,  74HC04 整形后通过另一只作为闸门的 C1959, 由 74HC393 和 Mega8 的 T1 计数器一起计数. 理论能测到 224=16.777216MHz.&lt;/p&gt;
+&lt;p&gt;用来绕变压器很方便.&lt;/p&gt;</summary></entry><entry><title>频率计</title><link href="http://st.avros.net/articles/freqmeter.html" rel="alternate"></link><published>2009-10-15T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2009-10-15:articles/freqmeter.html</id><summary type="html">&lt;p&gt;输入信号经 K246 共源缓冲, 直耦到 C1959 放大,  74HC04 整形后通过另一只作为闸门的 C1959, 由 74HC393 和 Mega8 的 T1 计数器一起计数. 理论能测到 224=16.777216MHz.&lt;/p&gt;
 &lt;p&gt;电路如图:&lt;/p&gt;
-&lt;p&gt;&lt;a href="/images/freqmeter.png" title="电路图"&gt;&lt;img src="/images/freqmeter.png" width="500px" /&gt;&lt;/a&gt;&lt;/p&gt;</summary></entry><entry><title>继续试验升压开关电源</title><link href="http://st.avros.net/articles/step_up_expr_2.html" rel="alternate"></link><updated>2009-08-19T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2009-08-19:articles/step_up_expr_2.html</id><summary type="html">&lt;p&gt;用UC3843搭flyback实现了输入18V,  输出220V左右点亮25W灯泡.  变压器使用EE25.4磁心.&lt;/p&gt;
+&lt;p&gt;&lt;a href="/images/freqmeter.png" title="电路图"&gt;&lt;img src="/images/freqmeter.png" width="500px" /&gt;&lt;/a&gt;&lt;/p&gt;</summary></entry><entry><title>继续试验升压开关电源</title><link href="http://st.avros.net/articles/step_up_expr_2.html" rel="alternate"></link><published>2009-08-19T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2009-08-19:articles/step_up_expr_2.html</id><summary type="html">&lt;p&gt;用UC3843搭flyback实现了输入18V,  输出220V左右点亮25W灯泡.  变压器使用EE25.4磁心.&lt;/p&gt;
 &lt;p&gt;用MAX1771轻易实现单节18650升压输出5V 1A,  估计有输出5V 2A的潜力. Maxim的东西到底靠谱.&lt;/p&gt;
 &lt;p&gt;LM2577搭flyback实现单节14500锂电升压输出60V,  输出6-13mA时效率大约在50%上下, 一般般吧. 同时线性降压输出1.2V.&lt;/p&gt;
-&lt;p&gt;BL8530、PT1301等从1AA升到5V有点力不从心, 感觉还是从1AA升到2.5V/3.3V,  从2AA或单锂电升到5V比较合适.&lt;/p&gt;</summary></entry><entry><title>最近试验各种升压电路的一些结果</title><link href="http://st.avros.net/articles/step_up_expr.html" rel="alternate"></link><updated>2009-05-10T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2009-05-10:articles/step_up_expr.html</id><summary type="html">&lt;ol&gt;
+&lt;p&gt;BL8530、PT1301等从1AA升到5V有点力不从心, 感觉还是从1AA升到2.5V/3.3V,  从2AA或单锂电升到5V比较合适.&lt;/p&gt;</summary></entry><entry><title>最近试验各种升压电路的一些结果</title><link href="http://st.avros.net/articles/step_up_expr.html" rel="alternate"></link><published>2009-05-10T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2009-05-10:articles/step_up_expr.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;MC34063:
     限制最高升到40V, 实际试验可以升到60V左右. 外接2N5551大约能升至85V (输入电压12V), 只能输出10mA左右的电流. 由于占空比的限制, 很难升到更高了.&lt;/p&gt;
@@ -1155,7 +1188,7 @@ DTR信号控制整机供电和天线切换, 作为PTT.&lt;/p&gt;
 &lt;/ol&gt;
 &lt;p&gt;总结: 似乎使用简单的boost很难做到输出200V/100mA以上, 还是得用反激、半桥或者全桥变换器才行。下一步先用MC34063接成反激式，用一个小磁环试试看，如果好用再换LM2577+E字磁芯。&lt;/p&gt;
 &lt;p&gt;ps, 用LM2596接成inverter时，启动瞬间需要4.5A的电流，所以延迟启动一定不能省，并且需要较大的输入电容。&lt;/p&gt;
-&lt;p&gt;用MC34063做inverter的效率则相当低，输入12V，输出-9V时大概只有50%的效率。看来要得到正负电压还是用反激式容易些。&lt;/p&gt;</summary></entry><entry><title>分压电阻计算器</title><link href="http://st.avros.net/articles/res_divider.html" rel="alternate"></link><updated>2009-02-08T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2009-02-08:articles/res_divider.html</id><summary type="html">&lt;p&gt;写了个计算DC-DC电路输出分压电阻的小工具, 如图.&lt;/p&gt;
+&lt;p&gt;用MC34063做inverter的效率则相当低，输入12V，输出-9V时大概只有50%的效率。看来要得到正负电压还是用反激式容易些。&lt;/p&gt;</summary></entry><entry><title>分压电阻计算器</title><link href="http://st.avros.net/articles/res_divider.html" rel="alternate"></link><published>2009-02-08T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2009-02-08:articles/res_divider.html</id><summary type="html">&lt;p&gt;写了个计算DC-DC电路输出分压电阻的小工具, 如图.&lt;/p&gt;
 &lt;p&gt;&lt;a href="/images/res_divider.png" title="截图"&gt;&lt;img src="/images/res_divider.png" height="300px" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;输入所需要的电压和FB端参考电压, 它就自动计算出所需要的电阻值和误差, 电阻全部用5%精度的E24序列.&lt;/p&gt;
 &lt;p&gt;下载链接:&lt;/p&gt;

@@ -153,7 +153,7 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
  </div>
         <div class="summary"><p>GNU工具链里的size大家应该都用过, 它可以显示elf/obj/exe/dll等可执行文件里各个段的大小, 非常方便. 加-A和-B参数分别是按sysv和berkeley格式显示, 默认带-B参数.</p>
 <p>avr-gcc里的avr-size则又增加了一个-C的选项, 可以显示单片机flash和ram的占用比例, 需要同时用--mcu参数指定avr单片机的型号, 效果是这样的:</p>
-<div class="highlight"><pre>avr-size -C --mcu=attiny26 main.elf
+<div class="highlight"><pre><span></span>avr-size -C --mcu=attiny26 main.elf
 AVR Memory Usage
 ----------------
 Device: attiny26
@@ -310,7 +310,7 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <p>使用objcopy把字库转成目标文件(.o/.obj)</p>
 <p>假设我们需要嵌入的是5x7的ascii点阵字库, 文件名是asc5x7.bin.</p>
 <p>在arm-gcc环境下, 命令如下:</p>
-<div class="highlight"><pre>arm-none-eabi-objcopy -B arm -I binary -O elf32-littlearm --rename-section .data=.rodata asc5x7.bin asc5x7.o
+<div class="highlight"><pre><span></span>arm-none-eabi-objcopy -B arm -I binary -O elf32-littlearm --rename-section .data=.rodata asc5x7.bin asc5x7.o
 </pre></div>
 
 
