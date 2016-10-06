@@ -60,6 +60,29 @@
  
 
     <div class='article'>
+        <a href="http://st.avros.net/articles/v_tx.html"><h2>发V机</h2></a>
+        <div class= "well small"> 2013-06-11
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>功能很简单, 就是发出字母V的莫尔斯电码"...-", 用来调试机器, 很好用. </p>
+<p>原理图:</p>
+<p><a href="/images/v_tx.png" title="电路图"><img src="/images/v_tx.png" width="500px" /></a></p>
+<p>由CD4060组成约100kHz的RC振荡器, 6次二分频后得到大约600Hz的音频信号; 继续由74HC393分频得到4bit控制信号, 由两只CD4011组成的逻辑电路变换成字母V的开关信号, 最后由一只NPN管实现600Hz音频调制. </p>
+<p>用一只8脚单片机的话, 硬件上可以更简单. 用逻辑电路的好处是不用调试, 焊好通电就能工作了. </p>
+<p>开始由一只10440锂电池直接供电, 结果发现电池电压变化会严重影响音调, 于是增加了HT7750升压电路, 让它在固定5V电压下工作, 效果好多了. </p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/v_tx.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://st.avros.net/articles/heterodyne_test.html"><h2>继续试验外差机</h2></a>
         <div class= "well small"> 2013-05-23
 
@@ -289,29 +312,6 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <p>ps. C-Media的网站怎么可以这么2呢... 手里CM102的datasheet旧了, 而且几个图都巨模糊, 想找个新的看看, 上CM官网一找, 倒是有, 但是不支持google浏览器；换ie, 发现让注册用户；注册了用户, 下载了datasheet一看, 几个图还是模糊的. 这家的东西似乎卖得还不错, 比如当年的CMI8738. </p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/cm102_speaker.html">read more</a></div>
     </div>	
 				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/ne555_boost_2.html"><h2>继续进行 NE555 boost 和 flyback 实验</h2></a>
-        <div class= "well small"> 2011-02-13
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>之前试过用NE555推MTD3055, 5V升6.3V的实验, 效果很好, 输出1A以上电流, 效率在80%到90%之间. 这次的电路图基本相同, 打算升压到125V左右, 再经过后面的线性稳压, 得到90V左右的稳定电压. 结果不太理想, 5V输入时闭环只能升到85V左右, 12V输入时可以达到130V, 效率50%~60%. 加大负载则效率迅速跌到30%. 从5V逐渐降低输入电压, 降到3.3V时仍能工作, 但带负载时(3W节能灯)不能从3.3V启动工作. 把振荡频率从25kHz提高到50kHz, 效率提高到接近70%, 但没有根本的改善. 再就是变压器的吱吱声实在是太烦人了. </p>
-<p>下次的实验目标：</p>
-<p>1)改用低Rds(on)的MOSFET代替IRFR420, 仍用boost方式, 看能不能稳定实现5V升到110V左右. boost没有噪音的优势还是很明显的. </p>
-<p>2)继续绕变压器, 实现升压到400V, 同时也试试用74HC04、晶体管自激之类实现升压的可能性. </p>
-<p>电路图:</p>
-<p><a href="/images/ne555_flyback_2.png" title="电路图"><img src="/images/ne555_flyback_2.png" width="500px" /></a></p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/ne555_boost_2.html">read more</a></div>
-    </div>	
-				
 <div class="pagination">
 <ul>
     <li class="prev"><a href="http://st.avros.net/index3.html">&larr; Previous</a></li>
@@ -361,6 +361,7 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
                 <li><a href="http://st.avros.net/category/gong-ju.html">工具</a></li>
                 <li><a href="http://st.avros.net/category/ji-dian.html">机电</a></li>
                 <li><a href="http://st.avros.net/category/qi-ta.html">其他</a></li>
+                <li><a href="http://st.avros.net/category/tools.html">tools</a></li>
                 <li><a href="http://st.avros.net/category/wu-xian-dian.html">无线电</a></li>
                 <li><a href="http://st.avros.net/category/yin-pin.html">音频</a></li>
                    

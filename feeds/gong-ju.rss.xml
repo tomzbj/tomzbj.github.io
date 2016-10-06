@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>兰湾</title><link href="http://st.avros.net/" rel="alternate"></link><link href="http://st.avros.net//feeds/gong-ju.rss.xml" rel="self"></link><id>http://st.avros.net/</id><updated>2016-03-16T00:00:00+08:00</updated><entry><title>修复宜家LED灯一则</title><link href="http://st.avros.net/articles/ikea_led.html" rel="alternate"></link><published>2016-03-16T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2016-03-16:articles/ikea_led.html</id><summary type="html">&lt;p&gt;宜家买的LED灯不亮了。把线剪断，两边分别一测，发现LED是好的，电源适配器无输出，只得再给它做个驱动。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>兰湾</title><link href="http://st.avros.net/" rel="alternate"></link><link href="http://st.avros.net//feeds/gong-ju.rss.xml" rel="self"></link><id>http://st.avros.net/</id><updated>2016-03-16T00:00:00+08:00</updated><entry><title>修复宜家LED灯一则</title><link href="http://st.avros.net/articles/ikea_led.html" rel="alternate"></link><published>2016-03-16T00:00:00+08:00</published><updated>2016-03-16T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2016-03-16:articles/ikea_led.html</id><summary type="html">&lt;p&gt;宜家买的LED灯不亮了。把线剪断，两边分别一测，发现LED是好的，电源适配器无输出，只得再给它做个驱动。&lt;/p&gt;
 &lt;p&gt;LED需要恒流驱动，直接接个恒压输出的适配器上去是不行的，要么不亮，要么烧坏。串个电阻行不行呢？行是行，不过电阻会很热。这个LED灯是3W的，工作电流1A，接到5V电源上就需要串联2欧的电阻，电阻的发热量达到2W。这么做显然太不优雅。&lt;/p&gt;
 &lt;p&gt;幸好手里还有若干LED驱动IC：华润的PT4115，用它可以顺便把调光功能也加上。画了个电路图如下：&lt;/p&gt;
 &lt;p&gt;&lt;a href="/images2/2016/ikea_led.png"&gt;&lt;img src="/images2/2016/ikea_led.png" width="500" /&gt;&lt;/a&gt;&lt;/p&gt;
@@ -61,7 +61,7 @@
         "}";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</summary></entry><entry><title>利用Makefile实现avr-size -C的效果</title><link href="http://st.avros.net/articles/makefile_size.html" rel="alternate"></link><published>2016-01-03T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2016-01-03:articles/makefile_size.html</id><summary type="html">&lt;p&gt;GNU工具链里的size大家应该都用过, 它可以显示elf/obj/exe/dll等可执行文件里各个段的大小, 非常方便. 加-A和-B参数分别是按sysv和berkeley格式显示, 默认带-B参数.&lt;/p&gt;
+&lt;/script&gt;</summary></entry><entry><title>利用Makefile实现avr-size -C的效果</title><link href="http://st.avros.net/articles/makefile_size.html" rel="alternate"></link><published>2016-01-03T00:00:00+08:00</published><updated>2016-01-03T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2016-01-03:articles/makefile_size.html</id><summary type="html">&lt;p&gt;GNU工具链里的size大家应该都用过, 它可以显示elf/obj/exe/dll等可执行文件里各个段的大小, 非常方便. 加-A和-B参数分别是按sysv和berkeley格式显示, 默认带-B参数.&lt;/p&gt;
 &lt;p&gt;avr-gcc里的avr-size则又增加了一个-C的选项, 可以显示单片机flash和ram的占用比例, 需要同时用--mcu参数指定avr单片机的型号, 效果是这样的:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;avr-size -C --mcu=attiny26 main.elf
 AVR Memory Usage
@@ -96,7 +96,7 @@ Data:         23 bytes (18.0% Full)
   34928    2212    5316   42456    a5d8 main_rom.elf
 Flash: 37140 / 65536 bytes, 56.6% Full (.text + .data)
 SRAM:  7528 / 8192 bytes, 91.8% Full (.data + .bss)
-&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>最近的三个制作：酒酿机、6F22充电器、太阳能充电器</title><link href="http://st.avros.net/articles/fermetnter_6f22_solar.html" rel="alternate"></link><published>2015-08-15T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2015-08-15:articles/fermetnter_6f22_solar.html</id><summary type="html">&lt;ol&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>最近的三个制作：酒酿机、6F22充电器、太阳能充电器</title><link href="http://st.avros.net/articles/fermetnter_6f22_solar.html" rel="alternate"></link><published>2015-08-15T00:00:00+08:00</published><updated>2015-08-15T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2015-08-15:articles/fermetnter_6f22_solar.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;酒酿机&lt;/p&gt;
 &lt;p&gt;做酒酿(醪醩)需要保持40度左右的温度发酵。正好家里有个最便宜的小熊酸奶机，不带控温功能的，能否用它来改装成酒酿机呢？&lt;/p&gt;
@@ -117,12 +117,12 @@ SRAM:  7528 / 8192 bytes, 91.8% Full (.data + .bss)
 &lt;p&gt;&lt;a href="/images2/2015/solar_charger.png"&gt;&lt;img src="/images2/2015/solar_charger.png" width="480" /&gt;&lt;/a&gt; &lt;/p&gt;
 &lt;p&gt;就是PT1301的基本升压电路，输出电压为5.24V左右，再经过SS34降压后差不多是5V。等太阳能直射到书房了，看看效果如何。&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ol&gt;</summary></entry><entry><title>PID控温实验</title><link href="http://st.avros.net/articles/pid_expr.html" rel="alternate"></link><published>2015-07-13T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2015-07-13:articles/pid_expr.html</id><summary type="html">&lt;p&gt;做了个PID温控器，原理图如下：&lt;/p&gt;
+&lt;/ol&gt;</summary></entry><entry><title>PID控温实验</title><link href="http://st.avros.net/articles/pid_expr.html" rel="alternate"></link><published>2015-07-13T00:00:00+08:00</published><updated>2015-07-13T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2015-07-13:articles/pid_expr.html</id><summary type="html">&lt;p&gt;做了个PID温控器，原理图如下：&lt;/p&gt;
 &lt;p&gt;&lt;a href="/images2/2015/pid_expr.png"&gt;&lt;img src="/images2/2015/pid_expr.png" width="480" /&gt;&lt;/a&gt; &lt;/p&gt;
 &lt;p&gt;电源电压首先流经0.33欧的取样电阻R1，然后给加热器供电。加热器用随便一个TO220封装的N沟道MOS管就行，LM35用来测温。高端电流检测虽然麻烦些，但这样加热器的连线可以更简单，四条线就够了。&lt;/p&gt;
 &lt;p&gt;LM35输出的电压值经Mega48 AD转换后得到温度值。Mega48输出一路PWM经低通滤波后与取样电阻R1上的电压比较后控制MOS管的电流。之后用简单的PID算法即可实现控温了。&lt;/p&gt;
 &lt;p&gt;把MOS管和LM35用导热胶粘在一块95mm x 66mm的散热片上，实测用12V 2A的电源供电时，开环加热可以达到44度左右。启用PID控温后，可以在室温~44度之间把温度控制到设定值正负0.1度。&lt;/p&gt;
-&lt;p&gt;之后在这个基础上可以做很多东西了，比如酸奶机、酒酿机、煮温泉蛋机等等。&lt;/p&gt;</summary></entry><entry><title>最近的三个制作</title><link href="http://st.avros.net/articles/6f22_fm_rf.html" rel="alternate"></link><published>2015-05-21T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2015-05-21:articles/6f22_fm_rf.html</id><summary type="html">&lt;ol&gt;
+&lt;p&gt;之后在这个基础上可以做很多东西了，比如酸奶机、酒酿机、煮温泉蛋机等等。&lt;/p&gt;</summary></entry><entry><title>最近的三个制作</title><link href="http://st.avros.net/articles/6f22_fm_rf.html" rel="alternate"></link><published>2015-05-21T00:00:00+08:00</published><updated>2015-05-21T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2015-05-21:articles/6f22_fm_rf.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;彻底榨干6F22的剩余电量&lt;/p&gt;
 &lt;p&gt;从万用表里拆下来的6F22常常还有许多电量没有用掉, 直接扔掉比较可惜. 把它DC-DC降压后给单片机之类供电, 还能再撑一段时间. &lt;/p&gt;
@@ -142,7 +142,7 @@ SRAM:  7528 / 8192 bytes, 91.8% Full (.data + .bss)
 &lt;p&gt;一开始检波二极管用的是2SC1622的BC结, 结果实测在50M时功率严重偏小, 144M和430M就一点功率也测不到了. 换成1N60之后一切正常. 估计是因为2SC1622的结电容太大?&lt;/p&gt;
 &lt;p&gt;但是1N60耐压太低, 只有50V, 这样只能测到峰值25V的RF电压, 换算成功率只有6.25W了. 下次还是得用先衰减再测的方案.&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ol&gt;</summary></entry><entry><title>小台钟</title><link href="http://st.avros.net/articles/tiny24_clock.html" rel="alternate"></link><published>2015-05-02T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2015-05-02:articles/tiny24_clock.html</id><summary type="html">&lt;p&gt;用手里闲置的Attiny24+LCD0801屏做了个小钟, 如图:&lt;/p&gt;
+&lt;/ol&gt;</summary></entry><entry><title>小台钟</title><link href="http://st.avros.net/articles/tiny24_clock.html" rel="alternate"></link><published>2015-05-02T00:00:00+08:00</published><updated>2015-05-02T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2015-05-02:articles/tiny24_clock.html</id><summary type="html">&lt;p&gt;用手里闲置的Attiny24+LCD0801屏做了个小钟, 如图:&lt;/p&gt;
 &lt;p&gt;&lt;a href="/images/tiny24_clock.jpg" title="照片"&gt;&lt;img src="/images/tiny24_clock.jpg" width="500px" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;用一节600还是800mAh的手机电池供电, 充满电可以工作半个月.&lt;/p&gt;
 &lt;p&gt;原理图:&lt;/p&gt;
@@ -150,7 +150,7 @@ SRAM:  7528 / 8192 bytes, 91.8% Full (.data + .bss)
 &lt;p&gt;其中LCD用的是0801, 和1602接口完全一样, 加了一块之前做的&lt;a href="articles/firefly&amp;amp;serlcd1602.html"&gt;串口转换小板&lt;/a&gt;. 由于是3.3V供电, LCD的V0脚需要接入负压, 这里负压用MCU的一路PWM经负倍压整流产生. 晶振用什么频率其实都无关紧要, 只要是个整数, 并且按一定的分频规则能凑出2Hz的频率就行了.&lt;/p&gt;
 &lt;p&gt;源程序:&lt;/p&gt;
 &lt;p&gt;&lt;a href="/files/tiny24_clock_src.7z"&gt;tiny24_clock_src.7z&lt;/a&gt; &lt;/p&gt;
-&lt;p&gt;改天再给它加个太阳能电池, 这样也许就再也不用充电了.&lt;/p&gt;</summary></entry><entry><title>在stm32上使用二进制字库的简单方法</title><link href="http://st.avros.net/articles/stm32_fonts.html" rel="alternate"></link><published>2015-03-13T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2015-03-13:articles/stm32_fonts.html</id><summary type="html">&lt;p&gt;标题其实可以写成"在可执行程序里嵌入二进制资源的方法", 不过这个题目大了点, 还是原样吧.&lt;/p&gt;
+&lt;p&gt;改天再给它加个太阳能电池, 这样也许就再也不用充电了.&lt;/p&gt;</summary></entry><entry><title>在stm32上使用二进制字库的简单方法</title><link href="http://st.avros.net/articles/stm32_fonts.html" rel="alternate"></link><published>2015-03-13T00:00:00+08:00</published><updated>2015-03-13T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2015-03-13:articles/stm32_fonts.html</id><summary type="html">&lt;p&gt;标题其实可以写成"在可执行程序里嵌入二进制资源的方法", 不过这个题目大了点, 还是原样吧.&lt;/p&gt;
 &lt;p&gt;以前如果我们用到不带字库的点阵LCD, 一般都是把字库按16进制写成一个大数组, 再和其他源程序一起编译. 有没有方便一点的办法呢？这里给出两个方案.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -236,7 +236,7 @@ LDFLAGS += -Wl,--gc-sections
 &lt;p&gt;如果要在可执行文件里嵌入图片, 音频之类, 也可以用同样的方法.&lt;/p&gt;
 &lt;p&gt;以上程序均在Windows 7 &amp;amp; Sourcery G++ &amp;amp; STM32F103/F030环境下测试通过. 在Keil/IAR等环境下请自行类推.&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ol&gt;</summary></entry><entry><title>Sansei DMM2650背光改装记录</title><link href="http://st.avros.net/articles/dmm2650.html" rel="alternate"></link><published>2014-12-12T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2014-12-12:articles/dmm2650.html</id><summary type="html">&lt;p&gt;Sansei DMM2650是80年代的小型台式四位半自动量程万用表, 在Diyers中一直很受欢迎. sunzx送了我一台, 相当好用. 使用过程中发现它有一个很大的不足之处就是液晶屏没有背光, 光线较暗时读数不容易看清, 所以我决定给它加装背光. &lt;/p&gt;
+&lt;/ol&gt;</summary></entry><entry><title>Sansei DMM2650背光改装记录</title><link href="http://st.avros.net/articles/dmm2650.html" rel="alternate"></link><published>2014-12-12T00:00:00+08:00</published><updated>2014-12-12T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2014-12-12:articles/dmm2650.html</id><summary type="html">&lt;p&gt;Sansei DMM2650是80年代的小型台式四位半自动量程万用表, 在Diyers中一直很受欢迎. sunzx送了我一台, 相当好用. 使用过程中发现它有一个很大的不足之处就是液晶屏没有背光, 光线较暗时读数不容易看清, 所以我决定给它加装背光. &lt;/p&gt;
 &lt;p&gt;&lt;a href="/images/dmm2650_1.jpg"&gt;&lt;img src="/images/dmm2650_1.jpg" width="500" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;DMM2650的液晶屏是双列针脚直插式的, 小心地把它从插座上取下来, 如图：&lt;/p&gt;
 &lt;p&gt;&lt;a href="/images/dmm2650_2.jpg"&gt;&lt;img src="/images/dmm2650_2.jpg" width="500" /&gt;&lt;/a&gt;&lt;/p&gt;
@@ -262,15 +262,15 @@ LDFLAGS += -Wl,--gc-sections
 &lt;p&gt;&lt;a href="/images/dmm2650_12.jpg"&gt;&lt;img src="/images/dmm2650_12.jpg" width="500" /&gt;&lt;/a&gt; &lt;/p&gt;
 &lt;p&gt;装回外壳, 放在书架上, 先凑和着用吧, 等以后找到了合适的柔光片再给它换上. &lt;/p&gt;
 &lt;p&gt;&lt;a href="/images/dmm2650_13.jpg"&gt;&lt;img src="/images/dmm2650_13.jpg" width="500" /&gt;&lt;/a&gt; &lt;/p&gt;
-&lt;p&gt;完~&lt;/p&gt;</summary></entry><entry><title>南瓜灯</title><link href="http://st.avros.net/articles/pumpkin_light.html" rel="alternate"></link><published>2014-05-07T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2014-05-07:articles/pumpkin_light.html</id><summary type="html">&lt;p&gt;某次在超市看到有这种球形蜡烛头卖，如图：&lt;/p&gt;
+&lt;p&gt;完~&lt;/p&gt;</summary></entry><entry><title>南瓜灯</title><link href="http://st.avros.net/articles/pumpkin_light.html" rel="alternate"></link><published>2014-05-07T00:00:00+08:00</published><updated>2014-05-07T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2014-05-07:articles/pumpkin_light.html</id><summary type="html">&lt;p&gt;某次在超市看到有这种球形蜡烛头卖，如图：&lt;/p&gt;
 &lt;p&gt;&lt;a href="/images/pumpkin_1.jpg"&gt;&lt;img src="/images/pumpkin_1.jpg" width="500" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;用记号笔把适当的地方涂黑，就成了这样：&lt;/p&gt;
 &lt;p&gt;&lt;a href="/images/pumpkin_2.jpg"&gt;&lt;img src="/images/pumpkin_2.jpg" width="500" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;最后呢，在它下面熔个洞，放进一个橙色大功率LED，点亮以后的效果：&lt;/p&gt;
 &lt;p&gt;&lt;a href="/images/pumpkin_3.jpg"&gt;&lt;img src="/images/pumpkin_3.jpg" width="500" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;好象万圣节的时间搞错了……不过无所谓啦。&lt;/p&gt;
-&lt;p&gt;最后，用AVR让它的亮度忽明忽暗，尽可能象真正的蜡烛一样——其实挺困难的。&lt;/p&gt;</summary></entry><entry><title>滑动触摸实验</title><link href="http://st.avros.net/articles/slide_sense.html" rel="alternate"></link><published>2013-07-14T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2013-07-14:articles/slide_sense.html</id><summary type="html">&lt;p&gt;见ST的两个应用笔记, AN2927和AN2896. 基本原理就是把触摸区域当作一个电容, 用一个IO口通过大电阻对触摸区域充放电, 另一个IO口来读取状态, 记录充放电时间. 当手指摸上去时, 这个电容变大了, 因此充放电时间会变长. &lt;/p&gt;
-&lt;p&gt;&lt;a href="http://v.youku.com/v_show/id_XNTMzNTkxMDQ0.html" target="_blank"&gt;视频链接&lt;/a&gt;&lt;/p&gt;</summary></entry><entry><title>萤火虫瓶子&amp;LCD1602串口转换板</title><link href="http://st.avros.net/articles/firefly&amp;serlcd1602.html" rel="alternate"></link><published>2013-03-19T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2013-03-19:articles/firefly&amp;serlcd1602.html</id><summary type="html">&lt;p&gt;前者是用AVR的io口模拟PWM, 驱动8个LED闪亮. &lt;/p&gt;
+&lt;p&gt;最后，用AVR让它的亮度忽明忽暗，尽可能象真正的蜡烛一样——其实挺困难的。&lt;/p&gt;</summary></entry><entry><title>滑动触摸实验</title><link href="http://st.avros.net/articles/slide_sense.html" rel="alternate"></link><published>2013-07-14T00:00:00+08:00</published><updated>2013-07-14T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2013-07-14:articles/slide_sense.html</id><summary type="html">&lt;p&gt;见ST的两个应用笔记, AN2927和AN2896. 基本原理就是把触摸区域当作一个电容, 用一个IO口通过大电阻对触摸区域充放电, 另一个IO口来读取状态, 记录充放电时间. 当手指摸上去时, 这个电容变大了, 因此充放电时间会变长. &lt;/p&gt;
+&lt;p&gt;&lt;a href="http://v.youku.com/v_show/id_XNTMzNTkxMDQ0.html" target="_blank"&gt;视频链接&lt;/a&gt;&lt;/p&gt;</summary></entry><entry><title>萤火虫瓶子&amp;LCD1602串口转换板</title><link href="http://st.avros.net/articles/firefly&amp;serlcd1602.html" rel="alternate"></link><published>2013-03-19T00:00:00+08:00</published><updated>2013-03-19T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2013-03-19:articles/firefly&amp;serlcd1602.html</id><summary type="html">&lt;p&gt;前者是用AVR的io口模拟PWM, 驱动8个LED闪亮. &lt;/p&gt;
 &lt;p&gt;&lt;a href="http://v.youku.com/v_show/id_XNTI4Nzc4MDYw.html" target="_blank"&gt;视频链接&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;装到大玻璃瓶里, 关了灯看, 效果不错.&lt;/p&gt;
 &lt;p&gt;分别试验了用PCF8574, 74HC164和用一片ATmega48实现用串口驱动1602液晶屏. &lt;/p&gt;
@@ -278,11 +278,11 @@ LDFLAGS += -Wl,--gc-sections
 &lt;p&gt;用ATmega48扩展的话, 可以8线连接, 接口用i2c、spi、uart都可以, 用一个PWM口产生负压可以节省一只7660, 是最灵活的方式, 不过用uart时需要双方都有晶振. &lt;/p&gt;
 &lt;p&gt;用74HC164要多占用两个IO, 不过用一些小技巧可以实现只占用两个GPIO：如图, 用电阻和二极管形成一个与门, 在串行写入数据时将最高位置1, 写完8bit后再拉高DATA端, 此时与门输出高电平, EN动作. 之后要拉低DATA, 连续八个CLK以清空164输出端, 避免影响下一轮. 实测写LCD快速、稳定, 成本也是三种方式里最低的. &lt;/p&gt;
 &lt;p&gt;&lt;a href="/images/lcd_2wire.png" title="电路图"&gt;&lt;img src="/images/lcd_2wire.png" width="500px" /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;后记: 后来还是觉得4线接法驱动LCD1602不太稳定. 继续改进, 改为用HC164的八个输出驱动LCD1602的全部8位数据接口, 输入端同时驱动RS脚, 同时再用一个IO来驱动EN脚. 总共用了三个IO, 不过稳定性好多了.&lt;/p&gt;</summary></entry><entry><title>USB温度计</title><link href="http://st.avros.net/articles/usb18b20.html" rel="alternate"></link><published>2010-04-07T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2010-04-07:articles/usb18b20.html</id><summary type="html">&lt;p&gt;用ATMEGA8+DS18B20做了个USB接口的温度计, 插上电脑就能显示室内温度, 体积和一般的U盘差不多大.&lt;/p&gt;</summary></entry><entry><title>验钞笔</title><link href="http://st.avros.net/articles/cash_detector.html" rel="alternate"></link><published>2010-03-27T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2010-03-27:articles/cash_detector.html</id><summary type="html">&lt;p&gt;拆了一支圆珠笔，粗细正好能装下一节7号锂电，利用原来的弹簧当触点。&lt;/p&gt;
+&lt;p&gt;后记: 后来还是觉得4线接法驱动LCD1602不太稳定. 继续改进, 改为用HC164的八个输出驱动LCD1602的全部8位数据接口, 输入端同时驱动RS脚, 同时再用一个IO来驱动EN脚. 总共用了三个IO, 不过稳定性好多了.&lt;/p&gt;</summary></entry><entry><title>USB温度计</title><link href="http://st.avros.net/articles/usb18b20.html" rel="alternate"></link><published>2010-04-07T00:00:00+08:00</published><updated>2010-04-07T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2010-04-07:articles/usb18b20.html</id><summary type="html">&lt;p&gt;用ATMEGA8+DS18B20做了个USB接口的温度计, 插上电脑就能显示室内温度, 体积和一般的U盘差不多大.&lt;/p&gt;</summary></entry><entry><title>验钞笔</title><link href="http://st.avros.net/articles/cash_detector.html" rel="alternate"></link><published>2010-03-27T00:00:00+08:00</published><updated>2010-03-27T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2010-03-27:articles/cash_detector.html</id><summary type="html">&lt;p&gt;拆了一支圆珠笔，粗细正好能装下一节7号锂电，利用原来的弹簧当触点。&lt;/p&gt;
 &lt;p&gt;笔尖的位置装了一个5mm紫外LED，串27欧电阻限流。&lt;/p&gt;
-&lt;p&gt;就这么简单！&lt;/p&gt;</summary></entry><entry><title>频率计</title><link href="http://st.avros.net/articles/freqmeter.html" rel="alternate"></link><published>2009-10-15T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2009-10-15:articles/freqmeter.html</id><summary type="html">&lt;p&gt;输入信号经 K246 共源缓冲, 直耦到 C1959 放大,  74HC04 整形后通过另一只作为闸门的 C1959, 由 74HC393 和 Mega8 的 T1 计数器一起计数. 理论能测到 224=16.777216MHz.&lt;/p&gt;
+&lt;p&gt;就这么简单！&lt;/p&gt;</summary></entry><entry><title>频率计</title><link href="http://st.avros.net/articles/freqmeter.html" rel="alternate"></link><published>2009-10-15T00:00:00+08:00</published><updated>2009-10-15T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2009-10-15:articles/freqmeter.html</id><summary type="html">&lt;p&gt;输入信号经 K246 共源缓冲, 直耦到 C1959 放大,  74HC04 整形后通过另一只作为闸门的 C1959, 由 74HC393 和 Mega8 的 T1 计数器一起计数. 理论能测到 224=16.777216MHz.&lt;/p&gt;
 &lt;p&gt;电路如图:&lt;/p&gt;
-&lt;p&gt;&lt;a href="/images/freqmeter.png" title="电路图"&gt;&lt;img src="/images/freqmeter.png" width="500px" /&gt;&lt;/a&gt;&lt;/p&gt;</summary></entry><entry><title>分压电阻计算器</title><link href="http://st.avros.net/articles/res_divider.html" rel="alternate"></link><published>2009-02-08T00:00:00+08:00</published><author><name>Stavros</name></author><id>tag:st.avros.net,2009-02-08:articles/res_divider.html</id><summary type="html">&lt;p&gt;写了个计算DC-DC电路输出分压电阻的小工具, 如图.&lt;/p&gt;
+&lt;p&gt;&lt;a href="/images/freqmeter.png" title="电路图"&gt;&lt;img src="/images/freqmeter.png" width="500px" /&gt;&lt;/a&gt;&lt;/p&gt;</summary></entry><entry><title>分压电阻计算器</title><link href="http://st.avros.net/articles/res_divider.html" rel="alternate"></link><published>2009-02-08T00:00:00+08:00</published><updated>2009-02-08T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2009-02-08:articles/res_divider.html</id><summary type="html">&lt;p&gt;写了个计算DC-DC电路输出分压电阻的小工具, 如图.&lt;/p&gt;
 &lt;p&gt;&lt;a href="/images/res_divider.png" title="截图"&gt;&lt;img src="/images/res_divider.png" height="300px" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;输入所需要的电压和FB端参考电压, 它就自动计算出所需要的电阻值和误差, 电阻全部用5%精度的E24序列.&lt;/p&gt;
 &lt;p&gt;下载链接:&lt;/p&gt;

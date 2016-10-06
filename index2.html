@@ -60,6 +60,58 @@
  
 
     <div class='article'>
+        <a href="http://st.avros.net/articles/heatsink_calc.html"><h2>学习了一下散热片的简单估算</h2></a>
+        <div class= "well small"> 2015-08-09
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>常用的板翅式散热器，其有效散热面积为：</p>
+<div class="math">$$散热面积=(翅片高度\times2\times翅片数量+基板宽度)\times截断长度$$</div>
+<p>有效散热面积和热阻的关系：</p>
+<table>
+<thead>
+<tr>
+<th>A(cm<sub>2</sub>)</th>
+<th>R<sub>sa</sub>(K/W)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>500</td>
+<td>2.0</td>
+</tr>
+<tr>
+<td>250</td>
+<td>2.9</td>
+</tr>
+<tr>
+<td>100</td>
+<td>4.0</td>
+</tr>
+<tr>
+<td>50</td>
+<td>5.2</td>
+</tr>
+<tr>
+<td>25</td>
+<td>6.5</td>
+</tr>
+</tbody>
+</table>
+<p>简单拟合得:<span class="math">\(R_\mathrm{sa}=23.3A^{-0.39}\)</span>。</p>
+<p>总热阻<span class="math">\(R_\mathrm{tot}=R_\mathrm{sa}+R_\mathrm{cs}+R_ ...</span></p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/heatsink_calc.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://st.avros.net/articles/tungsten.html"><h2>如何计算钨丝的直径?</h2></a>
         <div class= "well small"> 2015-08-07
 
@@ -289,28 +341,6 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <p>用ATTiny13的ADC实现了简单的电池电量检测, 由红绿双色LED显示. 电池电压在4.0V以上时, LED显示绿色; 3.7V ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/dc_tube_power.html">read more</a></div>
     </div>	
 				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/cw3579.html"><h2>3.579MHz CW发射机</h2></a>
-        <div class= "well small"> 2015-01-15
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>电路如图, 用74HC240的一个门振荡, 另外7个门并联推动IRF510.
-用RS-232串口的RTS信号控制IRF510的供电, 作为电键.
-DTR信号控制整机供电和天线切换, 作为PTT.</p>
-<p><a href="/images/cw3579.png" title="电路图"><img src="/images/cw3579.png" width="500px" /></a></p>
-<p>实测发现一个大问题: CP2102转出来的RS-232的DTR和RTS极性是反的! 再一查, PL2303和FT232也是这样. 现在的PC基本已经不提供RS-232了, 没办法, 装个串口挡板, 用真实的串口再试试吧.</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/cw3579.html">read more</a></div>
-    </div>	
-				
 <div class="pagination">
 <ul>
     <li class="prev"><a href="http://st.avros.net/index.html">&larr; Previous</a></li>
@@ -360,6 +390,7 @@ DTR信号控制整机供电和天线切换, 作为PTT.</p>
                 <li><a href="http://st.avros.net/category/gong-ju.html">工具</a></li>
                 <li><a href="http://st.avros.net/category/ji-dian.html">机电</a></li>
                 <li><a href="http://st.avros.net/category/qi-ta.html">其他</a></li>
+                <li><a href="http://st.avros.net/category/tools.html">tools</a></li>
                 <li><a href="http://st.avros.net/category/wu-xian-dian.html">无线电</a></li>
                 <li><a href="http://st.avros.net/category/yin-pin.html">音频</a></li>
                    

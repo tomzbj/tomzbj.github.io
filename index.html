@@ -60,8 +60,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="http://st.avros.net/articles/201605_disasm.html"><h1>拆解旧电子设备若干</h1></a>
-2016-05-10
+            <a href="http://st.avros.net/articles/card_light.html"><h1>卡片手电 & STLINK转接板 & 迷你电源</h1></a>
+2016-09-22
 
 by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
  
@@ -70,7 +70,46 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
  
         </div>
         
-        <div><p>最近从家里清理出一大堆旧电子设备, 都没啥用了, 于是挨个拆开研究研究.</p>
+        <div><ol>
+<li>
+<p>卡片手电 <br />
+    做了个和银行卡一样大的手电. 最厚处厚5.5mm, 因此可以和其他的卡一起塞在钱包里. <br />
+    本来用AMC7135作为驱动, 结果这东西太娇气, 一不小心就烧坏, 于是干脆直接用电阻限流了, 好象效果也差不多.<br />
+    效果见图:<br />
+<a href="/images2/2016/card_light_1.jpg" title="卡片手电"><img src="/images2/2016/card_light_1.jpg" width="500px"/></a><br />
+<a href="/images2/2016/card_light_2.jpg" title="卡片手电"><img src="/images2/2016/card_light_2.jpg" width="500px"/></a>  </p>
+</li>
+<li>
+<p>STLINK转接板<br />
+    JLINK和STLINK提供的都是20pin的标准JTAG口. 但是20pin实在太占地方了, 自己做板一般只用4pin或者5pin的SWD接口, 所以做了这个转接小板, 如图:<br />
+<a href="/images2/2016/jtag_swd.jpg" title="STLINK转接板"><img src="/images2/2016/jtag_swd.jpg" width="500px"/></a>  </p>
+</li>
+<li>
+<p>simple power<br />
+    可以方便地从一节18650得到3.3V, 2.8V, 2.4V, 2.0V, 1.8V和1.5V共6种电压. 之前用SEPIC电路做过一个, 发现DC-DC还是干扰太大, 所以这次用了线性稳压, 干扰能小点.<br />
+    只用一个按键开关, 长按为开/关机, 短按为在不同电压之间切换, 用6个LED来指示各档输出电压.<br />
+<a href="/images2/2016/simple_power.jpg" title="simple power"><img src="/images2/2016/simple_power.jpg" width="500px"/></a></p>
+</li>
+</ol></div>
+        <hr />
+    </div>
+		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://st.avros.net/articles/201605_disasm.html"><h2>拆解旧电子设备若干</h2></a>
+        <div class= "well small"> 2016-05-10
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>最近从家里清理出一大堆旧电子设备, 都没啥用了, 于是挨个拆开研究研究.</p>
 <ol>
 <li>
 <p>三星X859</p>
@@ -87,41 +126,9 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <p>快易典JP209</p>
 <p>日汉英电子词典. 拆开一看, 东西还不少.</p>
 <p><a href="/images2/2016/jp209.jpg"><img src="/images2/2016/jp209.jpg" width="500" /></a></p>
-<p>下方中间的黑胶封装应该是ARM7之类, 旁边是LY62L1024RN, 128k的SRAM. 稍远处的空位应该可以扩展另一片LY62L1024RN, 就升级成256k内存了. 右下的K9F5608U0B是三星的32M FLASH, 在当年的电子词典里算豪华配置了. 右上的黑胶封装估计是语音合成芯片. 左上角的几个元件是DC-DC升压, 所以这货只需要一节7号电池就能工作. 总之, 这东西比上面那个档次高多了, 没想到没用几次就花屏了, 之后就一直扔着没动过.</p>
-</li>
-<li>
-<p>多普达 P800</p>
-<p>HTC这个逗b... 最早只在幕后做代工, 搞定制机, 贴运营商LOGO.</p>
-<p><a href="/images2/2016/p800.jpg"><img src="/images2/2016/p800.jpg" width="500" /></a></p>
-<p>后来搞了个多普达品牌, 折腾几年有了起色, 突然又放弃了, 扛自家HTC品牌上阵. nb了几年, 现在又是半死不活的状态. 这会儿搞起了VR, 不知道还有没有机会翻身. 这个P800还是挺有意思的, 滚轮+轨迹球的操作方式. </p>
-<p><a href="/images2/2016/p800-2.jpg"><img src="/images2/2016/p800-2.jpg" width="500" /></a></p>
-<p>内置钢防滚架, 够结实, 毕竟是当年的旗舰机型.</p>
-</li>
-<li>
-<p>RD-108充电器</p>
-<p>劣质5号/7号充电器.</p>
-<p><a href="/images2/2016/rd108.jpg"><img src="/images2/2016/rd108.jpg" width="500" /></a></p>
-<p><a href="/images2/2016/rd108-3.jpg"><img src="/images2/2016/rd108-3.jpg" width="500" /></a></p>
-<p>里面简单得一塌糊涂, 一个小变压器, 一个拨动开关用于选择充/放电, 俩二极管, 三个LED, 四个电阻, 没了. 感觉极其不靠谱. </p>
-</li>
-<li>
-<p>任e行MX200行车记录仪</p>
-<p>除了便宜没啥特别的.</p>
-<p><a href="/images2/2016/mx200.jpg"><img src="/images2/2016/mx200.jpg" width="500" /></a></p>
-<p><a href="/images2/2016/mx200-3.jpg"><img src="/images2/2016/mx200-3.jpg" width="500" /></a></p>
-<p>STK1262B的配置, 一站式配齐, 片内集成了摄像头/SD卡/SDRAM/FLASH/USB/TFT液晶屏的接口, 还有锂电池充放电管理. 一片PMS306416B, 8MB SDRAM. 一片1M容量的FLASH: EN25F80用来存固件. 拆出来TFT: TXDT200LER-31V2一个, 锂电池一块, 也许可以废物利用一下.</p>
-</li>
-<li>
-<p>惟帆通讯KM300A型ADSL猫</p>
-<p>多年前某次办宽带送的. 现在都是光纤了, 这东西也就成了废物. </p>
-<p><a href="/images2/2016/km300a.jpg"><img src="/images2/2016/km300a.jpg" width="500" /></a></p>
-<p><a href="/images2/2016/km300a-2.jpg"><img src="/images2/2016/km300a-2.jpg" width="500" /></a></p>
-<p>RTL8671 + RTL8271的配置, 一片8M的SDRAM, M12L64164A, 一片2M的FLASH: EN29LV160A用来存固件. 供电部分用了两片34063, 感觉似乎网络设备特别喜欢用34063?</p>
-</li>
-</ol></div>
-        <hr />
-    </div>
-		
+<p>下方中间的黑胶封装应该是ARM7之类, 旁边是LY62L1024RN, 128k的SRAM. 稍远处的空位应该可以扩展另一片LY62L1024RN, 就升级成256k内存了. 右下的K9F5608U0B是三星的32M FLASH, 在当年的电子词典里算豪华配置了. 右上的黑胶封装估计是语音合成芯片. 左上角的几个元件是DC-DC升压, 所以这货只需要一节7号电池就能工作. 总之 ...</p></li></ol> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/201605_disasm.html">read more</a></div>
+    </div>	
+				
 
  
         
@@ -319,58 +326,6 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <div class="math">$$\Delta m=\frac{\Delta E}{c^2} = \frac ...</div> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/electric_mass.html">read more</a></div>
     </div>	
 				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/heatsink_calc.html"><h2>学习了一下散热片的简单估算</h2></a>
-        <div class= "well small"> 2015-08-09
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>常用的板翅式散热器，其有效散热面积为：</p>
-<div class="math">$$散热面积=(翅片高度\times2\times翅片数量+基板宽度)\times截断长度$$</div>
-<p>有效散热面积和热阻的关系：</p>
-<table>
-<thead>
-<tr>
-<th>A(cm<sub>2</sub>)</th>
-<th>R<sub>sa</sub>(K/W)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>500</td>
-<td>2.0</td>
-</tr>
-<tr>
-<td>250</td>
-<td>2.9</td>
-</tr>
-<tr>
-<td>100</td>
-<td>4.0</td>
-</tr>
-<tr>
-<td>50</td>
-<td>5.2</td>
-</tr>
-<tr>
-<td>25</td>
-<td>6.5</td>
-</tr>
-</tbody>
-</table>
-<p>简单拟合得:<span class="math">\(R_\mathrm{sa}=23.3A^{-0.39}\)</span>。</p>
-<p>总热阻<span class="math">\(R_\mathrm{tot}=R_\mathrm{sa}+R_\mathrm{cs}+R_ ...</span></p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/heatsink_calc.html">read more</a></div>
-    </div>	
-				
 <div class="pagination">
 <ul>
     <li class="prev disabled"><a href="#">&larr; Previous</a></li>
@@ -420,6 +375,7 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
                 <li><a href="http://st.avros.net/category/gong-ju.html">工具</a></li>
                 <li><a href="http://st.avros.net/category/ji-dian.html">机电</a></li>
                 <li><a href="http://st.avros.net/category/qi-ta.html">其他</a></li>
+                <li><a href="http://st.avros.net/category/tools.html">tools</a></li>
                 <li><a href="http://st.avros.net/category/wu-xian-dian.html">无线电</a></li>
                 <li><a href="http://st.avros.net/category/yin-pin.html">音频</a></li>
                    
