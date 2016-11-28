@@ -60,6 +60,49 @@
  
 
     <div class='article'>
+        <a href="http://st.avros.net/articles/usb_3x_charger.html"><h2>带负载指示的USB一拖三充电器</h2></a>
+        <div class= "well small"> 2015-01-17
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>现在平板/手机之类一般都用USB充电了. 晚上睡觉前, 经常得两三个设备一起充电, 插座都不够用了. 如果能在一个充电器上做出几个USB口同时给它们充电, 岂不是很方便?</p>
+<p>不过这么一来, 供电就比较成问题了. 现在的设备一般都需要1A以上的充电电流, 有的需要2A. 3个2A一起充就得6A, 4个就得8A. 前面如果用12V降压到5V, 80%效率的话, 5V 6A需要提供12V 3.2A, 5V 8A需要提供12V 4.2A. 能提供这么大电流的12V适配器倒是有, 但是不太便携了. 所以还是折衷一下, 输出4A电流, 这样前面用12V 2A的适配器, 勉强够用. 这样就不能同时充3个2A的设备了, 免得一不小心就冒烟. 安全起见, 最好是再加个负载指示, 随时知道输出多大电流.</p>
+<p>电路如图, 从12V降压到5V, 用了AOSMD的AOZ1014. 这颗SOIC8的小芯片能提供最大5A的输出电流, 不过感觉不怎么踏实, 4A保险些. 输出电压用8.2k和1.5k电阻设定为0.8V * (8.2+1.5 ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/usb_3x_charger.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://st.avros.net/articles/dc_tube_power.html"><h2>直流电子管电源</h2></a>
+        <div class= "well small"> 2015-01-16
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>玩直流管, 供电是个大麻烦. 甲电还好办, 一节电池搞定; 乙电一般需要60~90V, 要么从市电变压整流再滤波, 要么就DC-DC升压; boost升压还不行, 得和甲电隔离才行, 不然玩2P2之类需要栅偏压的管子就麻烦了, 因此只能用flyback或者推挽的方式.</p>
+<p>电路如图, CD4047接成多谐振荡器, 由两只74AHC1G00推动AO4800, AO4800的两只NMOS以推挽方式工作.</p>
+<p><a href="/images/dc_tube_power.png" title="电路图"><img src="/images/dc_tube_power.png" width="500px" /></a></p>
+<p>变压器的参数是... 忘了, 只好用LC表测量各绕组电感量, 初级分别是659uH和666uH, 次级则是188mH+188mH. 由此可算出匝数比是1:17. 按这个匝数比, 两个次级绕组串联, 锂电池电压从4.2V降落到3.5V时, 理论输出电压应该是118V~142V. 这个变压器不大, 线径很细, 内阻不小, 因此输出电压不会这么高, 给直流电子管供电还算合适.</p>
+<p>AMS1117-ADJ提供甲电. 1117要求5~10mA的最小负载电流, 否则空载输出电压会偏高. 这里应该给它加个几百欧的电阻作为负载. 不是大问题, 算了吧.</p>
+<p>用ATTiny13的ADC实现了简单的电池电量检测, 由红绿双色LED显示. 电池电压在4.0V以上时, LED显示绿色; 3.7V ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/dc_tube_power.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://st.avros.net/articles/cw3579.html"><h2>3.579MHz CW发射机</h2></a>
         <div class= "well small"> 2015-01-15
 
@@ -244,47 +287,6 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <p>在我这个外行看来, 这个题目也就是一个人两三天到一周左右的工作量, 至于五个人搞一个月么? 不过后来事情一多也就把这回事忘了.  </p>
 <p>今年1月份想起来了, 于是动手开干. 用8位PWM先试了一次, 从学习SD协议、实现FAT开始, 焊接、写程序到调试全算上, 用了两个晚上、周六全天加周日半天, 基本完事. 当然8位PWM的音质有点惨不忍睹……</p>
 <p>这次改用r-2r ladder来实现16位输出 ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/avr_sd_waveplayer_2.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/slide_sense.html"><h2>滑动触摸实验</h2></a>
-        <div class= "well small"> 2013-07-14
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>见ST的两个应用笔记, AN2927和AN2896. 基本原理就是把触摸区域当作一个电容, 用一个IO口通过大电阻对触摸区域充放电, 另一个IO口来读取状态, 记录充放电时间. 当手指摸上去时, 这个电容变大了, 因此充放电时间会变长. </p>
-<p><a href="http://v.youku.com/v_show/id_XNTMzNTkxMDQ0.html" target="_blank">视频链接</a></p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/slide_sense.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/nuclear_or_thermo_power.html"><h2>火电和核电, 哪个造成的放射性污染更严重?</h2></a>
-        <div class= "well small"> 2013-06-25
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>常识告诉我们...... 别急, 不要太相信常识, 一切要用数据说话. </p>
-<p>100万千瓦的核电站: 每年耗铀约30吨. 铀的密度很高, 和黄金差不多, 30吨铀也就是家里的大衣柜那么大, 一辆重型卡车就能拉走. 核燃料和核废料的运输和储存都有极严格的程序, 除非发生事故, 想泄露点都是很难的. 核废料最终会熔炼成类似玻璃的状态, 用水泥之类包裹, 再深埋处理. 一年埋一个大衣柜体积的核废料, 真的不算多, 一家人一年扔掉的生活垃圾估计都远不止这点体积.</p>
-<p>100万千瓦的火电站: 火电排放大量的粉尘和CO2之类, 这些都不用说了. 每年耗煤300万吨, 还用30吨重卡拉走的话, 就得10万辆, 平均每天就得300辆了. 注意这里还有个问题: 煤里也含有微量的铀. 在中国, 煤的平均含铀量大约3个ppm, 也就是说100万吨煤里就有3吨铀, 300万吨煤里就是9吨. 这些铀一部分随着烟尘排放到大气中, 一部分成了粉煤灰, 然后被加工成水泥、空心砖之类, 做了建筑材料. </p>
-<p>完了没有? 没完. 煤里还有另外一种放射性元素钍, 含量还要高一些, 在中国平均为6~10ppm. 也就是说这个100万千瓦的火电站每年消耗的300万吨煤里含有18~30吨的钍. 这些钍也一样, 要么被排放到大气中, 要么做了建筑材料. </p>
-<p>这还不算, 煤里还含有微量的钋 ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/nuclear_or_thermo_power.html">read more</a></div>
     </div>	
 				
 <div class="pagination">
