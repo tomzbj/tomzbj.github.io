@@ -60,8 +60,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="http://st.avros.net/articles/card_light.html"><h1>卡片手电 & STLINK转接板 & 迷你电源</h1></a>
-2016-09-22
+            <a href="http://st.avros.net/articles/fpm_skill.html"><h1>开源我的fpm skill库</h1></a>
+2016-11-28
 
 by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
  
@@ -70,7 +70,64 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
  
         </div>
         
-        <div><ol>
+        <div><p>无责任提供, 地址是<a href="https://github.com/tomzbj/fpm_skills">https://github.com/tomzbj/fpm_skills</a>, 请大家随意取用. 不定期更新.</p>
+<p>部分由Tariel和Kurapica制作的封装没有放进来, 如果有需要请自行联系他们二位.</p>
+<p>ps. 请先下载根目录的fpm.il并替换fpm目录的同名文件. 这个明文fpm.il由minux提供, 我添加了对槽孔的支持, 以及修正了若干bug, 比如双排简牛的缺口方向搞反, 四脚贴片有源晶振的管脚顺序错误之类.</p></div>
+        <hr />
+    </div>
+		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://st.avros.net/articles/change_resolution.html"><h2>一键切换屏幕分辨率</h2></a>
+        <div class= "well small"> 2016-11-17
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>现在大家的桌面都是1920x1080或者2560x1440之类高分辨率了。但是有时候还不得不临时调到较低的分辨率，比如遇到需要像素级精确定位的时候，遇到百度网盘或者微信PC版这样字体又小又不能调大的软件的时候，等等。桌面右键然后改分辨率还是太麻烦了，用完了还得改回来。</p>
+<p>有没有办法一键切换分辨率呢？没找到现成的工具，自己写一个。程序如下：</p>
+<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;windows.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="n">WINAPI</span> <span class="nf">WinMain</span> <span class="p">(</span><span class="n">HINSTANCE</span> <span class="n">hThisInstance</span><span class="p">,</span> <span class="n">HINSTANCE</span> <span class="n">hPrevInstance</span><span class="p">,</span>
+            <span class="n">LPSTR</span> <span class="n">lpszArgument</span><span class="p">,</span> <span class="kt">int</span> <span class="n">nFunsterStil</span><span class="p">)</span> 
+<span class="p">{</span> 
+    <span class="n">DEVMODE</span> <span class="n">dm</span><span class="p">;</span>
+
+    <span class="n">EnumDisplaySettings</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="n">ENUM_CURRENT_SETTINGS</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">dm</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">dm</span><span class="p">.</span><span class="n">dmPelsHeight</span> <span class="o">==</span> <span class="mi">1080</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">dm</span><span class="p">.</span><span class="n">dmPelsHeight</span> <span class="o">=</span> <span class="mi">720</span><span class="p">;</span>
+        <span class="n">dm</span><span class="p">.</span><span class="n">dmPelsWidth</span> <span class="o">=</span> <span class="mi">1280</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+        <span class="n">dm</span><span class="p">.</span><span class="n">dmPelsHeight</span> <span class="o">=</span> <span class="mi">1080</span><span class="p">;</span>
+        <span class="n">dm</span><span class="p">.</span><span class="n">dmPelsWidth</span> <span class="o">=</span> <span class="mi">1920</span><span class="p">;</span> 
+    <span class="p">}</span>
+    <span class="n">ChangeDisplaySettings</span><span class="p">(</span><span class="o">&amp;</span><span class="n">dm ...</span></pre></div> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/change_resolution.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://st.avros.net/articles/card_light.html"><h2>卡片手电 & STLINK转接板 & 迷你电源</h2></a>
+        <div class= "well small"> 2016-09-22
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><ol>
 <li>
 <p>卡片手电 <br />
     做了个和银行卡一样大的手电. 最厚处厚5.5mm, 因此可以和其他的卡一起塞在钱包里. <br />
@@ -90,10 +147,9 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
     只用一个按键开关, 长按为开/关机, 短按为在不同电压之间切换, 用6个LED来指示各档输出电压.<br />
 <a href="/images2/2016/simple_power.jpg" title="simple power"><img src="/images2/2016/simple_power.jpg" width="500px"/></a></p>
 </li>
-</ol></div>
-        <hr />
-    </div>
-		
+</ol> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/card_light.html">read more</a></div>
+    </div>	
+				
 
  
         
@@ -269,61 +325,6 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <li>Texas Instruments的Application Report SCHA003B: CMOS Phase-Locked-Loop Applications Using the CD54/74HC/HCT4046A and CD54/74HC/HCT7046A     </li>
 </ol>
 <p>根据Philips的datasheet, 取<span class="math">\(R_1\)</span> = 10k, <span class="math">\(R_2\)</span> = 10k, <span class="math">\(C\)</span> = 500p, <span class="math">\(V_\rm{CC}\)</span> = 5.0V ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/hc4046_calc.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/fermetnter_6f22_solar.html"><h2>最近的三个制作：酒酿机、6F22充电器、太阳能充电器</h2></a>
-        <div class= "well small"> 2015-08-15
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><ol>
-<li>
-<p>酒酿机</p>
-<p>做酒酿(醪醩)需要保持40度左右的温度发酵。正好家里有个最便宜的小熊酸奶机，不带控温功能的，能否用它来改装成酒酿机呢？</p>
-<p>把小熊酸奶机拆开一看，里面简单得一塌糊涂：铝板上装了个PTC电阻，直接接220V电源，作为发热器，旁边甩了两条线出来接前面板的指示灯。可以说毫无技术含量。于是把这些东西都拆掉，换成前几天做的PID控温电路。控温板上加了两个两位LED数码管，分别显示设定温度和实测温度，两个按键开关用来控温。加热器还是IRF530+LM35的配置。控温范围从35度到65度。</p>
-<p>发酵碗里装满水，放个温度计，开机一晚上实测……发现碗里的水温最终会比发热板的实测温度低15~20度。大概是因为发热板外面隔了一层塑料板，发酵碗又是一层塑料，两层塑料的热阻太大了。幸好温度已经能满足做酒酿的要求了。</p>
-<p>下次打算把LM35的引线接长一些，粘在发热板以外的塑料侧壁上，避免从发热板直接传导热量到LM35，这样效果也许会好些？</p>
-</li>
-<li>
-<p>6F22充电器</p>
-<p>手里有两个可充电的6F22，但是一直没有好用的充电器。以前买过一个，拆开一看，里面实在是惨不忍睹，只好扔了。</p>
-<p>自己做了一个，电路图如下：</p>
-<p><a href="/images2/2015/6f22_charger.png"><img src="/images2/2015/6f22_charger.png" width="480" /></a> </p>
-<p>从USB输入的5V电压，用TP7660二倍压得到10V，再通过100欧电阻限流后给6F22充电。TL061接成比较器，一个输入端接电池正极，另一个输入端接100欧电阻和1k电阻分压得到的约9 ...</p></li></ol> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/fermetnter_6f22_solar.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/electric_mass.html"><h2>电有没有重量？</h2></a>
-        <div class= "well small"> 2015-08-11
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>如果手机没有了电，重量会不会减轻？</p>
-<p>答：先说结论，手机没有电了确实会减轻。</p>
-<p>但这不是 “电” 的重量，应该说是 “电能” 的重量。能量和重量是统一的。</p>
-<p>减轻了多少呢？可以算一下：</p>
-<p>假设手机电池标称电压是<span class="math">\(3.7\mathrm V\)</span>，容量是<span class="math">\(1800\mathrm{mAh}\)</span>，则它能储存的能量是<span class="math">\(3.7\mathrm V\times1800\mathrm{mA}\times3600\mathrm s = 23976\mathrm J\)</span>.</p>
-<p>根据<span class="math">\(E=mc^2\)</span>，可得</p>
-<div class="math">$$\Delta m=\frac{\Delta E}{c^2} = \frac ...</div> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/electric_mass.html">read more</a></div>
     </div>	
 				
 <div class="pagination">

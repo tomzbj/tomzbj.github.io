@@ -55,8 +55,8 @@
         <div class="span9">
     <div class='article'>
         <div class="content-title">
-            <h1>又试了一下用NE555做boost</h1>
-2010-04-13
+            <h1>一键切换屏幕分辨率</h1>
+2016-11-17
 
 by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
  
@@ -64,87 +64,33 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 
         </div>
 	
-        <div><p>555搭成多谐振荡器推动MOSFET，用C1815当作比较器，输入5V，输出6.3V左右，试着点了几个电子管的灯丝。
-结果如下：</p>
-<table>
-<thead>
-<tr>
-<th align="center"></th>
-<th align="center">输出电压(V)</th>
-<th align="center">标称电流(A)</th>
-<th align="center">输出电流(A)</th>
-<th align="center">输入电流(A)</th>
-<th align="center">效率</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">空载</td>
-<td align="center">6.76</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-</tr>
-<tr>
-<td align="center">6U1</td>
-<td align="center">6.20</td>
-<td align="center">0.30</td>
-<td align="center">0.32</td>
-<td align="center">0.46</td>
-<td align="center">86%</td>
-</tr>
-<tr>
-<td align="center">6N2</td>
-<td align="center">6.19</td>
-<td align="center">0.34</td>
-<td align="center">0.33</td>
-<td align="center">0.48</td>
-<td align="center">85%</td>
-</tr>
-<tr>
-<td align="center">6F2</td>
-<td align="center">6.17</td>
-<td align="center">0.45</td>
-<td align="center">0.43</td>
-<td align="center">0.61</td>
-<td align="center">87%</td>
-</tr>
-<tr>
-<td align="center">6P1</td>
-<td align="center">6.15</td>
-<td align="center">0.50</td>
-<td align="center">0.50</td>
-<td align="center">0.73</td>
-<td align="center">84%</td>
-</tr>
-<tr>
-<td align="center">6N1</td>
-<td align="center">6.12</td>
-<td align="center">0.60</td>
-<td align="center">0.61</td>
-<td align="center">0.89</td>
-<td align="center">84%</td>
-</tr>
-<tr>
-<td align="center">6P15</td>
-<td align="center">6.05</td>
-<td align="center">0.76</td>
-<td align="center">0.75</td>
-<td align="center">1.11</td>
-<td align="center">82%</td>
-</tr>
-<tr>
-<td align="center">6F3</td>
-<td align="center">6.02</td>
-<td align="center">0.90</td>
-<td align="center">0.92</td>
-<td align="center">1.40</td>
-<td align="center">79%</td>
-</tr>
-</tbody>
-</table>
-<p>素质相当高了，比34063强不少。以前用34063点6N3的灯丝，也是从5V升6.3V，效率只有60%多的样子。</p></div>
+        <div><p>现在大家的桌面都是1920x1080或者2560x1440之类高分辨率了。但是有时候还不得不临时调到较低的分辨率，比如遇到需要像素级精确定位的时候，遇到百度网盘或者微信PC版这样字体又小又不能调大的软件的时候，等等。桌面右键然后改分辨率还是太麻烦了，用完了还得改回来。</p>
+<p>有没有办法一键切换分辨率呢？没找到现成的工具，自己写一个。程序如下：</p>
+<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;windows.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="n">WINAPI</span> <span class="nf">WinMain</span> <span class="p">(</span><span class="n">HINSTANCE</span> <span class="n">hThisInstance</span><span class="p">,</span> <span class="n">HINSTANCE</span> <span class="n">hPrevInstance</span><span class="p">,</span>
+            <span class="n">LPSTR</span> <span class="n">lpszArgument</span><span class="p">,</span> <span class="kt">int</span> <span class="n">nFunsterStil</span><span class="p">)</span> 
+<span class="p">{</span> 
+    <span class="n">DEVMODE</span> <span class="n">dm</span><span class="p">;</span>
+
+    <span class="n">EnumDisplaySettings</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="n">ENUM_CURRENT_SETTINGS</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">dm</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">dm</span><span class="p">.</span><span class="n">dmPelsHeight</span> <span class="o">==</span> <span class="mi">1080</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">dm</span><span class="p">.</span><span class="n">dmPelsHeight</span> <span class="o">=</span> <span class="mi">720</span><span class="p">;</span>
+        <span class="n">dm</span><span class="p">.</span><span class="n">dmPelsWidth</span> <span class="o">=</span> <span class="mi">1280</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+        <span class="n">dm</span><span class="p">.</span><span class="n">dmPelsHeight</span> <span class="o">=</span> <span class="mi">1080</span><span class="p">;</span>
+        <span class="n">dm</span><span class="p">.</span><span class="n">dmPelsWidth</span> <span class="o">=</span> <span class="mi">1920</span><span class="p">;</span> 
+    <span class="p">}</span>
+    <span class="n">ChangeDisplaySettings</span><span class="p">(</span><span class="o">&amp;</span><span class="n">dm</span><span class="p">,</span> <span class="n">CDS_RESET</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>编译成exe，扔到随便什么地方，再拖到任务栏。好了，点一下就可以切到1280x720，再点一下就切回1920x1080了。</p>
+<p>在tdm-gcc-32和tdm-gcc-64环境下测试通过。</p></div>
 	
         <hr>
 

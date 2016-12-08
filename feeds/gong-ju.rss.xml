@@ -1,5 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>兰湾</title><link href="http://st.avros.net/" rel="alternate"></link><link href="http://st.avros.net//feeds/gong-ju.rss.xml" rel="self"></link><id>http://st.avros.net/</id><updated>2016-03-16T00:00:00+08:00</updated><entry><title>修复宜家LED灯一则</title><link href="http://st.avros.net/articles/ikea_led.html" rel="alternate"></link><published>2016-03-16T00:00:00+08:00</published><updated>2016-03-16T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2016-03-16:articles/ikea_led.html</id><summary type="html">&lt;p&gt;宜家买的LED灯不亮了。把线剪断，两边分别一测，发现LED是好的，电源适配器无输出，只得再给它做个驱动。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>兰湾</title><link href="http://st.avros.net/" rel="alternate"></link><link href="http://st.avros.net//feeds/gong-ju.rss.xml" rel="self"></link><id>http://st.avros.net/</id><updated>2016-11-28T00:00:00+08:00</updated><entry><title>开源我的fpm skill库</title><link href="http://st.avros.net/articles/fpm_skill.html" rel="alternate"></link><published>2016-11-28T00:00:00+08:00</published><updated>2016-11-28T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2016-11-28:articles/fpm_skill.html</id><summary type="html">&lt;p&gt;无责任提供, 地址是&lt;a href="https://github.com/tomzbj/fpm_skills"&gt;https://github.com/tomzbj/fpm_skills&lt;/a&gt;, 请大家随意取用. 不定期更新.&lt;/p&gt;
+&lt;p&gt;部分由Tariel和Kurapica制作的封装没有放进来, 如果有需要请自行联系他们二位.&lt;/p&gt;
+&lt;p&gt;ps. 请先下载根目录的fpm.il并替换fpm目录的同名文件. 这个明文fpm.il由minux提供, 我添加了对槽孔的支持, 以及修正了若干bug, 比如双排简牛的缺口方向搞反, 四脚贴片有源晶振的管脚顺序错误之类.&lt;/p&gt;</summary></entry><entry><title>一键切换屏幕分辨率</title><link href="http://st.avros.net/articles/change_resolution.html" rel="alternate"></link><published>2016-11-17T00:00:00+08:00</published><updated>2016-11-17T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2016-11-17:articles/change_resolution.html</id><summary type="html">&lt;p&gt;现在大家的桌面都是1920x1080或者2560x1440之类高分辨率了。但是有时候还不得不临时调到较低的分辨率，比如遇到需要像素级精确定位的时候，遇到百度网盘或者微信PC版这样字体又小又不能调大的软件的时候，等等。桌面右键然后改分辨率还是太麻烦了，用完了还得改回来。&lt;/p&gt;
+&lt;p&gt;有没有办法一键切换分辨率呢？没找到现成的工具，自己写一个。程序如下：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;windows.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
+
+&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;WINAPI&lt;/span&gt; &lt;span class="nf"&gt;WinMain&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;HINSTANCE&lt;/span&gt; &lt;span class="n"&gt;hThisInstance&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;HINSTANCE&lt;/span&gt; &lt;span class="n"&gt;hPrevInstance&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="n"&gt;LPSTR&lt;/span&gt; &lt;span class="n"&gt;lpszArgument&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;nFunsterStil&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
+&lt;span class="p"&gt;{&lt;/span&gt; 
+    &lt;span class="n"&gt;DEVMODE&lt;/span&gt; &lt;span class="n"&gt;dm&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+    &lt;span class="n"&gt;EnumDisplaySettings&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ENUM_CURRENT_SETTINGS&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;dm&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dm&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dmPelsHeight&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;1080&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;dm&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dmPelsHeight&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;720&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="n"&gt;dm&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dmPelsWidth&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1280&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;dm&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dmPelsHeight&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1080&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="n"&gt;dm&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dmPelsWidth&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1920&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; 
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="n"&gt;ChangeDisplaySettings&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;dm&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;CDS_RESET&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;编译成exe，扔到随便什么地方，再拖到任务栏。好了，点一下就可以切到1280x720，再点一下就切回1920x1080了。&lt;/p&gt;
+&lt;p&gt;在tdm-gcc-32和tdm-gcc-64环境下测试通过。&lt;/p&gt;</summary></entry><entry><title>修复宜家LED灯一则</title><link href="http://st.avros.net/articles/ikea_led.html" rel="alternate"></link><published>2016-03-16T00:00:00+08:00</published><updated>2016-03-16T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2016-03-16:articles/ikea_led.html</id><summary type="html">&lt;p&gt;宜家买的LED灯不亮了。把线剪断，两边分别一测，发现LED是好的，电源适配器无输出，只得再给它做个驱动。&lt;/p&gt;
 &lt;p&gt;LED需要恒流驱动，直接接个恒压输出的适配器上去是不行的，要么不亮，要么烧坏。串个电阻行不行呢？行是行，不过电阻会很热。这个LED灯是3W的，工作电流1A，接到5V电源上就需要串联2欧的电阻，电阻的发热量达到2W。这么做显然太不优雅。&lt;/p&gt;
 &lt;p&gt;幸好手里还有若干LED驱动IC：华润的PT4115，用它可以顺便把调光功能也加上。画了个电路图如下：&lt;/p&gt;
 &lt;p&gt;&lt;a href="/images2/2016/ikea_led.png"&gt;&lt;img src="/images2/2016/ikea_led.png" width="500" /&gt;&lt;/a&gt;&lt;/p&gt;
