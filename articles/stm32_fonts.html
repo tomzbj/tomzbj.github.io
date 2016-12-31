@@ -149,6 +149,7 @@ LDFLAGS += -Wl,--gc-sections
 <p>这样就只会把实际用到的段链接到最终可执行文件了.</p>
 <p>如果要在可执行文件里嵌入图片, 音频之类, 也可以用同样的方法.</p>
 <p>以上程序均在Windows 7 &amp; Sourcery G++ &amp; STM32F103/F030环境下测试通过. 在Keil/IAR等环境下请自行类推.</p>
+<p>补充：注意asc5x7.bin的字节数是奇数, 这样会使得后面几个字库的起始地址都是奇数, stm32进行某些操作时会进入HardFault. 解决办法是在每个.section之前的位置加个.align(3).</p>
 </li>
 </ol></div>
 	

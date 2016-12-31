@@ -296,6 +296,7 @@ LDFLAGS += -Wl,--gc-sections
 &lt;p&gt;这样就只会把实际用到的段链接到最终可执行文件了.&lt;/p&gt;
 &lt;p&gt;如果要在可执行文件里嵌入图片, 音频之类, 也可以用同样的方法.&lt;/p&gt;
 &lt;p&gt;以上程序均在Windows 7 &amp;amp; Sourcery G++ &amp;amp; STM32F103/F030环境下测试通过. 在Keil/IAR等环境下请自行类推.&lt;/p&gt;
+&lt;p&gt;补充：注意asc5x7.bin的字节数是奇数, 这样会使得后面几个字库的起始地址都是奇数, stm32进行某些操作时会进入HardFault. 解决办法是在每个.section之前的位置加个.align(3).&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;</summary></entry><entry><title>Sansei DMM2650背光改装记录</title><link href="http://st.avros.net/articles/dmm2650.html" rel="alternate"></link><published>2014-12-12T00:00:00+08:00</published><updated>2014-12-12T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2014-12-12:articles/dmm2650.html</id><summary type="html">&lt;p&gt;Sansei DMM2650是80年代的小型台式四位半自动量程万用表, 在Diyers中一直很受欢迎. sunzx送了我一台, 相当好用. 使用过程中发现它有一个很大的不足之处就是液晶屏没有背光, 光线较暗时读数不容易看清, 所以我决定给它加装背光. &lt;/p&gt;
 &lt;p&gt;&lt;a href="/images/dmm2650_1.jpg"&gt;&lt;img src="/images/dmm2650_1.jpg" width="500" /&gt;&lt;/a&gt;&lt;/p&gt;

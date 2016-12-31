@@ -791,6 +791,7 @@ LDFLAGS += -Wl,--gc-sections
 &lt;p&gt;这样就只会把实际用到的段链接到最终可执行文件了.&lt;/p&gt;
 &lt;p&gt;如果要在可执行文件里嵌入图片, 音频之类, 也可以用同样的方法.&lt;/p&gt;
 &lt;p&gt;以上程序均在Windows 7 &amp;amp; Sourcery G++ &amp;amp; STM32F103/F030环境下测试通过. 在Keil/IAR等环境下请自行类推.&lt;/p&gt;
+&lt;p&gt;补充：注意asc5x7.bin的字节数是奇数, 这样会使得后面几个字库的起始地址都是奇数, stm32进行某些操作时会进入HardFault. 解决办法是在每个.section之前的位置加个.align(3).&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Stavros</dc:creator><pubDate>Fri, 13 Mar 2015 00:00:00 +0800</pubDate><guid isPermaLink="false">tag:st.avros.net,2015-03-13:articles/stm32_fonts.html</guid></item><item><title>带负载指示的USB一拖三充电器</title><link>http://st.avros.net/articles/usb_3x_charger.html</link><description>&lt;p&gt;现在平板/手机之类一般都用USB充电了. 晚上睡觉前, 经常得两三个设备一起充电, 插座都不够用了. 如果能在一个充电器上做出几个USB口同时给它们充电, 岂不是很方便?&lt;/p&gt;
 &lt;p&gt;不过这么一来, 供电就比较成问题了. 现在的设备一般都需要1A以上的充电电流, 有的需要2A. 3个2A一起充就得6A, 4个就得8A. 前面如果用12V降压到5V, 80%效率的话, 5V 6A需要提供12V 3.2A, 5V 8A需要提供12V 4.2A. 能提供这么大电流的12V适配器倒是有, 但是不太便携了. 所以还是折衷一下, 输出4A电流, 这样前面用12V 2A的适配器, 勉强够用. 这样就不能同时充3个2A的设备了, 免得一不小心就冒烟. 安全起见, 最好是再加个负载指示, 随时知道输出多大电流.&lt;/p&gt;
