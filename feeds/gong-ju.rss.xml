@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>兰湾</title><link href="http://st.avros.net/" rel="alternate"></link><link href="http://st.avros.net//feeds/gong-ju.rss.xml" rel="self"></link><id>http://st.avros.net/</id><updated>2016-12-16T00:00:00+08:00</updated><entry><title>Allegro导出bom和坐标文件, 用于嘉立创的SMT下单</title><link href="http://st.avros.net/articles/allegro_bom_coord.html" rel="alternate"></link><published>2016-12-16T00:00:00+08:00</published><updated>2016-12-16T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2016-12-16:articles/allegro_bom_coord.html</id><summary type="html">&lt;p&gt;截图就不用贴了吧?&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>兰湾</title><link href="http://st.avros.net/" rel="alternate"></link><link href="http://st.avros.net//feeds/gong-ju.rss.xml" rel="self"></link><id>http://st.avros.net/</id><updated>2016-12-26T00:00:00+08:00</updated><entry><title>试着用ATmega169做了个钟</title><link href="http://st.avros.net/articles/m169_clock.html" rel="alternate"></link><published>2016-12-26T00:00:00+08:00</published><updated>2016-12-26T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2016-12-26:articles/m169_clock.html</id><summary type="html">&lt;p&gt;之前试过M328在Powerdown模式/WDT中断唤醒时工作电流不到1uA. AVR 8位单片机里带LCD控制器的不多, 查了一下似乎就只有64脚的M169/329/649和100脚的M3290/M6490这几种. 前段时间搞了几个m169和4位8字的笔段式LCD, 于是考虑做个钟, 用CR2032供电, 看看它的低功耗性能如何. &lt;/p&gt;
+&lt;p&gt;WDT中断的时钟源是RC振荡器, 定时精度太差了, 做钟肯定是不行的; 幸好M169也支持T2定时器的异步模式, 可以用32.768KHz的晶振作为时钟源, 由T2中断唤醒. 以及M169的省电模式下LCD控制器仍然保持运行, 感觉都是很贴心的设计. 缺点就是... 体积太大了, 64脚还是0.8的间距, 封装面积是14*14=196mm2, 还不如用别的MCU配一片HT1621呢. ps. 这东西有9*9和7*7的两种QFN封装, 但是没见到哪有卖的.&lt;/p&gt;
+&lt;p&gt;原理图很简单, 就不贴了. 实物照片:&lt;/p&gt;
+&lt;p&gt;&lt;a href="/images2/2016/m169_clock.jpg" title="M169钟"&gt;&lt;img src="/images2/2016/m169_clock.jpg" width="500px"/&gt;&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;实测工作电流大概20uA, CR2032的标称容量有200mAh多点, 算下来能工作一年多. 希望明年这会儿它还能走.&lt;/p&gt;</summary></entry><entry><title>Allegro导出bom和坐标文件, 用于嘉立创的SMT下单</title><link href="http://st.avros.net/articles/allegro_bom_coord.html" rel="alternate"></link><published>2016-12-16T00:00:00+08:00</published><updated>2016-12-16T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2016-12-16:articles/allegro_bom_coord.html</id><summary type="html">&lt;p&gt;截图就不用贴了吧?&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Allegro 菜单点 Tools, Reports &lt;/p&gt;
@@ -96,7 +100,27 @@
 
 
 &lt;p&gt;编译成exe，扔到随便什么地方，再拖到任务栏。好了，点一下就可以切到1280x720，再点一下就切回1920x1080了。&lt;/p&gt;
-&lt;p&gt;在tdm-gcc-32和tdm-gcc-64环境下测试通过。&lt;/p&gt;</summary></entry><entry><title>修复宜家LED灯一则</title><link href="http://st.avros.net/articles/ikea_led.html" rel="alternate"></link><published>2016-03-16T00:00:00+08:00</published><updated>2016-03-16T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2016-03-16:articles/ikea_led.html</id><summary type="html">&lt;p&gt;宜家买的LED灯不亮了。把线剪断，两边分别一测，发现LED是好的，电源适配器无输出，只得再给它做个驱动。&lt;/p&gt;
+&lt;p&gt;在tdm-gcc-32和tdm-gcc-64环境下测试通过。&lt;/p&gt;</summary></entry><entry><title>卡片手电 &amp; STLINK转接板 &amp; 迷你电源</title><link href="http://st.avros.net/articles/card_light.html" rel="alternate"></link><published>2016-09-22T00:00:00+08:00</published><updated>2016-09-22T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2016-09-22:articles/card_light.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;卡片手电 &lt;br /&gt;
+    做了个和银行卡一样大的手电. 最厚处厚5.5mm, 因此可以和其他的卡一起塞在钱包里. &lt;br /&gt;
+    本来用AMC7135作为驱动, 结果这东西太娇气, 一不小心就烧坏, 于是干脆直接用电阻限流了, 好象效果也差不多.&lt;br /&gt;
+    效果见图:&lt;br /&gt;
+&lt;a href="/images2/2016/card_light_1.jpg" title="卡片手电"&gt;&lt;img src="/images2/2016/card_light_1.jpg" width="500px"/&gt;&lt;/a&gt;&lt;br /&gt;
+&lt;a href="/images2/2016/card_light_2.jpg" title="卡片手电"&gt;&lt;img src="/images2/2016/card_light_2.jpg" width="500px"/&gt;&lt;/a&gt;  &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;STLINK转接板&lt;br /&gt;
+    JLINK和STLINK提供的都是20pin的标准JTAG口. 但是20pin实在太占地方了, 自己做板一般只用4pin或者5pin的SWD接口, 所以做了这个转接小板, 如图:&lt;br /&gt;
+&lt;a href="/images2/2016/jtag_swd.jpg" title="STLINK转接板"&gt;&lt;img src="/images2/2016/jtag_swd.jpg" width="500px"/&gt;&lt;/a&gt;  &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;simple power&lt;br /&gt;
+    可以方便地从一节18650得到3.3V, 2.8V, 2.4V, 2.0V, 1.8V和1.5V共6种电压. 之前用SEPIC电路做过一个, 发现DC-DC还是干扰太大, 所以这次用了线性稳压, 干扰能小点.&lt;br /&gt;
+    只用一个按键开关, 长按为开/关机, 短按为在不同电压之间切换, 用6个LED来指示各档输出电压.&lt;br /&gt;
+&lt;a href="/images2/2016/simple_power.jpg" title="simple power"&gt;&lt;img src="/images2/2016/simple_power.jpg" width="500px"/&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</summary></entry><entry><title>修复宜家LED灯一则</title><link href="http://st.avros.net/articles/ikea_led.html" rel="alternate"></link><published>2016-03-16T00:00:00+08:00</published><updated>2016-03-16T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2016-03-16:articles/ikea_led.html</id><summary type="html">&lt;p&gt;宜家买的LED灯不亮了。把线剪断，两边分别一测，发现LED是好的，电源适配器无输出，只得再给它做个驱动。&lt;/p&gt;
 &lt;p&gt;LED需要恒流驱动，直接接个恒压输出的适配器上去是不行的，要么不亮，要么烧坏。串个电阻行不行呢？行是行，不过电阻会很热。这个LED灯是3W的，工作电流1A，接到5V电源上就需要串联2欧的电阻，电阻的发热量达到2W。这么做显然太不优雅。&lt;/p&gt;
 &lt;p&gt;幸好手里还有若干LED驱动IC：华润的PT4115，用它可以顺便把调光功能也加上。画了个电路图如下：&lt;/p&gt;
 &lt;p&gt;&lt;a href="/images2/2016/ikea_led.png"&gt;&lt;img src="/images2/2016/ikea_led.png" width="500" /&gt;&lt;/a&gt;&lt;/p&gt;

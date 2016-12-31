@@ -60,6 +60,63 @@
  
 
     <div class='article'>
+        <a href="http://st.avros.net/articles/tiny24_clock.html"><h2>小台钟</h2></a>
+        <div class= "well small"> 2015-05-02
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>用手里闲置的Attiny24+LCD0801屏做了个小钟, 如图:</p>
+<p><a href="/images/tiny24_clock.jpg" title="照片"><img src="/images/tiny24_clock.jpg" width="500px" /></a></p>
+<p>用一节600还是800mAh的手机电池供电, 充满电可以工作半个月.</p>
+<p>原理图:</p>
+<p><a href="/images/tiny24_clock_2.png" title="原理图"><img src="/images/tiny24_clock_2.png" width="500px" /></a></p>
+<p>其中LCD用的是0801, 和1602接口完全一样, 加了一块之前做的<a href="articles/firefly&amp;serlcd1602.html">串口转换小板</a>. 由于是3.3V供电, LCD的V0脚需要接入负压, 这里负压用MCU的一路PWM经负倍压整流产生. 晶振用什么频率其实都无关紧要, 只要是个整数, 并且按一定的分频规则能凑出2Hz的频率就行了.</p>
+<p>源程序:</p>
+<p><a href="/files/tiny24_clock_src.7z">tiny24_clock_src.7z</a> </p>
+<p>改天再给它加个太阳能电池, 这样也许就再也不用充电了.</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/tiny24_clock.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://st.avros.net/articles/stm32_fonts.html"><h2>在stm32上使用二进制字库的简单方法</h2></a>
+        <div class= "well small"> 2015-03-13
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>标题其实可以写成"在可执行程序里嵌入二进制资源的方法", 不过这个题目大了点, 还是原样吧.</p>
+<p>以前如果我们用到不带字库的点阵LCD, 一般都是把字库按16进制写成一个大数组, 再和其他源程序一起编译. 有没有方便一点的办法呢？这里给出两个方案.</p>
+<ol>
+<li>
+<p>使用objcopy把字库转成目标文件(.o/.obj)</p>
+<p>假设我们需要嵌入的是5x7的ascii点阵字库, 文件名是asc5x7.bin.</p>
+<p>在arm-gcc环境下, 命令如下:</p>
+<div class="highlight"><pre><span></span>arm-none-eabi-objcopy -B arm -I binary -O elf32-littlearm --rename-section .data=.rodata asc5x7.bin asc5x7.o
+</pre></div>
+
+
+<p>需要注意的是, objcopy生成的.o文件默认是把数据放在.data段的. 因此这里需要加个--rename-section的选项, 把.data改成.text或者.rodata, 不然单片机可怜的一点点RAM根本不够用. 如果是在PC上运行, 这里改不改就无所谓了, 不过内存还是能省点就省点的好.</p>
+<p>在.o里会生成三个符号: <code>_binary_asc5x7_bin_start, _binary_asc5x7_bin_end, binary_asc5x7_bin_size.</code></p>
+<p>在程序里这么调用 ...</p></li></ol> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/stm32_fonts.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://st.avros.net/articles/dmm2650.html"><h2>Sansei DMM2650背光改装记录</h2></a>
         <div class= "well small"> 2014-12-12
 
@@ -288,7 +345,6 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
                 <li><a href="http://st.avros.net/category/gong-ju.html">工具</a></li>
                 <li><a href="http://st.avros.net/category/ji-dian.html">机电</a></li>
                 <li><a href="http://st.avros.net/category/qi-ta.html">其他</a></li>
-                <li><a href="http://st.avros.net/category/tools.html">tools</a></li>
                 <li><a href="http://st.avros.net/category/wu-xian-dian.html">无线电</a></li>
                 <li><a href="http://st.avros.net/category/yin-pin.html">音频</a></li>
                    

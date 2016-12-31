@@ -60,8 +60,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="http://st.avros.net/articles/allegro_bom_coord.html"><h1>Allegro导出bom和坐标文件, 用于嘉立创的SMT下单</h1></a>
-2016-12-16
+            <a href="http://st.avros.net/articles/m169_clock.html"><h1>试着用ATmega169做了个钟</h1></a>
+2016-12-26
 
 by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
  
@@ -70,7 +70,30 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
  
         </div>
         
-        <div><p>截图就不用贴了吧?</p>
+        <div><p>之前试过M328在Powerdown模式/WDT中断唤醒时工作电流不到1uA. AVR 8位单片机里带LCD控制器的不多, 查了一下似乎就只有64脚的M169/329/649和100脚的M3290/M6490这几种. 前段时间搞了几个m169和4位8字的笔段式LCD, 于是考虑做个钟, 用CR2032供电, 看看它的低功耗性能如何. </p>
+<p>WDT中断的时钟源是RC振荡器, 定时精度太差了, 做钟肯定是不行的; 幸好M169也支持T2定时器的异步模式, 可以用32.768KHz的晶振作为时钟源, 由T2中断唤醒. 以及M169的省电模式下LCD控制器仍然保持运行, 感觉都是很贴心的设计. 缺点就是... 体积太大了, 64脚还是0.8的间距, 封装面积是14*14=196mm2, 还不如用别的MCU配一片HT1621呢. ps. 这东西有9*9和7*7的两种QFN封装, 但是没见到哪有卖的.</p>
+<p>原理图很简单, 就不贴了. 实物照片:</p>
+<p><a href="/images2/2016/m169_clock.jpg" title="M169钟"><img src="/images2/2016/m169_clock.jpg" width="500px"/></a>  </p>
+<p>实测工作电流大概20uA, CR2032的标称容量有200mAh多点, 算下来能工作一年多. 希望明年这会儿它还能走.</p></div>
+        <hr />
+    </div>
+		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://st.avros.net/articles/allegro_bom_coord.html"><h2>Allegro导出bom和坐标文件, 用于嘉立创的SMT下单</h2></a>
+        <div class= "well small"> 2016-12-16
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>截图就不用贴了吧?</p>
 <ol>
 <li>
 <p>Allegro 菜单点 Tools, Reports </p>
@@ -90,59 +113,9 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <li>
 <p>表格出来了, 前四行没用, 删掉. 表头要按 JLC 的格式修改, 具体如下:</p>
 <ul>
-<li>REFDES, 改成 Designator.</li>
-<li>COMP_DEVICE_TYPE, 这列可以删掉.</li>
-<li>COMP_VALUE, 改成 Comment.</li>
-<li>COMP_TOL, 这列可以删掉.</li>
-<li>SYM_NAME, 改成Footprint. 下面的封装如果和JLC的不一样也要改. 比如我用的封装名称都是公制, RESC2012, CAPC1608之类, 要改成相应的英制RESC0805, CAPC0603. 没有前缀也可以, 但是在excel可能就变成805/603了, 不影响下单. SOP类的器件最好改成SOIC-8, SOIC-14这样, 等等, 总之以JLC给的参考文件为准. 选中这一列, 几次查找替换命令就解决了. </li>
-<li>SYM_X, SYM_Y, 这两个改成 Mid X 和 Mid Y, 底下的单位需要是毫米, mil 不行.</li>
-<li>SYM_ROTATE, 改成 Rotation.</li>
-<li>SYM_MIRROR, 改成 Layer. 底下的 YES 全部替换成 B, NO 替换成 T.</li>
-</ul>
-</li>
-<li>
-<p>保存成XLS或XLSX格式, 完事! BOM和坐标文件都用这一个就可以了.</p>
-</li>
-</ol>
-<p>请继续往下看----</p>
-<p>写了个python脚本, 一键即可完成上述格式转换. 部分内容请自行按需修改. python3的, 如果你用python2的话可能得再改改</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">csv</span>
-
-<span class="n">csvfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;pcp_rep.rpt&#39;</span><span class="p">)</span>
-<span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">csvfile</span><span class="p">)</span>
-<span class="n">csvfile2</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;pcp_rep_jlc.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">csvfile2</span><span class="p">,</span> <span class="n">dialect</span><span class="o">=</span><span class="s1">&#39;excel&#39;</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">break</span>                   <span class="c1"># 跳过前四行</span>
-
-<span class="c1"># 按JLC的格式修改表头</span>
-<span class="n">line</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Designator&#39;</span><span class="p">,</span> <span class="s1">&#39;Comment&#39;</span><span class="p">,</span> <span class="s1">&#39;Footprint&#39;</span><span class="p">,</span> <span class="s1">&#39;Mid X&#39;</span><span class="p">,</span> <span class="s1">&#39;Mid Y&#39;</span><span class="p">,</span> <span class="s1">&#39;Rotation&#39;</span><span class="p">,</span> <span class="s1">&#39;Layer&#39;</span><span class="p">]</span> 
-<span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
-<span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
-
-<span class="c1"># 查找替换表, 请按需自行修改</span>
-<span class="n">my_footprints</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;CAPC2012&#39;</span><span class="p">,</span> <span class="s1">&#39;CAPC1608&#39;</span><span class="p">,</span> <span class="s1">&#39;RESC2012&#39;</span><span class="p">,</span> <span class="s1">&#39;RESC1608&#39;</span><span class="p">]</span>
-<span class="n">jlc_footprints</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;C0805&#39;</span><span class="p">,</span> <span class="s1">&#39;C0603&#39;</span><span class="p">,</span> <span class="s1">&#39;R0805&#39;</span><span class="p">,</span> <span class="s1">&#39;R0603&#39;</span><span class="p">]</span>
-
-<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
-    <span class="k">del</span> <span class="n">line</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>        <span class="c1"># 删除不需要的两列</span>
-    <span class="k">if</span> <span class="n">line</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;NO&#39;</span><span class="p">:</span>
-        <span class="n">line</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;T&#39;</span>
-    <span class="k">elif</span> <span class="n">line</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;YES&#39;</span><span class="p">:</span>
-        <span class="n">line</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;B&#39;</span>
-    <span class="k">if</span> <span class="n">line</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="ow">in</span> <span class="n">my_footprints</span><span class="p">:</span>
-        <span class="n">line</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">jlc_footprints</span><span class="p">[</span><span class="n">my_footprints</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">line</span><span class="p">[</span><span class="mi">2</span><span class="p">])]</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> 
-    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
-
-<span class="n">csvfile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span> 
-<span class="n">csvfile2</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</pre></div></div>
-        <hr />
-    </div>
-		
+<li>REFDES ...</li></ul></li></ol> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/allegro_bom_coord.html">read more</a></div>
+    </div>	
+				
 
  
         
@@ -369,26 +342,6 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <p>有空再试试用DDS输出作为HC4046的参考频率. 这里DDS的频率不用很高, 在AVR的定时器中断里更新相位累加字就可以了. 这样应该就能做到1Hz级别的精密步进了.</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/hc4046_expr.html">read more</a></div>
     </div>	
 				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/stm32_sd_waveplayer.html"><h2>在STM32F051上重新实现了SD卡WAVE播放器</h2></a>
-        <div class= "well small"> 2015-10-09
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>前几年试过用AVR来播放sd卡上的wave文件. (链接: <a href="http://st.avros.net/articles/avr_sd_waveplayer_2.html">http://st.avros.net/articles/avr_sd_waveplayer_2.html</a>) 这次改用stm32f051试了一遍, 28.224M晶振, 1.5倍频到42.336M, 这样48kHz和44.1kHz都可以按准确的比特率播放了.</p>
-<p>DAC用的是PT8211, 软件方式写I2S数据, 结果还是有爆音. 大概I2S对时序要求比较严格, 有空了改成硬件I2S再试试. </p>
-<p>顺便在这块板上试验了几块TFT LCD屏. SPI接口的TFT还是太慢, 清屏等操作时能看清刷屏过程. 并口的好用, 就是布线麻烦了点.</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/stm32_sd_waveplayer.html">read more</a></div>
-    </div>	
-				
 <div class="pagination">
 <ul>
     <li class="prev disabled"><a href="#">&larr; Previous</a></li>
@@ -438,7 +391,6 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
                 <li><a href="http://st.avros.net/category/gong-ju.html">工具</a></li>
                 <li><a href="http://st.avros.net/category/ji-dian.html">机电</a></li>
                 <li><a href="http://st.avros.net/category/qi-ta.html">其他</a></li>
-                <li><a href="http://st.avros.net/category/tools.html">tools</a></li>
                 <li><a href="http://st.avros.net/category/wu-xian-dian.html">无线电</a></li>
                 <li><a href="http://st.avros.net/category/yin-pin.html">音频</a></li>
                    

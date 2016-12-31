@@ -60,6 +60,32 @@
  
 
     <div class='article'>
+        <a href="http://st.avros.net/articles/tiny24_clock.html"><h2>小台钟</h2></a>
+        <div class= "well small"> 2015-05-02
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>用手里闲置的Attiny24+LCD0801屏做了个小钟, 如图:</p>
+<p><a href="/images/tiny24_clock.jpg" title="照片"><img src="/images/tiny24_clock.jpg" width="500px" /></a></p>
+<p>用一节600还是800mAh的手机电池供电, 充满电可以工作半个月.</p>
+<p>原理图:</p>
+<p><a href="/images/tiny24_clock_2.png" title="原理图"><img src="/images/tiny24_clock_2.png" width="500px" /></a></p>
+<p>其中LCD用的是0801, 和1602接口完全一样, 加了一块之前做的<a href="articles/firefly&amp;serlcd1602.html">串口转换小板</a>. 由于是3.3V供电, LCD的V0脚需要接入负压, 这里负压用MCU的一路PWM经负倍压整流产生. 晶振用什么频率其实都无关紧要, 只要是个整数, 并且按一定的分频规则能凑出2Hz的频率就行了.</p>
+<p>源程序:</p>
+<p><a href="/files/tiny24_clock_src.7z">tiny24_clock_src.7z</a> </p>
+<p>改天再给它加个太阳能电池, 这样也许就再也不用充电了.</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/tiny24_clock.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://st.avros.net/articles/stm32_fonts.html"><h2>在stm32上使用二进制字库的简单方法</h2></a>
         <div class= "well small"> 2015-03-13
 
@@ -274,26 +300,6 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
         <div class="summary"><p>用一节锂电boost升压到5V, 后面接LDO, 用MCU的PWM输出一个电压信号给LDO的ADJ脚, 实现了可调输出. 同时用LCD显示输出电压电流和电池电压. 不过效率似乎低了点, 一节锂电用不了多久. 下次试试把LDO换成buck降压芯片.</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/mini_power.html">read more</a></div>
     </div>	
 				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/50m_fm_tx.html"><h2>50M FM发射实验</h2></a>
-        <div class= "well small"> 2013-07-17
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>电路如图, 74HC04的一个非门接成10.245M晶体振荡器, 晶体一端并联变容二极管. 用剩下的五个非门来推动2N7002, 2N7002的D极谐振在10.245M的五倍频, 51.225M频率上. </p>
-<p><a href="/images/50m_fm.png"><img src="/images/50m_fm.png" width="500" /></a></p>
-<p>用VX-7R接收, 不管走到屋里哪个角落, 信号都挺强的. 可惜北京不允许使用50M频率, 只能在屋里大概试试了. 估计到开阔地能发射相当远的吧. </p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/50m_fm_tx.html">read more</a></div>
-    </div>	
-				
 <div class="pagination">
 <ul>
     <li class="prev"><a href="http://st.avros.net/index2.html">&larr; Previous</a></li>
@@ -343,7 +349,6 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
                 <li><a href="http://st.avros.net/category/gong-ju.html">工具</a></li>
                 <li><a href="http://st.avros.net/category/ji-dian.html">机电</a></li>
                 <li><a href="http://st.avros.net/category/qi-ta.html">其他</a></li>
-                <li><a href="http://st.avros.net/category/tools.html">tools</a></li>
                 <li><a href="http://st.avros.net/category/wu-xian-dian.html">无线电</a></li>
                 <li><a href="http://st.avros.net/category/yin-pin.html">音频</a></li>
                    

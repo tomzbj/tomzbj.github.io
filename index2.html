@@ -60,6 +60,26 @@
  
 
     <div class='article'>
+        <a href="http://st.avros.net/articles/stm32_sd_waveplayer.html"><h2>在STM32F051上重新实现了SD卡WAVE播放器</h2></a>
+        <div class= "well small"> 2015-10-09
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>前几年试过用AVR来播放sd卡上的wave文件. (链接: <a href="http://st.avros.net/articles/avr_sd_waveplayer_2.html">http://st.avros.net/articles/avr_sd_waveplayer_2.html</a>) 这次改用stm32f051试了一遍, 28.224M晶振, 1.5倍频到42.336M, 这样48kHz和44.1kHz都可以按准确的比特率播放了.</p>
+<p>DAC用的是PT8211, 软件方式写I2S数据, 结果还是有爆音. 大概I2S对时序要求比较严格, 有空了改成硬件I2S再试试. </p>
+<p>顺便在这块板上试验了几块TFT LCD屏. SPI接口的TFT还是太慢, 清屏等操作时能看清刷屏过程. 并口的好用, 就是布线麻烦了点.</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/stm32_sd_waveplayer.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://st.avros.net/articles/hc4046_calc.html"><h2>复习74HC4046的相关计算(1)</h2></a>
         <div class= "well small"> 2015-09-22
 
@@ -321,32 +341,6 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <video src="/videos/nixie.mp4" width="480" controls="controls" />(/videos/nixie.mp4) <a class="btn btn-info xsmall" href="http://st.avros.net/articles/nixie.html">read more</a></div>
     </div>	
 				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/tiny24_clock.html"><h2>小台钟</h2></a>
-        <div class= "well small"> 2015-05-02
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>用手里闲置的Attiny24+LCD0801屏做了个小钟, 如图:</p>
-<p><a href="/images/tiny24_clock.jpg" title="照片"><img src="/images/tiny24_clock.jpg" width="500px" /></a></p>
-<p>用一节600还是800mAh的手机电池供电, 充满电可以工作半个月.</p>
-<p>原理图:</p>
-<p><a href="/images/tiny24_clock_2.png" title="原理图"><img src="/images/tiny24_clock_2.png" width="500px" /></a></p>
-<p>其中LCD用的是0801, 和1602接口完全一样, 加了一块之前做的<a href="articles/firefly&amp;serlcd1602.html">串口转换小板</a>. 由于是3.3V供电, LCD的V0脚需要接入负压, 这里负压用MCU的一路PWM经负倍压整流产生. 晶振用什么频率其实都无关紧要, 只要是个整数, 并且按一定的分频规则能凑出2Hz的频率就行了.</p>
-<p>源程序:</p>
-<p><a href="/files/tiny24_clock_src.7z">tiny24_clock_src.7z</a> </p>
-<p>改天再给它加个太阳能电池, 这样也许就再也不用充电了.</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/tiny24_clock.html">read more</a></div>
-    </div>	
-				
 <div class="pagination">
 <ul>
     <li class="prev"><a href="http://st.avros.net/index.html">&larr; Previous</a></li>
@@ -396,7 +390,6 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
                 <li><a href="http://st.avros.net/category/gong-ju.html">工具</a></li>
                 <li><a href="http://st.avros.net/category/ji-dian.html">机电</a></li>
                 <li><a href="http://st.avros.net/category/qi-ta.html">其他</a></li>
-                <li><a href="http://st.avros.net/category/tools.html">tools</a></li>
                 <li><a href="http://st.avros.net/category/wu-xian-dian.html">无线电</a></li>
                 <li><a href="http://st.avros.net/category/yin-pin.html">音频</a></li>
                    
