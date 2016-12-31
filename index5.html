@@ -60,6 +60,31 @@
  
 
     <div class='article'>
+        <a href="http://st.avros.net/articles/avr_sd_waveplayer.html"><h2>AVR SD WAVE播放器</h2></a>
+        <div class= "well small"> 2013-01-17
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>得从大约两年前说起, 那会儿amobbs的马潮老师出了个题目: 8x8的LED屏, 中间四个常亮, 最外圈亮一个转圈跑. </p>
+<p>这东西没啥难度吧？我正好有块点阵屏闲着, 就焊了一块板, 从开始写程序计算, 39分钟解决了.  </p>
+<p>讨论过程中一师弟(好象是TwoPerson?)大概出口不慎, 把这位马潮老师惹怒了——于是他又出了个题, 原话如下: </p>
+<blockquote>
+<p>如果不服, 可以再次比试. 你在北大找5个学生, 组成一个小组. 用m16加一片lm324, 设计一个读取sd卡上wave文件, 并播放的wave播放器, 看谁做的好. 给你们一个月的时间, 下个学期开学我到北大找你, 比试实物效果. </p>
+</blockquote>
+<p>首先声明一下, 本人纯粹是外行, 本科化学, 研究生改物理了, 以上纯属业余爱好. 马老师这题目在我这个外行看来, 也就是一个人两三天到一周左右的工作量, 至于五个人搞一个月么？不过后来事情一多也就把这回事忘了. </p>
+<p>前段时间突然记起来了, 于是动手开干. 电路图太简单就不画了. 觉得没必要上m16, 于是用了一片m8, 硬件SPI接SD卡, 8位PWM输出, 用一片TL061搭成低通滤波, 后面一只8050缓冲接喇叭. 从学习SD协议、实现FAT开始, 焊接、写程序到调试全算上, 用了两个晚上 ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/avr_sd_waveplayer.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://st.avros.net/articles/2012_conclusion.html"><h2>2012制作总结</h2></a>
         <div class= "well small"> 2012-12-10
 
@@ -353,28 +378,6 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <td align="center">FCZ21</td>
 <td align="center">21</td>
 <td align="center">40 ...</td></tr></tbody></table> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/ift_mod.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/mc1648_1sv149_vco.html"><h2>MC1648+1SV149VCO实验</h2></a>
-        <div class= "well small"> 2010-01-18
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>以前搭过Colpitts和Hartley式的VCO, 但是频率覆盖总是只有2倍, 可能的原因是1SV149只能部分接入LC槽路, 接入多了反馈就少. MC1648是负阻振荡器, 在这一点上不受限制.</p>
-<p>把82p电容换成1SV149, 再试, 还是只能从2.7MHz调到5.1MHz.</p>
-<p>检查了一下各点的电压情况, 原来是MC1648的槽路有+1.5V左右的偏压, 这样在5V供电时1SV149只有3.5V的电压区间可以利用了, 反向电压1V以下不算的话, 只有2.5V了, 频率覆盖不够也算正常.</p>
-<p>于是接上辅助电源, 可以从2.7MHz调到11.9MHz了, 但是1SV149的反向电压才6.5V. 反向电压1V时的频率是3.3MHz左右, 频率覆盖有3倍多, 还是不能算满意.</p>
-<p>检查了一下电路没有问题, 看来是频率计到上限了. 于是把线圈的磁芯全部旋进, 这样可以从2.0MHz调到9.6MHz, 反向电压1V时的频率是2.7MHz, 差不多也还是3.5倍的频率覆盖, 估计勉强能做到从455kHz到1600kHz了.</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/mc1648_1sv149_vco.html">read more</a></div>
     </div>	
 				
 <div class="pagination">

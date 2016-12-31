@@ -60,8 +60,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="http://st.avros.net/articles/fpm_skill.html"><h1>开源我的fpm skill库</h1></a>
-2016-11-28
+            <a href="http://st.avros.net/articles/allegro_bom_coord.html"><h1>Allegro导出bom和坐标文件, 用于嘉立创的SMT下单</h1></a>
+2016-12-16
 
 by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
  
@@ -70,12 +70,63 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
  
         </div>
         
-        <div><p>无责任提供, 地址是<a href="https://github.com/tomzbj/fpm_skills">https://github.com/tomzbj/fpm_skills</a>, 请大家随意取用. 不定期更新.</p>
-<p>部分由Tariel和Kurapica制作的封装没有放进来, 如果有需要请自行联系他们二位.</p>
-<p>ps. 请先下载根目录的fpm.il并替换fpm目录的同名文件. 这个明文fpm.il由minux提供, 我添加了对槽孔的支持, 以及修正了若干bug, 比如双排简牛的缺口方向搞反, 四脚贴片有源晶振的管脚顺序错误之类.</p></div>
+        <div><p>截图就不用贴了吧?</p>
+<ol>
+<li>
+<p>Allegro 菜单点 Tools, Reports </p>
+<ul>
+<li>从 Available Reports 里找 Placed Component Report, 双击让它跑到下面框里.  </li>
+<li>选中 Write Report, 点 Report. 此时会在. brd 所在目录下生成一个 pcp_rep.rpt</li>
+</ul>
+</li>
+<li>
+<p>Excel, 文件, 打开, 类型选” 所有文件”, 找到刚生成的 pcp_rep.rpt.  </p>
+<ul>
+<li>出现” 文本导入向导”, 直接点下一步.  </li>
+<li>分隔符号这里把” 逗号” 选上, 然后点下一步.  </li>
+<li>列数据格式, 选” 文本”, 然后点完成.</li>
+</ul>
+</li>
+<li>
+<p>表格出来了, 前四行没用, 删掉. 表头要按 JLC 的格式修改, 具体如下:</p>
+<ul>
+<li>REFDES, 改成 Designator.</li>
+<li>COMP_DEVICE_TYPE, 这列可以删掉.</li>
+<li>COMP_VALUE, 改成 Comment.</li>
+<li>COMP_TOL, 这列可以删掉.</li>
+<li>SYM_NAME, 改成 Footprint. 下面的封装如果和 JLC 的不一样也要改. 比如我用的封装名称都是公制, RESC2012, CAPC1608 之类, 要改成相应的英制 RESC0805, CAPC0603. 没有前缀也可以, 但是在 excel 可能就变成 805/603 了, 不影响下单. SOP 类的器件最好改成 SOIC-8, SOIC-14 这样, 等等, 总之以 JLC 给的参考文件为准. 选中这一列, 几次查找替换命令就解决了.</li>
+<li>SYM_X, SYM_Y, 这两个改成 Mid X 和 Mid Y, 底下的单位需要是毫米, mil 不行.</li>
+<li>SYM_ROTATE, 改成 Rotation.</li>
+<li>SYM_MIRROR, 改成 Layer. 底下的 YES 全部替换成 B, NO 替换成 T.</li>
+</ul>
+</li>
+<li>
+<p>保存成 XLS 或 XLSX 格式, 完事! BOM 和坐标文件都用这一个就可以了.</p>
+</li>
+</ol></div>
         <hr />
     </div>
 		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://st.avros.net/articles/fpm_skill.html"><h2>开源我的fpm skill库</h2></a>
+        <div class= "well small"> 2016-11-28
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>无责任提供, 地址是<a href="https://github.com/tomzbj/fpm_skills">https://github.com/tomzbj/fpm_skills</a>, 请大家随意取用. 不定期更新.</p>
+<p>部分由Tariel和Kurapica制作的封装没有放进来, 如果有需要请自行联系他们二位.</p>
+<p>ps. 请先下载根目录的fpm.il并替换fpm目录的同名文件. 这个明文fpm.il由minux提供, 我添加了对槽孔的支持, 以及修正了若干bug, 比如双排简牛的缺口方向搞反, 四脚贴片有源晶振的管脚顺序错误之类.</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/fpm_skill.html">read more</a></div>
+    </div>	
+				
 
  
         
@@ -316,46 +367,6 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <p>需要注意的是, objcopy生成的.o文件默认是把数据放在.data段的. 因此这里需要加个--rename-section的选项, 把.data改成.text或者.rodata, 不然单片机可怜的一点点RAM根本不够用. 如果是在PC上运行, 这里改不改就无所谓了, 不过内存还是能省点就省点的好.</p>
 <p>在.o里会生成三个符号: <code>_binary_asc5x7_bin_start, _binary_asc5x7_bin_end, binary_asc5x7_bin_size.</code></p>
 <p>在程序里这么调用 ...</p></li></ol> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/stm32_fonts.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/dmm2650.html"><h2>Sansei DMM2650背光改装记录</h2></a>
-        <div class= "well small"> 2014-12-12
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>Sansei DMM2650是80年代的小型台式四位半自动量程万用表, 在Diyers中一直很受欢迎. sunzx送了我一台, 相当好用. 使用过程中发现它有一个很大的不足之处就是液晶屏没有背光, 光线较暗时读数不容易看清, 所以我决定给它加装背光. </p>
-<p><a href="/images/dmm2650_1.jpg"><img src="/images/dmm2650_1.jpg" width="500" /></a></p>
-<p>DMM2650的液晶屏是双列针脚直插式的, 小心地把它从插座上取下来, 如图：</p>
-<p><a href="/images/dmm2650_2.jpg"><img src="/images/dmm2650_2.jpg" width="500" /></a></p>
-<p>背面贴了一层反光膜. 这层膜很致密, 用LED手电从背后照, 在前面基本看不到. 因此要加装背光, 必须把这层膜撕下来. </p>
-<p><a href="/images/dmm2650_3.jpg"><img src="/images/dmm2650_3.jpg" width="500" /></a></p>
-<p>撕的时候要很小心, 引脚碰弯了就不容易按回去了. </p>
-<p><a href="/images/dmm2650_4.jpg"><img src="/images/dmm2650_4.jpg" width="500" /></a> </p>
-<p>接下来制作背光板. 这块2cm x 8cm的洞洞板长度长了点, 两端要锯掉一些. </p>
-<p><a href="/images/dmm2650_5.jpg"><img src="/images/dmm2650_5.jpg" width="500" /></a> </p>
-<p>锯完之后, 尺寸正合适. </p>
-<p><a href="/images/dmm2650_6.jpg"><img src="/images/dmm2650_6.jpg" width="500" /></a> </p>
-<p>在上面焊10个0805的白光LED, 以及相应的限流电阻. 背光不需要很亮, 大约0.5mA就足够, 这里限流电阻用了5.1K. </p>
-<p><a href="/images/dmm2650_7.jpg"><img src="/images/dmm2650_7.jpg" width="500" /></a> </p>
-<p>点亮背光的效果. </p>
-<p><a href="/images/dmm2650_8.jpg"><img src="/images/dmm2650_8.jpg" width="500" /></a> </p>
-<p>液晶屏插座正中是驱动芯片, 做好的背光板可以用双面胶贴在驱动芯片上. </p>
-<p><a href="/images/dmm2650_9.jpg"><img src="/images/dmm2650_9.jpg" width="500" /></a> </p>
-<p>接下来要找到供电正负端, 很好找, 红色的电源开关最后面那两个引脚就是. 把背光板的引线缠在上面, 焊好. </p>
-<p><a href="/images/dmm2650_10.jpg"><img src="/images/dmm2650_10.jpg" width="500" /></a> </p>
-<p>装回前面板, 开机! 怎么效果有点逗比……看来没有柔光片是不行的. </p>
-<p><a href="/images/dmm2650_11.jpg"><img src="/images/dmm2650_11.jpg" width="500" /></a> </p>
-<p>柔光片这东西不好找, 试了不干胶贴纸的背纸、白色绝缘胶带、普通A4纸, 效果都不理想 ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/dmm2650.html">read more</a></div>
     </div>	
 				
 <div class="pagination">

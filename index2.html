@@ -60,6 +60,31 @@
  
 
     <div class='article'>
+        <a href="http://st.avros.net/articles/hc4046_calc.html"><h2>复习74HC4046的相关计算(1)</h2></a>
+        <div class= "well small"> 2015-09-22
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>前两天没事复习了一下74HC4046的计算. 主要材料: </p>
+<ol>
+<li>某个在线计算器, 只有VCO的计算. url: <a href="http://www.changpuak.ch/electronics/calc_03.php">http://www.changpuak.ch/electronics/calc_03.php</a></li>
+<li>Motorola的AN1410: Configuring and Applying the MC74HC4046A Phase-Locked Loop </li>
+<li>Philips的Datasheet </li>
+<li>Texas Instruments的Application Report SCHA003B: CMOS Phase-Locked-Loop Applications Using the CD54/74HC/HCT4046A and CD54/74HC/HCT7046A     </li>
+</ol>
+<p>根据Philips的datasheet, 取<span class="math">\(R_1\)</span> = 10k, <span class="math">\(R_2\)</span> = 10k, <span class="math">\(C\)</span> = 500p, <span class="math">\(V_\rm{CC}\)</span> = 5.0V ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/hc4046_calc.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://st.avros.net/articles/fermetnter_6f22_solar.html"><h2>最近的三个制作：酒酿机、6F22充电器、太阳能充电器</h2></a>
         <div class= "well small"> 2015-08-15
 
@@ -320,37 +345,6 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <p>源程序:</p>
 <p><a href="/files/tiny24_clock_src.7z">tiny24_clock_src.7z</a> </p>
 <p>改天再给它加个太阳能电池, 这样也许就再也不用充电了.</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/tiny24_clock.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/stm32_fonts.html"><h2>在stm32上使用二进制字库的简单方法</h2></a>
-        <div class= "well small"> 2015-03-13
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>标题其实可以写成"在可执行程序里嵌入二进制资源的方法", 不过这个题目大了点, 还是原样吧.</p>
-<p>以前如果我们用到不带字库的点阵LCD, 一般都是把字库按16进制写成一个大数组, 再和其他源程序一起编译. 有没有方便一点的办法呢？这里给出两个方案.</p>
-<ol>
-<li>
-<p>使用objcopy把字库转成目标文件(.o/.obj)</p>
-<p>假设我们需要嵌入的是5x7的ascii点阵字库, 文件名是asc5x7.bin.</p>
-<p>在arm-gcc环境下, 命令如下:</p>
-<div class="highlight"><pre><span></span>arm-none-eabi-objcopy -B arm -I binary -O elf32-littlearm --rename-section .data=.rodata asc5x7.bin asc5x7.o
-</pre></div>
-
-
-<p>需要注意的是, objcopy生成的.o文件默认是把数据放在.data段的. 因此这里需要加个--rename-section的选项, 把.data改成.text或者.rodata, 不然单片机可怜的一点点RAM根本不够用. 如果是在PC上运行, 这里改不改就无所谓了, 不过内存还是能省点就省点的好.</p>
-<p>在.o里会生成三个符号: <code>_binary_asc5x7_bin_start, _binary_asc5x7_bin_end, binary_asc5x7_bin_size.</code></p>
-<p>在程序里这么调用 ...</p></li></ol> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/stm32_fonts.html">read more</a></div>
     </div>	
 				
 <div class="pagination">

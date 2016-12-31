@@ -60,6 +60,37 @@
  
 
     <div class='article'>
+        <a href="http://st.avros.net/articles/stm32_fonts.html"><h2>在stm32上使用二进制字库的简单方法</h2></a>
+        <div class= "well small"> 2015-03-13
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>标题其实可以写成"在可执行程序里嵌入二进制资源的方法", 不过这个题目大了点, 还是原样吧.</p>
+<p>以前如果我们用到不带字库的点阵LCD, 一般都是把字库按16进制写成一个大数组, 再和其他源程序一起编译. 有没有方便一点的办法呢？这里给出两个方案.</p>
+<ol>
+<li>
+<p>使用objcopy把字库转成目标文件(.o/.obj)</p>
+<p>假设我们需要嵌入的是5x7的ascii点阵字库, 文件名是asc5x7.bin.</p>
+<p>在arm-gcc环境下, 命令如下:</p>
+<div class="highlight"><pre><span></span>arm-none-eabi-objcopy -B arm -I binary -O elf32-littlearm --rename-section .data=.rodata asc5x7.bin asc5x7.o
+</pre></div>
+
+
+<p>需要注意的是, objcopy生成的.o文件默认是把数据放在.data段的. 因此这里需要加个--rename-section的选项, 把.data改成.text或者.rodata, 不然单片机可怜的一点点RAM根本不够用. 如果是在PC上运行, 这里改不改就无所谓了, 不过内存还是能省点就省点的好.</p>
+<p>在.o里会生成三个符号: <code>_binary_asc5x7_bin_start, _binary_asc5x7_bin_end, binary_asc5x7_bin_size.</code></p>
+<p>在程序里这么调用 ...</p></li></ol> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/stm32_fonts.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://st.avros.net/articles/usb_3x_charger.html"><h2>带负载指示的USB一拖三充电器</h2></a>
         <div class= "well small"> 2015-01-17
 
@@ -261,32 +292,6 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
         <div class="summary"><p>电路如图, 74HC04的一个非门接成10.245M晶体振荡器, 晶体一端并联变容二极管. 用剩下的五个非门来推动2N7002, 2N7002的D极谐振在10.245M的五倍频, 51.225M频率上. </p>
 <p><a href="/images/50m_fm.png"><img src="/images/50m_fm.png" width="500" /></a></p>
 <p>用VX-7R接收, 不管走到屋里哪个角落, 信号都挺强的. 可惜北京不允许使用50M频率, 只能在屋里大概试试了. 估计到开阔地能发射相当远的吧. </p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/50m_fm_tx.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/avr_sd_waveplayer_2.html"><h2>R-2R SD卡WAVE播放器</h2></a>
-        <div class= "well small"> 2013-07-14
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>用ATMega8, 16.9344M晶振, 14位r-2r作为DAC, 实现了流畅播放16位 44.1kbps单声道wav.  双声道没试, 估计超点频应该差不多了. </p>
-<p>这东西有点说来话长. 最早是amobbs的马潮老师出了个题目, 8*8的LED屏, 中间四个常亮, 最外圈亮一个转圈跑. 那会儿我正好有块点阵屏闲着, 就焊了一块板, 从开始写程序计算, 39分钟解决了.  </p>
-<p>讨论过程中师弟TwoPerson把这位马潮老师惹怒了. 于是他放出狂言, 原文如下:  </p>
-<blockquote>
-<p>如果不服, 可以再次比试. 你在北大找5个学生, 组成一个小组. 用m16加一片lm324, 设计一个读取sd卡上wave文件, 并播放的wave播放器, 看谁做的好.  给你们一个月的时间, 下个学期开学我到北大找你, 比试实物效果. </p>
-</blockquote>
-<p>在我这个外行看来, 这个题目也就是一个人两三天到一周左右的工作量, 至于五个人搞一个月么? 不过后来事情一多也就把这回事忘了.  </p>
-<p>今年1月份想起来了, 于是动手开干. 用8位PWM先试了一次, 从学习SD协议、实现FAT开始, 焊接、写程序到调试全算上, 用了两个晚上、周六全天加周日半天, 基本完事. 当然8位PWM的音质有点惨不忍睹……</p>
-<p>这次改用r-2r ladder来实现16位输出 ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/avr_sd_waveplayer_2.html">read more</a></div>
     </div>	
 				
 <div class="pagination">

@@ -60,6 +60,32 @@
  
 
     <div class='article'>
+        <a href="http://st.avros.net/articles/avr_sd_waveplayer_2.html"><h2>R-2R SD卡WAVE播放器</h2></a>
+        <div class= "well small"> 2013-07-14
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>用ATMega8, 16.9344M晶振, 14位r-2r作为DAC, 实现了流畅播放16位 44.1kbps单声道wav.  双声道没试, 估计超点频应该差不多了. </p>
+<p>这东西有点说来话长. 最早是amobbs的马潮老师出了个题目, 8*8的LED屏, 中间四个常亮, 最外圈亮一个转圈跑. 那会儿我正好有块点阵屏闲着, 就焊了一块板, 从开始写程序计算, 39分钟解决了.  </p>
+<p>讨论过程中师弟TwoPerson把这位马潮老师惹怒了. 于是他放出狂言, 原文如下:  </p>
+<blockquote>
+<p>如果不服, 可以再次比试. 你在北大找5个学生, 组成一个小组. 用m16加一片lm324, 设计一个读取sd卡上wave文件, 并播放的wave播放器, 看谁做的好.  给你们一个月的时间, 下个学期开学我到北大找你, 比试实物效果. </p>
+</blockquote>
+<p>在我这个外行看来, 这个题目也就是一个人两三天到一周左右的工作量, 至于五个人搞一个月么? 不过后来事情一多也就把这回事忘了.  </p>
+<p>今年1月份想起来了, 于是动手开干. 用8位PWM先试了一次, 从学习SD协议、实现FAT开始, 焊接、写程序到调试全算上, 用了两个晚上、周六全天加周日半天, 基本完事. 当然8位PWM的音质有点惨不忍睹……</p>
+<p>这次改用r-2r ladder来实现16位输出 ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/avr_sd_waveplayer_2.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://st.avros.net/articles/slide_sense.html"><h2>滑动触摸实验</h2></a>
         <div class= "well small"> 2013-07-14
 
@@ -261,31 +287,6 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <p>用74HC164要多占用两个IO, 不过用一些小技巧可以实现只占用两个GPIO：如图, 用电阻和二极管形成一个与门, 在串行写入数据时将最高位置1, 写完8bit后再拉高DATA端, 此时与门输出高电平, EN动作. 之后要拉低DATA, 连续八个CLK以清空164输出端, 避免影响下一轮. 实测写LCD快速、稳定, 成本也是三种方式里最低的. </p>
 <p><a href="/images/lcd_2wire.png" title="电路图"><img src="/images/lcd_2wire.png" width="500px" /></a></p>
 <p>后记: 后来还是觉得4线接法驱动LCD1602不太稳定. 继续改进, 改为用HC164的八个输出驱动LCD1602的全部8位数据接口, 输入端同时驱动RS脚, 同时再用一个IO来驱动EN脚. 总共用了三个IO, 不过稳定性好多了.</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/firefly&serlcd1602.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/avr_sd_waveplayer.html"><h2>AVR SD WAVE播放器</h2></a>
-        <div class= "well small"> 2013-01-17
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>得从大约两年前说起, 那会儿amobbs的马潮老师出了个题目: 8x8的LED屏, 中间四个常亮, 最外圈亮一个转圈跑. </p>
-<p>这东西没啥难度吧？我正好有块点阵屏闲着, 就焊了一块板, 从开始写程序计算, 39分钟解决了.  </p>
-<p>讨论过程中一师弟(好象是TwoPerson?)大概出口不慎, 把这位马潮老师惹怒了——于是他又出了个题, 原话如下: </p>
-<blockquote>
-<p>如果不服, 可以再次比试. 你在北大找5个学生, 组成一个小组. 用m16加一片lm324, 设计一个读取sd卡上wave文件, 并播放的wave播放器, 看谁做的好. 给你们一个月的时间, 下个学期开学我到北大找你, 比试实物效果. </p>
-</blockquote>
-<p>首先声明一下, 本人纯粹是外行, 本科化学, 研究生改物理了, 以上纯属业余爱好. 马老师这题目在我这个外行看来, 也就是一个人两三天到一周左右的工作量, 至于五个人搞一个月么？不过后来事情一多也就把这回事忘了. </p>
-<p>前段时间突然记起来了, 于是动手开干. 电路图太简单就不画了. 觉得没必要上m16, 于是用了一片m8, 硬件SPI接SD卡, 8位PWM输出, 用一片TL061搭成低通滤波, 后面一只8050缓冲接喇叭. 从学习SD协议、实现FAT开始, 焊接、写程序到调试全算上, 用了两个晚上 ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/avr_sd_waveplayer.html">read more</a></div>
     </div>	
 				
 <div class="pagination">

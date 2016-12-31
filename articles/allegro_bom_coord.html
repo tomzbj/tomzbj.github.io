@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="utf-8">
+    <title>兰湾</title>
+    <meta name="description" content="">
+    <meta name="author" content="Stavros">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://st.avros.net/theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="http://st.avros.net/theme/bootstrap.min.css" rel="stylesheet">
+    <link href="http://st.avros.net/theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="http://st.avros.net/theme/local.css" rel="stylesheet">
+    <link href="http://st.avros.net/theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+        <link href="http://st.avros.net//feeds/all.atom.xml" rel="alternate" title="兰湾" type="application/atom+xml">
+        <link href="http://st.avros.net//feeds/all.rss.xml" rel="alternate" title="兰湾" type="application/rss+xml">
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href="http://st.avros.net">兰湾</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+    <div class='article'>
+        <div class="content-title">
+            <h1>Allegro导出bom和坐标文件, 用于嘉立创的SMT下单</h1>
+2016-12-16
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+        </div>
+	
+        <div><p>截图就不用贴了吧?</p>
+<ol>
+<li>
+<p>Allegro 菜单点 Tools, Reports </p>
+<ul>
+<li>从 Available Reports 里找 Placed Component Report, 双击让它跑到下面框里.  </li>
+<li>选中 Write Report, 点 Report. 此时会在. brd 所在目录下生成一个 pcp_rep.rpt</li>
+</ul>
+</li>
+<li>
+<p>Excel, 文件, 打开, 类型选” 所有文件”, 找到刚生成的 pcp_rep.rpt.  </p>
+<ul>
+<li>出现” 文本导入向导”, 直接点下一步.  </li>
+<li>分隔符号这里把” 逗号” 选上, 然后点下一步.  </li>
+<li>列数据格式, 选” 文本”, 然后点完成.</li>
+</ul>
+</li>
+<li>
+<p>表格出来了, 前四行没用, 删掉. 表头要按 JLC 的格式修改, 具体如下:</p>
+<ul>
+<li>REFDES, 改成 Designator.</li>
+<li>COMP_DEVICE_TYPE, 这列可以删掉.</li>
+<li>COMP_VALUE, 改成 Comment.</li>
+<li>COMP_TOL, 这列可以删掉.</li>
+<li>SYM_NAME, 改成 Footprint. 下面的封装如果和 JLC 的不一样也要改. 比如我用的封装名称都是公制, RESC2012, CAPC1608 之类, 要改成相应的英制 RESC0805, CAPC0603. 没有前缀也可以, 但是在 excel 可能就变成 805/603 了, 不影响下单. SOP 类的器件最好改成 SOIC-8, SOIC-14 这样, 等等, 总之以 JLC 给的参考文件为准. 选中这一列, 几次查找替换命令就解决了.</li>
+<li>SYM_X, SYM_Y, 这两个改成 Mid X 和 Mid Y, 底下的单位需要是毫米, mil 不行.</li>
+<li>SYM_ROTATE, 改成 Rotation.</li>
+<li>SYM_MIRROR, 改成 Layer. 底下的 YES 全部替换成 B, NO 替换成 T.</li>
+</ul>
+</li>
+<li>
+<p>保存成 XLS 或 XLSX 格式, 完事! BOM 和坐标文件都用这一个就可以了.</p>
+</li>
+</ol></div>
+	
+        <hr>
+
+    </div>
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="http://st.avros.net/archives.html">Archives</a>
+                <li><a href="http://st.avros.net/tags.html">Tags</a>
+
+
+
+                <li><a href="http://st.avros.net//feeds/all.atom.xml" rel="alternate">Atom feed</a></li>
+                <li><a href="http://st.avros.net//feeds/all.rss.xml" rel="alternate">RSS feed</a></li>
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="http://st.avros.net/category/dian-yuan.html">电源</a></li>
+                <li><a href="http://st.avros.net/category/gong-ju.html">工具</a></li>
+                <li><a href="http://st.avros.net/category/ji-dian.html">机电</a></li>
+                <li><a href="http://st.avros.net/category/qi-ta.html">其他</a></li>
+                <li><a href="http://st.avros.net/category/tools.html">tools</a></li>
+                <li><a href="http://st.avros.net/category/wu-xian-dian.html">无线电</a></li>
+                <li><a href="http://st.avros.net/category/yin-pin.html">音频</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="http://blog.tariel.org">Tariel's blog</a></li>
+                <li><a href="http://kurapikov.blogspot.com">库拉皮科夫的翻墙才能看的空间</a></li>
+                <li><a href="http://just4fun.cn">乐趣为王</a></li>
+                <li><a href="http://scateu.me">Scateu Blog - S.B.</a></li>
+            </ul>
+            </div>
+
+
+            <div class="social">
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Social
+                </li>
+           
+                <li><a href="http://weibo.com/stavros">新浪微博</a></li>
+            </ul>
+            </div>
+            </div>
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href="http://st.avros.net">兰湾</a> &copy; Stavros 2016</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://st.avros.net/theme/bootstrap-collapse.js"></script>
+ 
+</body>
+</html>
