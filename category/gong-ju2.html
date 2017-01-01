@@ -60,6 +60,29 @@
  
 
     <div class='article'>
+        <a href="http://st.avros.net/articles/pid_expr.html"><h2>PID控温实验</h2></a>
+        <div class= "well small"> 2015-07-13
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>做了个PID温控器，原理图如下：</p>
+<p><a href="/images2/2015/pid_expr.png"><img src="/images2/2015/pid_expr.png" width="480" /></a> </p>
+<p>电源电压首先流经0.33欧的取样电阻R1，然后给加热器供电。加热器用随便一个TO220封装的N沟道MOS管就行，LM35用来测温。高端电流检测虽然麻烦些，但这样加热器的连线可以更简单，四条线就够了。</p>
+<p>LM35输出的电压值经Mega48 AD转换后得到温度值。Mega48输出一路PWM经低通滤波后与取样电阻R1上的电压比较后控制MOS管的电流。之后用简单的PID算法即可实现控温了。</p>
+<p>把MOS管和LM35用导热胶粘在一块95mm x 66mm的散热片上，实测用12V 2A的电源供电时，开环加热可以达到44度左右。启用PID控温后，可以在室温~44度之间把温度控制到设定值正负0.1度。</p>
+<p>之后在这个基础上可以做很多东西了，比如酸奶机、酒酿机、煮温泉蛋机等等。</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/pid_expr.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://st.avros.net/articles/6f22_fm_rf.html"><h2>最近的三个制作</h2></a>
         <div class= "well small"> 2015-05-21
 
@@ -294,26 +317,6 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
         <div class="summary"><p>拆了一支圆珠笔，粗细正好能装下一节7号锂电，利用原来的弹簧当触点。</p>
 <p>笔尖的位置装了一个5mm紫外LED，串27欧电阻限流。</p>
 <p>就这么简单！</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/cash_detector.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/freqmeter.html"><h2>频率计</h2></a>
-        <div class= "well small"> 2009-10-15
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>输入信号经 K246 共源缓冲, 直耦到 C1959 放大,  74HC04 整形后通过另一只作为闸门的 C1959, 由 74HC393 和 Mega8 的 T1 计数器一起计数. 理论能测到 224=16.777216MHz.</p>
-<p>电路如图:</p>
-<p><a href="/images/freqmeter.png" title="电路图"><img src="/images/freqmeter.png" width="500px" /></a></p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/freqmeter.html">read more</a></div>
     </div>	
 				
 <div class="pagination">

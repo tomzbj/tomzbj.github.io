@@ -60,6 +60,36 @@
  
 
     <div class='article'>
+        <a href="http://st.avros.net/articles/ne555_boost_3.html"><h2>NE555升压实验_3</h2></a>
+        <div class= "well small"> 2013-04-22
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>之前试验各种升压电路的结论是, 要想实现从单节锂电升压到5V或更高、大电流输出, PWM ic必须具有以下几个性能: </p>
+<ol>
+<li>
+<p>工作电压足够低, 一般锂电终止放电电压定在3.0V上下, 因此PWM ic的最低工作电压最好是2.7V或者更低; </p>
+</li>
+<li>
+<p>必须是推挽输出, 否则输出电流不够, MOS开关管要么不能完全导通, 要么不能完全关断, 两种情况都严重影响效率; </p>
+</li>
+</ol>
+<p>之前的实验里, NE555在5V升6.3V时表现良好, 但它的最低工作电压只能到4.5V, 不符合上述条件1. 于是想到能否用自举电路或者用7660倍压给NE555供电呢？搭电路实验, 结果如下: </p>
+<p>使用自举电路时, 正常启动后, 输入电压可以一直低到1.8V都能正常升压工作; 但输入电压低于4.0V时不能启动. 可见此路不通. </p>
+<p>使用7660倍压时可以在2.8V正常启动, 算是勉强达到要求, 可靠性还是不足. </p>
+<p>可以再试试用BL8530、HT7750之类小功率升压ic为NE555辅助供电, 如果还是不行, 那就得放弃用NE555实现单节锂电升5V的思路了. </p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/ne555_boost_3.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://st.avros.net/articles/lm2596_dac.html"><h2>用LM2596搭建数控稳压电源</h2></a>
         <div class= "well small"> 2013-03-23
 
@@ -319,26 +349,6 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 
  </div>
         <div class="summary"><p>用ATMEGA8+DS18B20做了个USB接口的温度计, 插上电脑就能显示室内温度, 体积和一般的U盘差不多大.</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/usb18b20.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/cash_detector.html"><h2>验钞笔</h2></a>
-        <div class= "well small"> 2010-03-27
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>拆了一支圆珠笔，粗细正好能装下一节7号锂电，利用原来的弹簧当触点。</p>
-<p>笔尖的位置装了一个5mm紫外LED，串27欧电阻限流。</p>
-<p>就这么简单！</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/cash_detector.html">read more</a></div>
     </div>	
 				
 <div class="pagination">

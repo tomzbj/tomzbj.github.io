@@ -60,6 +60,40 @@
  
 
     <div class='article'>
+        <a href="http://st.avros.net/articles/makefile_size.html"><h2>利用Makefile实现avr-size -C的效果</h2></a>
+        <div class= "well small"> 2016-01-03
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>GNU工具链里的size大家应该都用过, 它可以显示elf/obj/exe/dll等可执行文件里各个段的大小, 非常方便. 加-A和-B参数分别是按sysv和berkeley格式显示, 默认带-B参数.</p>
+<p>avr-gcc里的avr-size则又增加了一个-C的选项, 可以显示单片机flash和ram的占用比例, 需要同时用--mcu参数指定avr单片机的型号, 效果是这样的:</p>
+<div class="highlight"><pre><span></span>avr-size -C --mcu=attiny26 main.elf
+AVR Memory Usage
+----------------
+Device: attiny26
+
+Program:    1316 bytes (64.3% Full)
+(.text + .data + .bootloader)
+
+Data:         23 bytes (18.0% Full)
+(.data + .bss + .noinit)
+</pre></div>
+
+
+<p>是不是很方便? 可惜arm-gcc里的size并没有这个选项, 于是从avr转到stm32之后, 常常会感觉到不方便.</p>
+<p>后来发现, 只要在Makefile里all目标后面加上几行, 也能达到同样目的. 需要你的工具链里有sed和bc, sed用来从size的结果里截取包含数据的第二行 ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/makefile_size.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://st.avros.net/articles/hc4046_expr.html"><h2>74HC4046实验(2)</h2></a>
         <div class= "well small"> 2015-10-09
 
@@ -294,44 +328,6 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <p>LM35输出的电压值经Mega48 AD转换后得到温度值。Mega48输出一路PWM经低通滤波后与取样电阻R1上的电压比较后控制MOS管的电流。之后用简单的PID算法即可实现控温了。</p>
 <p>把MOS管和LM35用导热胶粘在一块95mm x 66mm的散热片上，实测用12V 2A的电源供电时，开环加热可以达到44度左右。启用PID控温后，可以在室温~44度之间把温度控制到设定值正负0.1度。</p>
 <p>之后在这个基础上可以做很多东西了，比如酸奶机、酒酿机、煮温泉蛋机等等。</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/pid_expr.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/6f22_fm_rf.html"><h2>最近的三个制作</h2></a>
-        <div class= "well small"> 2015-05-21
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><ol>
-<li>
-<p>彻底榨干6F22的剩余电量</p>
-<p>从万用表里拆下来的6F22常常还有许多电量没有用掉, 直接扔掉比较可惜. 把它DC-DC降压后给单片机之类供电, 还能再撑一段时间. </p>
-<p>电路如图, 就是AOZ1016的标准电路. 在它的EN脚对地接一个22uF的电解电容, 再对电源和对地各接一个轻触开关, 便实现了软开关. EN脚的输入电流极小, 靠22u电解就能维持工作几十分钟. EN脚拉低时, AOZ1016消耗电流仅1μA左右, 完全可以忽略不计了. DC-DC降压到3.68V左右, 再由XC6206稳压到3.3V.</p>
-<p><a href="/images2/2015/6f22.png"><img src="/images2/2015/6f22.png" width="480" /></a> </p>
-</li>
-<li>
-<p>继续试验简易FM无线话筒</p>
-<p>话筒信号放大后直接推动与晶振串联的变容二极管, MMBT2222或S9018接成电容三点式振荡器, 谐振在晶振的三倍频上. 可惜这种方式能得到的频偏还是太小, 用收音机只能收到很微弱的信号. 下次试试锁相环调频吧.</p>
-<p><a href="/images2/2015/fm_caller_simple.png"><img src="/images2/2015/fm_caller_simple.png" width="480" /></a> </p>
-</li>
-<li>
-<p>RF功率计</p>
-<p>几年前Tariel/BH1PHL送了我一个50欧 100W的RF电阻, 一直没用上.</p>
-<p>这次用它做了个假负载+功率计, 从RF电阻上取电压, 检波、滤波后分压, 用mega48的adc采样, 显示在0801液晶屏上. </p>
-<p><a href="/images2/2015/rf_power_meter.png"><img src="/images2/2015/rf_power_meter.png" width="480" /></a> </p>
-<p>一开始检波二极管用的是2SC1622的BC结, 结果实测在50M时功率严重偏小, 144M和430M就一点功率也测不到了. 换成1N60之后一切正常. 估计是因为2SC1622的结电容太大?</p>
-<p>但是1N60耐压太低, 只有50V, 这样只能测到峰值25V的RF电压, 换算成功率只有6.25W了. 下次还是得用先衰减再测的方案.</p>
-</li>
-</ol> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/6f22_fm_rf.html">read more</a></div>
     </div>	
 				
 <div class="pagination">

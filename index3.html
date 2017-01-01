@@ -60,6 +60,44 @@
  
 
     <div class='article'>
+        <a href="http://st.avros.net/articles/6f22_fm_rf.html"><h2>最近的三个制作</h2></a>
+        <div class= "well small"> 2015-05-21
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><ol>
+<li>
+<p>彻底榨干6F22的剩余电量</p>
+<p>从万用表里拆下来的6F22常常还有许多电量没有用掉, 直接扔掉比较可惜. 把它DC-DC降压后给单片机之类供电, 还能再撑一段时间. </p>
+<p>电路如图, 就是AOZ1016的标准电路. 在它的EN脚对地接一个22uF的电解电容, 再对电源和对地各接一个轻触开关, 便实现了软开关. EN脚的输入电流极小, 靠22u电解就能维持工作几十分钟. EN脚拉低时, AOZ1016消耗电流仅1μA左右, 完全可以忽略不计了. DC-DC降压到3.68V左右, 再由XC6206稳压到3.3V.</p>
+<p><a href="/images2/2015/6f22.png"><img src="/images2/2015/6f22.png" width="480" /></a> </p>
+</li>
+<li>
+<p>继续试验简易FM无线话筒</p>
+<p>话筒信号放大后直接推动与晶振串联的变容二极管, MMBT2222或S9018接成电容三点式振荡器, 谐振在晶振的三倍频上. 可惜这种方式能得到的频偏还是太小, 用收音机只能收到很微弱的信号. 下次试试锁相环调频吧.</p>
+<p><a href="/images2/2015/fm_caller_simple.png"><img src="/images2/2015/fm_caller_simple.png" width="480" /></a> </p>
+</li>
+<li>
+<p>RF功率计</p>
+<p>几年前Tariel/BH1PHL送了我一个50欧 100W的RF电阻, 一直没用上.</p>
+<p>这次用它做了个假负载+功率计, 从RF电阻上取电压, 检波、滤波后分压, 用mega48的adc采样, 显示在0801液晶屏上. </p>
+<p><a href="/images2/2015/rf_power_meter.png"><img src="/images2/2015/rf_power_meter.png" width="480" /></a> </p>
+<p>一开始检波二极管用的是2SC1622的BC结, 结果实测在50M时功率严重偏小, 144M和430M就一点功率也测不到了. 换成1N60之后一切正常. 估计是因为2SC1622的结电容太大?</p>
+<p>但是1N60耐压太低, 只有50V, 这样只能测到峰值25V的RF电压, 换算成功率只有6.25W了. 下次还是得用先衰减再测的方案.</p>
+</li>
+</ol> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/6f22_fm_rf.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://st.avros.net/articles/nixie.html"><h2>辉光数码管实验</h2></a>
         <div class= "well small"> 2015-05-13
 
@@ -285,28 +323,6 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
         <div class="summary"><p>翻出来一个8x8的LED屏，决定做点动画玩。电路很简单，ATmega8的PB口做行选，PD口做列选。</p>
 <p>做出来的效果是这样的：</p>
 <video src="/videos/8x8_led_animation.mp4" width="500" controls="controls" />(/videos/8x8_led_animation.mp4) <a class="btn btn-info xsmall" href="http://st.avros.net/articles/8x8_led_animation.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/candy_floss.html"><h2>棉花糖机</h2></a>
-        <div class= "well small"> 2013-09-10
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>完全是参考网上那篇硬盘改棉花糖机的教程. 手里这块硬盘似乎坏得有点严重, 通电也转不起来了... 查了一下, 原来硬盘电机就是一个三相无刷电机, 于是用AVR给它搭了个驱动电路如图.</p>
-<p><a href="/images/candy_floss.png"><img src="/images/candy_floss.png" width="500" /></a></p>
-<p>其中三只NPN管用常用的C945, C1815之类都完全可以; 三对MOS管可以用分立的, 也可以用现成的互补对管, AOP605或AOP607之类, 在DIP8封装里集成了NMOS和PMOS各一只, 用起来方便一些.</p>
-<p>程序很简单, 按照U+V-, U+W-, V+W-, V+U-, W+U-, W+V- 这个顺序依次驱动6只MOS管, 判断剩余一相的过零时刻来换相, 就能转得很好. 闭环工作时, 如果把盘片全拆下来, 只剩光轴, 转速能达到4万转, 装上盘片就只有几千转了. 想让它转得稳定一些的话, 控制逻辑还得再复杂一些才行.</p>
-<p>后面的大同小异了, 不过效果不太理想, 固体酒精的火力不太好掌握, 费了很大劲只做出一点点. 以后有机会把它改成感应式加热的, 也许效果会好些?</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/candy_floss.html">read more</a></div>
     </div>	
 				
 <div class="pagination">

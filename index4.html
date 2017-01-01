@@ -60,6 +60,28 @@
  
 
     <div class='article'>
+        <a href="http://st.avros.net/articles/candy_floss.html"><h2>棉花糖机</h2></a>
+        <div class= "well small"> 2013-09-10
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>完全是参考网上那篇硬盘改棉花糖机的教程. 手里这块硬盘似乎坏得有点严重, 通电也转不起来了... 查了一下, 原来硬盘电机就是一个三相无刷电机, 于是用AVR给它搭了个驱动电路如图.</p>
+<p><a href="/images/candy_floss.png"><img src="/images/candy_floss.png" width="500" /></a></p>
+<p>其中三只NPN管用常用的C945, C1815之类都完全可以; 三对MOS管可以用分立的, 也可以用现成的互补对管, AOP605或AOP607之类, 在DIP8封装里集成了NMOS和PMOS各一只, 用起来方便一些.</p>
+<p>程序很简单, 按照U+V-, U+W-, V+W-, V+U-, W+U-, W+V- 这个顺序依次驱动6只MOS管, 判断剩余一相的过零时刻来换相, 就能转得很好. 闭环工作时, 如果把盘片全拆下来, 只剩光轴, 转速能达到4万转, 装上盘片就只有几千转了. 想让它转得稳定一些的话, 控制逻辑还得再复杂一些才行.</p>
+<p>后面的大同小异了, 不过效果不太理想, 固体酒精的火力不太好掌握, 费了很大劲只做出一点点. 以后有机会把它改成感应式加热的, 也许效果会好些?</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/candy_floss.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://st.avros.net/articles/mini_power.html"><h2>迷你电源</h2></a>
         <div class= "well small"> 2013-09-10
 
@@ -245,36 +267,6 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <p><a href="/images/636_recv.png" title="电路图"><img src="/images/636_recv.png" width="500px" /></a></p>
 <p>这个电路图实际上已经是加强版了, 原版的636是没有倍压检波的. 我这次的实验用了长磁棒和空气双联, 跟当年的成品636相比, 可以算是豪华版了. 在阳台上试了一下, 中波低端可以收到中国之声, 声音挺清楚；高端就收不到什么信号了. </p>
 <p>636后来的版本又加上了再生, 应该能加强一些灵敏度和选择性；但是现在的电磁环境跟60年代不能相比了, 已经不适合装直放机了. 以后还是玩外差机吧. </p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/636_recv.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/ne555_boost_3.html"><h2>NE555升压实验_3</h2></a>
-        <div class= "well small"> 2013-04-22
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>之前试验各种升压电路的结论是, 要想实现从单节锂电升压到5V或更高、大电流输出, PWM ic必须具有以下几个性能: </p>
-<ol>
-<li>
-<p>工作电压足够低, 一般锂电终止放电电压定在3.0V上下, 因此PWM ic的最低工作电压最好是2.7V或者更低; </p>
-</li>
-<li>
-<p>必须是推挽输出, 否则输出电流不够, MOS开关管要么不能完全导通, 要么不能完全关断, 两种情况都严重影响效率; </p>
-</li>
-</ol>
-<p>之前的实验里, NE555在5V升6.3V时表现良好, 但它的最低工作电压只能到4.5V, 不符合上述条件1. 于是想到能否用自举电路或者用7660倍压给NE555供电呢？搭电路实验, 结果如下: </p>
-<p>使用自举电路时, 正常启动后, 输入电压可以一直低到1.8V都能正常升压工作; 但输入电压低于4.0V时不能启动. 可见此路不通. </p>
-<p>使用7660倍压时可以在2.8V正常启动, 算是勉强达到要求, 可靠性还是不足. </p>
-<p>可以再试试用BL8530、HT7750之类小功率升压ic为NE555辅助供电, 如果还是不行, 那就得放弃用NE555实现单节锂电升5V的思路了. </p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/ne555_boost_3.html">read more</a></div>
     </div>	
 				
 <div class="pagination">
