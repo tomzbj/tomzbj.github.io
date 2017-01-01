@@ -85,6 +85,26 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
  
 
     <div class='article'>
+        <a href="http://st.avros.net/articles/usb_485_new.html"><h2>USB-485隔离转换器</h2></a>
+        <div class= "well small"> 2016-12-22
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>调试各种设备经常用到RS-485总线, 但是现在的PC连232也基本没有了, 只剩USB能用, 因此需要搞个USB-485的转换器. 做法也简单, 先用CP2102/PL2303/CH340/FT232之类IC把USB转成TTL电平的串口信号, 再从TTL转成485. (顺便点评一下: PL2303太差劲, FT232国内盗版太多, 用原厂驱动会烧, CP2102好用但是只有QFN封装不好焊, 国产的CH340最好用.)</p>
+<p>这里有个问题, 485收发器都需要提供收/发方向信号(也有自动切换方向的, 比如MAX13487, 但是要用的时候总是买不到), 由MCU直接控制很容易, 但从USB转出来的串口信号没法判断方向. 网上的通行做法是把485的DI脚直接接地, 串口TXD信号用晶体管反相后驱动485的DE/RE脚. 这样在接收状态时, TXD空闲为高电平, 反相后把485的DE/RE拉低, 于是485方向为接收, 没问题; 发送0时TXD为低电平, 反相后485的DE/RE脚拉高, DI脚接地, 于是485输出0, 也没问题. 发送1时TXD和空闲时一样是高电平, 485的DE/RE拉低, 方向为接收, 此时485的A/B脚是高阻状态, 靠A的上拉和B的下拉电阻输出1. 这样确实能通讯, 短距离工作也一切正常, 但是总觉得不太可靠.</p>
+<p>偶然发现国产芯片 ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/usb_485_new.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://st.avros.net/articles/allegro_bom_coord.html"><h2>Allegro导出bom和坐标文件, 用于嘉立创的SMT下单</h2></a>
         <div class= "well small"> 2016-12-16
 
@@ -320,26 +340,6 @@ Data:         23 bytes (18.0% Full)
 
 <p>是不是很方便? 可惜arm-gcc里的size并没有这个选项, 于是从avr转到stm32之后, 常常会感觉到不方便.</p>
 <p>后来发现, 只要在Makefile里all目标后面加上几行, 也能达到同样目的. 需要你的工具链里有sed和bc, sed用来从size的结果里截取包含数据的第二行 ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/makefile_size.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/hc4046_expr.html"><h2>74HC4046实验(2)</h2></a>
-        <div class= "well small"> 2015-10-09
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>在前几天复习HC4046计算的基础上又试了一下, 用atmega48的timer0将16M主时钟先256预分频再125分频, Toggle模式, 得到250Hz 50%占空比的方波作为参考频率; HC4046的VCO输出接到atmega48的T1口, 用timer1作为÷N分频器. </p>
-<p>实测各种RC参数, 用HC4046的鉴相器2可以锁定在60kHz~165kHz, 800kHz~2.4MHz, 差不多有三倍的频率覆盖率, 给各种简单接收机做个本振应该是够了. 用鉴相器1只能锁定在120kHz~165kHz, 不过输出波形似乎稍微干净些.</p>
-<p>有空再试试用DDS输出作为HC4046的参考频率. 这里DDS的频率不用很高, 在AVR的定时器中断里更新相位累加字就可以了. 这样应该就能做到1Hz级别的精密步进了.</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/hc4046_expr.html">read more</a></div>
     </div>	
 				
 <div class="pagination">

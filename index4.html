@@ -60,6 +60,24 @@
  
 
     <div class='article'>
+        <a href="http://st.avros.net/articles/mini_power.html"><h2>迷你电源</h2></a>
+        <div class= "well small"> 2013-09-10
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>用一节锂电boost升压到5V, 后面接LDO, 用MCU的PWM输出一个电压信号给LDO的ADJ脚, 实现了可调输出. 同时用LCD显示输出电压电流和电池电压. 不过效率似乎低了点, 一节锂电用不了多久. 下次试试把LDO换成buck降压芯片.</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/mini_power.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://st.avros.net/articles/50m_fm_tx.html"><h2>50M FM发射实验</h2></a>
         <div class= "well small"> 2013-07-17
 
@@ -257,30 +275,6 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <p>使用自举电路时, 正常启动后, 输入电压可以一直低到1.8V都能正常升压工作; 但输入电压低于4.0V时不能启动. 可见此路不通. </p>
 <p>使用7660倍压时可以在2.8V正常启动, 算是勉强达到要求, 可靠性还是不足. </p>
 <p>可以再试试用BL8530、HT7750之类小功率升压ic为NE555辅助供电, 如果还是不行, 那就得放弃用NE555实现单节锂电升5V的思路了. </p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/ne555_boost_3.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/lm2596_dac.html"><h2>用LM2596搭建数控稳压电源</h2></a>
-        <div class= "well small"> 2013-03-23
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>常用的LM2596芯片可以方便地搭成各种降压式开关稳压电源, 但要用单片机来控制它的输出电压就稍微有点麻烦了——主要的思路有两种, 一种是使用传统的电位器控制方式, 用单片机控制数字电位器来代替模拟电位器; 另一种则是利用单片机的PWM或DAC输出一个控制电压, 引入到LM2596的反馈环路中. 这次试验的是后一种思路. </p>
-<p><a href="/images/lm2596_dac.png" title="电路图"><img src="/images/lm2596_dac.png" width="500px" /></a></p>
-<p>如图, 设输出电压为Vout, 控制电压为Vctrl, LM2596的反馈端电压为Vfb, 根据运放的基本性质可得：</p>
-<p>Vctrl * R3/(R3+R8) + Vfb * R8/(R3+R8) = Vout * R9 / (R2+R9)</p>
-<p>按上图的参数, 可以写为Vctrl * 10/11 + Vfb * 1/11 = Vout * 1/4</p>
-<p>对于LM2596-ADJ, 其Vfb = 1.23V, 于是有Vout = 4/11 * (10 * Vctrl + 1.23 )</p>
-<p>于是, 当Vctrl = 0V时, 输出电压为1 ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/lm2596_dac.html">read more</a></div>
     </div>	
 				
 <div class="pagination">

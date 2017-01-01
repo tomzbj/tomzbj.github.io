@@ -60,6 +60,26 @@
  
 
     <div class='article'>
+        <a href="http://st.avros.net/articles/hc4046_expr.html"><h2>74HC4046实验(2)</h2></a>
+        <div class= "well small"> 2015-10-09
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>在前几天复习HC4046计算的基础上又试了一下, 用atmega48的timer0将16M主时钟先256预分频再125分频, Toggle模式, 得到250Hz 50%占空比的方波作为参考频率; HC4046的VCO输出接到atmega48的T1口, 用timer1作为÷N分频器. </p>
+<p>实测各种RC参数, 用HC4046的鉴相器2可以锁定在60kHz~165kHz, 800kHz~2.4MHz, 差不多有三倍的频率覆盖率, 给各种简单接收机做个本振应该是够了. 用鉴相器1只能锁定在120kHz~165kHz, 不过输出波形似乎稍微干净些.</p>
+<p>有空再试试用DDS输出作为HC4046的参考频率. 这里DDS的频率不用很高, 在AVR的定时器中断里更新相位累加字就可以了. 这样应该就能做到1Hz级别的精密步进了.</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/hc4046_expr.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://st.avros.net/articles/stm32_sd_waveplayer.html"><h2>在STM32F051上重新实现了SD卡WAVE播放器</h2></a>
         <div class= "well small"> 2015-10-09
 
@@ -312,33 +332,6 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <p>但是1N60耐压太低, 只有50V, 这样只能测到峰值25V的RF电压, 换算成功率只有6.25W了. 下次还是得用先衰减再测的方案.</p>
 </li>
 </ol> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/6f22_fm_rf.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/nixie.html"><h2>辉光数码管实验</h2></a>
-        <div class= "well small"> 2015-05-13
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>多年前sunzx送了我几个SZ-8数码管, 一直没顾上试验. 前几天终于给它搭了驱动电路, 如图:</p>
-<p><a href="/images/nixie_1.png" title="驱动模块原理图"><img src="/images/nixie_1.png" width="480px"/></a></p>
-<p>由74HC164将串行输入信号转为8位并行, 其中4位作为BCD码, 由74LS42转为数码管的驱动信号. 由于74LS42的输出是负逻辑, 因此驱动2N5551时需要用发射极驱动. HC164的另外三位用于驱动藏在SZ-8肚子下面的RGB三色LED. 几个模块之间可以级联, 这样用起来就简单多了.</p>
-<p>供电部分如图:</p>
-<p><a href="/images/nixie_2.png" title="供电部分原理图"><img src="/images/nixie_2.png" width="480px"/></a></p>
-<p>采用boost升压电路. NE555接成多谐振荡器, 占空比约为90%, 直接驱动IRF640S的栅极. 2SC1815在这里起比较器的作用, 对输出电压取样后反馈到NE555的调制端5脚. IRF640S一般需要10V栅极驱动电平, 但实际测试输入电压5~12V均能正常工作, 升压效率约50%.</p>
-<p>点亮四个数码管的效果:</p>
-<p><a href="/images/nixie.jpg" title="效果图"><img src="/images/nixie.jpg" width="480px"/></a></p>
-<p>视频, 其中两只有点接触不良, 以后有空再改吧.</p>
-<video src="/videos/nixie.mp4" width="480" controls="controls" />(/videos/nixie.mp4) <a class="btn btn-info xsmall" href="http://st.avros.net/articles/nixie.html">read more</a></div>
     </div>	
 				
 <div class="pagination">

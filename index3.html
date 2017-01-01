@@ -60,6 +60,33 @@
  
 
     <div class='article'>
+        <a href="http://st.avros.net/articles/nixie.html"><h2>辉光数码管实验</h2></a>
+        <div class= "well small"> 2015-05-13
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>多年前sunzx送了我几个SZ-8数码管, 一直没顾上试验. 前几天终于给它搭了驱动电路, 如图:</p>
+<p><a href="/images/nixie_1.png" title="驱动模块原理图"><img src="/images/nixie_1.png" width="480px"/></a></p>
+<p>由74HC164将串行输入信号转为8位并行, 其中4位作为BCD码, 由74LS42转为数码管的驱动信号. 由于74LS42的输出是负逻辑, 因此驱动2N5551时需要用发射极驱动. HC164的另外三位用于驱动藏在SZ-8肚子下面的RGB三色LED. 几个模块之间可以级联, 这样用起来就简单多了.</p>
+<p>供电部分如图:</p>
+<p><a href="/images/nixie_2.png" title="供电部分原理图"><img src="/images/nixie_2.png" width="480px"/></a></p>
+<p>采用boost升压电路. NE555接成多谐振荡器, 占空比约为90%, 直接驱动IRF640S的栅极. 2SC1815在这里起比较器的作用, 对输出电压取样后反馈到NE555的调制端5脚. IRF640S一般需要10V栅极驱动电平, 但实际测试输入电压5~12V均能正常工作, 升压效率约50%.</p>
+<p>点亮四个数码管的效果:</p>
+<p><a href="/images/nixie.jpg" title="效果图"><img src="/images/nixie.jpg" width="480px"/></a></p>
+<p>视频, 其中两只有点接触不良, 以后有空再改吧.</p>
+<video src="/videos/nixie.mp4" width="480" controls="controls" />(/videos/nixie.mp4) <a class="btn btn-info xsmall" href="http://st.avros.net/articles/nixie.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://st.avros.net/articles/tiny24_clock.html"><h2>小台钟</h2></a>
         <div class= "well small"> 2015-05-02
 
@@ -280,24 +307,6 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <p>其中三只NPN管用常用的C945, C1815之类都完全可以; 三对MOS管可以用分立的, 也可以用现成的互补对管, AOP605或AOP607之类, 在DIP8封装里集成了NMOS和PMOS各一只, 用起来方便一些.</p>
 <p>程序很简单, 按照U+V-, U+W-, V+W-, V+U-, W+U-, W+V- 这个顺序依次驱动6只MOS管, 判断剩余一相的过零时刻来换相, 就能转得很好. 闭环工作时, 如果把盘片全拆下来, 只剩光轴, 转速能达到4万转, 装上盘片就只有几千转了. 想让它转得稳定一些的话, 控制逻辑还得再复杂一些才行.</p>
 <p>后面的大同小异了, 不过效果不太理想, 固体酒精的火力不太好掌握, 费了很大劲只做出一点点. 以后有机会把它改成感应式加热的, 也许效果会好些?</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/candy_floss.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/mini_power.html"><h2>迷你电源</h2></a>
-        <div class= "well small"> 2013-09-10
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>用一节锂电boost升压到5V, 后面接LDO, 用MCU的PWM输出一个电压信号给LDO的ADJ脚, 实现了可调输出. 同时用LCD显示输出电压电流和电池电压. 不过效率似乎低了点, 一节锂电用不了多久. 下次试试把LDO换成buck降压芯片.</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/mini_power.html">read more</a></div>
     </div>	
 				
 <div class="pagination">
