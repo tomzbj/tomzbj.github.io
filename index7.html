@@ -53,42 +53,46 @@
     <div class="row">
 
         <div class="span9">
+        
+
+        
+
+ 
+
     <div class='article'>
-        <div class="content-title">
-            <h1>最近的三个制作</h1>
-2015-05-21
+        <a href="http://st.avros.net/articles/res_divider.html"><h2>分压电阻计算器</h2></a>
+        <div class= "well small"> 2009-02-08
 
 by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
  
 
 
-        </div>
-	
-        <div><ol>
-<li>
-<p>彻底榨干6F22的剩余电量</p>
-<p>从万用表里拆下来的6F22常常还有许多电量没有用掉, 直接扔掉比较可惜. 把它DC-DC降压后给单片机之类供电, 还能再撑一段时间. </p>
-<p>电路如图, 就是AOZ1016的标准电路. 在它的EN脚对地接一个22uF的电解电容, 再对电源和对地各接一个轻触开关, 便实现了软开关. EN脚的输入电流极小, 靠22u电解就能维持工作几十分钟. EN脚拉低时, AOZ1016消耗电流仅1μA左右, 完全可以忽略不计了. DC-DC降压到3.68V左右, 再由XC6206稳压到3.3V.</p>
-<p><a href="/images2/2015/6f22.png"><img src="/images2/2015/6f22.png" width="480" /></a> </p>
-</li>
-<li>
-<p>继续试验简易FM无线话筒</p>
-<p>话筒信号放大后直接推动与晶振串联的变容二极管, MMBT2222或S9018接成电容三点式振荡器, 谐振在晶振的三倍频上. 可惜这种方式能得到的频偏还是太小, 用收音机只能收到很微弱的信号. 下次试试锁相环调频吧.</p>
-<p><a href="/images2/2015/fm_caller_simple.png"><img src="/images2/2015/fm_caller_simple.png" width="480" /></a> </p>
-</li>
-<li>
-<p>RF功率计</p>
-<p>几年前Tariel/BH1PHL送了我一个50欧 100W的RF电阻, 一直没用上.</p>
-<p>这次用它做了个假负载+功率计, 从RF电阻上取电压, 检波、滤波后分压, 用mega48的adc采样, 显示在0801液晶屏上. </p>
-<p><a href="/images2/2015/rf_power_meter.png"><img src="/images2/2015/rf_power_meter.png" width="480" /></a> </p>
-<p>一开始检波二极管用的是2SC1622的BC结, 结果实测在50M时功率严重偏小, 144M和430M就一点功率也测不到了. 换成1N60之后一切正常. 估计是因为2SC1622的结电容太大?</p>
-<p>但是1N60耐压太低, 只有50V, 这样只能测到峰值25V的RF电压, 换算成功率只有6.25W了. 下次还是得用先衰减再测的方案.</p>
-</li>
-</ol></div>
-	
-        <hr>
+ </div>
+        <div class="summary"><p>写了个计算DC-DC电路输出分压电阻的小工具, 如图.</p>
+<p><a href="/images/res_divider.png" title="截图"><img src="/images/res_divider.png" height="300px" /></a></p>
+<p>输入所需要的电压和FB端参考电压, 它就自动计算出所需要的电阻值和误差, 电阻全部用5%精度的E24序列.</p>
+<p>下载链接:</p>
+<p><a href="/files/calc.zip">calc.zip</a></p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/res_divider.html">read more</a></div>
+    </div>	
+				
+<div class="pagination">
+<ul>
+    <li class="prev"><a href="http://st.avros.net/index6.html">&larr; Previous</a></li>
 
-    </div>
+    <li class=""><a href="http://st.avros.net/index.html">1</a></li>
+    <li class=""><a href="http://st.avros.net/index2.html">2</a></li>
+    <li class=""><a href="http://st.avros.net/index3.html">3</a></li>
+    <li class=""><a href="http://st.avros.net/index4.html">4</a></li>
+    <li class=""><a href="http://st.avros.net/index5.html">5</a></li>
+    <li class=""><a href="http://st.avros.net/index6.html">6</a></li>
+    <li class="active"><a href="http://st.avros.net/index7.html">7</a></li>
+
+    <li class="next disabled"><a href="#">&rarr; Next</a></li>
+
+</ul>
+</div>
+ 
+  
         </div>
         
         <div class="span3">

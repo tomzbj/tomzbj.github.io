@@ -53,42 +53,41 @@
     <div class="row">
 
         <div class="span9">
+        
+
+        
+
+ 
+
     <div class='article'>
-        <div class="content-title">
-            <h1>最近的三个制作</h1>
-2015-05-21
+        <a href="http://st.avros.net/articles/mc1648_1sv149_vco.html"><h2>MC1648+1SV149VCO实验</h2></a>
+        <div class= "well small"> 2010-01-18
 
 by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
  
 
 
-        </div>
-	
-        <div><ol>
-<li>
-<p>彻底榨干6F22的剩余电量</p>
-<p>从万用表里拆下来的6F22常常还有许多电量没有用掉, 直接扔掉比较可惜. 把它DC-DC降压后给单片机之类供电, 还能再撑一段时间. </p>
-<p>电路如图, 就是AOZ1016的标准电路. 在它的EN脚对地接一个22uF的电解电容, 再对电源和对地各接一个轻触开关, 便实现了软开关. EN脚的输入电流极小, 靠22u电解就能维持工作几十分钟. EN脚拉低时, AOZ1016消耗电流仅1μA左右, 完全可以忽略不计了. DC-DC降压到3.68V左右, 再由XC6206稳压到3.3V.</p>
-<p><a href="/images2/2015/6f22.png"><img src="/images2/2015/6f22.png" width="480" /></a> </p>
-</li>
-<li>
-<p>继续试验简易FM无线话筒</p>
-<p>话筒信号放大后直接推动与晶振串联的变容二极管, MMBT2222或S9018接成电容三点式振荡器, 谐振在晶振的三倍频上. 可惜这种方式能得到的频偏还是太小, 用收音机只能收到很微弱的信号. 下次试试锁相环调频吧.</p>
-<p><a href="/images2/2015/fm_caller_simple.png"><img src="/images2/2015/fm_caller_simple.png" width="480" /></a> </p>
-</li>
-<li>
-<p>RF功率计</p>
-<p>几年前Tariel/BH1PHL送了我一个50欧 100W的RF电阻, 一直没用上.</p>
-<p>这次用它做了个假负载+功率计, 从RF电阻上取电压, 检波、滤波后分压, 用mega48的adc采样, 显示在0801液晶屏上. </p>
-<p><a href="/images2/2015/rf_power_meter.png"><img src="/images2/2015/rf_power_meter.png" width="480" /></a> </p>
-<p>一开始检波二极管用的是2SC1622的BC结, 结果实测在50M时功率严重偏小, 144M和430M就一点功率也测不到了. 换成1N60之后一切正常. 估计是因为2SC1622的结电容太大?</p>
-<p>但是1N60耐压太低, 只有50V, 这样只能测到峰值25V的RF电压, 换算成功率只有6.25W了. 下次还是得用先衰减再测的方案.</p>
-</li>
-</ol></div>
-	
-        <hr>
+ </div>
+        <div class="summary"><p>以前搭过Colpitts和Hartley式的VCO, 但是频率覆盖总是只有2倍, 可能的原因是1SV149只能部分接入LC槽路, 接入多了反馈就少. MC1648是负阻振荡器, 在这一点上不受限制.</p>
+<p>把82p电容换成1SV149, 再试, 还是只能从2.7MHz调到5.1MHz.</p>
+<p>检查了一下各点的电压情况, 原来是MC1648的槽路有+1.5V左右的偏压, 这样在5V供电时1SV149只有3.5V的电压区间可以利用了, 反向电压1V以下不算的话, 只有2.5V了, 频率覆盖不够也算正常.</p>
+<p>于是接上辅助电源, 可以从2.7MHz调到11.9MHz了, 但是1SV149的反向电压才6.5V. 反向电压1V时的频率是3.3MHz左右, 频率覆盖有3倍多, 还是不能算满意.</p>
+<p>检查了一下电路没有问题, 看来是频率计到上限了. 于是把线圈的磁芯全部旋进, 这样可以从2.0MHz调到9.6MHz, 反向电压1V时的频率是2.7MHz, 差不多也还是3.5倍的频率覆盖, 估计勉强能做到从455kHz到1600kHz了.</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/mc1648_1sv149_vco.html">read more</a></div>
+    </div>	
+				
+<div class="pagination">
+<ul>
+    <li class="prev"><a href="http://st.avros.net/category/wu-xian-dian.html">&larr; Previous</a></li>
 
-    </div>
+    <li class=""><a href="http://st.avros.net/category/wu-xian-dian.html">1</a></li>
+    <li class="active"><a href="http://st.avros.net/category/wu-xian-dian2.html">2</a></li>
+
+    <li class="next disabled"><a href="#">&rarr; Next</a></li>
+
+</ul>
+</div>
+ 
+  
         </div>
         
         <div class="span3">

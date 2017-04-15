@@ -55,8 +55,8 @@
         <div class="span9">
     <div class='article'>
         <div class="content-title">
-            <h1>最近的三个制作</h1>
-2015-05-21
+            <h1>再战RF功率计</h1>
+2017-01-28
 
 by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
  
@@ -64,27 +64,13 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 
         </div>
 	
-        <div><ol>
-<li>
-<p>彻底榨干6F22的剩余电量</p>
-<p>从万用表里拆下来的6F22常常还有许多电量没有用掉, 直接扔掉比较可惜. 把它DC-DC降压后给单片机之类供电, 还能再撑一段时间. </p>
-<p>电路如图, 就是AOZ1016的标准电路. 在它的EN脚对地接一个22uF的电解电容, 再对电源和对地各接一个轻触开关, 便实现了软开关. EN脚的输入电流极小, 靠22u电解就能维持工作几十分钟. EN脚拉低时, AOZ1016消耗电流仅1μA左右, 完全可以忽略不计了. DC-DC降压到3.68V左右, 再由XC6206稳压到3.3V.</p>
-<p><a href="/images2/2015/6f22.png"><img src="/images2/2015/6f22.png" width="480" /></a> </p>
-</li>
-<li>
-<p>继续试验简易FM无线话筒</p>
-<p>话筒信号放大后直接推动与晶振串联的变容二极管, MMBT2222或S9018接成电容三点式振荡器, 谐振在晶振的三倍频上. 可惜这种方式能得到的频偏还是太小, 用收音机只能收到很微弱的信号. 下次试试锁相环调频吧.</p>
-<p><a href="/images2/2015/fm_caller_simple.png"><img src="/images2/2015/fm_caller_simple.png" width="480" /></a> </p>
-</li>
-<li>
-<p>RF功率计</p>
-<p>几年前Tariel/BH1PHL送了我一个50欧 100W的RF电阻, 一直没用上.</p>
-<p>这次用它做了个假负载+功率计, 从RF电阻上取电压, 检波、滤波后分压, 用mega48的adc采样, 显示在0801液晶屏上. </p>
-<p><a href="/images2/2015/rf_power_meter.png"><img src="/images2/2015/rf_power_meter.png" width="480" /></a> </p>
-<p>一开始检波二极管用的是2SC1622的BC结, 结果实测在50M时功率严重偏小, 144M和430M就一点功率也测不到了. 换成1N60之后一切正常. 估计是因为2SC1622的结电容太大?</p>
-<p>但是1N60耐压太低, 只有50V, 这样只能测到峰值25V的RF电压, 换算成功率只有6.25W了. 下次还是得用先衰减再测的方案.</p>
-</li>
-</ol></div>
+        <div><p>前年做过一个RF功率计, 链接: <a href="/articles/6f22_fm_rf.html">RF功率计</a></p>
+<p>这次打算再来一遍, 直接把假负载集成进来, 显示则改用OLED. 原理图如下:</p>
+<p><a href="/images2/2017/rf_power_meter.png"><img src="/images2/2017/rf_power_meter.png" width="480" /></a> </p>
+<p>前面用了6个300欧的2512贴片电阻并联作为50欧负载. 之后二极管暂时先用2N5551的BC结. 之前用2SC1622的BC结已经证明在50M时测量结果严重偏低, 在144M和430M则什么也测不到, 但是好处是耐压比较高, 所以先临时用一下. 检波输出电压由100k和2.7k电阻分压后, 分别用STM32F030的3个ADC通道测量不放大/放大11倍/放大101倍的结果, 再用一个ADC通道接NTC电阻来测温, 防止过热. 0.91寸128x32分辨率的OLED屏用于显示.</p>
+<p>焊完照例先来个Hello, world.</p>
+<p><a href="/images2/2017/rf_power_meter1.jpg"><img src="/images2/2017/rf_power_meter1.jpg" width="480" /></a> </p>
+<p>之后漫长的调试才刚开始...</p></div>
 	
         <hr>
 

@@ -60,6 +60,29 @@
  
 
     <div class='article'>
+        <a href="http://st.avros.net/articles/pid_expr.html"><h2>PID控温实验</h2></a>
+        <div class= "well small"> 2015-07-13
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>做了个PID温控器，原理图如下：</p>
+<p><a href="/images2/2015/pid_expr.png"><img src="/images2/2015/pid_expr.png" width="480" /></a> </p>
+<p>电源电压首先流经0.33欧的取样电阻R1，然后给加热器供电。加热器用随便一个TO220封装的N沟道MOS管就行，LM35用来测温。高端电流检测虽然麻烦些，但这样加热器的连线可以更简单，四条线就够了。</p>
+<p>LM35输出的电压值经Mega48 AD转换后得到温度值。Mega48输出一路PWM经低通滤波后与取样电阻R1上的电压比较后控制MOS管的电流。之后用简单的PID算法即可实现控温了。</p>
+<p>把MOS管和LM35用导热胶粘在一块95mm x 66mm的散热片上，实测用12V 2A的电源供电时，开环加热可以达到44度左右。启用PID控温后，可以在室温~44度之间把温度控制到设定值正负0.1度。</p>
+<p>之后在这个基础上可以做很多东西了，比如酸奶机、酒酿机、煮温泉蛋机等等。</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/pid_expr.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://st.avros.net/articles/6f22_fm_rf.html"><h2>最近的三个制作</h2></a>
         <div class= "well small"> 2015-05-21
 
@@ -305,26 +328,6 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <p>最后，用AVR让它的亮度忽明忽暗，尽可能象真正的蜡烛一样——其实挺困难的。</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/pumpkin_light.html">read more</a></div>
     </div>	
 				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/8x8_led_animation.html"><h2>8x8 LED点阵动画</h2></a>
-        <div class= "well small"> 2014-05-06
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>翻出来一个8x8的LED屏，决定做点动画玩。电路很简单，ATmega8的PB口做行选，PD口做列选。</p>
-<p>做出来的效果是这样的：</p>
-<video src="/videos/8x8_led_animation.mp4" width="500" controls="controls" />(/videos/8x8_led_animation.mp4) <a class="btn btn-info xsmall" href="http://st.avros.net/articles/8x8_led_animation.html">read more</a></div>
-    </div>	
-				
 <div class="pagination">
 <ul>
     <li class="prev"><a href="http://st.avros.net/index2.html">&larr; Previous</a></li>
@@ -335,6 +338,7 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
     <li class=""><a href="http://st.avros.net/index4.html">4</a></li>
     <li class=""><a href="http://st.avros.net/index5.html">5</a></li>
     <li class=""><a href="http://st.avros.net/index6.html">6</a></li>
+    <li class=""><a href="http://st.avros.net/index7.html">7</a></li>
 
     <li class="next"><a href="http://st.avros.net/index4.html">Next &rarr;</a></li>
 
@@ -411,7 +415,7 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
     </div>     </div> 
 <footer>
 <br />
-<p><a href="http://st.avros.net">兰湾</a> &copy; Stavros 2016</p>
+<p><a href="http://st.avros.net">兰湾</a> &copy; Stavros 2017</p>
 </footer>
 
 </div> <!-- /container -->

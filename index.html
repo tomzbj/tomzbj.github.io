@@ -60,8 +60,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="http://st.avros.net/articles/usb_charger_new.html"><h1>带电压电流指示的USB充电器</h1></a>
-2016-12-31
+            <a href="http://st.avros.net/articles/psk31_beacon.html"><h1>做了个PSK31 Beacon</h1></a>
+2017-04-12
 
 by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
  
@@ -70,16 +70,116 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
  
         </div>
         
-        <div><p>以前做过一个带输出电流指示的USB充电器, 电流指示用的是10段式LED光条, 用着挺好, 就是感觉10段式光条显示电流还是太粗略了. 最近玩了几个OLED屏, 感觉显示效果不错, 于是做了个直接显示电压电流数值的USB充电器.</p>
+        <div><p>psk31 是业余无线电爱好者常用的通讯方式. psk31 的原理就不介绍了, 见链接: 
+<a href="https://www.hellocq.net/forum/simple/?t88551.html">哈罗 CQ 火腿社区 - HAM 软件、HAM 网站 - PSK31 簡介 BV3FG - Powered by phpwind</a></p>
+<p>psk31 的调制如何具体实现呢? HAM 们常用的方式是用 digipan 等软件把要发送的消息调制到几百 Hz 的音频信号上, 再利用发射机的 SSB 模式把这个音频信号发射出去, 这里 SSB 实际上起了上变频的作用.</p>
+<p>也可以把整个调制过程都放在 MCU 里进行, 直接从 MCU 的 DAC 输出调制好的音频信号.</p>
+<p>ka7oei 则提供了一个偏硬件的直接调制方案, 见下图:</p>
+<p><a href="/images2/2017/psk31_beacon_1.png"><img src="/images2/2017/psk31_beacon_1.png" width="480" /></a> </p>
+<p>左下的振荡器振荡在所需频率的 4 倍上, 由计数器 74HC4017 接成四分频, 从 0 和 2 两脚输出一对相位相反的载波信号. MCU 的 PB2 通过 74HC00 选择相位. PA3 输出的 PWM 信号经低通滤波后, 再经 U2, Q4 调节 Q3 的漏极电压, 实现在输出 0 时将输出信号幅度逐渐降到零的瞬间切换相位. 这个方案很简洁, 我决定就拿这个图稍微改动一下. MCU 么, 用最简单的 ATTiny13 就好了.</p>
+<p>首先得在 PC 上软件模拟一下. 程序很简单, 找个 psk31 的码表, 一般是类似这样:</p>
+<div class="highlight"><pre><span></span>const uint16_t VARICODE_TABLE[] = {
+    0x8000,    /* ASCII = &#39; &#39;    1                             */
+    0xFF80,    /* ASCII = &#39;!&#39;    111111111                     */
+    0xAF80,    /* ASCII = &#39;&quot;&#39;    101011111                     */
+    0xFA80,    /* ASCII = &#39;#&#39;    111110101                     */
+...
+    0xA000,    /* ASCII = &#39;t&#39;    101                           */
+    0xDC00,    /* ASCII = &#39;u&#39;    110111                        */
+    0xF600,    /* ASCII = &#39;v&#39;    1111011                       */
+    0xD600,    /* ASCII = &#39;w&#39;    1101011                       */
+    0xDF00,    /* ASCII = &#39;x&#39;    11011111                      */
+    0xBA00,    /* ASCII = &#39;y&#39;    1011101                       */
+    0xEA80,    /* ASCII = &#39;z&#39;    111010101                     */
+};
+</pre></div>
+
+
+<p>存储格式是从高位到低位, 后面补零. 注意这个码表是从空格开始, 到小写 z 就结束了, 也就是 ASCII 码从 32 到 122 这 91 个字符, 这样能省下不少宝贵的 flash 空间. 毕竟 ATTiny13 的 flash 空间只有可怜的 1024 字节, 如果把完整的码表放进来, 一下子 512 字节就没有了.
+发送一个字符的函数可以写成这样:</p>
+<div class="highlight"><pre><span></span>void psk31_tx(char c)
+{
+    uint16_t varc;
+    for(varc = VARICODE_TABLE[c - &#39; &#39;]; varc; varc &lt;&lt;= 1) {
+        if(varc &amp; 0x8000)
+            printf(&quot;1&quot;);
+        else
+            printf(&quot;0&quot;);
+    }
+    printf(&quot;00&quot;);
+}
+</pre></div>
+
+
+<p>然后随便找个字符串, 比如 Hello, world.</p>
+<div class="highlight"><pre><span></span>char msg[] = &quot;Hello, world.&quot;;
+char *p = msg;
+while(*p) {
+     psk31_tx(*p);
+     p++;
+}
+</pre></div>
+
+
+<p>编译运行, 就能看到效果了.</p>
+<p>在 MCU 上实现时要稍微复杂一点. 发送 1 好办, 保持满幅输出不变, 挨过 32ms 时间就完事. 发送 0 就复杂一些, 需要按余弦函数把输出幅度逐渐减小为零, 切换相位, 再把幅度逐渐增加到最大. 把 printf("1") 和 printf("0") 分别换成这两个操作就行. 但是这样就破坏了可移植性. 解决办法就是函数指针, 把 psk31_tx 函数写成这样:</p>
+<div class="highlight"><pre><span></span>void psk31_tx(char c, void (*tx0)(void), void (*tx1)(void))
+{
+    unsigned short varc;
+    for(varc = varicode_table[(c - &#39; &#39;)]; varc; varc &lt;&lt;= 1) {
+        if(varc &amp; 0x8000)
+            (*tx1)();
+        else
+            (*tx0)();
+    }
+    (*tx0)();
+    (*tx0)();
+}
+</pre></div>
+
+
+<p>把发送 1 和 0 的操作写成两个回调函数传给 psk31_tx(), 这样就完美了.</p>
+<p>之后设计电路, 如图:</p>
+<p><a href="/images2/2017/psk31_beacon_2.png"><img src="/images2/2017/psk31_beacon_2.png" width="480" /></a> </p>
+<p>振荡这里用一只 74AHC1G00 加上 14.318M 的晶振就行了, 通过调节 KV1471 的偏压来微调频率. 四分频用了更常用的 74HC74, 两级二分频, 从第二级的 Q 和 / Q 脚输出一对相位相反的载波信号. 切换相位用一只模拟开关 74LVC1G3157 来实现. 其余部分基本保持 ka7oei 的设计不变.</p>
+<p>成品照片:</p>
+<p><a href="/images2/2017/psk31_beacon_3.jpg"><img src="/images2/2017/psk31_beacon_3.jpg" width="480" /></a> </p>
+<p>末级电源电压这里只用到 5V, 实测连续发送 1 时在 50 欧假负载上可以得到 40mW / +16dBm 的功率. 如果把末级供电电压提到 12V, 同时把 MMBT2222 和 2N7002 换成封装大一点的管子, 估计能做到 1W 上下, 再大就得加后级了.</p>
+<p>ATTiny13 的一大缺点是不能接晶振, 于是把它的 RC 时钟设到 4.8M, 通过 OSCCAL 寄存器微调到 4.096M 左右, 然后 8 分频作为定时器 0 的时钟源, 定时器 0 输出 PWM 的同时也提供了 4.096M / 8 / 256 = 2kHz 的时基信号. 余弦波形表用了 64 个点, 从而得到 2k / 64 = 31.25Hz. 输出 1 时只要什么都不做, 等定时器 0 中断 64 次就行了.</p>
+<p>ATTiny13 的另一大缺点... 就是 RAM 只有可怜的 64 字节. 实测发现即使发送 "Hello, world." 也一样爆栈, 只好不用回调机制, 同时把 "Hello, world." 也放到 flash, 才总算是发送成功.</p>
+<p>用 IC-R71E 接收, Digipan 和 MultiPSK 解调的效果图如下:</p>
+<p>Digipan</p>
+<p><a href="/images2/2017/psk31_beacon_4.png"><img src="/images2/2017/psk31_beacon_4.png" width="480" /></a> </p>
+<p>MultiPSK</p>
+<p><a href="/images2/2017/psk31_beacon_5.png"><img src="/images2/2017/psk31_beacon_5.png" width="480" /></a> </p>
+<p>感觉 Multipsk 的解调效果要好一些, 可能是 Digipan 那边有些参数没设置好.</p>
+<p>在这个 Beacon 的基础上可以玩出很多花样来, 看你怎么发挥了.</p></div>
+        <hr />
+    </div>
+		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://st.avros.net/articles/usb_charger_new.html"><h2>带电压电流指示的USB充电器</h2></a>
+        <div class= "well small"> 2016-12-31
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>以前做过一个带输出电流指示的USB充电器, 电流指示用的是10段式LED光条, 用着挺好, 就是感觉10段式光条显示电流还是太粗略了. 最近玩了几个OLED屏, 感觉显示效果不错, 于是做了个直接显示电压电流数值的USB充电器.</p>
 <p>原理图如下, Buck IC用的是AOZ1050, 同步整流降压, 号称效率95%, 不过最大输出电流只有2A. 输入电压范围是4.5到16V, 当然输出5V时输入电压得高于5V才行, 我用的是12V. (需要更大电流的话, 可以考虑TPS54331/MP1584/MP2303之类, 可以到3A; AOSMD的AOZ1014或AOZ1094可以到5A, 他家还有更大电流的产品, 不过不知道好不好买.) 0.05欧电阻R1和运放U5, PMOS Q1组成高端电流检测, R1两端电压放大22倍后进单片机的ADC通道0, 输出电压则直接分一半进ADC通道1. 单片机用了20脚的STM32F030F4P6, 16K/4K的FLASH/RAM已经足够了. 显示屏用了一片0.91寸128x32分辨率的OLED. LDO U3为单片机和OLED屏供电, 注意它的输入电压, 常用的XC6206之类只允许5V输入, 12V进去肯定是要冒烟的.</p>
 <p><a href="/images2/2016/usb_charger_new.png" title="USB充电器"><img src="/images2/2016/usb_charger_new.png" width="500px"/></a>  </p>
 <p>实物照片:</p>
 <p><a href="/images2/2016/usb_charger_new.jpg" title="USB充电器"><img src="/images2/2016/usb_charger_new.jpg" width="500px"/></a>  </p>
-<p>注意, 电流好象超了? 其实是测得不准, 测量发现运放两输入端电压差几十mV, 看样子是自激了. 果然这个高端电流检测的原型电路不能直接抄来就用, 得在PMOS栅极加电阻, 运放2/6脚之间加个小电容才能用. 下次再改吧.</p>
-<p>再ps. 原理图里C2 1u太大了, 10~22nF就可以了.</p></div>
-        <hr />
-    </div>
-		
+<p>注意, 电流好象超了? 其实是测得不准, 测量发现运放两输入端电压差几十mV, 看样子是自激了. 果然这个高端电流检测的原型电路不能直接抄来就用, 得在PMOS栅极加电阻 ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/usb_charger_new.html">read more</a></div>
+    </div>	
+				
 
  
         
@@ -309,29 +409,6 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <p>6米好玩, 等北京的6米解禁了要好好搞搞.</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/50m_fm_tx_bh1417.html">read more</a></div>
     </div>	
 				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/ikea_led.html"><h2>修复宜家LED灯一则</h2></a>
-        <div class= "well small"> 2016-03-16
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>宜家买的LED灯不亮了。把线剪断，两边分别一测，发现LED是好的，电源适配器无输出，只得再给它做个驱动。</p>
-<p>LED需要恒流驱动，直接接个恒压输出的适配器上去是不行的，要么不亮，要么烧坏。串个电阻行不行呢？行是行，不过电阻会很热。这个LED灯是3W的，工作电流1A，接到5V电源上就需要串联2欧的电阻，电阻的发热量达到2W。这么做显然太不优雅。</p>
-<p>幸好手里还有若干LED驱动IC：华润的PT4115，用它可以顺便把调光功能也加上。画了个电路图如下：</p>
-<p><a href="/images2/2016/ikea_led.png"><img src="/images2/2016/ikea_led.png" width="500" /></a></p>
-<p>其中R1用于设定LED工作电流，公式为<span class="math">\(I_{\rm LED} = \frac{0.1}{R_1}\)</span>. 电位器R2用于调光，从几百欧到几十kΩ的都可以用，这里用了拨轮式的音量电位器，好处是阻值按指数变化，这样LED亮度也按指数变化，会感觉实际亮度变化比较自然。</p>
-<p>LDO XC6206用于给PT4115的调光脚供电，用输出2.5V或3.3V的LDO都行。PT4115允许的输入电压范围是6~30V，但注意XC6206的输入电压最高只能到7V，因此只能用6~7V的电源供电。如果需要用更高输入电压的电源，可以把XC6206换成HT7133、MIC5207之类 ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/ikea_led.html">read more</a></div>
-    </div>	
-				
 <div class="pagination">
 <ul>
     <li class="prev disabled"><a href="#">&larr; Previous</a></li>
@@ -342,6 +419,7 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
     <li class=""><a href="http://st.avros.net/index4.html">4</a></li>
     <li class=""><a href="http://st.avros.net/index5.html">5</a></li>
     <li class=""><a href="http://st.avros.net/index6.html">6</a></li>
+    <li class=""><a href="http://st.avros.net/index7.html">7</a></li>
 
     <li class="next"><a href="http://st.avros.net/index2.html">Next &rarr;</a></li>
 
@@ -418,7 +496,7 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
     </div>     </div> 
 <footer>
 <br />
-<p><a href="http://st.avros.net">兰湾</a> &copy; Stavros 2016</p>
+<p><a href="http://st.avros.net">兰湾</a> &copy; Stavros 2017</p>
 </footer>
 
 </div> <!-- /container -->
