@@ -60,8 +60,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="http://st.avros.net/articles/psk31_beacon.html"><h1>做了个PSK31 Beacon</h1></a>
-2017-04-12
+            <a href="http://st.avros.net/articles/handy_v3.html"><h1>卡片手电加强版</h1></a>
+2017-06-28
 
 by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
  
@@ -70,93 +70,86 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
  
         </div>
         
-        <div><p>psk31 是业余无线电爱好者常用的通讯方式. psk31 的原理就不介绍了, 见链接: 
+        <div><p>之前做过一个卡片手电，链接：卡片手电，感觉亮度不太够；但是如果加大亮度，电池续航时间又嫌太短。所以有必要做成高低两档亮度。</p>
+<p>原理图如下：</p>
+<p><a href="/images2/2017/handy_v3.png"><img src="/images2/2017/handy_v3.png" width="480" /></a></p>
+<p>这次改用升压恒流的方式。升压IC不一定要用MP1540，只要是能从单锂电升压到13~14V的boost IC都可以。LED用了四只0.5W的5730，取样电阻R308串联在LED回路中，因此低亮度档的电流为1.25V/39R=32mA，相应的功率大约是0.4W。当需要高亮度时按下SW302，此时Q301导通，R305、R306与R308并联，总电阻为8.58R，此时的电流是146mA，总功率约1.9W。电池正负极连接J302、J303，MicroUSB口通过U301对电池充电。LTC4054比较贵，可以用国产的TP4054等型号完美代替。ps. D301负极对地漏了个滤波电容，10u的贴片电容就可以。</p>
+<p>升压恒流方式的优点是输出电流较小，因此取样电阻的功耗也较小；但当LED有一只断路时，boost输出电压会持续升高直到击穿，因此需要增加一只16V的稳压二极管D303，把输出电压限制在VFB+16V的位置。有些专门的LED升压驱动IC，比如MP3202，已经内置了保护电路。</p>
+<p>实物如下，PCB用502粘在随便一张什么卡上就行了。焊上电池，胶布缠好，完工！</p>
+<p><a href="/images2/2017/handy_v3.jpg"><img src="/images2/2017/handy_v3.jpg" width="480" /></a> </p></div>
+        <hr />
+    </div>
+		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://st.avros.net/articles/usb_uartx2.html"><h2>可级联的USB-UARTx2转换器</h2></a>
+        <div class= "well small"> 2017-06-27
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>各种DIY实验时经常需要不止一个串口，有时需要三四个；再加上下载器之类，PC提供的USB口多半不够，所以还得来个USB HUB。这堆东西肯定会把桌面弄得很乱。如果把USB HUB和USB转UART做到一起，不就简洁多了？
+于是动手，原理图和实物如下：</p>
+<p><a href="/images2/2017/usb-uartx2.png"><img src="/images2/2017/usb-uartx2.png" width="480" /></a></p>
+<p><a href="/images2/2017/usb-uartx2.jpg"><img src="/images2/2017/usb-uartx2.jpg" width="480" /></a></p>
+<p>USB HUB IC选用GL850G，可以转出四个下级USB口。其中两个USB口接沁恒的CH340E，转为TTL串口；一个USB口用母座引出，可以用来接下载器之类。如果两个串口还不够，可以两套串一起用，这样就有四个串口了。</p>
+<p>CH340E是沁恒新出的小体积USB-UART转换器，实测波特率可以到2Mbps；但是不怎么好焊，感觉引脚不太沾锡，与同样MSOP-10封装的XTR111、AD9833相比差远了。大概沁恒的封装工艺还需要加强。</p>
+<p>ps. 刚看到沁恒又出了SOP8封装的CH330N，有空试试。</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/usb_uartx2.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://st.avros.net/articles/ch341t_gpio.html"><h2>CH341T GPIO实验</h2></a>
+        <div class= "well small"> 2017-04-17
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>沁恒的CH341A是个多功能的USB总线转发器. 淘宝搜CH341A会搜出一大堆用它做的EEPROM/FLASH编程器, 而它的实际功能还要强大得多, 可以从USB提供异步串口、打印口、EPP/MEM并口、I2C、SPI等接口. 此外CH341A在EPP/MEM并口状态下还可以用沁恒提供的API直接操作引脚, 除了8位并口的8个脚以外, 若干状态引脚也能操作, 总共可以得到16个左右的GPIO. (其中有个别引脚只能输入或者只能输出. )</p>
+<p>这东西的主要缺点就是封装是SOP28宽体, 体积实在大了点. 它的两个小兄弟, CH341T和CH341H都是SSOP20封装, 苗条了很多, 前者只提供异步串口和I2C, 后者只提供SPI.</p>
+<p>CH341A配置不同功能是靠SDA的不同接法实现的, SDA/SCL悬空时连接PC会识别成异步串口, SDA拉低会识别成转EPP/MEM并口和I2C/SPI串口, SDA和SCL短接会识别成USB打印机. CH341T也提供了SDA和SCL引脚, 如果SDA接地, 能不能也把它的若干状态引脚当GPIO用呢?</p>
+<p>做了块小板, 实际测试, 果然可以! PC直接把它识别成了CH341A.</p>
+<p>接下来要实测哪些引脚可以使用. 这里要吐槽一下沁恒的API, 只提供了ch341dll.h, ch341dll.dll和ch341dll.lib; 试了各种办法想把ch341dll.lib转成mingw环境下的.a或者.o, 均失败. 没想到直接gcc ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/ch341t_gpio.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://st.avros.net/articles/psk31_beacon.html"><h2>做了个PSK31 Beacon</h2></a>
+        <div class= "well small"> 2017-04-12
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>psk31 是业余无线电爱好者常用的通讯方式. psk31 的原理就不介绍了, 见链接: 
 <a href="https://www.hellocq.net/forum/simple/?t88551.html">哈罗 CQ 火腿社区 - HAM 软件、HAM 网站 - PSK31 簡介 BV3FG - Powered by phpwind</a></p>
 <p>psk31 的调制如何具体实现呢? HAM 们常用的方式是用 digipan 等软件把要发送的消息调制到几百 Hz 的音频信号上, 再利用发射机的 SSB 模式把这个音频信号发射出去, 这里 SSB 实际上起了上变频的作用.</p>
 <p>也可以把整个调制过程都放在 MCU 里进行, 直接从 MCU 的 DAC 输出调制好的音频信号.</p>
 <p>ka7oei 则提供了一个偏硬件的直接调制方案, 见下图:</p>
 <p><a href="/images2/2017/psk31_beacon_1.png"><img src="/images2/2017/psk31_beacon_1.png" width="480" /></a> </p>
-<p>左下的振荡器振荡在所需频率的 4 倍上, 由计数器 74HC4017 接成四分频, 从 0 和 2 两脚输出一对相位相反的载波信号. MCU 的 PB2 通过 74HC00 选择相位. PA3 输出的 PWM 信号经低通滤波后, 再经 U2, Q4 调节 Q3 的漏极电压, 实现在输出 0 时将输出信号幅度逐渐降到零的瞬间切换相位. 这个方案很简洁, 我决定就拿这个图稍微改动一下. MCU 么, 用最简单的 ATTiny13 就好了.</p>
-<p>首先得在 PC 上软件模拟一下. 程序很简单, 找个 psk31 的码表, 一般是类似这样:</p>
-<div class="highlight"><pre><span></span>const uint16_t VARICODE_TABLE[] = {
-    0x8000,    /* ASCII = &#39; &#39;    1                             */
-    0xFF80,    /* ASCII = &#39;!&#39;    111111111                     */
-    0xAF80,    /* ASCII = &#39;&quot;&#39;    101011111                     */
-    0xFA80,    /* ASCII = &#39;#&#39;    111110101                     */
-...
-    0xA000,    /* ASCII = &#39;t&#39;    101                           */
-    0xDC00,    /* ASCII = &#39;u&#39;    110111                        */
-    0xF600,    /* ASCII = &#39;v&#39;    1111011                       */
-    0xD600,    /* ASCII = &#39;w&#39;    1101011                       */
-    0xDF00,    /* ASCII = &#39;x&#39;    11011111                      */
-    0xBA00,    /* ASCII = &#39;y&#39;    1011101                       */
-    0xEA80,    /* ASCII = &#39;z&#39;    111010101                     */
-};
-</pre></div>
-
-
-<p>存储格式是从高位到低位, 后面补零. 注意这个码表是从空格开始, 到小写 z 就结束了, 也就是 ASCII 码从 32 到 122 这 91 个字符, 这样能省下不少宝贵的 flash 空间. 毕竟 ATTiny13 的 flash 空间只有可怜的 1024 字节, 如果把完整的码表放进来, 一下子 512 字节就没有了.
-发送一个字符的函数可以写成这样:</p>
-<div class="highlight"><pre><span></span>void psk31_tx(char c)
-{
-    uint16_t varc;
-    for(varc = VARICODE_TABLE[c - &#39; &#39;]; varc; varc &lt;&lt;= 1) {
-        if(varc &amp; 0x8000)
-            printf(&quot;1&quot;);
-        else
-            printf(&quot;0&quot;);
-    }
-    printf(&quot;00&quot;);
-}
-</pre></div>
-
-
-<p>然后随便找个字符串, 比如 Hello, world.</p>
-<div class="highlight"><pre><span></span>char msg[] = &quot;Hello, world.&quot;;
-char *p = msg;
-while(*p) {
-     psk31_tx(*p);
-     p++;
-}
-</pre></div>
-
-
-<p>编译运行, 就能看到效果了.</p>
-<p>在 MCU 上实现时要稍微复杂一点. 发送 1 好办, 保持满幅输出不变, 挨过 32ms 时间就完事. 发送 0 就复杂一些, 需要按余弦函数把输出幅度逐渐减小为零, 切换相位, 再把幅度逐渐增加到最大. 把 printf("1") 和 printf("0") 分别换成这两个操作就行. 但是这样就破坏了可移植性. 解决办法就是函数指针, 把 psk31_tx 函数写成这样:</p>
-<div class="highlight"><pre><span></span>void psk31_tx(char c, void (*tx0)(void), void (*tx1)(void))
-{
-    unsigned short varc;
-    for(varc = varicode_table[(c - &#39; &#39;)]; varc; varc &lt;&lt;= 1) {
-        if(varc &amp; 0x8000)
-            (*tx1)();
-        else
-            (*tx0)();
-    }
-    (*tx0)();
-    (*tx0)();
-}
-</pre></div>
-
-
-<p>把发送 1 和 0 的操作写成两个回调函数传给 psk31_tx(), 这样就完美了.</p>
-<p>之后设计电路, 如图:</p>
-<p><a href="/images2/2017/psk31_beacon_2.png"><img src="/images2/2017/psk31_beacon_2.png" width="480" /></a> </p>
-<p>振荡这里用一只 74AHC1G00 加上 14.318M 的晶振就行了, 通过调节 KV1471 的偏压来微调频率. 四分频用了更常用的 74HC74, 两级二分频, 从第二级的 Q 和 / Q 脚输出一对相位相反的载波信号. 切换相位用一只模拟开关 74LVC1G3157 来实现. 其余部分基本保持 ka7oei 的设计不变.</p>
-<p>成品照片:</p>
-<p><a href="/images2/2017/psk31_beacon_3.jpg"><img src="/images2/2017/psk31_beacon_3.jpg" width="480" /></a> </p>
-<p>末级电源电压这里只用到 5V, 实测连续发送 1 时在 50 欧假负载上可以得到 40mW / +16dBm 的功率. 如果把末级供电电压提到 12V, 同时把 MMBT2222 和 2N7002 换成封装大一点的管子, 估计能做到 1W 上下, 再大就得加后级了.</p>
-<p>ATTiny13 的一大缺点是不能接晶振, 于是把它的 RC 时钟设到 4.8M, 通过 OSCCAL 寄存器微调到 4.096M 左右, 然后 8 分频作为定时器 0 的时钟源, 定时器 0 输出 PWM 的同时也提供了 4.096M / 8 / 256 = 2kHz 的时基信号. 余弦波形表用了 64 个点, 从而得到 2k / 64 = 31.25Hz. 输出 1 时只要什么都不做, 等定时器 0 中断 64 次就行了.</p>
-<p>ATTiny13 的另一大缺点... 就是 RAM 只有可怜的 64 字节. 实测发现即使发送 "Hello, world." 也一样爆栈, 只好不用回调机制, 同时把 "Hello, world." 也放到 flash, 才总算是发送成功.</p>
-<p>用 IC-R71E 接收, Digipan 和 MultiPSK 解调的效果图如下:</p>
-<p>Digipan</p>
-<p><a href="/images2/2017/psk31_beacon_4.png"><img src="/images2/2017/psk31_beacon_4.png" width="480" /></a> </p>
-<p>MultiPSK</p>
-<p><a href="/images2/2017/psk31_beacon_5.png"><img src="/images2/2017/psk31_beacon_5.png" width="480" /></a> </p>
-<p>感觉 Multipsk 的解调效果要好一些, 可能是 Digipan 那边有些参数没设置好.</p>
-<p>在这个 Beacon 的基础上可以玩出很多花样来, 看你怎么发挥了.</p></div>
-        <hr />
-    </div>
-		
+<p>左下的振荡器振荡在所需频率的 4 倍上, 由计数器 74HC4017 接成四分频, 从 ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/psk31_beacon.html">read more</a></div>
+    </div>	
+				
 
  
         
@@ -314,99 +307,6 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
         <span class="n">dm</span><span class="p">.</span><span class="n">dmPelsWidth</span> <span class="o">=</span> <span class="mi">1920</span><span class="p">;</span> 
     <span class="p">}</span>
     <span class="n">ChangeDisplaySettings</span><span class="p">(</span><span class="o">&amp;</span><span class="n">dm ...</span></pre></div> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/change_resolution.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/card_light.html"><h2>卡片手电 & STLINK转接板 & 迷你电源</h2></a>
-        <div class= "well small"> 2016-09-22
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><ol>
-<li>
-<p>卡片手电 <br />
-    做了个和银行卡一样大的手电. 最厚处厚5.5mm, 因此可以和其他的卡一起塞在钱包里. <br />
-    本来用AMC7135作为驱动, 结果这东西太娇气, 一不小心就烧坏, 于是干脆直接用电阻限流了, 好象效果也差不多.<br />
-    效果见图:<br />
-<a href="/images2/2016/card_light_1.jpg" title="卡片手电"><img src="/images2/2016/card_light_1.jpg" width="500px"/></a><br />
-<a href="/images2/2016/card_light_2.jpg" title="卡片手电"><img src="/images2/2016/card_light_2.jpg" width="500px"/></a>  </p>
-</li>
-<li>
-<p>STLINK转接板<br />
-    JLINK和STLINK提供的都是20pin的标准JTAG口. 但是20pin实在太占地方了, 自己做板一般只用4pin或者5pin的SWD接口, 所以做了这个转接小板, 如图:<br />
-<a href="/images2/2016/jtag_swd.jpg" title="STLINK转接板"><img src="/images2/2016/jtag_swd.jpg" width="500px"/></a>  </p>
-</li>
-<li>
-<p>simple power<br />
-    可以方便地从一节18650得到3.3V, 2.8V, 2.4V, 2.0V, 1.8V和1.5V共6种电压. 之前用SEPIC电路做过一个, 发现DC-DC还是干扰太大, 所以这次用了线性稳压, 干扰能小点.<br />
-    只用一个按键开关, 长按为开/关机, 短按为在不同电压之间切换, 用6个LED来指示各档输出电压.<br />
-<a href="/images2/2016/simple_power.jpg" title="simple power"><img src="/images2/2016/simple_power.jpg" width="500px"/></a></p>
-</li>
-</ol> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/card_light.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/201605_disasm.html"><h2>拆解旧电子设备若干</h2></a>
-        <div class= "well small"> 2016-05-10
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>最近从家里清理出一大堆旧电子设备, 都没啥用了, 于是挨个拆开研究研究.</p>
-<ol>
-<li>
-<p>三星X859</p>
-<p>2004年上市的翻盖机. 入了C网没办法, 可选的机器太少了, 那会儿只能眼馋别人的诺基亚价廉物美. 这机器搞不清楚内置存储多大, MP3也放不了, 短信只能存100条还是200条. 不要说放在现在, 以10年前的眼光来看也基本是个残废. </p>
-<p>忘了拍照了, 也没啥好拍的. 除了电池和LCD, 没有别的值得拆卸的元件. LCD还不知道能否驱动起来.</p>
-</li>
-<li>
-<p>诺亚舟NH3280</p>
-<p>电子词典, 没啥特别的. 我奇怪的是, 当年文曲星只不过是6502的配置, 速度还可以; 别家的配置应该更好, 但速度反倒都比文曲星慢, 比如这个诺亚舟. 拆开一看, 里面惨不忍睹, 除了两个黑胶封装的IC以外就没啥东西了.</p>
-<p><a href="/images2/2016/nh3280.jpg"><img src="/images2/2016/nh3280.jpg" width="500" /></a></p>
-<p>左边空了几个器件没焊, 猜测是DC-DC升压模块, 用于1节电池的型号, 手上这个用2节电池所以没有用到.</p>
-</li>
-<li>
-<p>快易典JP209</p>
-<p>日汉英电子词典. 拆开一看, 东西还不少.</p>
-<p><a href="/images2/2016/jp209.jpg"><img src="/images2/2016/jp209.jpg" width="500" /></a></p>
-<p>下方中间的黑胶封装应该是ARM7之类, 旁边是LY62L1024RN, 128k的SRAM. 稍远处的空位应该可以扩展另一片LY62L1024RN, 就升级成256k内存了. 右下的K9F5608U0B是三星的32M FLASH, 在当年的电子词典里算豪华配置了. 右上的黑胶封装估计是语音合成芯片. 左上角的几个元件是DC-DC升压, 所以这货只需要一节7号电池就能工作. 总之 ...</p></li></ol> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/201605_disasm.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/50m_fm_tx_bh1417.html"><h2>试了一下BH1417用于6米波段发射</h2></a>
-        <div class= "well small"> 2016-04-14
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>BH1417是WFM发射IC, 以0.2MHz为间隔, 在87.7~88.9MHz和106.7~107.9MHz频段各有7个频点. 频率基准是7.6MHz的晶振, 先4分频得到1.9MHz, 然后一路50分频得38kHz作为立体声副载波, 另一路19分频得到100kHz给PLL作为参考. 如果把7.6M晶振换成3.579M, 则106.7~107.9MHz这7个频点就变成了50.255~50.820MHz, 全都落在6米业余波段以内.</p>
-<p>试着搭了一块板, 果然可以工作, 用VX-7R在7个频点都能准确地收到信号. 但是前级增益低了就几乎没声, 前级增益高了又全是噪声; 如果把VX-7R强行设置成WFM模式, 则一切正常. 估计是BH1417的前端预加重/限幅模块过于强大了.</p>
-<p>6米好玩, 等北京的6米解禁了要好好搞搞.</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/50m_fm_tx_bh1417.html">read more</a></div>
     </div>	
 				
 <div class="pagination">

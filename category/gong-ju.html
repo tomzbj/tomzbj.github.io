@@ -60,8 +60,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="http://st.avros.net/articles/usb_charger_new.html"><h1>带电压电流指示的USB充电器</h1></a>
-2016-12-31
+            <a href="http://st.avros.net/articles/handy_v3.html"><h1>卡片手电加强版</h1></a>
+2017-06-28
 
 by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
  
@@ -70,16 +70,85 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
  
         </div>
         
-        <div><p>以前做过一个带输出电流指示的USB充电器, 电流指示用的是10段式LED光条, 用着挺好, 就是感觉10段式光条显示电流还是太粗略了. 最近玩了几个OLED屏, 感觉显示效果不错, 于是做了个直接显示电压电流数值的USB充电器.</p>
+        <div><p>之前做过一个卡片手电，链接：卡片手电，感觉亮度不太够；但是如果加大亮度，电池续航时间又嫌太短。所以有必要做成高低两档亮度。</p>
+<p>原理图如下：</p>
+<p><a href="/images2/2017/handy_v3.png"><img src="/images2/2017/handy_v3.png" width="480" /></a></p>
+<p>这次改用升压恒流的方式。升压IC不一定要用MP1540，只要是能从单锂电升压到13~14V的boost IC都可以。LED用了四只0.5W的5730，取样电阻R308串联在LED回路中，因此低亮度档的电流为1.25V/39R=32mA，相应的功率大约是0.4W。当需要高亮度时按下SW302，此时Q301导通，R305、R306与R308并联，总电阻为8.58R，此时的电流是146mA，总功率约1.9W。电池正负极连接J302、J303，MicroUSB口通过U301对电池充电。LTC4054比较贵，可以用国产的TP4054等型号完美代替。ps. D301负极对地漏了个滤波电容，10u的贴片电容就可以。</p>
+<p>升压恒流方式的优点是输出电流较小，因此取样电阻的功耗也较小；但当LED有一只断路时，boost输出电压会持续升高直到击穿，因此需要增加一只16V的稳压二极管D303，把输出电压限制在VFB+16V的位置。有些专门的LED升压驱动IC，比如MP3202，已经内置了保护电路。</p>
+<p>实物如下，PCB用502粘在随便一张什么卡上就行了。焊上电池，胶布缠好，完工！</p>
+<p><a href="/images2/2017/handy_v3.jpg"><img src="/images2/2017/handy_v3.jpg" width="480" /></a> </p></div>
+        <hr />
+    </div>
+		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://st.avros.net/articles/usb_uartx2.html"><h2>可级联的USB-UARTx2转换器</h2></a>
+        <div class= "well small"> 2017-06-27
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>各种DIY实验时经常需要不止一个串口，有时需要三四个；再加上下载器之类，PC提供的USB口多半不够，所以还得来个USB HUB。这堆东西肯定会把桌面弄得很乱。如果把USB HUB和USB转UART做到一起，不就简洁多了？
+于是动手，原理图和实物如下：</p>
+<p><a href="/images2/2017/usb-uartx2.png"><img src="/images2/2017/usb-uartx2.png" width="480" /></a></p>
+<p><a href="/images2/2017/usb-uartx2.jpg"><img src="/images2/2017/usb-uartx2.jpg" width="480" /></a></p>
+<p>USB HUB IC选用GL850G，可以转出四个下级USB口。其中两个USB口接沁恒的CH340E，转为TTL串口；一个USB口用母座引出，可以用来接下载器之类。如果两个串口还不够，可以两套串一起用，这样就有四个串口了。</p>
+<p>CH340E是沁恒新出的小体积USB-UART转换器，实测波特率可以到2Mbps；但是不怎么好焊，感觉引脚不太沾锡，与同样MSOP-10封装的XTR111、AD9833相比差远了。大概沁恒的封装工艺还需要加强。</p>
+<p>ps. 刚看到沁恒又出了SOP8封装的CH330N，有空试试。</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/usb_uartx2.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://st.avros.net/articles/ch341t_gpio.html"><h2>CH341T GPIO实验</h2></a>
+        <div class= "well small"> 2017-04-17
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>沁恒的CH341A是个多功能的USB总线转发器. 淘宝搜CH341A会搜出一大堆用它做的EEPROM/FLASH编程器, 而它的实际功能还要强大得多, 可以从USB提供异步串口、打印口、EPP/MEM并口、I2C、SPI等接口. 此外CH341A在EPP/MEM并口状态下还可以用沁恒提供的API直接操作引脚, 除了8位并口的8个脚以外, 若干状态引脚也能操作, 总共可以得到16个左右的GPIO. (其中有个别引脚只能输入或者只能输出. )</p>
+<p>这东西的主要缺点就是封装是SOP28宽体, 体积实在大了点. 它的两个小兄弟, CH341T和CH341H都是SSOP20封装, 苗条了很多, 前者只提供异步串口和I2C, 后者只提供SPI.</p>
+<p>CH341A配置不同功能是靠SDA的不同接法实现的, SDA/SCL悬空时连接PC会识别成异步串口, SDA拉低会识别成转EPP/MEM并口和I2C/SPI串口, SDA和SCL短接会识别成USB打印机. CH341T也提供了SDA和SCL引脚, 如果SDA接地, 能不能也把它的若干状态引脚当GPIO用呢?</p>
+<p>做了块小板, 实际测试, 果然可以! PC直接把它识别成了CH341A.</p>
+<p>接下来要实测哪些引脚可以使用. 这里要吐槽一下沁恒的API, 只提供了ch341dll.h, ch341dll.dll和ch341dll.lib; 试了各种办法想把ch341dll.lib转成mingw环境下的.a或者.o, 均失败. 没想到直接gcc ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/ch341t_gpio.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://st.avros.net/articles/usb_charger_new.html"><h2>带电压电流指示的USB充电器</h2></a>
+        <div class= "well small"> 2016-12-31
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>以前做过一个带输出电流指示的USB充电器, 电流指示用的是10段式LED光条, 用着挺好, 就是感觉10段式光条显示电流还是太粗略了. 最近玩了几个OLED屏, 感觉显示效果不错, 于是做了个直接显示电压电流数值的USB充电器.</p>
 <p>原理图如下, Buck IC用的是AOZ1050, 同步整流降压, 号称效率95%, 不过最大输出电流只有2A. 输入电压范围是4.5到16V, 当然输出5V时输入电压得高于5V才行, 我用的是12V. (需要更大电流的话, 可以考虑TPS54331/MP1584/MP2303之类, 可以到3A; AOSMD的AOZ1014或AOZ1094可以到5A, 他家还有更大电流的产品, 不过不知道好不好买.) 0.05欧电阻R1和运放U5, PMOS Q1组成高端电流检测, R1两端电压放大22倍后进单片机的ADC通道0, 输出电压则直接分一半进ADC通道1. 单片机用了20脚的STM32F030F4P6, 16K/4K的FLASH/RAM已经足够了. 显示屏用了一片0.91寸128x32分辨率的OLED. LDO U3为单片机和OLED屏供电, 注意它的输入电压, 常用的XC6206之类只允许5V输入, 12V进去肯定是要冒烟的.</p>
 <p><a href="/images2/2016/usb_charger_new.png" title="USB充电器"><img src="/images2/2016/usb_charger_new.png" width="500px"/></a>  </p>
 <p>实物照片:</p>
 <p><a href="/images2/2016/usb_charger_new.jpg" title="USB充电器"><img src="/images2/2016/usb_charger_new.jpg" width="500px"/></a>  </p>
-<p>注意, 电流好象超了? 其实是测得不准, 测量发现运放两输入端电压差几十mV, 看样子是自激了. 果然这个高端电流检测的原型电路不能直接抄来就用, 得在PMOS栅极加电阻, 运放2/6脚之间加个小电容才能用. 下次再改吧.</p>
-<p>再ps. 原理图里C2 1u太大了, 10~22nF就可以了.</p></div>
-        <hr />
-    </div>
-		
+<p>注意, 电流好象超了? 其实是测得不准, 测量发现运放两输入端电压差几十mV, 看样子是自激了. 果然这个高端电流检测的原型电路不能直接抄来就用, 得在PMOS栅极加电阻 ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/usb_charger_new.html">read more</a></div>
+    </div>	
+				
 
  
         
@@ -254,94 +323,6 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 </ol> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/card_light.html">read more</a></div>
     </div>	
 				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/ikea_led.html"><h2>修复宜家LED灯一则</h2></a>
-        <div class= "well small"> 2016-03-16
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>宜家买的LED灯不亮了。把线剪断，两边分别一测，发现LED是好的，电源适配器无输出，只得再给它做个驱动。</p>
-<p>LED需要恒流驱动，直接接个恒压输出的适配器上去是不行的，要么不亮，要么烧坏。串个电阻行不行呢？行是行，不过电阻会很热。这个LED灯是3W的，工作电流1A，接到5V电源上就需要串联2欧的电阻，电阻的发热量达到2W。这么做显然太不优雅。</p>
-<p>幸好手里还有若干LED驱动IC：华润的PT4115，用它可以顺便把调光功能也加上。画了个电路图如下：</p>
-<p><a href="/images2/2016/ikea_led.png"><img src="/images2/2016/ikea_led.png" width="500" /></a></p>
-<p>其中R1用于设定LED工作电流，公式为<span class="math">\(I_{\rm LED} = \frac{0.1}{R_1}\)</span>. 电位器R2用于调光，从几百欧到几十kΩ的都可以用，这里用了拨轮式的音量电位器，好处是阻值按指数变化，这样LED亮度也按指数变化，会感觉实际亮度变化比较自然。</p>
-<p>LDO XC6206用于给PT4115的调光脚供电，用输出2.5V或3.3V的LDO都行。PT4115允许的输入电压范围是6~30V，但注意XC6206的输入电压最高只能到7V，因此只能用6~7V的电源供电。如果需要用更高输入电压的电源，可以把XC6206换成HT7133、MIC5207之类 ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/ikea_led.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/makefile_size.html"><h2>利用Makefile实现avr-size -C的效果</h2></a>
-        <div class= "well small"> 2016-01-03
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>GNU工具链里的size大家应该都用过, 它可以显示elf/obj/exe/dll等可执行文件里各个段的大小, 非常方便. 加-A和-B参数分别是按sysv和berkeley格式显示, 默认带-B参数.</p>
-<p>avr-gcc里的avr-size则又增加了一个-C的选项, 可以显示单片机flash和ram的占用比例, 需要同时用--mcu参数指定avr单片机的型号, 效果是这样的:</p>
-<div class="highlight"><pre><span></span>avr-size -C --mcu=attiny26 main.elf
-AVR Memory Usage
-----------------
-Device: attiny26
-
-Program:    1316 bytes (64.3% Full)
-(.text + .data + .bootloader)
-
-Data:         23 bytes (18.0% Full)
-(.data + .bss + .noinit)
-</pre></div>
-
-
-<p>是不是很方便? 可惜arm-gcc里的size并没有这个选项, 于是从avr转到stm32之后, 常常会感觉到不方便.</p>
-<p>后来发现, 只要在Makefile里all目标后面加上几行, 也能达到同样目的. 需要你的工具链里有sed和bc, sed用来从size的结果里截取包含数据的第二行 ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/makefile_size.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/fermetnter_6f22_solar.html"><h2>最近的三个制作：酒酿机、6F22充电器、太阳能充电器</h2></a>
-        <div class= "well small"> 2015-08-15
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><ol>
-<li>
-<p>酒酿机</p>
-<p>做酒酿(醪醩)需要保持40度左右的温度发酵。正好家里有个最便宜的小熊酸奶机，不带控温功能的，能否用它来改装成酒酿机呢？</p>
-<p>把小熊酸奶机拆开一看，里面简单得一塌糊涂：铝板上装了个PTC电阻，直接接220V电源，作为发热器，旁边甩了两条线出来接前面板的指示灯。可以说毫无技术含量。于是把这些东西都拆掉，换成前几天做的PID控温电路。控温板上加了两个两位LED数码管，分别显示设定温度和实测温度，两个按键开关用来控温。加热器还是IRF530+LM35的配置。控温范围从35度到65度。</p>
-<p>发酵碗里装满水，放个温度计，开机一晚上实测……发现碗里的水温最终会比发热板的实测温度低15~20度。大概是因为发热板外面隔了一层塑料板，发酵碗又是一层塑料，两层塑料的热阻太大了。幸好温度已经能满足做酒酿的要求了。</p>
-<p>下次打算把LM35的引线接长一些，粘在发热板以外的塑料侧壁上，避免从发热板直接传导热量到LM35，这样效果也许会好些？</p>
-</li>
-<li>
-<p>6F22充电器</p>
-<p>手里有两个可充电的6F22，但是一直没有好用的充电器。以前买过一个，拆开一看，里面实在是惨不忍睹，只好扔了。</p>
-<p>自己做了一个，电路图如下：</p>
-<p><a href="/images2/2015/6f22_charger.png"><img src="/images2/2015/6f22_charger.png" width="480" /></a> </p>
-<p>从USB输入的5V电压，用TP7660二倍压得到10V，再通过100欧电阻限流后给6F22充电。TL061接成比较器，一个输入端接电池正极，另一个输入端接100欧电阻和1k电阻分压得到的约9 ...</p></li></ol> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/fermetnter_6f22_solar.html">read more</a></div>
-    </div>	
-				
 <div class="pagination">
 <ul>
     <li class="prev disabled"><a href="#">&larr; Previous</a></li>
@@ -425,7 +406,7 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
     </div>     </div> 
 <footer>
 <br />
-<p><a href="http://st.avros.net">兰湾</a> &copy; Stavros 2016</p>
+<p><a href="http://st.avros.net">兰湾</a> &copy; Stavros 2017</p>
 </footer>
 
 </div> <!-- /container -->

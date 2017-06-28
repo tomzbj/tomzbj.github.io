@@ -60,6 +60,99 @@
  
 
     <div class='article'>
+        <a href="http://st.avros.net/articles/card_light.html"><h2>卡片手电 & STLINK转接板 & 迷你电源</h2></a>
+        <div class= "well small"> 2016-09-22
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><ol>
+<li>
+<p>卡片手电 <br />
+    做了个和银行卡一样大的手电. 最厚处厚5.5mm, 因此可以和其他的卡一起塞在钱包里. <br />
+    本来用AMC7135作为驱动, 结果这东西太娇气, 一不小心就烧坏, 于是干脆直接用电阻限流了, 好象效果也差不多.<br />
+    效果见图:<br />
+<a href="/images2/2016/card_light_1.jpg" title="卡片手电"><img src="/images2/2016/card_light_1.jpg" width="500px"/></a><br />
+<a href="/images2/2016/card_light_2.jpg" title="卡片手电"><img src="/images2/2016/card_light_2.jpg" width="500px"/></a>  </p>
+</li>
+<li>
+<p>STLINK转接板<br />
+    JLINK和STLINK提供的都是20pin的标准JTAG口. 但是20pin实在太占地方了, 自己做板一般只用4pin或者5pin的SWD接口, 所以做了这个转接小板, 如图:<br />
+<a href="/images2/2016/jtag_swd.jpg" title="STLINK转接板"><img src="/images2/2016/jtag_swd.jpg" width="500px"/></a>  </p>
+</li>
+<li>
+<p>simple power<br />
+    可以方便地从一节18650得到3.3V, 2.8V, 2.4V, 2.0V, 1.8V和1.5V共6种电压. 之前用SEPIC电路做过一个, 发现DC-DC还是干扰太大, 所以这次用了线性稳压, 干扰能小点.<br />
+    只用一个按键开关, 长按为开/关机, 短按为在不同电压之间切换, 用6个LED来指示各档输出电压.<br />
+<a href="/images2/2016/simple_power.jpg" title="simple power"><img src="/images2/2016/simple_power.jpg" width="500px"/></a></p>
+</li>
+</ol> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/card_light.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://st.avros.net/articles/201605_disasm.html"><h2>拆解旧电子设备若干</h2></a>
+        <div class= "well small"> 2016-05-10
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>最近从家里清理出一大堆旧电子设备, 都没啥用了, 于是挨个拆开研究研究.</p>
+<ol>
+<li>
+<p>三星X859</p>
+<p>2004年上市的翻盖机. 入了C网没办法, 可选的机器太少了, 那会儿只能眼馋别人的诺基亚价廉物美. 这机器搞不清楚内置存储多大, MP3也放不了, 短信只能存100条还是200条. 不要说放在现在, 以10年前的眼光来看也基本是个残废. </p>
+<p>忘了拍照了, 也没啥好拍的. 除了电池和LCD, 没有别的值得拆卸的元件. LCD还不知道能否驱动起来.</p>
+</li>
+<li>
+<p>诺亚舟NH3280</p>
+<p>电子词典, 没啥特别的. 我奇怪的是, 当年文曲星只不过是6502的配置, 速度还可以; 别家的配置应该更好, 但速度反倒都比文曲星慢, 比如这个诺亚舟. 拆开一看, 里面惨不忍睹, 除了两个黑胶封装的IC以外就没啥东西了.</p>
+<p><a href="/images2/2016/nh3280.jpg"><img src="/images2/2016/nh3280.jpg" width="500" /></a></p>
+<p>左边空了几个器件没焊, 猜测是DC-DC升压模块, 用于1节电池的型号, 手上这个用2节电池所以没有用到.</p>
+</li>
+<li>
+<p>快易典JP209</p>
+<p>日汉英电子词典. 拆开一看, 东西还不少.</p>
+<p><a href="/images2/2016/jp209.jpg"><img src="/images2/2016/jp209.jpg" width="500" /></a></p>
+<p>下方中间的黑胶封装应该是ARM7之类, 旁边是LY62L1024RN, 128k的SRAM. 稍远处的空位应该可以扩展另一片LY62L1024RN, 就升级成256k内存了. 右下的K9F5608U0B是三星的32M FLASH, 在当年的电子词典里算豪华配置了. 右上的黑胶封装估计是语音合成芯片. 左上角的几个元件是DC-DC升压, 所以这货只需要一节7号电池就能工作. 总之 ...</p></li></ol> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/201605_disasm.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://st.avros.net/articles/50m_fm_tx_bh1417.html"><h2>试了一下BH1417用于6米波段发射</h2></a>
+        <div class= "well small"> 2016-04-14
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>BH1417是WFM发射IC, 以0.2MHz为间隔, 在87.7~88.9MHz和106.7~107.9MHz频段各有7个频点. 频率基准是7.6MHz的晶振, 先4分频得到1.9MHz, 然后一路50分频得38kHz作为立体声副载波, 另一路19分频得到100kHz给PLL作为参考. 如果把7.6M晶振换成3.579M, 则106.7~107.9MHz这7个频点就变成了50.255~50.820MHz, 全都落在6米业余波段以内.</p>
+<p>试着搭了一块板, 果然可以工作, 用VX-7R在7个频点都能准确地收到信号. 但是前级增益低了就几乎没声, 前级增益高了又全是噪声; 如果把VX-7R强行设置成WFM模式, 则一切正常. 估计是BH1417的前端预加重/限幅模块过于强大了.</p>
+<p>6米好玩, 等北京的6米解禁了要好好搞搞.</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/50m_fm_tx_bh1417.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://st.avros.net/articles/ikea_led.html"><h2>修复宜家LED灯一则</h2></a>
         <div class= "well small"> 2016-03-16
 
@@ -228,106 +321,6 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <p>假设手机电池标称电压是<span class="math">\(3.7\mathrm V\)</span>，容量是<span class="math">\(1800\mathrm{mAh}\)</span>，则它能储存的能量是<span class="math">\(3.7\mathrm V\times1800\mathrm{mA}\times3600\mathrm s = 23976\mathrm J\)</span>.</p>
 <p>根据<span class="math">\(E=mc^2\)</span>，可得</p>
 <div class="math">$$\Delta m=\frac{\Delta E}{c^2} = \frac ...</div> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/electric_mass.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/heatsink_calc.html"><h2>学习了一下散热片的简单估算</h2></a>
-        <div class= "well small"> 2015-08-09
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>常用的板翅式散热器，其有效散热面积为：</p>
-<div class="math">$$散热面积=(翅片高度\times2\times翅片数量+基板宽度)\times截断长度$$</div>
-<p>有效散热面积和热阻的关系：</p>
-<table>
-<thead>
-<tr>
-<th>A(cm<sub>2</sub>)</th>
-<th>R<sub>sa</sub>(K/W)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>500</td>
-<td>2.0</td>
-</tr>
-<tr>
-<td>250</td>
-<td>2.9</td>
-</tr>
-<tr>
-<td>100</td>
-<td>4.0</td>
-</tr>
-<tr>
-<td>50</td>
-<td>5.2</td>
-</tr>
-<tr>
-<td>25</td>
-<td>6.5</td>
-</tr>
-</tbody>
-</table>
-<p>简单拟合得:<span class="math">\(R_\mathrm{sa}=23.3A^{-0.39}\)</span>。</p>
-<p>总热阻<span class="math">\(R_\mathrm{tot}=R_\mathrm{sa}+R_\mathrm{cs}+R_ ...</span></p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/heatsink_calc.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/tungsten.html"><h2>如何计算钨丝的直径?</h2></a>
-        <div class= "well small"> 2015-08-07
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>知乎上一哥们提了个问题：3.7V 电压，1.2A 电流，用钨丝绕成螺旋式弹簧丝，工作温度在 1200 摄氏度左右，怎么计算出来需要用多大直径的钨丝？链接：<a href="http://www.zhihu.com/question/33791069/answer/57434994">http://www.zhihu.com/question/33791069/answer/57434994</a></p>
-<p>以下是我的回答：</p>
-<p>斯特凡－玻尔兹曼定律：<span class="math">\(j^*=\epsilon\sigma T^4\)</span>，其中<span class="math">\(j^*\)</span>为辐射通量，<span class="math">\(\sigma\)</span>为斯特凡－玻尔兹曼常数，值为<span class="math">\(5.67\times 10^{-8}\rm{J \cdot s}^{-1}\cdot\rm m^{-2 ...</span></p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/tungsten.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/cute_power_v2.html"><h2>迷你智能电源</h2></a>
-        <div class= "well small"> 2015-07-14
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>做了个简单的小电源，用一节18650供电，可以输出1.26V、1.8V、2.5V、2.85V、3.3V、5.0V和6.0V，共7种电压，可以通过USB给18650充电，如图：</p>
-<p><a href="/images2/2015/cute_power_v2.jpg" title="实物图"><img src="/images2/2015/cute_power_v2.jpg" width="480px" /></a></p>
-<p>原理图：</p>
-<p><a href="/images2/2015/cute_power_v2.png" title="原理图"><img src="/images2/2015/cute_power_v2.png" width="480px" /></a></p>
-<p>充电使用TP4056，充电电流为1200/1.5k = 800mA。LM3478接成SEPIC电路，既能升压也能降压。单片机ATtiny13输出一路PWM信号，经滤波后控制LM3478的反馈端，从而控制输出电压。三只LED用于指示输出电压。</p>
-<p>源程序：</p>
-<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;avr/io.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;avr/interrupt.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;util/delay.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;avr/sleep.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&quot;misc.h ...</span></pre></div> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/cute_power_v2.html">read more</a></div>
     </div>	
 				
 <div class="pagination">

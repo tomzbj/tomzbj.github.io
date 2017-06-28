@@ -60,6 +60,106 @@
  
 
     <div class='article'>
+        <a href="http://st.avros.net/articles/heatsink_calc.html"><h2>学习了一下散热片的简单估算</h2></a>
+        <div class= "well small"> 2015-08-09
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>常用的板翅式散热器，其有效散热面积为：</p>
+<div class="math">$$散热面积=(翅片高度\times2\times翅片数量+基板宽度)\times截断长度$$</div>
+<p>有效散热面积和热阻的关系：</p>
+<table>
+<thead>
+<tr>
+<th>A(cm<sub>2</sub>)</th>
+<th>R<sub>sa</sub>(K/W)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>500</td>
+<td>2.0</td>
+</tr>
+<tr>
+<td>250</td>
+<td>2.9</td>
+</tr>
+<tr>
+<td>100</td>
+<td>4.0</td>
+</tr>
+<tr>
+<td>50</td>
+<td>5.2</td>
+</tr>
+<tr>
+<td>25</td>
+<td>6.5</td>
+</tr>
+</tbody>
+</table>
+<p>简单拟合得:<span class="math">\(R_\mathrm{sa}=23.3A^{-0.39}\)</span>。</p>
+<p>总热阻<span class="math">\(R_\mathrm{tot}=R_\mathrm{sa}+R_\mathrm{cs}+R_ ...</span></p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/heatsink_calc.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://st.avros.net/articles/tungsten.html"><h2>如何计算钨丝的直径?</h2></a>
+        <div class= "well small"> 2015-08-07
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>知乎上一哥们提了个问题：3.7V 电压，1.2A 电流，用钨丝绕成螺旋式弹簧丝，工作温度在 1200 摄氏度左右，怎么计算出来需要用多大直径的钨丝？链接：<a href="http://www.zhihu.com/question/33791069/answer/57434994">http://www.zhihu.com/question/33791069/answer/57434994</a></p>
+<p>以下是我的回答：</p>
+<p>斯特凡－玻尔兹曼定律：<span class="math">\(j^*=\epsilon\sigma T^4\)</span>，其中<span class="math">\(j^*\)</span>为辐射通量，<span class="math">\(\sigma\)</span>为斯特凡－玻尔兹曼常数，值为<span class="math">\(5.67\times 10^{-8}\rm{J \cdot s}^{-1}\cdot\rm m^{-2 ...</span></p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/tungsten.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://st.avros.net/articles/cute_power_v2.html"><h2>迷你智能电源</h2></a>
+        <div class= "well small"> 2015-07-14
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>做了个简单的小电源，用一节18650供电，可以输出1.26V、1.8V、2.5V、2.85V、3.3V、5.0V和6.0V，共7种电压，可以通过USB给18650充电，如图：</p>
+<p><a href="/images2/2015/cute_power_v2.jpg" title="实物图"><img src="/images2/2015/cute_power_v2.jpg" width="480px" /></a></p>
+<p>原理图：</p>
+<p><a href="/images2/2015/cute_power_v2.png" title="原理图"><img src="/images2/2015/cute_power_v2.png" width="480px" /></a></p>
+<p>充电使用TP4056，充电电流为1200/1.5k = 800mA。LM3478接成SEPIC电路，既能升压也能降压。单片机ATtiny13输出一路PWM信号，经滤波后控制LM3478的反馈端，从而控制输出电压。三只LED用于指示输出电压。</p>
+<p>源程序：</p>
+<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;avr/io.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;avr/interrupt.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;util/delay.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;avr/sleep.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;misc.h ...</span></pre></div> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/cute_power_v2.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://st.avros.net/articles/pid_expr.html"><h2>PID控温实验</h2></a>
         <div class= "well small"> 2015-07-13
 
@@ -239,93 +339,6 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <p>变压器的参数是... 忘了, 只好用LC表测量各绕组电感量, 初级分别是659uH和666uH, 次级则是188mH+188mH. 由此可算出匝数比是1:17. 按这个匝数比, 两个次级绕组串联, 锂电池电压从4.2V降落到3.5V时, 理论输出电压应该是118V~142V. 这个变压器不大, 线径很细, 内阻不小, 因此输出电压不会这么高, 给直流电子管供电还算合适.</p>
 <p>AMS1117-ADJ提供甲电. 1117要求5~10mA的最小负载电流, 否则空载输出电压会偏高. 这里应该给它加个几百欧的电阻作为负载. 不是大问题, 算了吧.</p>
 <p>用ATTiny13的ADC实现了简单的电池电量检测, 由红绿双色LED显示. 电池电压在4.0V以上时, LED显示绿色; 3.7V ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/dc_tube_power.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/cw3579.html"><h2>3.579MHz CW发射机</h2></a>
-        <div class= "well small"> 2015-01-15
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>电路如图, 用74HC240的一个门振荡, 另外7个门并联推动IRF510.
-用RS-232串口的RTS信号控制IRF510的供电, 作为电键.
-DTR信号控制整机供电和天线切换, 作为PTT.</p>
-<p><a href="/images/cw3579.png" title="电路图"><img src="/images/cw3579.png" width="500px" /></a></p>
-<p>实测发现一个大问题: CP2102转出来的RS-232的DTR和RTS极性是反的! 再一查, PL2303和FT232也是这样. 现在的PC基本已经不提供RS-232了, 没办法, 装个串口挡板, 用真实的串口再试试吧.</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/cw3579.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/dmm2650.html"><h2>Sansei DMM2650背光改装记录</h2></a>
-        <div class= "well small"> 2014-12-12
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>Sansei DMM2650是80年代的小型台式四位半自动量程万用表, 在Diyers中一直很受欢迎. sunzx送了我一台, 相当好用. 使用过程中发现它有一个很大的不足之处就是液晶屏没有背光, 光线较暗时读数不容易看清, 所以我决定给它加装背光. </p>
-<p><a href="/images/dmm2650_1.jpg"><img src="/images/dmm2650_1.jpg" width="500" /></a></p>
-<p>DMM2650的液晶屏是双列针脚直插式的, 小心地把它从插座上取下来, 如图：</p>
-<p><a href="/images/dmm2650_2.jpg"><img src="/images/dmm2650_2.jpg" width="500" /></a></p>
-<p>背面贴了一层反光膜. 这层膜很致密, 用LED手电从背后照, 在前面基本看不到. 因此要加装背光, 必须把这层膜撕下来. </p>
-<p><a href="/images/dmm2650_3.jpg"><img src="/images/dmm2650_3.jpg" width="500" /></a></p>
-<p>撕的时候要很小心, 引脚碰弯了就不容易按回去了. </p>
-<p><a href="/images/dmm2650_4.jpg"><img src="/images/dmm2650_4.jpg" width="500" /></a> </p>
-<p>接下来制作背光板. 这块2cm x 8cm的洞洞板长度长了点, 两端要锯掉一些. </p>
-<p><a href="/images/dmm2650_5.jpg"><img src="/images/dmm2650_5.jpg" width="500" /></a> </p>
-<p>锯完之后, 尺寸正合适. </p>
-<p><a href="/images/dmm2650_6.jpg"><img src="/images/dmm2650_6.jpg" width="500" /></a> </p>
-<p>在上面焊10个0805的白光LED, 以及相应的限流电阻. 背光不需要很亮, 大约0.5mA就足够, 这里限流电阻用了5.1K. </p>
-<p><a href="/images/dmm2650_7.jpg"><img src="/images/dmm2650_7.jpg" width="500" /></a> </p>
-<p>点亮背光的效果. </p>
-<p><a href="/images/dmm2650_8.jpg"><img src="/images/dmm2650_8.jpg" width="500" /></a> </p>
-<p>液晶屏插座正中是驱动芯片, 做好的背光板可以用双面胶贴在驱动芯片上. </p>
-<p><a href="/images/dmm2650_9.jpg"><img src="/images/dmm2650_9.jpg" width="500" /></a> </p>
-<p>接下来要找到供电正负端, 很好找, 红色的电源开关最后面那两个引脚就是. 把背光板的引线缠在上面, 焊好. </p>
-<p><a href="/images/dmm2650_10.jpg"><img src="/images/dmm2650_10.jpg" width="500" /></a> </p>
-<p>装回前面板, 开机! 怎么效果有点逗比……看来没有柔光片是不行的. </p>
-<p><a href="/images/dmm2650_11.jpg"><img src="/images/dmm2650_11.jpg" width="500" /></a> </p>
-<p>柔光片这东西不好找, 试了不干胶贴纸的背纸、白色绝缘胶带、普通A4纸, 效果都不理想 ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/dmm2650.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/pumpkin_light.html"><h2>南瓜灯</h2></a>
-        <div class= "well small"> 2014-05-07
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>某次在超市看到有这种球形蜡烛头卖，如图：</p>
-<p><a href="/images/pumpkin_1.jpg"><img src="/images/pumpkin_1.jpg" width="500" /></a></p>
-<p>用记号笔把适当的地方涂黑，就成了这样：</p>
-<p><a href="/images/pumpkin_2.jpg"><img src="/images/pumpkin_2.jpg" width="500" /></a></p>
-<p>最后呢，在它下面熔个洞，放进一个橙色大功率LED，点亮以后的效果：</p>
-<p><a href="/images/pumpkin_3.jpg"><img src="/images/pumpkin_3.jpg" width="500" /></a></p>
-<p>好象万圣节的时间搞错了……不过无所谓啦。</p>
-<p>最后，用AVR让它的亮度忽明忽暗，尽可能象真正的蜡烛一样——其实挺困难的。</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/pumpkin_light.html">read more</a></div>
     </div>	
 				
 <div class="pagination">

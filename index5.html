@@ -60,6 +60,73 @@
  
 
     <div class='article'>
+        <a href="http://st.avros.net/articles/v_tx.html"><h2>发V机</h2></a>
+        <div class= "well small"> 2013-06-11
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>功能很简单, 就是发出字母V的莫尔斯电码"...-", 用来调试机器, 很好用. </p>
+<p>原理图:</p>
+<p><a href="/images/v_tx.png" title="电路图"><img src="/images/v_tx.png" width="500px" /></a></p>
+<p>由CD4060组成约100kHz的RC振荡器, 6次二分频后得到大约600Hz的音频信号; 继续由74HC393分频得到4bit控制信号, 由两只CD4011组成的逻辑电路变换成字母V的开关信号, 最后由一只NPN管实现600Hz音频调制. </p>
+<p>用一只8脚单片机的话, 硬件上可以更简单. 用逻辑电路的好处是不用调试, 焊好通电就能工作了. </p>
+<p>开始由一只10440锂电池直接供电, 结果发现电池电压变化会严重影响音调, 于是增加了HT7750升压电路, 让它在固定5V电压下工作, 效果好多了. </p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/v_tx.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://st.avros.net/articles/heterodyne_test.html"><h2>继续试验外差机</h2></a>
+        <div class= "well small"> 2013-05-23
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>分别用LA1600和分立器件实现了两个中波外差机.</p>
+<p>效果差不多, 在阳台上能收到中国之声一个台, 别的台都收不到了. 总之和之前做的直放机没啥区别吧.</p>
+<p>大概是输入回路的Q值太低, 弱信号全被中国之声压住了. 有空了再做FM机试试吧. </p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/heterodyne_test.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://st.avros.net/articles/usb_dac_tube.html"><h2>USB电子管声卡</h2></a>
+        <div class= "well small"> 2013-05-23
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>这次是PCM2702+NE5534+2P2的组合——以USB的供电能力最多只能带动2P2了. </p>
+<p><a href="/images/usb_dac_tube.jpg" title="电路图"><img src="/images/usb_dac_tube.jpg" width="500px" /></a></p>
+<p>相当小巧, PCB面积比公交卡还小, 不过输出变压器没包括在内. </p>
+<p>电路图如下, PCM2702输出的音频信号由NE5534反相放大后推动2P2. </p>
+<p><a href="/images/usb_dac_tube.png" title="电路图"><img src="/images/usb_dac_tube.png" width="500px" /></a></p>
+<p>主要的麻烦是供电, 一只2P2需要60V屏压、1.2或2.4V灯丝、-3.5V栅偏压. 60V高压用LM2577升压得到; 这里用灯丝串联电阻R14上的压降来代替栅偏压, 于是可以省下一组供电. 此外NE5534的最高供电电压是±22V, 这里给它提供了一路30V电压. 这块小板子上供电占了大概1/3的面积. </p>
+<p>效果么...... 只能说还凑合吧, 主要是音量太小了, 2P2的输出功率只有100mW. 下次试试两只2P2推挽的效果吧. </p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/usb_dac_tube.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://st.avros.net/articles/636_recv.html"><h2>636收音机</h2></a>
         <div class= "well small"> 2013-04-22
 
@@ -243,116 +310,6 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <p><a href="/images/cm102_speaker.png" title="电路图"><img src="/images/cm102_speaker.png" width="500px" /></a></p>
 <p>结果是有很大的不规则的噪声...开始以为是VBUS直供TDA2822的原因, 于是让VBUS过了1117-3.3再供TDA2822, 结果仍然噪声很大；全换成用电池供电, 仍然噪声很大；干脆断开TDA2822, 把耳机接到CM102的输出上, 噪声没了. 看样子是买到山寨2822了, 下次用TEA2025重做吧, 或者直接改用LM4890. </p>
 <p>ps. C-Media的网站怎么可以这么2呢... 手里CM102的datasheet旧了, 而且几个图都巨模糊, 想找个新的看看, 上CM官网一找, 倒是有, 但是不支持google浏览器；换ie, 发现让注册用户；注册了用户, 下载了datasheet一看, 几个图还是模糊的. 这家的东西似乎卖得还不错, 比如当年的CMI8738. </p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/cm102_speaker.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/ne555_boost_2.html"><h2>继续进行 NE555 boost 和 flyback 实验</h2></a>
-        <div class= "well small"> 2011-02-13
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>之前试过用NE555推MTD3055, 5V升6.3V的实验, 效果很好, 输出1A以上电流, 效率在80%到90%之间. 这次的电路图基本相同, 打算升压到125V左右, 再经过后面的线性稳压, 得到90V左右的稳定电压. 结果不太理想, 5V输入时闭环只能升到85V左右, 12V输入时可以达到130V, 效率50%~60%. 加大负载则效率迅速跌到30%. 从5V逐渐降低输入电压, 降到3.3V时仍能工作, 但带负载时(3W节能灯)不能从3.3V启动工作. 把振荡频率从25kHz提高到50kHz, 效率提高到接近70%, 但没有根本的改善. 再就是变压器的吱吱声实在是太烦人了. </p>
-<p>下次的实验目标：</p>
-<p>1)改用低Rds(on)的MOSFET代替IRFR420, 仍用boost方式, 看能不能稳定实现5V升到110V左右. boost没有噪音的优势还是很明显的. </p>
-<p>2)继续绕变压器, 实现升压到400V, 同时也试试用74HC04、晶体管自激之类实现升压的可能性. </p>
-<p>电路图:</p>
-<p><a href="/images/ne555_flyback_2.png" title="电路图"><img src="/images/ne555_flyback_2.png" width="500px" /></a></p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/ne555_boost_2.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/water_lights.html"><h2>流水灯</h2></a>
-        <div class= "well small"> 2011-02-13
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>ourdev的马潮老师出了个题目: 8x8的LED屏, 中间四个常亮, 最外圈亮一个灯转圈跑. 说实话没啥难度, 一伙人讨论得煞有介事. 似乎马潮那边的学生衰了点, 作为专业搞电子的学生, 俩小时搞不出来的都有. 我正好闲着就焊了块板, 从开始写程序开始, 39分钟搞定. </p>
-<p>中间一北大的师弟把马潮老师惹毛了, 于是这老师又出了个题, 当joke看吧:</p>
-<blockquote>
-<p>如果不服, 可以再次比试. 你在北大找5个学生, 组成一个小组. 用m16加一片lm324, 设计一个读取sd卡上wave文件, 并播放的wave播放器, 看谁做的好. 给你们一个月的时间, 下个学期开学我到北大找你, 比试实物效果. </p>
-</blockquote> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/water_lights.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/ne555_boost.html"><h2>又试了一下用NE555做boost</h2></a>
-        <div class= "well small"> 2010-04-13
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>555搭成多谐振荡器推动MOSFET，用C1815当作比较器，输入5V，输出6.3V左右，试着点了几个电子管的灯丝。
-结果如下：</p>
-<table>
-<thead>
-<tr>
-<th align="center"></th>
-<th align="center">输出电压(V)</th>
-<th align="center">标称电流(A)</th>
-<th align="center">输出电流(A)</th>
-<th align="center">输入电流(A)</th>
-<th align="center">效率</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">空载</td>
-<td align="center">6.76</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-</tr>
-<tr>
-<td align="center">6U1</td>
-<td align="center">6.20</td>
-<td align="center">0.30</td>
-<td align="center">0.32</td>
-<td align="center">0.46</td>
-<td align="center">86%</td>
-</tr>
-<tr>
-<td align="center">6N2</td>
-<td align="center">6.19</td>
-<td align="center">0.34</td>
-<td align="center">0.33</td>
-<td align="center">0.48</td>
-<td align="center">85%</td>
-</tr>
-<tr>
-<td align="center">6F2</td>
-<td align="center">6.17</td>
-<td align="center">0.45</td>
-<td align="center">0.43</td>
-<td align="center">0.61</td>
-<td align="center">87%</td>
-</tr>
-<tr>
-<td align="center">6P1 ...</td></tr></tbody></table> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/ne555_boost.html">read more</a></div>
     </div>	
 				
 <div class="pagination">

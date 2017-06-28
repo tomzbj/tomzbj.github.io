@@ -60,6 +60,93 @@
  
 
     <div class='article'>
+        <a href="http://st.avros.net/articles/cw3579.html"><h2>3.579MHz CW发射机</h2></a>
+        <div class= "well small"> 2015-01-15
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>电路如图, 用74HC240的一个门振荡, 另外7个门并联推动IRF510.
+用RS-232串口的RTS信号控制IRF510的供电, 作为电键.
+DTR信号控制整机供电和天线切换, 作为PTT.</p>
+<p><a href="/images/cw3579.png" title="电路图"><img src="/images/cw3579.png" width="500px" /></a></p>
+<p>实测发现一个大问题: CP2102转出来的RS-232的DTR和RTS极性是反的! 再一查, PL2303和FT232也是这样. 现在的PC基本已经不提供RS-232了, 没办法, 装个串口挡板, 用真实的串口再试试吧.</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/cw3579.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://st.avros.net/articles/dmm2650.html"><h2>Sansei DMM2650背光改装记录</h2></a>
+        <div class= "well small"> 2014-12-12
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>Sansei DMM2650是80年代的小型台式四位半自动量程万用表, 在Diyers中一直很受欢迎. sunzx送了我一台, 相当好用. 使用过程中发现它有一个很大的不足之处就是液晶屏没有背光, 光线较暗时读数不容易看清, 所以我决定给它加装背光. </p>
+<p><a href="/images/dmm2650_1.jpg"><img src="/images/dmm2650_1.jpg" width="500" /></a></p>
+<p>DMM2650的液晶屏是双列针脚直插式的, 小心地把它从插座上取下来, 如图：</p>
+<p><a href="/images/dmm2650_2.jpg"><img src="/images/dmm2650_2.jpg" width="500" /></a></p>
+<p>背面贴了一层反光膜. 这层膜很致密, 用LED手电从背后照, 在前面基本看不到. 因此要加装背光, 必须把这层膜撕下来. </p>
+<p><a href="/images/dmm2650_3.jpg"><img src="/images/dmm2650_3.jpg" width="500" /></a></p>
+<p>撕的时候要很小心, 引脚碰弯了就不容易按回去了. </p>
+<p><a href="/images/dmm2650_4.jpg"><img src="/images/dmm2650_4.jpg" width="500" /></a> </p>
+<p>接下来制作背光板. 这块2cm x 8cm的洞洞板长度长了点, 两端要锯掉一些. </p>
+<p><a href="/images/dmm2650_5.jpg"><img src="/images/dmm2650_5.jpg" width="500" /></a> </p>
+<p>锯完之后, 尺寸正合适. </p>
+<p><a href="/images/dmm2650_6.jpg"><img src="/images/dmm2650_6.jpg" width="500" /></a> </p>
+<p>在上面焊10个0805的白光LED, 以及相应的限流电阻. 背光不需要很亮, 大约0.5mA就足够, 这里限流电阻用了5.1K. </p>
+<p><a href="/images/dmm2650_7.jpg"><img src="/images/dmm2650_7.jpg" width="500" /></a> </p>
+<p>点亮背光的效果. </p>
+<p><a href="/images/dmm2650_8.jpg"><img src="/images/dmm2650_8.jpg" width="500" /></a> </p>
+<p>液晶屏插座正中是驱动芯片, 做好的背光板可以用双面胶贴在驱动芯片上. </p>
+<p><a href="/images/dmm2650_9.jpg"><img src="/images/dmm2650_9.jpg" width="500" /></a> </p>
+<p>接下来要找到供电正负端, 很好找, 红色的电源开关最后面那两个引脚就是. 把背光板的引线缠在上面, 焊好. </p>
+<p><a href="/images/dmm2650_10.jpg"><img src="/images/dmm2650_10.jpg" width="500" /></a> </p>
+<p>装回前面板, 开机! 怎么效果有点逗比……看来没有柔光片是不行的. </p>
+<p><a href="/images/dmm2650_11.jpg"><img src="/images/dmm2650_11.jpg" width="500" /></a> </p>
+<p>柔光片这东西不好找, 试了不干胶贴纸的背纸、白色绝缘胶带、普通A4纸, 效果都不理想 ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/dmm2650.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://st.avros.net/articles/pumpkin_light.html"><h2>南瓜灯</h2></a>
+        <div class= "well small"> 2014-05-07
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>某次在超市看到有这种球形蜡烛头卖，如图：</p>
+<p><a href="/images/pumpkin_1.jpg"><img src="/images/pumpkin_1.jpg" width="500" /></a></p>
+<p>用记号笔把适当的地方涂黑，就成了这样：</p>
+<p><a href="/images/pumpkin_2.jpg"><img src="/images/pumpkin_2.jpg" width="500" /></a></p>
+<p>最后呢，在它下面熔个洞，放进一个橙色大功率LED，点亮以后的效果：</p>
+<p><a href="/images/pumpkin_3.jpg"><img src="/images/pumpkin_3.jpg" width="500" /></a></p>
+<p>好象万圣节的时间搞错了……不过无所谓啦。</p>
+<p>最后，用AVR让它的亮度忽明忽暗，尽可能象真正的蜡烛一样——其实挺困难的。</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/pumpkin_light.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://st.avros.net/articles/8x8_led_animation.html"><h2>8x8 LED点阵动画</h2></a>
         <div class= "well small"> 2014-05-06
 
@@ -198,73 +285,6 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <p>100万千瓦的火电站: 火电排放大量的粉尘和CO2之类, 这些都不用说了. 每年耗煤300万吨, 还用30吨重卡拉走的话, 就得10万辆, 平均每天就得300辆了. 注意这里还有个问题: 煤里也含有微量的铀. 在中国, 煤的平均含铀量大约3个ppm, 也就是说100万吨煤里就有3吨铀, 300万吨煤里就是9吨. 这些铀一部分随着烟尘排放到大气中, 一部分成了粉煤灰, 然后被加工成水泥、空心砖之类, 做了建筑材料. </p>
 <p>完了没有? 没完. 煤里还有另外一种放射性元素钍, 含量还要高一些, 在中国平均为6~10ppm. 也就是说这个100万千瓦的火电站每年消耗的300万吨煤里含有18~30吨的钍. 这些钍也一样, 要么被排放到大气中, 要么做了建筑材料. </p>
 <p>这还不算, 煤里还含有微量的钋 ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/nuclear_or_thermo_power.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/v_tx.html"><h2>发V机</h2></a>
-        <div class= "well small"> 2013-06-11
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>功能很简单, 就是发出字母V的莫尔斯电码"...-", 用来调试机器, 很好用. </p>
-<p>原理图:</p>
-<p><a href="/images/v_tx.png" title="电路图"><img src="/images/v_tx.png" width="500px" /></a></p>
-<p>由CD4060组成约100kHz的RC振荡器, 6次二分频后得到大约600Hz的音频信号; 继续由74HC393分频得到4bit控制信号, 由两只CD4011组成的逻辑电路变换成字母V的开关信号, 最后由一只NPN管实现600Hz音频调制. </p>
-<p>用一只8脚单片机的话, 硬件上可以更简单. 用逻辑电路的好处是不用调试, 焊好通电就能工作了. </p>
-<p>开始由一只10440锂电池直接供电, 结果发现电池电压变化会严重影响音调, 于是增加了HT7750升压电路, 让它在固定5V电压下工作, 效果好多了. </p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/v_tx.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/heterodyne_test.html"><h2>继续试验外差机</h2></a>
-        <div class= "well small"> 2013-05-23
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>分别用LA1600和分立器件实现了两个中波外差机.</p>
-<p>效果差不多, 在阳台上能收到中国之声一个台, 别的台都收不到了. 总之和之前做的直放机没啥区别吧.</p>
-<p>大概是输入回路的Q值太低, 弱信号全被中国之声压住了. 有空了再做FM机试试吧. </p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/heterodyne_test.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/usb_dac_tube.html"><h2>USB电子管声卡</h2></a>
-        <div class= "well small"> 2013-05-23
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>这次是PCM2702+NE5534+2P2的组合——以USB的供电能力最多只能带动2P2了. </p>
-<p><a href="/images/usb_dac_tube.jpg" title="电路图"><img src="/images/usb_dac_tube.jpg" width="500px" /></a></p>
-<p>相当小巧, PCB面积比公交卡还小, 不过输出变压器没包括在内. </p>
-<p>电路图如下, PCM2702输出的音频信号由NE5534反相放大后推动2P2. </p>
-<p><a href="/images/usb_dac_tube.png" title="电路图"><img src="/images/usb_dac_tube.png" width="500px" /></a></p>
-<p>主要的麻烦是供电, 一只2P2需要60V屏压、1.2或2.4V灯丝、-3.5V栅偏压. 60V高压用LM2577升压得到; 这里用灯丝串联电阻R14上的压降来代替栅偏压, 于是可以省下一组供电. 此外NE5534的最高供电电压是±22V, 这里给它提供了一路30V电压. 这块小板子上供电占了大概1/3的面积. </p>
-<p>效果么...... 只能说还凑合吧, 主要是音量太小了, 2P2的输出功率只有100mW. 下次试试两只2P2推挽的效果吧. </p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/usb_dac_tube.html">read more</a></div>
     </div>	
 				
 <div class="pagination">

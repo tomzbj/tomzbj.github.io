@@ -60,6 +60,94 @@
  
 
     <div class='article'>
+        <a href="http://st.avros.net/articles/ikea_led.html"><h2>修复宜家LED灯一则</h2></a>
+        <div class= "well small"> 2016-03-16
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>宜家买的LED灯不亮了。把线剪断，两边分别一测，发现LED是好的，电源适配器无输出，只得再给它做个驱动。</p>
+<p>LED需要恒流驱动，直接接个恒压输出的适配器上去是不行的，要么不亮，要么烧坏。串个电阻行不行呢？行是行，不过电阻会很热。这个LED灯是3W的，工作电流1A，接到5V电源上就需要串联2欧的电阻，电阻的发热量达到2W。这么做显然太不优雅。</p>
+<p>幸好手里还有若干LED驱动IC：华润的PT4115，用它可以顺便把调光功能也加上。画了个电路图如下：</p>
+<p><a href="/images2/2016/ikea_led.png"><img src="/images2/2016/ikea_led.png" width="500" /></a></p>
+<p>其中R1用于设定LED工作电流，公式为<span class="math">\(I_{\rm LED} = \frac{0.1}{R_1}\)</span>. 电位器R2用于调光，从几百欧到几十kΩ的都可以用，这里用了拨轮式的音量电位器，好处是阻值按指数变化，这样LED亮度也按指数变化，会感觉实际亮度变化比较自然。</p>
+<p>LDO XC6206用于给PT4115的调光脚供电，用输出2.5V或3.3V的LDO都行。PT4115允许的输入电压范围是6~30V，但注意XC6206的输入电压最高只能到7V，因此只能用6~7V的电源供电。如果需要用更高输入电压的电源，可以把XC6206换成HT7133、MIC5207之类 ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/ikea_led.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://st.avros.net/articles/makefile_size.html"><h2>利用Makefile实现avr-size -C的效果</h2></a>
+        <div class= "well small"> 2016-01-03
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>GNU工具链里的size大家应该都用过, 它可以显示elf/obj/exe/dll等可执行文件里各个段的大小, 非常方便. 加-A和-B参数分别是按sysv和berkeley格式显示, 默认带-B参数.</p>
+<p>avr-gcc里的avr-size则又增加了一个-C的选项, 可以显示单片机flash和ram的占用比例, 需要同时用--mcu参数指定avr单片机的型号, 效果是这样的:</p>
+<div class="highlight"><pre><span></span>avr-size -C --mcu=attiny26 main.elf
+AVR Memory Usage
+----------------
+Device: attiny26
+
+Program:    1316 bytes (64.3% Full)
+(.text + .data + .bootloader)
+
+Data:         23 bytes (18.0% Full)
+(.data + .bss + .noinit)
+</pre></div>
+
+
+<p>是不是很方便? 可惜arm-gcc里的size并没有这个选项, 于是从avr转到stm32之后, 常常会感觉到不方便.</p>
+<p>后来发现, 只要在Makefile里all目标后面加上几行, 也能达到同样目的. 需要你的工具链里有sed和bc, sed用来从size的结果里截取包含数据的第二行 ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/makefile_size.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://st.avros.net/articles/fermetnter_6f22_solar.html"><h2>最近的三个制作：酒酿机、6F22充电器、太阳能充电器</h2></a>
+        <div class= "well small"> 2015-08-15
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><ol>
+<li>
+<p>酒酿机</p>
+<p>做酒酿(醪醩)需要保持40度左右的温度发酵。正好家里有个最便宜的小熊酸奶机，不带控温功能的，能否用它来改装成酒酿机呢？</p>
+<p>把小熊酸奶机拆开一看，里面简单得一塌糊涂：铝板上装了个PTC电阻，直接接220V电源，作为发热器，旁边甩了两条线出来接前面板的指示灯。可以说毫无技术含量。于是把这些东西都拆掉，换成前几天做的PID控温电路。控温板上加了两个两位LED数码管，分别显示设定温度和实测温度，两个按键开关用来控温。加热器还是IRF530+LM35的配置。控温范围从35度到65度。</p>
+<p>发酵碗里装满水，放个温度计，开机一晚上实测……发现碗里的水温最终会比发热板的实测温度低15~20度。大概是因为发热板外面隔了一层塑料板，发酵碗又是一层塑料，两层塑料的热阻太大了。幸好温度已经能满足做酒酿的要求了。</p>
+<p>下次打算把LM35的引线接长一些，粘在发热板以外的塑料侧壁上，避免从发热板直接传导热量到LM35，这样效果也许会好些？</p>
+</li>
+<li>
+<p>6F22充电器</p>
+<p>手里有两个可充电的6F22，但是一直没有好用的充电器。以前买过一个，拆开一看，里面实在是惨不忍睹，只好扔了。</p>
+<p>自己做了一个，电路图如下：</p>
+<p><a href="/images2/2015/6f22_charger.png"><img src="/images2/2015/6f22_charger.png" width="480" /></a> </p>
+<p>从USB输入的5V电压，用TP7660二倍压得到10V，再通过100欧电阻限流后给6F22充电。TL061接成比较器，一个输入端接电池正极，另一个输入端接100欧电阻和1k电阻分压得到的约9 ...</p></li></ol> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/fermetnter_6f22_solar.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://st.avros.net/articles/pid_expr.html"><h2>PID控温实验</h2></a>
         <div class= "well small"> 2015-07-13
 
@@ -255,70 +343,6 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <p><a href="http://v.youku.com/v_show/id_XNTMzNTkxMDQ0.html" target="_blank">视频链接</a></p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/slide_sense.html">read more</a></div>
     </div>	
 				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/firefly&serlcd1602.html"><h2>萤火虫瓶子&LCD1602串口转换板</h2></a>
-        <div class= "well small"> 2013-03-19
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>前者是用AVR的io口模拟PWM, 驱动8个LED闪亮. </p>
-<p><a href="http://v.youku.com/v_show/id_XNTI4Nzc4MDYw.html" target="_blank">视频链接</a></p>
-<p>装到大玻璃瓶里, 关了灯看, 效果不错.</p>
-<p>分别试验了用PCF8574, 74HC164和用一片ATmega48实现用串口驱动1602液晶屏. </p>
-<p>PCF8574的方案很简单, 4个IO按4线法连接LCD高4位, 2个IO连接EN端和RS端. LCD RW直接接地, 用一只7660产生负压. 需要占用i2c口, 显示速度慢、性价比也低, 总之不推荐. </p>
-<p>用ATmega48扩展的话, 可以8线连接, 接口用i2c、spi、uart都可以, 用一个PWM口产生负压可以节省一只7660, 是最灵活的方式, 不过用uart时需要双方都有晶振. </p>
-<p>用74HC164要多占用两个IO, 不过用一些小技巧可以实现只占用两个GPIO：如图, 用电阻和二极管形成一个与门, 在串行写入数据时将最高位置1, 写完8bit后再拉高DATA端, 此时与门输出高电平, EN动作. 之后要拉低DATA, 连续八个CLK以清空164输出端, 避免影响下一轮. 实测写LCD快速、稳定, 成本也是三种方式里最低的. </p>
-<p><a href="/images/lcd_2wire.png" title="电路图"><img src="/images/lcd_2wire.png" width="500px" /></a></p>
-<p>后记: 后来还是觉得4线接法驱动LCD1602不太稳定. 继续改进, 改为用HC164的八个输出驱动LCD1602的全部8位数据接口, 输入端同时驱动RS脚, 同时再用一个IO来驱动EN脚. 总共用了三个IO, 不过稳定性好多了.</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/firefly&serlcd1602.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/usb18b20.html"><h2>USB温度计</h2></a>
-        <div class= "well small"> 2010-04-07
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>用ATMEGA8+DS18B20做了个USB接口的温度计, 插上电脑就能显示室内温度, 体积和一般的U盘差不多大.</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/usb18b20.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/cash_detector.html"><h2>验钞笔</h2></a>
-        <div class= "well small"> 2010-03-27
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>拆了一支圆珠笔，粗细正好能装下一节7号锂电，利用原来的弹簧当触点。</p>
-<p>笔尖的位置装了一个5mm紫外LED，串27欧电阻限流。</p>
-<p>就这么简单！</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/cash_detector.html">read more</a></div>
-    </div>	
-				
 <div class="pagination">
 <ul>
     <li class="prev"><a href="http://st.avros.net/category/gong-ju.html">&larr; Previous</a></li>
@@ -402,7 +426,7 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
     </div>     </div> 
 <footer>
 <br />
-<p><a href="http://st.avros.net">兰湾</a> &copy; Stavros 2016</p>
+<p><a href="http://st.avros.net">兰湾</a> &copy; Stavros 2017</p>
 </footer>
 
 </div> <!-- /container -->
