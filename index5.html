@@ -7,6 +7,8 @@
     <meta name="author" content="Stavros">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>>
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
     <script src="http://st.avros.net/theme/html5.js"></script>
@@ -55,6 +57,73 @@
         <div class="span9">
         
 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://st.avros.net/articles/avr_sd_waveplayer_2.html"><h2>R-2R SD卡WAVE播放器</h2></a>
+        <div class= "well small"> 2013-07-14
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>用ATMega8, 16.9344M晶振, 14位r-2r作为DAC, 实现了流畅播放16位 44.1kbps单声道wav.  双声道没试, 估计超点频应该差不多了. </p>
+<p>这东西有点说来话长. 最早是amobbs的马潮老师出了个题目, 8*8的LED屏, 中间四个常亮, 最外圈亮一个转圈跑. 那会儿我正好有块点阵屏闲着, 就焊了一块板, 从开始写程序计算, 39分钟解决了.  </p>
+<p>讨论过程中师弟TwoPerson把这位马潮老师惹怒了. 于是他放出狂言, 原文如下:  </p>
+<blockquote>
+<p>如果不服, 可以再次比试. 你在北大找5个学生, 组成一个小组. 用m16加一片lm324, 设计一个读取sd卡上wave文件, 并播放的wave播放器, 看谁做的好.  给你们一个月的时间, 下个学期开学我到北大找你, 比试实物效果. </p>
+</blockquote>
+<p>在我这个外行看来, 这个题目也就是一个人两三天到一周左右的工作量, 至于五个人搞一个月么? 不过后来事情一多也就把这回事忘了.  </p>
+<p>今年1月份想起来了, 于是动手开干. 用8位PWM先试了一次, 从学习SD协议、实现FAT开始, 焊接、写程序到调试全算上, 用了两个晚上、周六全天加周日半天, 基本完事. 当然8位PWM的音质有点惨不忍睹……</p>
+<p>这次改用r-2r ladder来实现16位输出 …</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/avr_sd_waveplayer_2.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://st.avros.net/articles/slide_sense.html"><h2>滑动触摸实验</h2></a>
+        <div class= "well small"> 2013-07-14
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>见ST的两个应用笔记, AN2927和AN2896. 基本原理就是把触摸区域当作一个电容, 用一个IO口通过大电阻对触摸区域充放电, 另一个IO口来读取状态, 记录充放电时间. 当手指摸上去时, 这个电容变大了, 因此充放电时间会变长. </p>
+<p><a href="http://v.youku.com/v_show/id_XNTMzNTkxMDQ0.html" target="_blank">视频链接</a></p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/slide_sense.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://st.avros.net/articles/nuclear_or_thermo_power.html"><h2>火电和核电, 哪个造成的放射性污染更严重?</h2></a>
+        <div class= "well small"> 2013-06-25
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>常识告诉我们...... 别急, 不要太相信常识, 一切要用数据说话. </p>
+<p>100万千瓦的核电站: 每年耗铀约30吨. 铀的密度很高, 和黄金差不多, 30吨铀也就是家里的大衣柜那么大, 一辆重型卡车就能拉走. 核燃料和核废料的运输和储存都有极严格的程序, 除非发生事故, 想泄露点都是很难的. 核废料最终会熔炼成类似玻璃的状态, 用水泥之类包裹, 再深埋处理. 一年埋一个大衣柜体积的核废料, 真的不算多, 一家人一年扔掉的生活垃圾估计都远不止这点体积.</p>
+<p>100万千瓦的火电站: 火电排放大量的粉尘和CO2之类, 这些都不用说了. 每年耗煤300万吨, 还用30吨重卡拉走的话, 就得10万辆, 平均每天就得300辆了. 注意这里还有个问题: 煤里也含有微量的铀. 在中国, 煤的平均含铀量大约3个ppm, 也就是说100万吨煤里就有3吨铀, 300万吨煤里就是9吨. 这些铀一部分随着烟尘排放到大气中, 一部分成了粉煤灰, 然后被加工成水泥、空心砖之类, 做了建筑材料. </p>
+<p>完了没有? 没完. 煤里还有另外一种放射性元素钍, 含量还要高一些, 在中国平均为6~10ppm. 也就是说这个100万千瓦的火电站每年消耗的300万吨煤里含有18~30吨的钍. 这些钍也一样, 要么被排放到大气中, 要么做了建筑材料. </p>
+<p>这还不算, 煤里还含有微量的钋 …</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/nuclear_or_thermo_power.html">read more</a></div>
+    </div>	
+				
+
+ 
         
 
  
@@ -193,7 +262,7 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <p>Vctrl * R3/(R3+R8) + Vfb * R8/(R3+R8) = Vout * R9 / (R2+R9)</p>
 <p>按上图的参数, 可以写为Vctrl * 10/11 + Vfb * 1/11 = Vout * 1/4</p>
 <p>对于LM2596-ADJ, 其Vfb = 1.23V, 于是有Vout = 4/11 * (10 * Vctrl + 1.23 )</p>
-<p>于是, 当Vctrl = 0V时, 输出电压为1 ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/lm2596_dac.html">read more</a></div>
+<p>于是, 当Vctrl = 0V时, 输出电压为1 …</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/lm2596_dac.html">read more</a></div>
     </div>	
 				
 
@@ -220,96 +289,6 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <p>用74HC164要多占用两个IO, 不过用一些小技巧可以实现只占用两个GPIO：如图, 用电阻和二极管形成一个与门, 在串行写入数据时将最高位置1, 写完8bit后再拉高DATA端, 此时与门输出高电平, EN动作. 之后要拉低DATA, 连续八个CLK以清空164输出端, 避免影响下一轮. 实测写LCD快速、稳定, 成本也是三种方式里最低的. </p>
 <p><a href="/images/lcd_2wire.png" title="电路图"><img src="/images/lcd_2wire.png" width="500px" /></a></p>
 <p>后记: 后来还是觉得4线接法驱动LCD1602不太稳定. 继续改进, 改为用HC164的八个输出驱动LCD1602的全部8位数据接口, 输入端同时驱动RS脚, 同时再用一个IO来驱动EN脚. 总共用了三个IO, 不过稳定性好多了.</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/firefly&serlcd1602.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/avr_sd_waveplayer.html"><h2>AVR SD WAVE播放器</h2></a>
-        <div class= "well small"> 2013-01-17
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>得从大约两年前说起, 那会儿amobbs的马潮老师出了个题目: 8x8的LED屏, 中间四个常亮, 最外圈亮一个转圈跑. </p>
-<p>这东西没啥难度吧？我正好有块点阵屏闲着, 就焊了一块板, 从开始写程序计算, 39分钟解决了.  </p>
-<p>讨论过程中一师弟(好象是TwoPerson?)大概出口不慎, 把这位马潮老师惹怒了——于是他又出了个题, 原话如下: </p>
-<blockquote>
-<p>如果不服, 可以再次比试. 你在北大找5个学生, 组成一个小组. 用m16加一片lm324, 设计一个读取sd卡上wave文件, 并播放的wave播放器, 看谁做的好. 给你们一个月的时间, 下个学期开学我到北大找你, 比试实物效果. </p>
-</blockquote>
-<p>首先声明一下, 本人纯粹是外行, 本科化学, 研究生改物理了, 以上纯属业余爱好. 马老师这题目在我这个外行看来, 也就是一个人两三天到一周左右的工作量, 至于五个人搞一个月么？不过后来事情一多也就把这回事忘了. </p>
-<p>前段时间突然记起来了, 于是动手开干. 电路图太简单就不画了. 觉得没必要上m16, 于是用了一片m8, 硬件SPI接SD卡, 8位PWM输出, 用一片TL061搭成低通滤波, 后面一只8050缓冲接喇叭. 从学习SD协议、实现FAT开始, 焊接、写程序到调试全算上, 用了两个晚上 ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/avr_sd_waveplayer.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/2012_conclusion.html"><h2>2012制作总结</h2></a>
-        <div class= "well small"> 2012-12-10
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>各种实验性质的就不提了, 挑几个好玩的吧~</p>
-<ol>
-<li>
-<p>桌面温湿度计</p>
-<p>ATmega48+DS18B20+DHT11的经典配置, 简单试验了一下能工作. 不过DHT11精度太差了, 跟另外一个专门的湿度计读数相差1/3, 完全没法用. </p>
-</li>
-<li>
-<p>三用手电</p>
-<p>ATtiny26, 用INT0切换控制一个白光LED、一个紫外LED和一个红色激光LED, 实现手电/验钞笔/激光笔三合一, 如图.</p>
-<p><a href="/images/cash_detector_1.jpg" title="验钞笔"><img src="/images/cash_detector_1.jpg"width="500px"/></a></p>
-<p>图1 内部构造</p>
-<p><a href="/images/cash_detector_2.jpg" title="验钞笔"><img src="/images/cash_detector_2.jpg"width="500px"/></a></p>
-<p>图2 验钞效果</p>
-<p><a href="/images/cash_detector_3.jpg" title="验钞笔"><img src="/images/cash_detector_3.jpg"width="500px"/></a></p>
-<p>图3 激光笔效果</p>
-</li>
-<li>
-<p>直流电子管电源</p>
-<p>用一节锂电池当电源, LM2577接成flyback, 输出再通过IRFR420接成线性稳压, 输出60V. 另一路通过1117输出1.4V. 两路相互隔离. </p>
-</li>
-<li>
-<p>盖革计数器</p>
-<p>用一只锂电供电, 两只74HC00中的一只接成多谐振荡器, 缓冲后推动两只Si2302, 通过变压器升压到400V给盖革计数管供电; 另一只74HC00接成单稳态电路, 盖革计数管输出的脉冲整形、延时后推动LED和蜂鸣器. </p>
-</li>
-<li>
-<p>毫欧表/高斯计/温度计</p>
-<p>本质都一样, 都是四线法测电阻, 电流引线上串个精密电阻, 取它两端压降作为基准电压, 也就是所谓的比例式配置. 当毫欧表和高斯计用时 ...</p></li></ol> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/2012_conclusion.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/cm102_speaker.html"><h2>CM102音箱</h2></a>
-        <div class= "well small"> 2011-02-13
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>CM102是台湾C-Media公司的USB声卡芯片. 跟著名的PCM270x相比, 好处就是: 便宜、有DIP封装, 当然效果没法比了. 电路图如下: </p>
-<p><a href="/images/cm102_speaker.png" title="电路图"><img src="/images/cm102_speaker.png" width="500px" /></a></p>
-<p>结果是有很大的不规则的噪声...开始以为是VBUS直供TDA2822的原因, 于是让VBUS过了1117-3.3再供TDA2822, 结果仍然噪声很大；全换成用电池供电, 仍然噪声很大；干脆断开TDA2822, 把耳机接到CM102的输出上, 噪声没了. 看样子是买到山寨2822了, 下次用TEA2025重做吧, 或者直接改用LM4890. </p>
-<p>ps. C-Media的网站怎么可以这么2呢... 手里CM102的datasheet旧了, 而且几个图都巨模糊, 想找个新的看看, 上CM官网一找, 倒是有, 但是不支持google浏览器；换ie, 发现让注册用户；注册了用户, 下载了datasheet一看, 几个图还是模糊的. 这家的东西似乎卖得还不错, 比如当年的CMI8738. </p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/cm102_speaker.html">read more</a></div>
     </div>	
 				
 <div class="pagination">

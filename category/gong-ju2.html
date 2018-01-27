@@ -7,6 +7,8 @@
     <meta name="author" content="Stavros">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>>
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
     <script src="http://st.avros.net/theme/html5.js"></script>
@@ -60,6 +62,100 @@
  
 
     <div class='article'>
+        <a href="http://st.avros.net/articles/fpm_skill.html"><h2>开源我的fpm skill库</h2></a>
+        <div class= "well small"> 2016-11-28
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>无责任提供, 地址是<a href="https://github.com/tomzbj/fpm_skills">https://github.com/tomzbj/fpm_skills</a>, 请大家随意取用. 不定期更新.</p>
+<p>部分由Tariel和Kurapica制作的封装没有放进来, 如果有需要请自行联系他们二位.</p>
+<p>ps. 请先下载根目录的fpm.il并替换fpm目录的同名文件. 这个明文fpm.il由minux提供, 我添加了对槽孔的支持, 以及修正了若干bug, 比如双排简牛的缺口方向搞反, 四脚贴片有源晶振的管脚顺序错误之类.</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/fpm_skill.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://st.avros.net/articles/change_resolution.html"><h2>一键切换屏幕分辨率</h2></a>
+        <div class= "well small"> 2016-11-17
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>现在大家的桌面都是1920x1080或者2560x1440之类高分辨率了。但是有时候还不得不临时调到较低的分辨率，比如遇到需要像素级精确定位的时候，遇到百度网盘或者微信PC版这样字体又小又不能调大的软件的时候，等等。桌面右键然后改分辨率还是太麻烦了，用完了还得改回来。</p>
+<p>有没有办法一键切换分辨率呢？没找到现成的工具，自己写一个。程序如下：</p>
+<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;windows.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="n">WINAPI</span> <span class="nf">WinMain</span> <span class="p">(</span><span class="n">HINSTANCE</span> <span class="n">hThisInstance</span><span class="p">,</span> <span class="n">HINSTANCE</span> <span class="n">hPrevInstance</span><span class="p">,</span>
+            <span class="n">LPSTR</span> <span class="n">lpszArgument</span><span class="p">,</span> <span class="kt">int</span> <span class="n">nFunsterStil</span><span class="p">)</span> 
+<span class="p">{</span> 
+    <span class="n">DEVMODE</span> <span class="n">dm</span><span class="p">;</span>
+
+    <span class="n">EnumDisplaySettings</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="n">ENUM_CURRENT_SETTINGS</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">dm</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">dm</span><span class="p">.</span><span class="n">dmPelsHeight</span> <span class="o">==</span> <span class="mi">1080</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">dm</span><span class="p">.</span><span class="n">dmPelsHeight</span> <span class="o">=</span> <span class="mi">720</span><span class="p">;</span>
+        <span class="n">dm</span><span class="p">.</span><span class="n">dmPelsWidth</span> <span class="o">=</span> <span class="mi">1280</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+        <span class="n">dm</span><span class="p">.</span><span class="n">dmPelsHeight</span> <span class="o">=</span> <span class="mi">1080</span><span class="p">;</span>
+        <span class="n">dm</span><span class="p">.</span><span class="n">dmPelsWidth</span> <span class="o">=</span> <span class="mi">1920</span><span class="p">;</span> 
+    <span class="p">}</span>
+    <span class="n">ChangeDisplaySettings</span><span class="p">(</span><span class="o">&amp;</span><span class="n">dm …</span></pre></div> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/change_resolution.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://st.avros.net/articles/card_light.html"><h2>卡片手电 & STLINK转接板 & 迷你电源</h2></a>
+        <div class= "well small"> 2016-09-22
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><ol>
+<li>
+<p>卡片手电 <br>
+    做了个和银行卡一样大的手电. 最厚处厚5.5mm, 因此可以和其他的卡一起塞在钱包里. <br>
+    本来用AMC7135作为驱动, 结果这东西太娇气, 一不小心就烧坏, 于是干脆直接用电阻限流了, 好象效果也差不多.<br>
+    效果见图:<br>
+<a href="/images2/2016/card_light_1.jpg" title="卡片手电"><img src="/images2/2016/card_light_1.jpg" width="500px"/></a><br>
+<a href="/images2/2016/card_light_2.jpg" title="卡片手电"><img src="/images2/2016/card_light_2.jpg" width="500px"/></a>  </p>
+</li>
+<li>
+<p>STLINK转接板<br>
+    JLINK和STLINK提供的都是20pin的标准JTAG口. 但是20pin实在太占地方了, 自己做板一般只用4pin或者5pin的SWD接口, 所以做了这个转接小板, 如图:<br>
+<a href="/images2/2016/jtag_swd.jpg" title="STLINK转接板"><img src="/images2/2016/jtag_swd.jpg" width="500px"/></a>  </p>
+</li>
+<li>
+<p>simple power<br>
+    可以方便地从一节18650得到3.3V, 2.8V, 2.4V, 2.0V, 1.8V和1.5V共6种电压. 之前用SEPIC电路做过一个, 发现DC-DC还是干扰太大, 所以这次用了线性稳压, 干扰能小点.<br>
+    只用一个按键开关, 长按为开/关机, 短按为在不同电压之间切换, 用6个LED来指示各档输出电压.<br>
+<a href="/images2/2016/simple_power.jpg" title="simple power"><img src="/images2/2016/simple_power.jpg" width="500px"/></a></p>
+</li>
+</ol> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/card_light.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://st.avros.net/articles/ikea_led.html"><h2>修复宜家LED灯一则</h2></a>
         <div class= "well small"> 2016-03-16
 
@@ -72,8 +168,8 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <p>LED需要恒流驱动，直接接个恒压输出的适配器上去是不行的，要么不亮，要么烧坏。串个电阻行不行呢？行是行，不过电阻会很热。这个LED灯是3W的，工作电流1A，接到5V电源上就需要串联2欧的电阻，电阻的发热量达到2W。这么做显然太不优雅。</p>
 <p>幸好手里还有若干LED驱动IC：华润的PT4115，用它可以顺便把调光功能也加上。画了个电路图如下：</p>
 <p><a href="/images2/2016/ikea_led.png"><img src="/images2/2016/ikea_led.png" width="500" /></a></p>
-<p>其中R1用于设定LED工作电流，公式为<span class="math">\(I_{\rm LED} = \frac{0.1}{R_1}\)</span>. 电位器R2用于调光，从几百欧到几十kΩ的都可以用，这里用了拨轮式的音量电位器，好处是阻值按指数变化，这样LED亮度也按指数变化，会感觉实际亮度变化比较自然。</p>
-<p>LDO XC6206用于给PT4115的调光脚供电，用输出2.5V或3.3V的LDO都行。PT4115允许的输入电压范围是6~30V，但注意XC6206的输入电压最高只能到7V，因此只能用6~7V的电源供电。如果需要用更高输入电压的电源，可以把XC6206换成HT7133、MIC5207之类 ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/ikea_led.html">read more</a></div>
+<p>其中R1用于设定LED工作电流，公式为$I_{\rm LED} = \frac{0.1}{R_1}$. 电位器R2用于调光，从几百欧到几十kΩ的都可以用，这里用了拨轮式的音量电位器，好处是阻值按指数变化，这样LED亮度也按指数变化，会感觉实际亮度变化比较自然。</p>
+<p>LDO XC6206用于给PT4115的调光脚供电，用输出2.5V或3.3V的LDO都行。PT4115允许的输入电压范围是6~30V，但注意XC6206的输入电压最高只能到7V，因此只能用6~7V的电源供电。如果需要用更高输入电压的电源，可以把XC6206换成HT7133、MIC5207之类 …</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/ikea_led.html">read more</a></div>
     </div>	
 				
 
@@ -107,7 +203,7 @@ Data:         23 bytes (18.0% Full)
 
 
 <p>是不是很方便? 可惜arm-gcc里的size并没有这个选项, 于是从avr转到stm32之后, 常常会感觉到不方便.</p>
-<p>后来发现, 只要在Makefile里all目标后面加上几行, 也能达到同样目的. 需要你的工具链里有sed和bc, sed用来从size的结果里截取包含数据的第二行 ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/makefile_size.html">read more</a></div>
+<p>后来发现, 只要在Makefile里all目标后面加上几行, 也能达到同样目的. 需要你的工具链里有sed和bc, sed用来从size的结果里截取包含数据的第二行 …</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/makefile_size.html">read more</a></div>
     </div>	
 				
 
@@ -138,7 +234,7 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <p>手里有两个可充电的6F22，但是一直没有好用的充电器。以前买过一个，拆开一看，里面实在是惨不忍睹，只好扔了。</p>
 <p>自己做了一个，电路图如下：</p>
 <p><a href="/images2/2015/6f22_charger.png"><img src="/images2/2015/6f22_charger.png" width="480" /></a> </p>
-<p>从USB输入的5V电压，用TP7660二倍压得到10V，再通过100欧电阻限流后给6F22充电。TL061接成比较器，一个输入端接电池正极，另一个输入端接100欧电阻和1k电阻分压得到的约9 ...</p></li></ol> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/fermetnter_6f22_solar.html">read more</a></div>
+<p>从USB输入的5V电压，用TP7660二倍压得到10V，再通过100欧电阻限流后给6F22充电。TL061接成比较器，一个输入端接电池正极，另一个输入端接100欧电阻和1k电阻分压得到的约9 …</p></li></ol> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/fermetnter_6f22_solar.html">read more</a></div>
     </div>	
 				
 
@@ -256,91 +352,7 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 
 <p>需要注意的是, objcopy生成的.o文件默认是把数据放在.data段的. 因此这里需要加个--rename-section的选项, 把.data改成.text或者.rodata, 不然单片机可怜的一点点RAM根本不够用. 如果是在PC上运行, 这里改不改就无所谓了, 不过内存还是能省点就省点的好.</p>
 <p>在.o里会生成三个符号: <code>_binary_asc5x7_bin_start, _binary_asc5x7_bin_end, binary_asc5x7_bin_size.</code></p>
-<p>在程序里这么调用 ...</p></li></ol> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/stm32_fonts.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/dmm2650.html"><h2>Sansei DMM2650背光改装记录</h2></a>
-        <div class= "well small"> 2014-12-12
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>Sansei DMM2650是80年代的小型台式四位半自动量程万用表, 在Diyers中一直很受欢迎. sunzx送了我一台, 相当好用. 使用过程中发现它有一个很大的不足之处就是液晶屏没有背光, 光线较暗时读数不容易看清, 所以我决定给它加装背光. </p>
-<p><a href="/images/dmm2650_1.jpg"><img src="/images/dmm2650_1.jpg" width="500" /></a></p>
-<p>DMM2650的液晶屏是双列针脚直插式的, 小心地把它从插座上取下来, 如图：</p>
-<p><a href="/images/dmm2650_2.jpg"><img src="/images/dmm2650_2.jpg" width="500" /></a></p>
-<p>背面贴了一层反光膜. 这层膜很致密, 用LED手电从背后照, 在前面基本看不到. 因此要加装背光, 必须把这层膜撕下来. </p>
-<p><a href="/images/dmm2650_3.jpg"><img src="/images/dmm2650_3.jpg" width="500" /></a></p>
-<p>撕的时候要很小心, 引脚碰弯了就不容易按回去了. </p>
-<p><a href="/images/dmm2650_4.jpg"><img src="/images/dmm2650_4.jpg" width="500" /></a> </p>
-<p>接下来制作背光板. 这块2cm x 8cm的洞洞板长度长了点, 两端要锯掉一些. </p>
-<p><a href="/images/dmm2650_5.jpg"><img src="/images/dmm2650_5.jpg" width="500" /></a> </p>
-<p>锯完之后, 尺寸正合适. </p>
-<p><a href="/images/dmm2650_6.jpg"><img src="/images/dmm2650_6.jpg" width="500" /></a> </p>
-<p>在上面焊10个0805的白光LED, 以及相应的限流电阻. 背光不需要很亮, 大约0.5mA就足够, 这里限流电阻用了5.1K. </p>
-<p><a href="/images/dmm2650_7.jpg"><img src="/images/dmm2650_7.jpg" width="500" /></a> </p>
-<p>点亮背光的效果. </p>
-<p><a href="/images/dmm2650_8.jpg"><img src="/images/dmm2650_8.jpg" width="500" /></a> </p>
-<p>液晶屏插座正中是驱动芯片, 做好的背光板可以用双面胶贴在驱动芯片上. </p>
-<p><a href="/images/dmm2650_9.jpg"><img src="/images/dmm2650_9.jpg" width="500" /></a> </p>
-<p>接下来要找到供电正负端, 很好找, 红色的电源开关最后面那两个引脚就是. 把背光板的引线缠在上面, 焊好. </p>
-<p><a href="/images/dmm2650_10.jpg"><img src="/images/dmm2650_10.jpg" width="500" /></a> </p>
-<p>装回前面板, 开机! 怎么效果有点逗比……看来没有柔光片是不行的. </p>
-<p><a href="/images/dmm2650_11.jpg"><img src="/images/dmm2650_11.jpg" width="500" /></a> </p>
-<p>柔光片这东西不好找, 试了不干胶贴纸的背纸、白色绝缘胶带、普通A4纸, 效果都不理想 ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/dmm2650.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/pumpkin_light.html"><h2>南瓜灯</h2></a>
-        <div class= "well small"> 2014-05-07
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>某次在超市看到有这种球形蜡烛头卖，如图：</p>
-<p><a href="/images/pumpkin_1.jpg"><img src="/images/pumpkin_1.jpg" width="500" /></a></p>
-<p>用记号笔把适当的地方涂黑，就成了这样：</p>
-<p><a href="/images/pumpkin_2.jpg"><img src="/images/pumpkin_2.jpg" width="500" /></a></p>
-<p>最后呢，在它下面熔个洞，放进一个橙色大功率LED，点亮以后的效果：</p>
-<p><a href="/images/pumpkin_3.jpg"><img src="/images/pumpkin_3.jpg" width="500" /></a></p>
-<p>好象万圣节的时间搞错了……不过无所谓啦。</p>
-<p>最后，用AVR让它的亮度忽明忽暗，尽可能象真正的蜡烛一样——其实挺困难的。</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/pumpkin_light.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/slide_sense.html"><h2>滑动触摸实验</h2></a>
-        <div class= "well small"> 2013-07-14
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>见ST的两个应用笔记, AN2927和AN2896. 基本原理就是把触摸区域当作一个电容, 用一个IO口通过大电阻对触摸区域充放电, 另一个IO口来读取状态, 记录充放电时间. 当手指摸上去时, 这个电容变大了, 因此充放电时间会变长. </p>
-<p><a href="http://v.youku.com/v_show/id_XNTMzNTkxMDQ0.html" target="_blank">视频链接</a></p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/slide_sense.html">read more</a></div>
+<p>在程序里这么调用 …</p></li></ol> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/stm32_fonts.html">read more</a></div>
     </div>	
 				
 <div class="pagination">

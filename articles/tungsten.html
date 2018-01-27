@@ -7,6 +7,8 @@
     <meta name="author" content="Stavros">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>>
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
     <script src="http://st.avros.net/theme/html5.js"></script>
@@ -66,77 +68,21 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 	
         <div><p>知乎上一哥们提了个问题：3.7V 电压，1.2A 电流，用钨丝绕成螺旋式弹簧丝，工作温度在 1200 摄氏度左右，怎么计算出来需要用多大直径的钨丝？链接：<a href="http://www.zhihu.com/question/33791069/answer/57434994">http://www.zhihu.com/question/33791069/answer/57434994</a></p>
 <p>以下是我的回答：</p>
-<p>斯特凡－玻尔兹曼定律：<span class="math">\(j^*=\epsilon\sigma T^4\)</span>，其中<span class="math">\(j^*\)</span>为辐射通量，<span class="math">\(\sigma\)</span>为斯特凡－玻尔兹曼常数，值为<span class="math">\(5.67\times 10^{-8}\rm{J \cdot s}^{-1}\cdot\rm m^{-2}\cdot\rm K^{-4}\)</span>。<span class="math">\(\epsilon\)</span>为辐射系数，把钨丝当成黑体，则<span class="math">\(\epsilon=1\)</span>。</p>
+<p>斯特凡－玻尔兹曼定律：$j^<em>=\epsilon\sigma T^4$，其中$j^</em>$为辐射通量，$\sigma$为斯特凡－玻尔兹曼常数，值为$5.67\times 10^{-8}\rm{J \cdot s}^{-1}\cdot\rm m^{-2}\cdot\rm K^{-4}$。$\epsilon$为辐射系数，把钨丝当成黑体，则$\epsilon=1$。</p>
 <p>忽略传导和对流，只考虑辐射；把钨丝作为黑体，则</p>
-<p>钨丝辐射的总功率为<span class="math">\(P = A\cdot 5.67^{-8}\cdot1473^4\)</span>。</p>
-<p>已知总功率<span class="math">\(P=3.7\rm{V}\times1.2\rm{A}=4.44\rm W\)</span>，</p>
-<p>则可得钨丝表面积<span class="math">\(A=1.66\times10^{-5} \rm m^2\)</span>。</p>
+<p>钨丝辐射的总功率为$P = A\cdot 5.67^{-8}\cdot1473^4$。</p>
+<p>已知总功率$P=3.7\rm{V}\times1.2\rm{A}=4.44\rm W$，</p>
+<p>则可得钨丝表面积$A=1.66\times10^{-5} \rm m^2$。</p>
 <p><a href="/images2/2015/tungsten_resistance.png"><img src="/images2/2015/tungsten_resistance.png" width="480" /></a></p>
-<p>根据这个图，钨在 1200 摄氏度时的电阻率大约是<span class="math">\(0.41\Omega\cdot \rm{mm}^2\cdot \rm{m}^{-1}\)</span>，电阻我们已经知道是<span class="math">\(3.7\rm{V} / 1.2\rm{A} = 3.08\Omega\)</span>。</p>
-<p>把钨丝当作一个截面半径为<span class="math">\(r\)</span>，长度为<span class="math">\(h\)</span>的圆柱体，则它的电阻应该是<span class="math">\(\frac{0.41\times10^{-6}h}{\pi r^2}\)</span>，</p>
-<p>表面积是<span class="math">\(2\pi rh\)</span>(两个端面可以忽略不计)。</p>
-<p>整理得<span class="math">\(\frac{h}{r^2}=2.36\times10^7，rh = 2.64\times10^{-6}\)</span>。</p>
-<p>解得<span class="math">\(h=0.055\rm m\)</span>, <span class="math">\(r=4.82\times10^{-5}\rm m\)</span>，也就是说长度 55mm，直径 0.096mm。</p>
+<p>根据这个图，钨在 1200 摄氏度时的电阻率大约是$0.41\Omega\cdot \rm{mm}^2\cdot \rm{m}^{-1}$，电阻我们已经知道是$3.7\rm{V} / 1.2\rm{A} = 3.08\Omega$。</p>
+<p>把钨丝当作一个截面半径为$r$，长度为$h$的圆柱体，则它的电阻应该是$\frac{0.41\times10^{-6}h}{\pi r^2}$，</p>
+<p>表面积是$2\pi rh$(两个端面可以忽略不计)。</p>
+<p>整理得$\frac{h}{r^2}=2.36\times10^7，rh = 2.64\times10^{-6}$。</p>
+<p>解得$h=0.055\rm m$, $r=4.82\times10^{-5}\rm m$，也就是说长度 55mm，直径 0.096mm。</p>
 <p>验算一下，一根长 55mm、直径 0.096mm 的钨丝，1200 度时的电阻是 3.12 欧，</p>
-<p>表面积是 <span class="math">\(16.6\rm{mm}^2\)</span>，和前面计算相符。</p>
+<p>表面积是 $16.6\rm{mm}^2$，和前面计算相符。</p>
 <p>如果是做题，做到这里就可以结束了。但如果是真做一个灯泡出来，则必须考虑灯泡内部充入惰性气体的对流和传导热量、钨丝直接向灯泡引出脚的传热、钨丝具体成分导致的电阻率变化 (可能相当大！) 等等。</p>
-<p>最后还得实际做一个来验证，在实测参数的基础上再调整。</p>
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
-
-    if (false) {
-        align = (screen.width < 768) ? "left" : align;
-        indent = (screen.width < 768) ? "0em" : indent;
-        linebreak = (screen.width < 768) ? 'true' : linebreak;
-    }
-    
-    var mathjaxscript = document.createElement('script');
-    var location_protocol = (false) ? 'https' : document.location.protocol;
-    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript'; 
-    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-</script></div>
+<p>最后还得实际做一个来验证，在实测参数的基础上再调整。</p></div>
 	
         <hr>
 

@@ -7,6 +7,8 @@
     <meta name="author" content="Stavros">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>>
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
     <script src="http://st.avros.net/theme/html5.js"></script>
@@ -55,6 +57,80 @@
         <div class="span9">
         
 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://st.avros.net/articles/stm32_fonts.html"><h2>在stm32上使用二进制字库的简单方法</h2></a>
+        <div class= "well small"> 2015-03-13
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>标题其实可以写成"在可执行程序里嵌入二进制资源的方法", 不过这个题目大了点, 还是原样吧.</p>
+<p>以前如果我们用到不带字库的点阵LCD, 一般都是把字库按16进制写成一个大数组, 再和其他源程序一起编译. 有没有方便一点的办法呢？这里给出两个方案.</p>
+<ol>
+<li>
+<p>使用objcopy把字库转成目标文件(.o/.obj)</p>
+<p>假设我们需要嵌入的是5x7的ascii点阵字库, 文件名是asc5x7.bin.</p>
+<p>在arm-gcc环境下, 命令如下:</p>
+<div class="highlight"><pre><span></span>arm-none-eabi-objcopy -B arm -I binary -O elf32-littlearm --rename-section .data=.rodata asc5x7.bin asc5x7.o
+</pre></div>
+
+
+<p>需要注意的是, objcopy生成的.o文件默认是把数据放在.data段的. 因此这里需要加个--rename-section的选项, 把.data改成.text或者.rodata, 不然单片机可怜的一点点RAM根本不够用. 如果是在PC上运行, 这里改不改就无所谓了, 不过内存还是能省点就省点的好.</p>
+<p>在.o里会生成三个符号: <code>_binary_asc5x7_bin_start, _binary_asc5x7_bin_end, binary_asc5x7_bin_size.</code></p>
+<p>在程序里这么调用 …</p></li></ol> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/stm32_fonts.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://st.avros.net/articles/usb_3x_charger.html"><h2>带负载指示的USB一拖三充电器</h2></a>
+        <div class= "well small"> 2015-01-17
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>现在平板/手机之类一般都用USB充电了. 晚上睡觉前, 经常得两三个设备一起充电, 插座都不够用了. 如果能在一个充电器上做出几个USB口同时给它们充电, 岂不是很方便?</p>
+<p>不过这么一来, 供电就比较成问题了. 现在的设备一般都需要1A以上的充电电流, 有的需要2A. 3个2A一起充就得6A, 4个就得8A. 前面如果用12V降压到5V, 80%效率的话, 5V 6A需要提供12V 3.2A, 5V 8A需要提供12V 4.2A. 能提供这么大电流的12V适配器倒是有, 但是不太便携了. 所以还是折衷一下, 输出4A电流, 这样前面用12V 2A的适配器, 勉强够用. 这样就不能同时充3个2A的设备了, 免得一不小心就冒烟. 安全起见, 最好是再加个负载指示, 随时知道输出多大电流.</p>
+<p>电路如图, 从12V降压到5V, 用了AOSMD的AOZ1014. 这颗SOIC8的小芯片能提供最大5A的输出电流, 不过感觉不怎么踏实, 4A保险些. 输出电压用8.2k和1.5k电阻设定为0.8V * (8.2+1.5 …</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/usb_3x_charger.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://st.avros.net/articles/dc_tube_power.html"><h2>直流电子管电源</h2></a>
+        <div class= "well small"> 2015-01-16
+
+by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>玩直流管, 供电是个大麻烦. 甲电还好办, 一节电池搞定; 乙电一般需要60~90V, 要么从市电变压整流再滤波, 要么就DC-DC升压; boost升压还不行, 得和甲电隔离才行, 不然玩2P2之类需要栅偏压的管子就麻烦了, 因此只能用flyback或者推挽的方式.</p>
+<p>电路如图, CD4047接成多谐振荡器, 由两只74AHC1G00推动AO4800, AO4800的两只NMOS以推挽方式工作.</p>
+<p><a href="/images/dc_tube_power.png" title="电路图"><img src="/images/dc_tube_power.png" width="500px" /></a></p>
+<p>变压器的参数是... 忘了, 只好用LC表测量各绕组电感量, 初级分别是659uH和666uH, 次级则是188mH+188mH. 由此可算出匝数比是1:17. 按这个匝数比, 两个次级绕组串联, 锂电池电压从4.2V降落到3.5V时, 理论输出电压应该是118V~142V. 这个变压器不大, 线径很细, 内阻不小, 因此输出电压不会这么高, 给直流电子管供电还算合适.</p>
+<p>AMS1117-ADJ提供甲电. 1117要求5~10mA的最小负载电流, 否则空载输出电压会偏高. 这里应该给它加个几百欧的电阻作为负载. 不是大问题, 算了吧.</p>
+<p>用ATTiny13的ADC实现了简单的电池电量检测, 由红绿双色LED显示. 电池电压在4.0V以上时, LED显示绿色; 3.7V …</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/dc_tube_power.html">read more</a></div>
+    </div>	
+				
+
+ 
         
 
  
@@ -112,7 +188,7 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <p><a href="/images/dmm2650_10.jpg"><img src="/images/dmm2650_10.jpg" width="500" /></a> </p>
 <p>装回前面板, 开机! 怎么效果有点逗比……看来没有柔光片是不行的. </p>
 <p><a href="/images/dmm2650_11.jpg"><img src="/images/dmm2650_11.jpg" width="500" /></a> </p>
-<p>柔光片这东西不好找, 试了不干胶贴纸的背纸、白色绝缘胶带、普通A4纸, 效果都不理想 ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/dmm2650.html">read more</a></div>
+<p>柔光片这东西不好找, 试了不干胶贴纸的背纸、白色绝缘胶带、普通A4纸, 效果都不理想 …</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/dmm2650.html">read more</a></div>
     </div>	
 				
 
@@ -218,73 +294,6 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
         <div class="summary"><p>电路如图, 74HC04的一个非门接成10.245M晶体振荡器, 晶体一端并联变容二极管. 用剩下的五个非门来推动2N7002, 2N7002的D极谐振在10.245M的五倍频, 51.225M频率上. </p>
 <p><a href="/images/50m_fm.png"><img src="/images/50m_fm.png" width="500" /></a></p>
 <p>用VX-7R接收, 不管走到屋里哪个角落, 信号都挺强的. 可惜北京不允许使用50M频率, 只能在屋里大概试试了. 估计到开阔地能发射相当远的吧. </p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/50m_fm_tx.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/avr_sd_waveplayer_2.html"><h2>R-2R SD卡WAVE播放器</h2></a>
-        <div class= "well small"> 2013-07-14
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>用ATMega8, 16.9344M晶振, 14位r-2r作为DAC, 实现了流畅播放16位 44.1kbps单声道wav.  双声道没试, 估计超点频应该差不多了. </p>
-<p>这东西有点说来话长. 最早是amobbs的马潮老师出了个题目, 8*8的LED屏, 中间四个常亮, 最外圈亮一个转圈跑. 那会儿我正好有块点阵屏闲着, 就焊了一块板, 从开始写程序计算, 39分钟解决了.  </p>
-<p>讨论过程中师弟TwoPerson把这位马潮老师惹怒了. 于是他放出狂言, 原文如下:  </p>
-<blockquote>
-<p>如果不服, 可以再次比试. 你在北大找5个学生, 组成一个小组. 用m16加一片lm324, 设计一个读取sd卡上wave文件, 并播放的wave播放器, 看谁做的好.  给你们一个月的时间, 下个学期开学我到北大找你, 比试实物效果. </p>
-</blockquote>
-<p>在我这个外行看来, 这个题目也就是一个人两三天到一周左右的工作量, 至于五个人搞一个月么? 不过后来事情一多也就把这回事忘了.  </p>
-<p>今年1月份想起来了, 于是动手开干. 用8位PWM先试了一次, 从学习SD协议、实现FAT开始, 焊接、写程序到调试全算上, 用了两个晚上、周六全天加周日半天, 基本完事. 当然8位PWM的音质有点惨不忍睹……</p>
-<p>这次改用r-2r ladder来实现16位输出 ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/avr_sd_waveplayer_2.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/slide_sense.html"><h2>滑动触摸实验</h2></a>
-        <div class= "well small"> 2013-07-14
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>见ST的两个应用笔记, AN2927和AN2896. 基本原理就是把触摸区域当作一个电容, 用一个IO口通过大电阻对触摸区域充放电, 另一个IO口来读取状态, 记录充放电时间. 当手指摸上去时, 这个电容变大了, 因此充放电时间会变长. </p>
-<p><a href="http://v.youku.com/v_show/id_XNTMzNTkxMDQ0.html" target="_blank">视频链接</a></p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/slide_sense.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://st.avros.net/articles/nuclear_or_thermo_power.html"><h2>火电和核电, 哪个造成的放射性污染更严重?</h2></a>
-        <div class= "well small"> 2013-06-25
-
-by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
- 
-
-
- </div>
-        <div class="summary"><p>常识告诉我们...... 别急, 不要太相信常识, 一切要用数据说话. </p>
-<p>100万千瓦的核电站: 每年耗铀约30吨. 铀的密度很高, 和黄金差不多, 30吨铀也就是家里的大衣柜那么大, 一辆重型卡车就能拉走. 核燃料和核废料的运输和储存都有极严格的程序, 除非发生事故, 想泄露点都是很难的. 核废料最终会熔炼成类似玻璃的状态, 用水泥之类包裹, 再深埋处理. 一年埋一个大衣柜体积的核废料, 真的不算多, 一家人一年扔掉的生活垃圾估计都远不止这点体积.</p>
-<p>100万千瓦的火电站: 火电排放大量的粉尘和CO2之类, 这些都不用说了. 每年耗煤300万吨, 还用30吨重卡拉走的话, 就得10万辆, 平均每天就得300辆了. 注意这里还有个问题: 煤里也含有微量的铀. 在中国, 煤的平均含铀量大约3个ppm, 也就是说100万吨煤里就有3吨铀, 300万吨煤里就是9吨. 这些铀一部分随着烟尘排放到大气中, 一部分成了粉煤灰, 然后被加工成水泥、空心砖之类, 做了建筑材料. </p>
-<p>完了没有? 没完. 煤里还有另外一种放射性元素钍, 含量还要高一些, 在中国平均为6~10ppm. 也就是说这个100万千瓦的火电站每年消耗的300万吨煤里含有18~30吨的钍. 这些钍也一样, 要么被排放到大气中, 要么做了建筑材料. </p>
-<p>这还不算, 煤里还含有微量的钋 ...</p> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/nuclear_or_thermo_power.html">read more</a></div>
     </div>	
 				
 <div class="pagination">
