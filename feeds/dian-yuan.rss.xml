@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>兰湾 - 电源</title><link href="http://st.avros.net/" rel="alternate"></link><link href="http://st.avros.net/feeds/dian-yuan.rss.xml" rel="self"></link><id>http://st.avros.net/</id><updated>2015-08-09T00:00:00+08:00</updated><entry><title>学习了一下散热片的简单估算</title><link href="http://st.avros.net/articles/heatsink_calc.html" rel="alternate"></link><published>2015-08-09T00:00:00+08:00</published><updated>2015-08-09T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2015-08-09:/articles/heatsink_calc.html</id><summary type="html">&lt;p&gt;常用的板翅式散热器，其有效散热面积为：$$散热面积=(翅片高度\times2\times翅片数量+基板宽度)\times截断长度$$&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>兰湾 - 电源</title><link href="http://st.avros.net/" rel="alternate"></link><link href="http://st.avros.net/feeds/dian-yuan.rss.xml" rel="self"></link><id>http://st.avros.net/</id><updated>2015-08-09T00:00:00+08:00</updated><entry><title>学习了一下散热片的简单估算</title><link href="http://st.avros.net/articles/heatsink-calc.html" rel="alternate"></link><published>2015-08-09T00:00:00+08:00</published><updated>2015-08-09T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2015-08-09:/articles/heatsink-calc.html</id><summary type="html">&lt;p&gt;常用的板翅式散热器，其有效散热面积为：$$散热面积=(翅片高度\times2\times翅片数量+基板宽度)\times截断长度$$&lt;/p&gt;
 &lt;p&gt;有效散热面积和热阻的关系：&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -31,7 +31,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;简单拟合得:$$R_\mathrm{sa}=23.3A^{-0.39}$$。&lt;/p&gt;
+&lt;p&gt;简单拟合得:$$R_\mathrm{sa}=23.3A^{-0.39}$$&lt;/p&gt;
 &lt;p&gt;总热阻$$R_\mathrm{tot}=R_\mathrm{sa}+R_\mathrm{cs}+R_ …&lt;/p&gt;</summary><content type="html">&lt;p&gt;常用的板翅式散热器，其有效散热面积为：$$散热面积=(翅片高度\times2\times翅片数量+基板宽度)\times截断长度$$&lt;/p&gt;
 &lt;p&gt;有效散热面积和热阻的关系：&lt;/p&gt;
 &lt;table&gt;
@@ -64,20 +64,23 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;简单拟合得:$$R_\mathrm{sa}=23.3A^{-0.39}$$。&lt;/p&gt;
-&lt;p&gt;总热阻$$R_\mathrm{tot}=R_\mathrm{sa}+R_\mathrm{cs}+R_\mathrm{jc}$$。&lt;/p&gt;
-&lt;p&gt;注：$$R_\mathrm{sa}$$为散热片向空气散热的热阻。
-$$R_\mathrm{cs}$$为器件和散热器的接触热阻，通过导热硅脂接触的取0.1~0.2K/W，加绝缘垫的取1K/W。
-$$R_\mathrm{jc}$$为器件内部热阻，见器件datasheet。&lt;/p&gt;
-&lt;p&gt;散热能力$$P=\frac{T_\mathrm j-T_\mathrm a}{R_\mathrm{tot}}$$。$$T_\mathrm{j}$$为器件的允许工作结温，$$T_\mathrm{a}$$为环境温度。&lt;/p&gt;
+&lt;p&gt;简单拟合得:$$R_\mathrm{sa}=23.3A^{-0.39}$$&lt;/p&gt;
+&lt;p&gt;总热阻$$R_\mathrm{tot}=R_\mathrm{sa}+R_\mathrm{cs}+R_\mathrm{jc}$$&lt;/p&gt;
+&lt;p&gt;注：R&lt;sub&gt;sa&lt;/sub&gt;为散热片向空气散热的热阻。
+R&lt;sub&gt;cs&lt;/sub&gt;为器件和散热器的接触热阻，通过导热硅脂接触的取0.1~0.2K/W，加绝缘垫的取1K/W。
+R&lt;sub&gt;jc&lt;/sub&gt;为器件内部热阻，见器件datasheet。&lt;/p&gt;
+&lt;p&gt;散热能力$$P=\frac{T_\mathrm j-T_\mathrm a}{R_\mathrm{tot}}$$。T&lt;sub&gt;j&lt;/sub&gt;为器件的允许工作结温，T&lt;sub&gt;a&lt;/sub&gt;为环境温度。&lt;/p&gt;
 &lt;p&gt;举例：一个宽50mm，翅片高10mm，8片翅片，截断长度为35mm的散热片，
-其有效散热面积为$$(10\mathrm{mm}\times2\times8+50\mathrm{mm})\times35\mathrm{mm}=73.5\mathrm{cm}^2$$。&lt;/p&gt;
-&lt;p&gt;按上面的公式，$$R_\mathrm{sa}=23.3\times73.5^{-0.39}=4.36\mathrm{K/W}$$。&lt;/p&gt;
-&lt;p&gt;给TOP3封装的BTA41散热，用硅脂接触，取$$R_\mathrm{cs}=0.2\mathrm{K/W}$$。&lt;/p&gt;
-&lt;p&gt;根据BTA41的datasheet，内部热阻$$R_\mathrm{jc}=0.9\mathrm{K/W}$$&lt;/p&gt;
-&lt;p&gt;因此总热阻为$$5.46\mathrm{K/W}$$。&lt;/p&gt;
-&lt;p&gt;BTA41的最大允许结温$$T_j=125^\circ \mathrm{C}$$，环境温度取$$40^\circ \mathrm{C}$$，则有$$P=\frac{125^\circ \mathrm{C}-40^\circ \mathrm{C}}{5.46\mathrm{K/W}}=15.6\mathrm{W}$$。&lt;/p&gt;
-&lt;p&gt;查BTA41 datasheet里的$$P-I_\mathrm{RMS}$$曲线可得此时允许通过的交流电流有效值为16A左右。&lt;/p&gt;</content></entry><entry><title>迷你智能电源</title><link href="http://st.avros.net/articles/cute_power_v2.html" rel="alternate"></link><published>2015-07-14T00:00:00+08:00</published><updated>2015-07-14T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2015-07-14:/articles/cute_power_v2.html</id><summary type="html">&lt;p&gt;做了个简单的小电源，用一节18650供电，可以输出1.26V、1.8V、2.5V、2.85V、3.3V、5.0V和6.0V，共7种电压，可以通过USB给18650充电，如图：&lt;/p&gt;
+其有效散热面积为$$(10\mathrm{mm}\times2\times8+50\mathrm{mm})\times35\mathrm{mm}=73.5\mathrm{cm}^2$$&lt;/p&gt;
+&lt;p&gt;按上面的公式，
+$$R_\mathrm{sa}=23.3\times73.5^{-0.39}=4.36\mathrm{K/W}$$&lt;/p&gt;
+&lt;p&gt;给TOP3封装的BTA41散热，用硅脂接触，取
+$$R_\mathrm{cs}=0.2\mathrm{K/W}$$&lt;/p&gt;
+&lt;p&gt;根据BTA41的datasheet，内部热阻
+$$R_\mathrm{jc}=0.9\mathrm{K/W}$$&lt;/p&gt;
+&lt;p&gt;因此总热阻为5.46K/W。&lt;/p&gt;
+&lt;p&gt;BTA41的最大允许结温T&lt;sub&gt;j&lt;/sub&gt;125°C，环境温度取40°C，则有$$P=\frac{125^\circ \mathrm{C}-40^\circ \mathrm{C}}{5.46\mathrm{K/W}}=15.6\mathrm{W}$$&lt;/p&gt;
+&lt;p&gt;查BTA41 datasheet里的P-I&lt;sub&gt;RMS&lt;/sub&gt;曲线可得此时允许通过的交流电流有效值为16A左右。&lt;/p&gt;</content></entry><entry><title>迷你智能电源</title><link href="http://st.avros.net/articles/cute_power_v2.html" rel="alternate"></link><published>2015-07-14T00:00:00+08:00</published><updated>2015-07-14T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2015-07-14:/articles/cute_power_v2.html</id><summary type="html">&lt;p&gt;做了个简单的小电源，用一节18650供电，可以输出1.26V、1.8V、2.5V、2.85V、3.3V、5.0V和6.0V，共7种电压，可以通过USB给18650充电，如图：&lt;/p&gt;
 &lt;p&gt;&lt;a href="/images2/2015/cute_power_v2.jpg" title="实物图"&gt;&lt;img src="/images2/2015/cute_power_v2.jpg" width="480px" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;原理图：&lt;/p&gt;
 &lt;p&gt;&lt;a href="/images2/2015/cute_power_v2.png" title="原理图"&gt;&lt;img src="/images2/2015/cute_power_v2.png" width="480px" /&gt;&lt;/a&gt;&lt;/p&gt;
