@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>兰湾 - 无线电</title><link href="http://st.avros.net/" rel="alternate"></link><link href="http://st.avros.net//feeds/wu-xian-dian.rss.xml" rel="self"></link><id>http://st.avros.net/</id><updated>2017-04-12T00:00:00+08:00</updated><entry><title>做了个PSK31 Beacon</title><link href="http://st.avros.net/articles/psk31_beacon.html" rel="alternate"></link><published>2017-04-12T00:00:00+08:00</published><updated>2017-04-12T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2017-04-12:/articles/psk31_beacon.html</id><summary type="html">&lt;p&gt;psk31 是业余无线电爱好者常用的通讯方式. psk31 的原理就不介绍了, 见链接: 
+<feed xmlns="http://www.w3.org/2005/Atom"><title>兰湾 - 无线电</title><link href="http://st.avros.net/" rel="alternate"></link><link href="http://st.avros.net/feeds/wu-xian-dian.rss.xml" rel="self"></link><id>http://st.avros.net/</id><updated>2017-04-12T00:00:00+08:00</updated><entry><title>做了个PSK31 Beacon</title><link href="http://st.avros.net/articles/psk31_beacon.html" rel="alternate"></link><published>2017-04-12T00:00:00+08:00</published><updated>2017-04-12T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2017-04-12:/articles/psk31_beacon.html</id><summary type="html">&lt;p&gt;psk31 是业余无线电爱好者常用的通讯方式. psk31 的原理就不介绍了, 见链接: 
 &lt;a href="https://www.hellocq.net/forum/simple/?t88551.html"&gt;哈罗 CQ 火腿社区 - HAM 软件、HAM 网站 - PSK31 簡介 BV3FG - Powered by phpwind&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;psk31 的调制如何具体实现呢? HAM 们常用的方式是用 digipan 等软件把要发送的消息调制到几百 Hz 的音频信号上, 再利用发射机的 SSB 模式把这个音频信号发射出去, 这里 SSB 实际上起了上变频的作用.&lt;/p&gt;
 &lt;p&gt;也可以把整个调制过程都放在 MCU 里进行, 直接从 MCU 的 DAC 输出调制好的音频信号.&lt;/p&gt;
@@ -35,8 +35,8 @@
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;void psk31_tx(char c)
 {
     uint16_t varc;
-    for(varc = VARICODE_TABLE[c - &amp;#39; &amp;#39;]; varc; varc &amp;lt;&amp;lt;= 1) {
-        if(varc &amp;amp; 0x8000)
+    for(varc = VARICODE_TABLE[c - &amp;#39; &amp;#39;]; varc; varc &amp;amp;lt;&amp;amp;lt;= 1) {
+        if(varc &amp;amp;amp; 0x8000)
             printf(&amp;quot;1&amp;quot;);
         else
             printf(&amp;quot;0&amp;quot;);
@@ -61,8 +61,8 @@ while(*p) {
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;void psk31_tx(char c, void (*tx0)(void), void (*tx1)(void))
 {
     unsigned short varc;
-    for(varc = varicode_table[(c - &amp;#39; &amp;#39;)]; varc; varc &amp;lt;&amp;lt;= 1) {
-        if(varc &amp;amp; 0x8000)
+    for(varc = varicode_table[(c - &amp;#39; &amp;#39;)]; varc; varc &amp;amp;lt;&amp;amp;lt;= 1) {
+        if(varc &amp;amp;amp; 0x8000)
             (*tx1)();
         else
             (*tx0)();

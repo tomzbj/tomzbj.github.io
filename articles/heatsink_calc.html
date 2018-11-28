@@ -98,20 +98,20 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 </tr>
 </tbody>
 </table>
-<p>简单拟合得:$R_\mathrm{sa}=23.3A^{-0.39}$。</p>
-<p>总热阻$R_\mathrm{tot}=R_\mathrm{sa}+R_\mathrm{cs}+R_\mathrm{jc}$。</p>
-<p>注：$R_\mathrm{sa}$为散热片向空气散热的热阻。
-$R_\mathrm{cs}$为器件和散热器的接触热阻，通过导热硅脂接触的取0.1~0.2K/W，加绝缘垫的取1K/W。
-$R_\mathrm{jc}$为器件内部热阻，见器件datasheet。</p>
-<p>散热能力$P=\frac{T_\mathrm j-T_\mathrm a}{R_\mathrm{tot}}$。$T_\mathrm{j}$为器件的允许工作结温，$T_\mathrm{a}$为环境温度。</p>
+<p>简单拟合得:$$R_\mathrm{sa}=23.3A^{-0.39}$$。</p>
+<p>总热阻$$R_\mathrm{tot}=R_\mathrm{sa}+R_\mathrm{cs}+R_\mathrm{jc}$$。</p>
+<p>注：$$R_\mathrm{sa}$$为散热片向空气散热的热阻。
+$$R_\mathrm{cs}$$为器件和散热器的接触热阻，通过导热硅脂接触的取0.1~0.2K/W，加绝缘垫的取1K/W。
+$$R_\mathrm{jc}$$为器件内部热阻，见器件datasheet。</p>
+<p>散热能力$$P=\frac{T_\mathrm j-T_\mathrm a}{R_\mathrm{tot}}$$。$$T_\mathrm{j}$$为器件的允许工作结温，$$T_\mathrm{a}$$为环境温度。</p>
 <p>举例：一个宽50mm，翅片高10mm，8片翅片，截断长度为35mm的散热片，
-其有效散热面积为$(10\mathrm{mm}\times2\times8+50\mathrm{mm})\times35\mathrm{mm}=73.5\mathrm{cm}^2$。</p>
-<p>按上面的公式，$R_\mathrm{sa}=23.3\times73.5^{-0.39}=4.36\mathrm{K/W}$。</p>
-<p>给TOP3封装的BTA41散热，用硅脂接触，取$R_\mathrm{cs}=0.2\mathrm{K/W}$。</p>
-<p>根据BTA41的datasheet，内部热阻$R_\mathrm{jc}=0.9\mathrm{K/W}$</p>
-<p>因此总热阻为$5.46\mathrm{K/W}$。</p>
-<p>BTA41的最大允许结温$T_j=125^\circ \mathrm{C}$，环境温度取$40^\circ \mathrm{C}$，则有$P=\frac{125^\circ \mathrm{C}-40^\circ \mathrm{C}}{5.46\mathrm{K/W}}=15.6\mathrm{W}$。</p>
-<p>查BTA41 datasheet里的$P-I_\mathrm{RMS}$曲线可得此时允许通过的交流电流有效值为16A左右。</p></div>
+其有效散热面积为$$(10\mathrm{mm}\times2\times8+50\mathrm{mm})\times35\mathrm{mm}=73.5\mathrm{cm}^2$$。</p>
+<p>按上面的公式，$$R_\mathrm{sa}=23.3\times73.5^{-0.39}=4.36\mathrm{K/W}$$。</p>
+<p>给TOP3封装的BTA41散热，用硅脂接触，取$$R_\mathrm{cs}=0.2\mathrm{K/W}$$。</p>
+<p>根据BTA41的datasheet，内部热阻$$R_\mathrm{jc}=0.9\mathrm{K/W}$$</p>
+<p>因此总热阻为$$5.46\mathrm{K/W}$$。</p>
+<p>BTA41的最大允许结温$$T_j=125^\circ \mathrm{C}$$，环境温度取$$40^\circ \mathrm{C}$$，则有$$P=\frac{125^\circ \mathrm{C}-40^\circ \mathrm{C}}{5.46\mathrm{K/W}}=15.6\mathrm{W}$$。</p>
+<p>查BTA41 datasheet里的$$P-I_\mathrm{RMS}$$曲线可得此时允许通过的交流电流有效值为16A左右。</p></div>
 	
         <hr>
 

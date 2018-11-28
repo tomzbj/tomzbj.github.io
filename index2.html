@@ -130,23 +130,21 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
  </div>
         <div class="summary"><p>现在大家的桌面都是1920x1080或者2560x1440之类高分辨率了。但是有时候还不得不临时调到较低的分辨率，比如遇到需要像素级精确定位的时候，遇到百度网盘或者微信PC版这样字体又小又不能调大的软件的时候，等等。桌面右键然后改分辨率还是太麻烦了，用完了还得改回来。</p>
 <p>有没有办法一键切换分辨率呢？没找到现成的工具，自己写一个。程序如下：</p>
-<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;windows.h&gt;</span><span class="cp"></span>
+<div class="highlight"><pre><span></span>#include &amp;lt;windows.h&amp;gt;
 
-<span class="kt">int</span> <span class="n">WINAPI</span> <span class="nf">WinMain</span> <span class="p">(</span><span class="n">HINSTANCE</span> <span class="n">hThisInstance</span><span class="p">,</span> <span class="n">HINSTANCE</span> <span class="n">hPrevInstance</span><span class="p">,</span>
-            <span class="n">LPSTR</span> <span class="n">lpszArgument</span><span class="p">,</span> <span class="kt">int</span> <span class="n">nFunsterStil</span><span class="p">)</span> 
-<span class="p">{</span> 
-    <span class="n">DEVMODE</span> <span class="n">dm</span><span class="p">;</span>
+int WINAPI WinMain (HINSTANCE hThisInstance, HINSTANCE hPrevInstance,
+            LPSTR lpszArgument, int nFunsterStil) 
+{ 
+    DEVMODE dm;
 
-    <span class="n">EnumDisplaySettings</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="n">ENUM_CURRENT_SETTINGS</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">dm</span><span class="p">);</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">dm</span><span class="p">.</span><span class="n">dmPelsHeight</span> <span class="o">==</span> <span class="mi">1080</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">dm</span><span class="p">.</span><span class="n">dmPelsHeight</span> <span class="o">=</span> <span class="mi">720</span><span class="p">;</span>
-        <span class="n">dm</span><span class="p">.</span><span class="n">dmPelsWidth</span> <span class="o">=</span> <span class="mi">1280</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">else</span> <span class="p">{</span>
-        <span class="n">dm</span><span class="p">.</span><span class="n">dmPelsHeight</span> <span class="o">=</span> <span class="mi">1080</span><span class="p">;</span>
-        <span class="n">dm</span><span class="p">.</span><span class="n">dmPelsWidth</span> <span class="o">=</span> <span class="mi">1920</span><span class="p">;</span> 
-    <span class="p">}</span>
-    <span class="n">ChangeDisplaySettings</span><span class="p">(</span><span class="o">&amp;</span><span class="n">dm …</span></pre></div> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/change_resolution.html">read more</a></div>
+    EnumDisplaySettings(NULL, ENUM_CURRENT_SETTINGS, &amp;amp;dm);
+    if(dm.dmPelsHeight == 1080) {
+        dm.dmPelsHeight = 720;
+        dm.dmPelsWidth = 1280;
+    }
+    else {
+        dm.dmPelsHeight = 1080;
+        dm.dmPelsWidth …</pre></div> <a class="btn btn-info xsmall" href="http://st.avros.net/articles/change_resolution.html">read more</a></div>
     </div>	
 				
 

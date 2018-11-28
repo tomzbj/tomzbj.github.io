@@ -81,7 +81,7 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <p>在.o里会生成三个符号: <code>_binary_asc5x7_bin_start, _binary_asc5x7_bin_end, binary_asc5x7_bin_size.</code></p>
 <p>在程序里这么调用:</p>
 <div class="highlight"><pre><span></span>extern const int _binary_asc5x7_bin_start;
-uint8_t *start = (uint8_t *) (&amp;_binary_asc5x7_bin_start);
+uint8_t *start = (uint8_t *) (&amp;amp;_binary_asc5x7_bin_start);
 </pre></div>
 
 

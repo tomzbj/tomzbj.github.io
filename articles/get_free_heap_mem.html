@@ -118,7 +118,7 @@ s = malloc(11000);
 <div class="highlight"><pre><span></span>static size_t __get_free_mem2(size_t start, size_t end)
 {
     unsigned char *p;
-    while(start &lt; end - 1) {
+    while(start &amp;lt; end - 1) {
         size_t size = (start + end) / 2;
         if(size == 0)
             return 0;

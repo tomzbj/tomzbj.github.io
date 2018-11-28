@@ -87,7 +87,7 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <span class="k">def</span> <span class="nf">hid_send</span><span class="p">(</span><span class="nb">buffer</span><span class="p">):</span>
     <span class="nb">buffer</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">buffer</span><span class="p">]</span>
     <span class="n">header</span> <span class="o">=</span> <span class="mh">0x80</span>  <span class="c1"># 首包标志 </span>
-        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="nb">buffer</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">packetsize</span><span class="p">:</span>
+        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="nb">buffer</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">packetsize</span><span class="p">:</span>
         <span class="n">msg</span> <span class="o">=</span> <span class="p">[</span><span class="mh">0x00</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">header</span><span class="p">]</span> <span class="o">+</span> <span class="nb">buffer</span><span class="p">[:</span><span class="n">packetsize</span><span class="p">]</span>
         <span class="k">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
         <span class="n">out_report</span><span class="o">.</span><span class="n">set_raw_data</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
@@ -98,7 +98,7 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
 
     <span class="n">header</span> <span class="o">+=</span> <span class="mh">0x40</span>    <span class="c1"># 尾包标志</span>
-    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="nb">buffer</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">packetsize</span><span class="p">:</span>
+    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="nb">buffer</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">packetsize</span><span class="p">:</span>
         <span class="nb">buffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># 剩余数据不足, 补齐64字节</span>
     <span class="n">msg</span> <span class="o">=</span> <span class="p">[</span><span class="mh">0x00</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">header</span><span class="p">]</span> <span class="o">+</span> <span class="nb">buffer</span>
     <span class="n">out_report</span><span class="o">.</span><span class="n">set_raw_data</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>

@@ -89,23 +89,21 @@
 &lt;p&gt;部分由Tariel和Kurapica制作的封装没有放进来, 如果有需要请自行联系他们二位.&lt;/p&gt;
 &lt;p&gt;ps. 请先下载根目录的fpm.il并替换fpm目录的同名文件. 这个明文fpm.il由minux提供, 我添加了对槽孔的支持, 以及修正了若干bug, 比如双排简牛的缺口方向搞反, 四脚贴片有源晶振的管脚顺序错误之类.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Stavros</dc:creator><pubDate>Mon, 28 Nov 2016 00:00:00 +0800</pubDate><guid isPermaLink="false">tag:st.avros.net,2016-11-28:/articles/fpm_skill.html</guid></item><item><title>一键切换屏幕分辨率</title><link>http://st.avros.net/articles/change_resolution.html</link><description>&lt;p&gt;现在大家的桌面都是1920x1080或者2560x1440之类高分辨率了。但是有时候还不得不临时调到较低的分辨率，比如遇到需要像素级精确定位的时候，遇到百度网盘或者微信PC版这样字体又小又不能调大的软件的时候，等等。桌面右键然后改分辨率还是太麻烦了，用完了还得改回来。&lt;/p&gt;
 &lt;p&gt;有没有办法一键切换分辨率呢？没找到现成的工具，自己写一个。程序如下：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;windows.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#include &amp;amp;lt;windows.h&amp;amp;gt;
 
-&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;WINAPI&lt;/span&gt; &lt;span class="nf"&gt;WinMain&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;HINSTANCE&lt;/span&gt; &lt;span class="n"&gt;hThisInstance&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;HINSTANCE&lt;/span&gt; &lt;span class="n"&gt;hPrevInstance&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-            &lt;span class="n"&gt;LPSTR&lt;/span&gt; &lt;span class="n"&gt;lpszArgument&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;nFunsterStil&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
-&lt;span class="p"&gt;{&lt;/span&gt; 
-    &lt;span class="n"&gt;DEVMODE&lt;/span&gt; &lt;span class="n"&gt;dm&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+int WINAPI WinMain (HINSTANCE hThisInstance, HINSTANCE hPrevInstance,
+            LPSTR lpszArgument, int nFunsterStil) 
+{ 
+    DEVMODE dm;
 
-    &lt;span class="n"&gt;EnumDisplaySettings&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ENUM_CURRENT_SETTINGS&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;dm&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-    &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dm&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dmPelsHeight&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;1080&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="n"&gt;dm&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dmPelsHeight&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;720&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-        &lt;span class="n"&gt;dm&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dmPelsWidth&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1280&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="n"&gt;dm&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dmPelsHeight&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1080&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-        &lt;span class="n"&gt;dm&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dmPelsWidth&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1920&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; 
-    &lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="n"&gt;ChangeDisplaySettings&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;dm …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Stavros</dc:creator><pubDate>Thu, 17 Nov 2016 00:00:00 +0800</pubDate><guid isPermaLink="false">tag:st.avros.net,2016-11-17:/articles/change_resolution.html</guid></item><item><title>卡片手电 &amp; STLINK转接板 &amp; 迷你电源</title><link>http://st.avros.net/articles/card_light.html</link><description>&lt;ol&gt;
+    EnumDisplaySettings(NULL, ENUM_CURRENT_SETTINGS, &amp;amp;amp;dm);
+    if(dm.dmPelsHeight == 1080) {
+        dm.dmPelsHeight = 720;
+        dm.dmPelsWidth = 1280;
+    }
+    else {
+        dm.dmPelsHeight = 1080;
+        dm.dmPelsWidth …&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Stavros</dc:creator><pubDate>Thu, 17 Nov 2016 00:00:00 +0800</pubDate><guid isPermaLink="false">tag:st.avros.net,2016-11-17:/articles/change_resolution.html</guid></item><item><title>卡片手电 &amp; STLINK转接板 &amp; 迷你电源</title><link>http://st.avros.net/articles/card_light.html</link><description>&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;卡片手电 &lt;br&gt;
     做了个和银行卡一样大的手电. 最厚处厚5.5mm, 因此可以和其他的卡一起塞在钱包里. &lt;br&gt;
@@ -227,8 +225,8 @@ Data:         23 bytes (18.0% Full)
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;简单拟合得:$R_\mathrm{sa}=23.3A^{-0.39}$。&lt;/p&gt;
-&lt;p&gt;总热阻$R_\mathrm{tot}=R_\mathrm{sa}+R_\mathrm{cs}+R_ …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Stavros</dc:creator><pubDate>Sun, 09 Aug 2015 00:00:00 +0800</pubDate><guid isPermaLink="false">tag:st.avros.net,2015-08-09:/articles/heatsink_calc.html</guid></item><item><title>如何计算钨丝的直径?</title><link>http://st.avros.net/articles/tungsten.html</link><description>&lt;p&gt;知乎上一哥们提了个问题：3.7V 电压，1.2A 电流，用钨丝绕成螺旋式弹簧丝，工作温度在 1200 摄氏度左右，怎么计算出来需要用多大直径的钨丝？链接：&lt;a href="http://www.zhihu.com/question/33791069/answer/57434994"&gt;http://www.zhihu.com/question/33791069/answer/57434994&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;简单拟合得:$$R_\mathrm{sa}=23.3A^{-0.39}$$。&lt;/p&gt;
+&lt;p&gt;总热阻$$R_\mathrm{tot}=R_\mathrm{sa}+R_\mathrm{cs}+R_ …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Stavros</dc:creator><pubDate>Sun, 09 Aug 2015 00:00:00 +0800</pubDate><guid isPermaLink="false">tag:st.avros.net,2015-08-09:/articles/heatsink_calc.html</guid></item><item><title>如何计算钨丝的直径?</title><link>http://st.avros.net/articles/tungsten.html</link><description>&lt;p&gt;知乎上一哥们提了个问题：3.7V 电压，1.2A 电流，用钨丝绕成螺旋式弹簧丝，工作温度在 1200 摄氏度左右，怎么计算出来需要用多大直径的钨丝？链接：&lt;a href="http://www.zhihu.com/question/33791069/answer/57434994"&gt;http://www.zhihu.com/question/33791069/answer/57434994&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;以下是我的回答：&lt;/p&gt;
 &lt;p&gt;斯特凡－玻尔兹曼定律：$j^&lt;em&gt;=\epsilon\sigma T^4$，其中$j^&lt;/em&gt;$为辐射通量，$\sigma$为斯特凡－玻尔兹曼常数，值为$5.67\times 10^{-8}\rm{J \cdot s}^{-1}\cdot\rm m^{-2 …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Stavros</dc:creator><pubDate>Fri, 07 Aug 2015 00:00:00 +0800</pubDate><guid isPermaLink="false">tag:st.avros.net,2015-08-07:/articles/tungsten.html</guid></item><item><title>迷你智能电源</title><link>http://st.avros.net/articles/cute_power_v2.html</link><description>&lt;p&gt;做了个简单的小电源，用一节18650供电，可以输出1.26V、1.8V、2.5V、2.85V、3.3V、5.0V和6.0V，共7种电压，可以通过USB给18650充电，如图：&lt;/p&gt;
 &lt;p&gt;&lt;a href="/images2/2015/cute_power_v2.jpg" title="实物图"&gt;&lt;img src="/images2/2015/cute_power_v2.jpg" width="480px" /&gt;&lt;/a&gt;&lt;/p&gt;

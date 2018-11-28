@@ -72,9 +72,9 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <p>做了块小板, 实际测试, 果然可以! PC直接把它识别成了CH341A.</p>
 <p>接下来要实测哪些引脚可以使用. 这里要吐槽一下沁恒的API, 只提供了ch341dll.h, ch341dll.dll和ch341dll.lib; 试了各种办法想把ch341dll.lib转成mingw环境下的.a或者.o, 均失败. 没想到直接gcc ch341dll.dll main.o -o main.exe, 居然成功了.</p>
 <p>先试验输入状态, 程序如下:</p>
-<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt; </span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt; </span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;windows.h&gt;</span><span class="cp"></span>
+<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&amp;lt;stdio.h&amp;gt; </span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&amp;lt;stdlib.h&amp;gt; </span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&amp;lt;windows.h&amp;gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&quot;ch341dll.h&quot;</span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
@@ -89,7 +89,7 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
     <span class="n">CH341SetOutput</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mh">0xffffffff</span><span class="p">,</span> <span class="mh">0x00000000</span><span class="p">,</span> <span class="mh">0x00000000</span><span class="p">);</span> 
     <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span> 
         <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">status</span><span class="p">;</span>
-        <span class="n">CH341GetInput</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">status</span><span class="p">);</span>
+        <span class="n">CH341GetInput</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">status</span><span class="p">);</span>
         <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%08lx</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">status</span><span class="p">);</span>
         <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
     <span class="p">}</span>
@@ -103,9 +103,9 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <p>之后用杜邦线把模块的各个引脚逐个与地短接, 观察屏幕上的输出.</p>
 <p>短接5脚INT#/4脚RXD/3脚TXD/2脚ROV#/19脚TEN#/14脚SLP#到地时, 屏幕上的输出分别变为0000ebff, 0000edff, 0000eeff, 0000afff, 0000cfff, 0000ef7f. 说明这6个脚可以作为输入脚使用.</p>
 <p>再试验输出状态, 程序如下:</p>
-<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt; </span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt; </span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;windows.h&gt;</span><span class="cp"></span>
+<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&amp;lt;stdio.h&amp;gt; </span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&amp;lt;stdlib.h&amp;gt; </span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&amp;lt;windows.h&amp;gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&quot;ch341dll.h&quot;</span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>

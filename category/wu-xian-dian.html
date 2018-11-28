@@ -102,8 +102,8 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
 <div class="highlight"><pre><span></span>void psk31_tx(char c)
 {
     uint16_t varc;
-    for(varc = VARICODE_TABLE[c - &#39; &#39;]; varc; varc &lt;&lt;= 1) {
-        if(varc &amp; 0x8000)
+    for(varc = VARICODE_TABLE[c - &#39; &#39;]; varc; varc &amp;lt;&amp;lt;= 1) {
+        if(varc &amp;amp; 0x8000)
             printf(&quot;1&quot;);
         else
             printf(&quot;0&quot;);
@@ -128,8 +128,8 @@ while(*p) {
 <div class="highlight"><pre><span></span>void psk31_tx(char c, void (*tx0)(void), void (*tx1)(void))
 {
     unsigned short varc;
-    for(varc = varicode_table[(c - &#39; &#39;)]; varc; varc &lt;&lt;= 1) {
-        if(varc &amp; 0x8000)
+    for(varc = varicode_table[(c - &#39; &#39;)]; varc; varc &amp;lt;&amp;lt;= 1) {
+        if(varc &amp;amp; 0x8000)
             (*tx1)();
         else
             (*tx0)();

@@ -82,11 +82,11 @@ by <a class="url fn" href="http://st.avros.net/author/stavros.html">Stavros</a>
     curr = volt*2.01-1.63;
 
     i = curr / 0.4;
-    if(i&gt;10)
+    if(i&amp;gt;10)
         i=10;
-    p = 0x3ff &gt;&gt; (10-i);
-    PORTD = p &amp; 0xff;
-    PORTB = p &gt;&gt; 8;
+    p = 0x3ff &amp;gt;&amp;gt; (10-i);
+    PORTD = p &amp;amp; 0xff;
+    PORTB = p &amp;gt;&amp;gt; 8;
 
     _delay_ms(500);
 }

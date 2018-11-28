@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>兰湾 - Stavros</title><link href="http://st.avros.net/" rel="alternate"></link><link href="http://st.avros.net//feeds/stavros.atom.xml" rel="self"></link><id>http://st.avros.net/</id><updated>2017-08-10T00:00:00+08:00</updated><entry><title>再战RF功率计</title><link href="http://st.avros.net/articles/rf_power_meter_v2.html" rel="alternate"></link><published>2017-08-10T00:00:00+08:00</published><updated>2017-08-10T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2017-08-10:/articles/rf_power_meter_v2.html</id><summary type="html">&lt;p&gt;目标是实现从1mW以下到几瓦射频功率的测量。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>兰湾 - Stavros</title><link href="http://st.avros.net/" rel="alternate"></link><link href="http://st.avros.net/feeds/stavros.atom.xml" rel="self"></link><id>http://st.avros.net/</id><updated>2017-08-10T00:00:00+08:00</updated><entry><title>再战RF功率计</title><link href="http://st.avros.net/articles/rf_power_meter_v2.html" rel="alternate"></link><published>2017-08-10T00:00:00+08:00</published><updated>2017-08-10T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2017-08-10:/articles/rf_power_meter_v2.html</id><summary type="html">&lt;p&gt;目标是实现从1mW以下到几瓦射频功率的测量。&lt;/p&gt;
 &lt;p&gt;&lt;a href="/images2/2017/rf_power_meter.jpg"&gt;&lt;img src="/images2/2017/rf_power_meter.jpg" width="480" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;原理图很简单，6个300欧电阻并联成50欧假负载，二极管检波、分压后由MCP3421进行AD转换，STM32F030控制OLED屏显示。供电用一节5号电池，BL8530升压到3.3V。&lt;/p&gt;
 &lt;p&gt;&lt;a href="/images2/2017/rf_power_meter_sch.jpg"&gt;&lt;img src="/images2/2017/rf_power_meter_sch.jpg" width="480" /&gt;&lt;/a&gt;&lt;/p&gt;
@@ -51,7 +51,7 @@
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;hid_send&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;buffer&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="nb"&gt;buffer&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;buffer&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
     &lt;span class="n"&gt;header&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mh"&gt;0x80&lt;/span&gt;  &lt;span class="c1"&gt;# 首包标志 &lt;/span&gt;
-        &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;buffer&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;packetsize&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;buffer&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;packetsize&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
         &lt;span class="n"&gt;msg&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mh"&gt;0x00&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;header&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;buffer&lt;/span&gt;&lt;span class="p"&gt;[:&lt;/span&gt;&lt;span class="n"&gt;packetsize&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
         &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
         &lt;span class="n"&gt;out_report&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_raw_data&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -62,7 +62,7 @@
     &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;0.1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
     &lt;span class="n"&gt;header&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mh"&gt;0x40&lt;/span&gt;    &lt;span class="c1"&gt;# 尾包标志&lt;/span&gt;
-    &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;buffer&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;packetsize&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;buffer&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;packetsize&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
         &lt;span class="nb"&gt;buffer&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# 剩余数据不足, 补齐64字节&lt;/span&gt;
     &lt;span class="n"&gt;msg&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mh"&gt;0x00&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;header&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;buffer&lt;/span&gt;
     &lt;span class="n"&gt;out_report&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_raw_data&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -166,7 +166,7 @@ s = malloc(11000);
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;static size_t __get_free_mem2(size_t start, size_t end)
 {
     unsigned char *p;
-    while(start &amp;lt; end - 1) {
+    while(start &amp;amp;lt; end - 1) {
         size_t size = (start + end) / 2;
         if(size == 0)
             return 0;
@@ -214,9 +214,9 @@ s = malloc(11000);
 &lt;p&gt;做了块小板, 实际测试, 果然可以! PC直接把它识别成了CH341A.&lt;/p&gt;
 &lt;p&gt;接下来要实测哪些引脚可以使用. 这里要吐槽一下沁恒的API, 只提供了ch341dll.h, ch341dll.dll和ch341dll.lib; 试了各种办法想把ch341dll.lib转成mingw环境下的.a或者.o, 均失败. 没想到直接gcc ch341dll.dll main.o -o main.exe, 居然成功了.&lt;/p&gt;
 &lt;p&gt;先试验输入状态, 程序如下:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;stdio.h&amp;gt; &lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
-&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;stdlib.h&amp;gt; &lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
-&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;windows.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;amp;lt;stdio.h&amp;amp;gt; &lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
+&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;amp;lt;stdlib.h&amp;amp;gt; &lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
+&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;amp;lt;windows.h&amp;amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
 &lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;quot;ch341dll.h&amp;quot;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
 
 &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -231,7 +231,7 @@ s = malloc(11000);
     &lt;span class="n"&gt;CH341SetOutput&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mh"&gt;0xffffffff&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mh"&gt;0x00000000&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mh"&gt;0x00000000&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; 
     &lt;span class="k"&gt;while&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; 
         &lt;span class="kt"&gt;unsigned&lt;/span&gt; &lt;span class="kt"&gt;long&lt;/span&gt; &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-        &lt;span class="n"&gt;CH341GetInput&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="n"&gt;CH341GetInput&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;amp&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
         &lt;span class="n"&gt;printf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;%08lx&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
         &lt;span class="n"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
     &lt;span class="p"&gt;}&lt;/span&gt;
@@ -245,9 +245,9 @@ s = malloc(11000);
 &lt;p&gt;之后用杜邦线把模块的各个引脚逐个与地短接, 观察屏幕上的输出.&lt;/p&gt;
 &lt;p&gt;短接5脚INT#/4脚RXD/3脚TXD/2脚ROV#/19脚TEN#/14脚SLP#到地时, 屏幕上的输出分别变为0000ebff, 0000edff, 0000eeff, 0000afff, 0000cfff, 0000ef7f. 说明这6个脚可以作为输入脚使用.&lt;/p&gt;
 &lt;p&gt;再试验输出状态, 程序如下:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;stdio.h&amp;gt; &lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
-&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;stdlib.h&amp;gt; &lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
-&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;windows.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;amp;lt;stdio.h&amp;amp;gt; &lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
+&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;amp;lt;stdlib.h&amp;amp;gt; &lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
+&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;amp;lt;windows.h&amp;amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
 &lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;quot;ch341dll.h&amp;quot;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
 
 &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -306,8 +306,8 @@ s = malloc(11000);
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;void psk31_tx(char c)
 {
     uint16_t varc;
-    for(varc = VARICODE_TABLE[c - &amp;#39; &amp;#39;]; varc; varc &amp;lt;&amp;lt;= 1) {
-        if(varc &amp;amp; 0x8000)
+    for(varc = VARICODE_TABLE[c - &amp;#39; &amp;#39;]; varc; varc &amp;amp;lt;&amp;amp;lt;= 1) {
+        if(varc &amp;amp;amp; 0x8000)
             printf(&amp;quot;1&amp;quot;);
         else
             printf(&amp;quot;0&amp;quot;);
@@ -332,8 +332,8 @@ while(*p) {
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;void psk31_tx(char c, void (*tx0)(void), void (*tx1)(void))
 {
     unsigned short varc;
-    for(varc = varicode_table[(c - &amp;#39; &amp;#39;)]; varc; varc &amp;lt;&amp;lt;= 1) {
-        if(varc &amp;amp; 0x8000)
+    for(varc = varicode_table[(c - &amp;#39; &amp;#39;)]; varc; varc &amp;amp;lt;&amp;amp;lt;= 1) {
+        if(varc &amp;amp;amp; 0x8000)
             (*tx1)();
         else
             (*tx0)();
@@ -480,44 +480,42 @@ while(*p) {
 &lt;p&gt;部分由Tariel和Kurapica制作的封装没有放进来, 如果有需要请自行联系他们二位.&lt;/p&gt;
 &lt;p&gt;ps. 请先下载根目录的fpm.il并替换fpm目录的同名文件. 这个明文fpm.il由minux提供, 我添加了对槽孔的支持, 以及修正了若干bug, 比如双排简牛的缺口方向搞反, 四脚贴片有源晶振的管脚顺序错误之类.&lt;/p&gt;</content></entry><entry><title>一键切换屏幕分辨率</title><link href="http://st.avros.net/articles/change_resolution.html" rel="alternate"></link><published>2016-11-17T00:00:00+08:00</published><updated>2016-11-17T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2016-11-17:/articles/change_resolution.html</id><summary type="html">&lt;p&gt;现在大家的桌面都是1920x1080或者2560x1440之类高分辨率了。但是有时候还不得不临时调到较低的分辨率，比如遇到需要像素级精确定位的时候，遇到百度网盘或者微信PC版这样字体又小又不能调大的软件的时候，等等。桌面右键然后改分辨率还是太麻烦了，用完了还得改回来。&lt;/p&gt;
 &lt;p&gt;有没有办法一键切换分辨率呢？没找到现成的工具，自己写一个。程序如下：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;windows.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#include &amp;amp;lt;windows.h&amp;amp;gt;
 
-&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;WINAPI&lt;/span&gt; &lt;span class="nf"&gt;WinMain&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;HINSTANCE&lt;/span&gt; &lt;span class="n"&gt;hThisInstance&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;HINSTANCE&lt;/span&gt; &lt;span class="n"&gt;hPrevInstance&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-            &lt;span class="n"&gt;LPSTR&lt;/span&gt; &lt;span class="n"&gt;lpszArgument&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;nFunsterStil&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
-&lt;span class="p"&gt;{&lt;/span&gt; 
-    &lt;span class="n"&gt;DEVMODE&lt;/span&gt; &lt;span class="n"&gt;dm&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+int WINAPI WinMain (HINSTANCE hThisInstance, HINSTANCE hPrevInstance,
+            LPSTR lpszArgument, int nFunsterStil) 
+{ 
+    DEVMODE dm;
 
-    &lt;span class="n"&gt;EnumDisplaySettings&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ENUM_CURRENT_SETTINGS&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;dm&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-    &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dm&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dmPelsHeight&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;1080&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="n"&gt;dm&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dmPelsHeight&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;720&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-        &lt;span class="n"&gt;dm&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dmPelsWidth&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1280&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="n"&gt;dm&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dmPelsHeight&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1080&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-        &lt;span class="n"&gt;dm&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dmPelsWidth&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1920&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; 
-    &lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="n"&gt;ChangeDisplaySettings&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;dm …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;现在大家的桌面都是1920x1080或者2560x1440之类高分辨率了。但是有时候还不得不临时调到较低的分辨率，比如遇到需要像素级精确定位的时候，遇到百度网盘或者微信PC版这样字体又小又不能调大的软件的时候，等等。桌面右键然后改分辨率还是太麻烦了，用完了还得改回来。&lt;/p&gt;
+    EnumDisplaySettings(NULL, ENUM_CURRENT_SETTINGS, &amp;amp;amp;dm);
+    if(dm.dmPelsHeight == 1080) {
+        dm.dmPelsHeight = 720;
+        dm.dmPelsWidth = 1280;
+    }
+    else {
+        dm.dmPelsHeight = 1080;
+        dm.dmPelsWidth …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;现在大家的桌面都是1920x1080或者2560x1440之类高分辨率了。但是有时候还不得不临时调到较低的分辨率，比如遇到需要像素级精确定位的时候，遇到百度网盘或者微信PC版这样字体又小又不能调大的软件的时候，等等。桌面右键然后改分辨率还是太麻烦了，用完了还得改回来。&lt;/p&gt;
 &lt;p&gt;有没有办法一键切换分辨率呢？没找到现成的工具，自己写一个。程序如下：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;windows.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#include &amp;amp;lt;windows.h&amp;amp;gt;
 
-&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;WINAPI&lt;/span&gt; &lt;span class="nf"&gt;WinMain&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;HINSTANCE&lt;/span&gt; &lt;span class="n"&gt;hThisInstance&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;HINSTANCE&lt;/span&gt; &lt;span class="n"&gt;hPrevInstance&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-            &lt;span class="n"&gt;LPSTR&lt;/span&gt; &lt;span class="n"&gt;lpszArgument&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;nFunsterStil&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
-&lt;span class="p"&gt;{&lt;/span&gt; 
-    &lt;span class="n"&gt;DEVMODE&lt;/span&gt; &lt;span class="n"&gt;dm&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+int WINAPI WinMain (HINSTANCE hThisInstance, HINSTANCE hPrevInstance,
+            LPSTR lpszArgument, int nFunsterStil) 
+{ 
+    DEVMODE dm;
 
-    &lt;span class="n"&gt;EnumDisplaySettings&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ENUM_CURRENT_SETTINGS&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;dm&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-    &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dm&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dmPelsHeight&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;1080&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="n"&gt;dm&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dmPelsHeight&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;720&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-        &lt;span class="n"&gt;dm&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dmPelsWidth&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1280&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="n"&gt;dm&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dmPelsHeight&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1080&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-        &lt;span class="n"&gt;dm&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dmPelsWidth&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1920&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; 
-    &lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="n"&gt;ChangeDisplaySettings&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;dm&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;CDS_RESET&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    EnumDisplaySettings(NULL, ENUM_CURRENT_SETTINGS, &amp;amp;amp;dm);
+    if(dm.dmPelsHeight == 1080) {
+        dm.dmPelsHeight = 720;
+        dm.dmPelsWidth = 1280;
+    }
+    else {
+        dm.dmPelsHeight = 1080;
+        dm.dmPelsWidth = 1920; 
+    }
+    ChangeDisplaySettings(&amp;amp;amp;dm, CDS_RESET);
 
-    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+    return 0;
+}
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -812,8 +810,8 @@ SRAM:  7528 / 8192 bytes, 91.8% Full (.data + .bss)
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;简单拟合得:$R_\mathrm{sa}=23.3A^{-0.39}$。&lt;/p&gt;
-&lt;p&gt;总热阻$R_\mathrm{tot}=R_\mathrm{sa}+R_\mathrm{cs}+R_ …&lt;/p&gt;</summary><content type="html">&lt;p&gt;常用的板翅式散热器，其有效散热面积为：$$散热面积=(翅片高度\times2\times翅片数量+基板宽度)\times截断长度$$&lt;/p&gt;
+&lt;p&gt;简单拟合得:$$R_\mathrm{sa}=23.3A^{-0.39}$$。&lt;/p&gt;
+&lt;p&gt;总热阻$$R_\mathrm{tot}=R_\mathrm{sa}+R_\mathrm{cs}+R_ …&lt;/p&gt;</summary><content type="html">&lt;p&gt;常用的板翅式散热器，其有效散热面积为：$$散热面积=(翅片高度\times2\times翅片数量+基板宽度)\times截断长度$$&lt;/p&gt;
 &lt;p&gt;有效散热面积和热阻的关系：&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -845,20 +843,20 @@ SRAM:  7528 / 8192 bytes, 91.8% Full (.data + .bss)
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;简单拟合得:$R_\mathrm{sa}=23.3A^{-0.39}$。&lt;/p&gt;
-&lt;p&gt;总热阻$R_\mathrm{tot}=R_\mathrm{sa}+R_\mathrm{cs}+R_\mathrm{jc}$。&lt;/p&gt;
-&lt;p&gt;注：$R_\mathrm{sa}$为散热片向空气散热的热阻。
-$R_\mathrm{cs}$为器件和散热器的接触热阻，通过导热硅脂接触的取0.1~0.2K/W，加绝缘垫的取1K/W。
-$R_\mathrm{jc}$为器件内部热阻，见器件datasheet。&lt;/p&gt;
-&lt;p&gt;散热能力$P=\frac{T_\mathrm j-T_\mathrm a}{R_\mathrm{tot}}$。$T_\mathrm{j}$为器件的允许工作结温，$T_\mathrm{a}$为环境温度。&lt;/p&gt;
+&lt;p&gt;简单拟合得:$$R_\mathrm{sa}=23.3A^{-0.39}$$。&lt;/p&gt;
+&lt;p&gt;总热阻$$R_\mathrm{tot}=R_\mathrm{sa}+R_\mathrm{cs}+R_\mathrm{jc}$$。&lt;/p&gt;
+&lt;p&gt;注：$$R_\mathrm{sa}$$为散热片向空气散热的热阻。
+$$R_\mathrm{cs}$$为器件和散热器的接触热阻，通过导热硅脂接触的取0.1~0.2K/W，加绝缘垫的取1K/W。
+$$R_\mathrm{jc}$$为器件内部热阻，见器件datasheet。&lt;/p&gt;
+&lt;p&gt;散热能力$$P=\frac{T_\mathrm j-T_\mathrm a}{R_\mathrm{tot}}$$。$$T_\mathrm{j}$$为器件的允许工作结温，$$T_\mathrm{a}$$为环境温度。&lt;/p&gt;
 &lt;p&gt;举例：一个宽50mm，翅片高10mm，8片翅片，截断长度为35mm的散热片，
-其有效散热面积为$(10\mathrm{mm}\times2\times8+50\mathrm{mm})\times35\mathrm{mm}=73.5\mathrm{cm}^2$。&lt;/p&gt;
-&lt;p&gt;按上面的公式，$R_\mathrm{sa}=23.3\times73.5^{-0.39}=4.36\mathrm{K/W}$。&lt;/p&gt;
-&lt;p&gt;给TOP3封装的BTA41散热，用硅脂接触，取$R_\mathrm{cs}=0.2\mathrm{K/W}$。&lt;/p&gt;
-&lt;p&gt;根据BTA41的datasheet，内部热阻$R_\mathrm{jc}=0.9\mathrm{K/W}$&lt;/p&gt;
-&lt;p&gt;因此总热阻为$5.46\mathrm{K/W}$。&lt;/p&gt;
-&lt;p&gt;BTA41的最大允许结温$T_j=125^\circ \mathrm{C}$，环境温度取$40^\circ \mathrm{C}$，则有$P=\frac{125^\circ \mathrm{C}-40^\circ \mathrm{C}}{5.46\mathrm{K/W}}=15.6\mathrm{W}$。&lt;/p&gt;
-&lt;p&gt;查BTA41 datasheet里的$P-I_\mathrm{RMS}$曲线可得此时允许通过的交流电流有效值为16A左右。&lt;/p&gt;</content></entry><entry><title>如何计算钨丝的直径?</title><link href="http://st.avros.net/articles/tungsten.html" rel="alternate"></link><published>2015-08-07T00:00:00+08:00</published><updated>2015-08-07T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2015-08-07:/articles/tungsten.html</id><summary type="html">&lt;p&gt;知乎上一哥们提了个问题：3.7V 电压，1.2A 电流，用钨丝绕成螺旋式弹簧丝，工作温度在 1200 摄氏度左右，怎么计算出来需要用多大直径的钨丝？链接：&lt;a href="http://www.zhihu.com/question/33791069/answer/57434994"&gt;http://www.zhihu.com/question/33791069/answer/57434994&lt;/a&gt;&lt;/p&gt;
+其有效散热面积为$$(10\mathrm{mm}\times2\times8+50\mathrm{mm})\times35\mathrm{mm}=73.5\mathrm{cm}^2$$。&lt;/p&gt;
+&lt;p&gt;按上面的公式，$$R_\mathrm{sa}=23.3\times73.5^{-0.39}=4.36\mathrm{K/W}$$。&lt;/p&gt;
+&lt;p&gt;给TOP3封装的BTA41散热，用硅脂接触，取$$R_\mathrm{cs}=0.2\mathrm{K/W}$$。&lt;/p&gt;
+&lt;p&gt;根据BTA41的datasheet，内部热阻$$R_\mathrm{jc}=0.9\mathrm{K/W}$$&lt;/p&gt;
+&lt;p&gt;因此总热阻为$$5.46\mathrm{K/W}$$。&lt;/p&gt;
+&lt;p&gt;BTA41的最大允许结温$$T_j=125^\circ \mathrm{C}$$，环境温度取$$40^\circ \mathrm{C}$$，则有$$P=\frac{125^\circ \mathrm{C}-40^\circ \mathrm{C}}{5.46\mathrm{K/W}}=15.6\mathrm{W}$$。&lt;/p&gt;
+&lt;p&gt;查BTA41 datasheet里的$$P-I_\mathrm{RMS}$$曲线可得此时允许通过的交流电流有效值为16A左右。&lt;/p&gt;</content></entry><entry><title>如何计算钨丝的直径?</title><link href="http://st.avros.net/articles/tungsten.html" rel="alternate"></link><published>2015-08-07T00:00:00+08:00</published><updated>2015-08-07T00:00:00+08:00</updated><author><name>Stavros</name></author><id>tag:st.avros.net,2015-08-07:/articles/tungsten.html</id><summary type="html">&lt;p&gt;知乎上一哥们提了个问题：3.7V 电压，1.2A 电流，用钨丝绕成螺旋式弹簧丝，工作温度在 1200 摄氏度左右，怎么计算出来需要用多大直径的钨丝？链接：&lt;a href="http://www.zhihu.com/question/33791069/answer/57434994"&gt;http://www.zhihu.com/question/33791069/answer/57434994&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;以下是我的回答：&lt;/p&gt;
 &lt;p&gt;斯特凡－玻尔兹曼定律：$j^&lt;em&gt;=\epsilon\sigma T^4$，其中$j^&lt;/em&gt;$为辐射通量，$\sigma$为斯特凡－玻尔兹曼常数，值为$5.67\times 10^{-8}\rm{J \cdot s}^{-1}\cdot\rm m^{-2 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;知乎上一哥们提了个问题：3.7V 电压，1.2A 电流，用钨丝绕成螺旋式弹簧丝，工作温度在 1200 摄氏度左右，怎么计算出来需要用多大直径的钨丝？链接：&lt;a href="http://www.zhihu.com/question/33791069/answer/57434994"&gt;http://www.zhihu.com/question/33791069/answer/57434994&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;以下是我的回答：&lt;/p&gt;
@@ -1092,7 +1090,7 @@ $R_\mathrm{jc}$为器件内部热阻，见器件datasheet。&lt;/p&gt;
 &lt;p&gt;在.o里会生成三个符号: &lt;code&gt;_binary_asc5x7_bin_start, _binary_asc5x7_bin_end, binary_asc5x7_bin_size.&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;在程序里这么调用:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;extern const int _binary_asc5x7_bin_start;
-uint8_t *start = (uint8_t *) (&amp;amp;_binary_asc5x7_bin_start);
+uint8_t *start = (uint8_t *) (&amp;amp;amp;_binary_asc5x7_bin_start);
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1182,11 +1180,11 @@ LDFLAGS += -Wl,--gc-sections
     curr = volt*2.01-1.63;
 
     i = curr / 0.4;
-    if(i&amp;gt;10)
+    if(i&amp;amp;gt;10)
         i=10;
-    p = 0x3ff &amp;gt;&amp;gt; (10-i);
-    PORTD = p &amp;amp; 0xff;
-    PORTB = p &amp;gt;&amp;gt; 8;
+    p = 0x3ff &amp;amp;gt;&amp;amp;gt; (10-i);
+    PORTD = p &amp;amp;amp; 0xff;
+    PORTB = p &amp;amp;gt;&amp;amp;gt; 8;
 
     _delay_ms(500);
 }
